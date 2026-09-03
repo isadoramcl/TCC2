@@ -1,0 +1,28 @@
+# ===============================================================
+# .gitattributes — controle de tratamento de arquivos pelo Git
+# ===============================================================
+
+# Arquivos de texto editaveis (codigo, documentacao): o Git pode
+# normalizar finais de linha livremente. Isso evita ruido de diff
+# quando o projeto e editado em sistemas operacionais diferentes.
+* text=auto
+
+# ---------------------------------------------------------------
+# DADOS: bytes preservados exatamente como recebidos.
+#
+# A marca "-text" desliga QUALQUER conversao de fim de linha.
+#
+# Justificativa metodologica: os arquivos em data/raw/ sao
+# declarados imutaveis. Sem esta regra, o Git converteria LF em
+# CRLF ao entregar os arquivos no Windows, alterando fisicamente
+# os dados brutos, quebrando a identidade byte-a-byte com os
+# arquivos originais publicados e invalidando qualquer verificacao
+# por hash entre maquinas diferentes.
+#
+# Consequencia aceita: os arquivos do PROMISE permanecem em CRLF e
+# os arquivos D'' permanecem em LF, exatamente como foram baixados.
+# A heterogeneidade e um fato dos dados de origem, nao um defeito
+# do repositorio, e sera tratada na leitura pelo codigo.
+# ---------------------------------------------------------------
+*.arff -text
+*.csv  -text
