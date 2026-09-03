@@ -1,0 +1,651 @@
+grupo,conjunto,arquivo,posicao,atributo,tipo_declarado
+promise,cm1,cm1.arff,1,loc,numeric
+promise,cm1,cm1.arff,2,v(g),numeric
+promise,cm1,cm1.arff,3,ev(g),numeric
+promise,cm1,cm1.arff,4,iv(g),numeric
+promise,cm1,cm1.arff,5,n,numeric
+promise,cm1,cm1.arff,6,v,numeric
+promise,cm1,cm1.arff,7,l,numeric
+promise,cm1,cm1.arff,8,d,numeric
+promise,cm1,cm1.arff,9,i,numeric
+promise,cm1,cm1.arff,10,e,numeric
+promise,cm1,cm1.arff,11,b,numeric
+promise,cm1,cm1.arff,12,t,numeric
+promise,cm1,cm1.arff,13,lOCode,numeric
+promise,cm1,cm1.arff,14,lOComment,numeric
+promise,cm1,cm1.arff,15,lOBlank,numeric
+promise,cm1,cm1.arff,16,locCodeAndComment,numeric
+promise,cm1,cm1.arff,17,uniq_Op,numeric
+promise,cm1,cm1.arff,18,uniq_Opnd,numeric
+promise,cm1,cm1.arff,19,total_Op,numeric
+promise,cm1,cm1.arff,20,total_Opnd,numeric
+promise,cm1,cm1.arff,21,branchCount,numeric
+promise,cm1,cm1.arff,22,defects,"{false,true}"
+promise,cm1,cm1.csv,1,loc,(nao declarado)
+promise,cm1,cm1.csv,2,v(g),(nao declarado)
+promise,cm1,cm1.csv,3,ev(g),(nao declarado)
+promise,cm1,cm1.csv,4,iv(g),(nao declarado)
+promise,cm1,cm1.csv,5,n,(nao declarado)
+promise,cm1,cm1.csv,6,v,(nao declarado)
+promise,cm1,cm1.csv,7,l,(nao declarado)
+promise,cm1,cm1.csv,8,d,(nao declarado)
+promise,cm1,cm1.csv,9,i,(nao declarado)
+promise,cm1,cm1.csv,10,e,(nao declarado)
+promise,cm1,cm1.csv,11,b,(nao declarado)
+promise,cm1,cm1.csv,12,t,(nao declarado)
+promise,cm1,cm1.csv,13,lOCode,(nao declarado)
+promise,cm1,cm1.csv,14,lOComment,(nao declarado)
+promise,cm1,cm1.csv,15,lOBlank,(nao declarado)
+promise,cm1,cm1.csv,16,locCodeAndComment,(nao declarado)
+promise,cm1,cm1.csv,17,uniq_Op,(nao declarado)
+promise,cm1,cm1.csv,18,uniq_Opnd,(nao declarado)
+promise,cm1,cm1.csv,19,total_Op,(nao declarado)
+promise,cm1,cm1.csv,20,total_Opnd,(nao declarado)
+promise,cm1,cm1.csv,21,branchCount,(nao declarado)
+promise,cm1,cm1.csv,22,defects,(nao declarado)
+promise,jm1,jm1.arff,1,loc,numeric
+promise,jm1,jm1.arff,2,v(g),numeric
+promise,jm1,jm1.arff,3,ev(g),numeric
+promise,jm1,jm1.arff,4,iv(g),numeric
+promise,jm1,jm1.arff,5,n,numeric
+promise,jm1,jm1.arff,6,v,numeric
+promise,jm1,jm1.arff,7,l,numeric
+promise,jm1,jm1.arff,8,d,numeric
+promise,jm1,jm1.arff,9,i,numeric
+promise,jm1,jm1.arff,10,e,numeric
+promise,jm1,jm1.arff,11,b,numeric
+promise,jm1,jm1.arff,12,t,numeric
+promise,jm1,jm1.arff,13,lOCode,numeric
+promise,jm1,jm1.arff,14,lOComment,numeric
+promise,jm1,jm1.arff,15,lOBlank,numeric
+promise,jm1,jm1.arff,16,locCodeAndComment,numeric
+promise,jm1,jm1.arff,17,uniq_Op,numeric
+promise,jm1,jm1.arff,18,uniq_Opnd,numeric
+promise,jm1,jm1.arff,19,total_Op,numeric
+promise,jm1,jm1.arff,20,total_Opnd,numeric
+promise,jm1,jm1.arff,21,branchCount,numeric
+promise,jm1,jm1.arff,22,defects,"{false,true}"
+promise,jm1,jm1.csv,1,loc,(nao declarado)
+promise,jm1,jm1.csv,2,v(g),(nao declarado)
+promise,jm1,jm1.csv,3,ev(g),(nao declarado)
+promise,jm1,jm1.csv,4,iv(g),(nao declarado)
+promise,jm1,jm1.csv,5,n,(nao declarado)
+promise,jm1,jm1.csv,6,v,(nao declarado)
+promise,jm1,jm1.csv,7,l,(nao declarado)
+promise,jm1,jm1.csv,8,d,(nao declarado)
+promise,jm1,jm1.csv,9,i,(nao declarado)
+promise,jm1,jm1.csv,10,e,(nao declarado)
+promise,jm1,jm1.csv,11,b,(nao declarado)
+promise,jm1,jm1.csv,12,t,(nao declarado)
+promise,jm1,jm1.csv,13,lOCode,(nao declarado)
+promise,jm1,jm1.csv,14,lOComment,(nao declarado)
+promise,jm1,jm1.csv,15,lOBlank,(nao declarado)
+promise,jm1,jm1.csv,16,locCodeAndComment,(nao declarado)
+promise,jm1,jm1.csv,17,uniq_Op,(nao declarado)
+promise,jm1,jm1.csv,18,uniq_Opnd,(nao declarado)
+promise,jm1,jm1.csv,19,total_Op,(nao declarado)
+promise,jm1,jm1.csv,20,total_Opnd,(nao declarado)
+promise,jm1,jm1.csv,21,branchCount,(nao declarado)
+promise,jm1,jm1.csv,22,defects,(nao declarado)
+promise,kc1,kc1.arff,1,loc,numeric
+promise,kc1,kc1.arff,2,v(g),numeric
+promise,kc1,kc1.arff,3,ev(g),numeric
+promise,kc1,kc1.arff,4,iv(g),numeric
+promise,kc1,kc1.arff,5,n,numeric
+promise,kc1,kc1.arff,6,v,numeric
+promise,kc1,kc1.arff,7,l,numeric
+promise,kc1,kc1.arff,8,d,numeric
+promise,kc1,kc1.arff,9,i,numeric
+promise,kc1,kc1.arff,10,e,numeric
+promise,kc1,kc1.arff,11,b,numeric
+promise,kc1,kc1.arff,12,t,numeric
+promise,kc1,kc1.arff,13,lOCode,numeric
+promise,kc1,kc1.arff,14,lOComment,numeric
+promise,kc1,kc1.arff,15,lOBlank,numeric
+promise,kc1,kc1.arff,16,locCodeAndComment,numeric
+promise,kc1,kc1.arff,17,uniq_Op,numeric
+promise,kc1,kc1.arff,18,uniq_Opnd,numeric
+promise,kc1,kc1.arff,19,total_Op,numeric
+promise,kc1,kc1.arff,20,total_Opnd,numeric
+promise,kc1,kc1.arff,21,branchCount,numeric
+promise,kc1,kc1.arff,22,defects,"{false,true}"
+promise,kc1,kc1.csv,1,loc,(nao declarado)
+promise,kc1,kc1.csv,2,v(g),(nao declarado)
+promise,kc1,kc1.csv,3,ev(g),(nao declarado)
+promise,kc1,kc1.csv,4,iv(g),(nao declarado)
+promise,kc1,kc1.csv,5,n,(nao declarado)
+promise,kc1,kc1.csv,6,v,(nao declarado)
+promise,kc1,kc1.csv,7,l,(nao declarado)
+promise,kc1,kc1.csv,8,d,(nao declarado)
+promise,kc1,kc1.csv,9,i,(nao declarado)
+promise,kc1,kc1.csv,10,e,(nao declarado)
+promise,kc1,kc1.csv,11,b,(nao declarado)
+promise,kc1,kc1.csv,12,t,(nao declarado)
+promise,kc1,kc1.csv,13,lOCode,(nao declarado)
+promise,kc1,kc1.csv,14,lOComment,(nao declarado)
+promise,kc1,kc1.csv,15,lOBlank,(nao declarado)
+promise,kc1,kc1.csv,16,locCodeAndComment,(nao declarado)
+promise,kc1,kc1.csv,17,uniq_Op,(nao declarado)
+promise,kc1,kc1.csv,18,uniq_Opnd,(nao declarado)
+promise,kc1,kc1.csv,19,total_Op,(nao declarado)
+promise,kc1,kc1.csv,20,total_Opnd,(nao declarado)
+promise,kc1,kc1.csv,21,branchCount,(nao declarado)
+promise,kc1,kc1.csv,22,defects,(nao declarado)
+promise,kc2,kc2.arff,1,loc,numeric
+promise,kc2,kc2.arff,2,v(g),numeric
+promise,kc2,kc2.arff,3,ev(g),numeric
+promise,kc2,kc2.arff,4,iv(g),numeric
+promise,kc2,kc2.arff,5,n,numeric
+promise,kc2,kc2.arff,6,v,numeric
+promise,kc2,kc2.arff,7,l,numeric
+promise,kc2,kc2.arff,8,d,numeric
+promise,kc2,kc2.arff,9,i,numeric
+promise,kc2,kc2.arff,10,e,numeric
+promise,kc2,kc2.arff,11,b,numeric
+promise,kc2,kc2.arff,12,t,numeric
+promise,kc2,kc2.arff,13,lOCode,numeric
+promise,kc2,kc2.arff,14,lOComment,numeric
+promise,kc2,kc2.arff,15,lOBlank,numeric
+promise,kc2,kc2.arff,16,lOCodeAndComment,numeric
+promise,kc2,kc2.arff,17,uniq_Op,numeric
+promise,kc2,kc2.arff,18,uniq_Opnd,numeric
+promise,kc2,kc2.arff,19,total_Op,numeric
+promise,kc2,kc2.arff,20,total_Opnd,numeric
+promise,kc2,kc2.arff,21,branchCount,numeric
+promise,kc2,kc2.arff,22,problems,"{no,yes}"
+promise,kc2,kc2.csv,1,loc,(nao declarado)
+promise,kc2,kc2.csv,2,v(g),(nao declarado)
+promise,kc2,kc2.csv,3,ev(g),(nao declarado)
+promise,kc2,kc2.csv,4,iv(g),(nao declarado)
+promise,kc2,kc2.csv,5,n,(nao declarado)
+promise,kc2,kc2.csv,6,v,(nao declarado)
+promise,kc2,kc2.csv,7,l,(nao declarado)
+promise,kc2,kc2.csv,8,d,(nao declarado)
+promise,kc2,kc2.csv,9,i,(nao declarado)
+promise,kc2,kc2.csv,10,e,(nao declarado)
+promise,kc2,kc2.csv,11,b,(nao declarado)
+promise,kc2,kc2.csv,12,t,(nao declarado)
+promise,kc2,kc2.csv,13,lOCode,(nao declarado)
+promise,kc2,kc2.csv,14,lOComment,(nao declarado)
+promise,kc2,kc2.csv,15,lOBlank,(nao declarado)
+promise,kc2,kc2.csv,16,lOCodeAndComment,(nao declarado)
+promise,kc2,kc2.csv,17,uniq_Op,(nao declarado)
+promise,kc2,kc2.csv,18,uniq_Opnd,(nao declarado)
+promise,kc2,kc2.csv,19,total_Op,(nao declarado)
+promise,kc2,kc2.csv,20,total_Opnd,(nao declarado)
+promise,kc2,kc2.csv,21,branchCount,(nao declarado)
+promise,kc2,kc2.csv,22,problems,(nao declarado)
+promise,pc1,pc1.arff,1,loc,numeric
+promise,pc1,pc1.arff,2,v(g),numeric
+promise,pc1,pc1.arff,3,ev(g),numeric
+promise,pc1,pc1.arff,4,iv(G),numeric
+promise,pc1,pc1.arff,5,N,numeric
+promise,pc1,pc1.arff,6,V,numeric
+promise,pc1,pc1.arff,7,L,numeric
+promise,pc1,pc1.arff,8,D,numeric
+promise,pc1,pc1.arff,9,I,numeric
+promise,pc1,pc1.arff,10,E,numeric
+promise,pc1,pc1.arff,11,B,numeric
+promise,pc1,pc1.arff,12,T,numeric
+promise,pc1,pc1.arff,13,lOCode,numeric
+promise,pc1,pc1.arff,14,lOComment,numeric
+promise,pc1,pc1.arff,15,locCodeAndComment,numeric
+promise,pc1,pc1.arff,16,lOBlank,numeric
+promise,pc1,pc1.arff,17,uniq_Op,numeric
+promise,pc1,pc1.arff,18,uniq_Opnd,numeric
+promise,pc1,pc1.arff,19,total_Op,numeric
+promise,pc1,pc1.arff,20,total_Opnd,numeric
+promise,pc1,pc1.arff,21,branchCount,numeric
+promise,pc1,pc1.arff,22,defects,"{false,true}"
+promise,pc1,pc1.csv,1,loc,(nao declarado)
+promise,pc1,pc1.csv,2,v(g),(nao declarado)
+promise,pc1,pc1.csv,3,ev(g),(nao declarado)
+promise,pc1,pc1.csv,4,iv(G),(nao declarado)
+promise,pc1,pc1.csv,5,N,(nao declarado)
+promise,pc1,pc1.csv,6,V,(nao declarado)
+promise,pc1,pc1.csv,7,L,(nao declarado)
+promise,pc1,pc1.csv,8,D,(nao declarado)
+promise,pc1,pc1.csv,9,I,(nao declarado)
+promise,pc1,pc1.csv,10,E,(nao declarado)
+promise,pc1,pc1.csv,11,B,(nao declarado)
+promise,pc1,pc1.csv,12,T,(nao declarado)
+promise,pc1,pc1.csv,13,lOCode,(nao declarado)
+promise,pc1,pc1.csv,14,lOComment,(nao declarado)
+promise,pc1,pc1.csv,15,locCodeAndComment,(nao declarado)
+promise,pc1,pc1.csv,16,lOBlank,(nao declarado)
+promise,pc1,pc1.csv,17,uniq_Op,(nao declarado)
+promise,pc1,pc1.csv,18,uniq_Opnd,(nao declarado)
+promise,pc1,pc1.csv,19,total_Op,(nao declarado)
+promise,pc1,pc1.csv,20,total_Opnd,(nao declarado)
+promise,pc1,pc1.csv,21,branchCount,(nao declarado)
+promise,pc1,pc1.csv,22,defects,(nao declarado)
+dpp_ref,cm1,CM1.arff,1,LOC_BLANK,numeric
+dpp_ref,cm1,CM1.arff,2,BRANCH_COUNT,numeric
+dpp_ref,cm1,CM1.arff,3,CALL_PAIRS,numeric
+dpp_ref,cm1,CM1.arff,4,LOC_CODE_AND_COMMENT,numeric
+dpp_ref,cm1,CM1.arff,5,LOC_COMMENTS,numeric
+dpp_ref,cm1,CM1.arff,6,CONDITION_COUNT,numeric
+dpp_ref,cm1,CM1.arff,7,CYCLOMATIC_COMPLEXITY,numeric
+dpp_ref,cm1,CM1.arff,8,CYCLOMATIC_DENSITY,numeric
+dpp_ref,cm1,CM1.arff,9,DECISION_COUNT,numeric
+dpp_ref,cm1,CM1.arff,10,DECISION_DENSITY,numeric
+dpp_ref,cm1,CM1.arff,11,DESIGN_COMPLEXITY,numeric
+dpp_ref,cm1,CM1.arff,12,DESIGN_DENSITY,numeric
+dpp_ref,cm1,CM1.arff,13,EDGE_COUNT,numeric
+dpp_ref,cm1,CM1.arff,14,ESSENTIAL_COMPLEXITY,numeric
+dpp_ref,cm1,CM1.arff,15,ESSENTIAL_DENSITY,numeric
+dpp_ref,cm1,CM1.arff,16,LOC_EXECUTABLE,numeric
+dpp_ref,cm1,CM1.arff,17,PARAMETER_COUNT,numeric
+dpp_ref,cm1,CM1.arff,18,HALSTEAD_CONTENT,numeric
+dpp_ref,cm1,CM1.arff,19,HALSTEAD_DIFFICULTY,numeric
+dpp_ref,cm1,CM1.arff,20,HALSTEAD_EFFORT,numeric
+dpp_ref,cm1,CM1.arff,21,HALSTEAD_ERROR_EST,numeric
+dpp_ref,cm1,CM1.arff,22,HALSTEAD_LENGTH,numeric
+dpp_ref,cm1,CM1.arff,23,HALSTEAD_LEVEL,numeric
+dpp_ref,cm1,CM1.arff,24,HALSTEAD_PROG_TIME,numeric
+dpp_ref,cm1,CM1.arff,25,HALSTEAD_VOLUME,numeric
+dpp_ref,cm1,CM1.arff,26,MAINTENANCE_SEVERITY,numeric
+dpp_ref,cm1,CM1.arff,27,MODIFIED_CONDITION_COUNT,numeric
+dpp_ref,cm1,CM1.arff,28,MULTIPLE_CONDITION_COUNT,numeric
+dpp_ref,cm1,CM1.arff,29,NODE_COUNT,numeric
+dpp_ref,cm1,CM1.arff,30,NORMALIZED_CYLOMATIC_COMPLEXITY,numeric
+dpp_ref,cm1,CM1.arff,31,NUM_OPERANDS,numeric
+dpp_ref,cm1,CM1.arff,32,NUM_OPERATORS,numeric
+dpp_ref,cm1,CM1.arff,33,NUM_UNIQUE_OPERANDS,numeric
+dpp_ref,cm1,CM1.arff,34,NUM_UNIQUE_OPERATORS,numeric
+dpp_ref,cm1,CM1.arff,35,NUMBER_OF_LINES,numeric
+dpp_ref,cm1,CM1.arff,36,PERCENT_COMMENTS,numeric
+dpp_ref,cm1,CM1.arff,37,LOC_TOTAL,numeric
+dpp_ref,cm1,CM1.arff,38,Defective,"{Y,N}"
+dpp_ref,jm1,JM1.arff,1,LOC_BLANK,numeric
+dpp_ref,jm1,JM1.arff,2,BRANCH_COUNT,numeric
+dpp_ref,jm1,JM1.arff,3,LOC_CODE_AND_COMMENT,numeric
+dpp_ref,jm1,JM1.arff,4,LOC_COMMENTS,numeric
+dpp_ref,jm1,JM1.arff,5,CYCLOMATIC_COMPLEXITY,numeric
+dpp_ref,jm1,JM1.arff,6,DESIGN_COMPLEXITY,numeric
+dpp_ref,jm1,JM1.arff,7,ESSENTIAL_COMPLEXITY,numeric
+dpp_ref,jm1,JM1.arff,8,LOC_EXECUTABLE,numeric
+dpp_ref,jm1,JM1.arff,9,HALSTEAD_CONTENT,numeric
+dpp_ref,jm1,JM1.arff,10,HALSTEAD_DIFFICULTY,numeric
+dpp_ref,jm1,JM1.arff,11,HALSTEAD_EFFORT,numeric
+dpp_ref,jm1,JM1.arff,12,HALSTEAD_ERROR_EST,numeric
+dpp_ref,jm1,JM1.arff,13,HALSTEAD_LENGTH,numeric
+dpp_ref,jm1,JM1.arff,14,HALSTEAD_LEVEL,numeric
+dpp_ref,jm1,JM1.arff,15,HALSTEAD_PROG_TIME,numeric
+dpp_ref,jm1,JM1.arff,16,HALSTEAD_VOLUME,numeric
+dpp_ref,jm1,JM1.arff,17,NUM_OPERANDS,numeric
+dpp_ref,jm1,JM1.arff,18,NUM_OPERATORS,numeric
+dpp_ref,jm1,JM1.arff,19,NUM_UNIQUE_OPERANDS,numeric
+dpp_ref,jm1,JM1.arff,20,NUM_UNIQUE_OPERATORS,numeric
+dpp_ref,jm1,JM1.arff,21,LOC_TOTAL,numeric
+dpp_ref,jm1,JM1.arff,22,label,"{Y,N}"
+dpp_ref,kc1,KC1.arff,1,LOC_BLANK,numeric
+dpp_ref,kc1,KC1.arff,2,BRANCH_COUNT,numeric
+dpp_ref,kc1,KC1.arff,3,LOC_CODE_AND_COMMENT,numeric
+dpp_ref,kc1,KC1.arff,4,LOC_COMMENTS,numeric
+dpp_ref,kc1,KC1.arff,5,CYCLOMATIC_COMPLEXITY,numeric
+dpp_ref,kc1,KC1.arff,6,DESIGN_COMPLEXITY,numeric
+dpp_ref,kc1,KC1.arff,7,ESSENTIAL_COMPLEXITY,numeric
+dpp_ref,kc1,KC1.arff,8,LOC_EXECUTABLE,numeric
+dpp_ref,kc1,KC1.arff,9,HALSTEAD_CONTENT,numeric
+dpp_ref,kc1,KC1.arff,10,HALSTEAD_DIFFICULTY,numeric
+dpp_ref,kc1,KC1.arff,11,HALSTEAD_EFFORT,numeric
+dpp_ref,kc1,KC1.arff,12,HALSTEAD_ERROR_EST,numeric
+dpp_ref,kc1,KC1.arff,13,HALSTEAD_LENGTH,numeric
+dpp_ref,kc1,KC1.arff,14,HALSTEAD_LEVEL,numeric
+dpp_ref,kc1,KC1.arff,15,HALSTEAD_PROG_TIME,numeric
+dpp_ref,kc1,KC1.arff,16,HALSTEAD_VOLUME,numeric
+dpp_ref,kc1,KC1.arff,17,NUM_OPERANDS,numeric
+dpp_ref,kc1,KC1.arff,18,NUM_OPERATORS,numeric
+dpp_ref,kc1,KC1.arff,19,NUM_UNIQUE_OPERANDS,numeric
+dpp_ref,kc1,KC1.arff,20,NUM_UNIQUE_OPERATORS,numeric
+dpp_ref,kc1,KC1.arff,21,LOC_TOTAL,numeric
+dpp_ref,kc1,KC1.arff,22,Defective,"{Y,N}"
+dpp_ref,kc3,KC3.arff,1,LOC_BLANK,numeric
+dpp_ref,kc3,KC3.arff,2,BRANCH_COUNT,numeric
+dpp_ref,kc3,KC3.arff,3,CALL_PAIRS,numeric
+dpp_ref,kc3,KC3.arff,4,LOC_CODE_AND_COMMENT,numeric
+dpp_ref,kc3,KC3.arff,5,LOC_COMMENTS,numeric
+dpp_ref,kc3,KC3.arff,6,CONDITION_COUNT,numeric
+dpp_ref,kc3,KC3.arff,7,CYCLOMATIC_COMPLEXITY,numeric
+dpp_ref,kc3,KC3.arff,8,CYCLOMATIC_DENSITY,numeric
+dpp_ref,kc3,KC3.arff,9,DECISION_COUNT,numeric
+dpp_ref,kc3,KC3.arff,10,DECISION_DENSITY,numeric
+dpp_ref,kc3,KC3.arff,11,DESIGN_COMPLEXITY,numeric
+dpp_ref,kc3,KC3.arff,12,DESIGN_DENSITY,numeric
+dpp_ref,kc3,KC3.arff,13,EDGE_COUNT,numeric
+dpp_ref,kc3,KC3.arff,14,ESSENTIAL_COMPLEXITY,numeric
+dpp_ref,kc3,KC3.arff,15,ESSENTIAL_DENSITY,numeric
+dpp_ref,kc3,KC3.arff,16,LOC_EXECUTABLE,numeric
+dpp_ref,kc3,KC3.arff,17,PARAMETER_COUNT,numeric
+dpp_ref,kc3,KC3.arff,18,GLOBAL_DATA_COMPLEXITY,numeric
+dpp_ref,kc3,KC3.arff,19,GLOBAL_DATA_DENSITY,numeric
+dpp_ref,kc3,KC3.arff,20,HALSTEAD_CONTENT,numeric
+dpp_ref,kc3,KC3.arff,21,HALSTEAD_DIFFICULTY,numeric
+dpp_ref,kc3,KC3.arff,22,HALSTEAD_EFFORT,numeric
+dpp_ref,kc3,KC3.arff,23,HALSTEAD_ERROR_EST,numeric
+dpp_ref,kc3,KC3.arff,24,HALSTEAD_LENGTH,numeric
+dpp_ref,kc3,KC3.arff,25,HALSTEAD_LEVEL,numeric
+dpp_ref,kc3,KC3.arff,26,HALSTEAD_PROG_TIME,numeric
+dpp_ref,kc3,KC3.arff,27,HALSTEAD_VOLUME,numeric
+dpp_ref,kc3,KC3.arff,28,MAINTENANCE_SEVERITY,numeric
+dpp_ref,kc3,KC3.arff,29,MODIFIED_CONDITION_COUNT,numeric
+dpp_ref,kc3,KC3.arff,30,MULTIPLE_CONDITION_COUNT,numeric
+dpp_ref,kc3,KC3.arff,31,NODE_COUNT,numeric
+dpp_ref,kc3,KC3.arff,32,NORMALIZED_CYLOMATIC_COMPLEXITY,numeric
+dpp_ref,kc3,KC3.arff,33,NUM_OPERANDS,numeric
+dpp_ref,kc3,KC3.arff,34,NUM_OPERATORS,numeric
+dpp_ref,kc3,KC3.arff,35,NUM_UNIQUE_OPERANDS,numeric
+dpp_ref,kc3,KC3.arff,36,NUM_UNIQUE_OPERATORS,numeric
+dpp_ref,kc3,KC3.arff,37,NUMBER_OF_LINES,numeric
+dpp_ref,kc3,KC3.arff,38,PERCENT_COMMENTS,numeric
+dpp_ref,kc3,KC3.arff,39,LOC_TOTAL,numeric
+dpp_ref,kc3,KC3.arff,40,Defective,"{Y,N}"
+dpp_ref,kc4,KC4.arff,1,Defective,"{Y,N}"
+dpp_ref,mc1,MC1.arff,1,LOC_BLANK,numeric
+dpp_ref,mc1,MC1.arff,2,BRANCH_COUNT,numeric
+dpp_ref,mc1,MC1.arff,3,CALL_PAIRS,numeric
+dpp_ref,mc1,MC1.arff,4,LOC_CODE_AND_COMMENT,numeric
+dpp_ref,mc1,MC1.arff,5,LOC_COMMENTS,numeric
+dpp_ref,mc1,MC1.arff,6,CONDITION_COUNT,numeric
+dpp_ref,mc1,MC1.arff,7,CYCLOMATIC_COMPLEXITY,numeric
+dpp_ref,mc1,MC1.arff,8,CYCLOMATIC_DENSITY,numeric
+dpp_ref,mc1,MC1.arff,9,DECISION_COUNT,numeric
+dpp_ref,mc1,MC1.arff,10,DESIGN_COMPLEXITY,numeric
+dpp_ref,mc1,MC1.arff,11,DESIGN_DENSITY,numeric
+dpp_ref,mc1,MC1.arff,12,EDGE_COUNT,numeric
+dpp_ref,mc1,MC1.arff,13,ESSENTIAL_COMPLEXITY,numeric
+dpp_ref,mc1,MC1.arff,14,ESSENTIAL_DENSITY,numeric
+dpp_ref,mc1,MC1.arff,15,LOC_EXECUTABLE,numeric
+dpp_ref,mc1,MC1.arff,16,PARAMETER_COUNT,numeric
+dpp_ref,mc1,MC1.arff,17,GLOBAL_DATA_COMPLEXITY,numeric
+dpp_ref,mc1,MC1.arff,18,GLOBAL_DATA_DENSITY,numeric
+dpp_ref,mc1,MC1.arff,19,HALSTEAD_CONTENT,numeric
+dpp_ref,mc1,MC1.arff,20,HALSTEAD_DIFFICULTY,numeric
+dpp_ref,mc1,MC1.arff,21,HALSTEAD_EFFORT,numeric
+dpp_ref,mc1,MC1.arff,22,HALSTEAD_ERROR_EST,numeric
+dpp_ref,mc1,MC1.arff,23,HALSTEAD_LENGTH,numeric
+dpp_ref,mc1,MC1.arff,24,HALSTEAD_LEVEL,numeric
+dpp_ref,mc1,MC1.arff,25,HALSTEAD_PROG_TIME,numeric
+dpp_ref,mc1,MC1.arff,26,HALSTEAD_VOLUME,numeric
+dpp_ref,mc1,MC1.arff,27,MAINTENANCE_SEVERITY,numeric
+dpp_ref,mc1,MC1.arff,28,MODIFIED_CONDITION_COUNT,numeric
+dpp_ref,mc1,MC1.arff,29,MULTIPLE_CONDITION_COUNT,numeric
+dpp_ref,mc1,MC1.arff,30,NODE_COUNT,numeric
+dpp_ref,mc1,MC1.arff,31,NORMALIZED_CYLOMATIC_COMPLEXITY,numeric
+dpp_ref,mc1,MC1.arff,32,NUM_OPERANDS,numeric
+dpp_ref,mc1,MC1.arff,33,NUM_OPERATORS,numeric
+dpp_ref,mc1,MC1.arff,34,NUM_UNIQUE_OPERANDS,numeric
+dpp_ref,mc1,MC1.arff,35,NUM_UNIQUE_OPERATORS,numeric
+dpp_ref,mc1,MC1.arff,36,NUMBER_OF_LINES,numeric
+dpp_ref,mc1,MC1.arff,37,PERCENT_COMMENTS,numeric
+dpp_ref,mc1,MC1.arff,38,LOC_TOTAL,numeric
+dpp_ref,mc1,MC1.arff,39,Defective,"{Y,N}"
+dpp_ref,mc2,MC2.arff,1,LOC_BLANK,numeric
+dpp_ref,mc2,MC2.arff,2,BRANCH_COUNT,numeric
+dpp_ref,mc2,MC2.arff,3,CALL_PAIRS,numeric
+dpp_ref,mc2,MC2.arff,4,LOC_CODE_AND_COMMENT,numeric
+dpp_ref,mc2,MC2.arff,5,LOC_COMMENTS,numeric
+dpp_ref,mc2,MC2.arff,6,CONDITION_COUNT,numeric
+dpp_ref,mc2,MC2.arff,7,CYCLOMATIC_COMPLEXITY,numeric
+dpp_ref,mc2,MC2.arff,8,CYCLOMATIC_DENSITY,numeric
+dpp_ref,mc2,MC2.arff,9,DECISION_COUNT,numeric
+dpp_ref,mc2,MC2.arff,10,DECISION_DENSITY,numeric
+dpp_ref,mc2,MC2.arff,11,DESIGN_COMPLEXITY,numeric
+dpp_ref,mc2,MC2.arff,12,DESIGN_DENSITY,numeric
+dpp_ref,mc2,MC2.arff,13,EDGE_COUNT,numeric
+dpp_ref,mc2,MC2.arff,14,ESSENTIAL_COMPLEXITY,numeric
+dpp_ref,mc2,MC2.arff,15,ESSENTIAL_DENSITY,numeric
+dpp_ref,mc2,MC2.arff,16,LOC_EXECUTABLE,numeric
+dpp_ref,mc2,MC2.arff,17,PARAMETER_COUNT,numeric
+dpp_ref,mc2,MC2.arff,18,GLOBAL_DATA_COMPLEXITY,numeric
+dpp_ref,mc2,MC2.arff,19,GLOBAL_DATA_DENSITY,numeric
+dpp_ref,mc2,MC2.arff,20,HALSTEAD_CONTENT,numeric
+dpp_ref,mc2,MC2.arff,21,HALSTEAD_DIFFICULTY,numeric
+dpp_ref,mc2,MC2.arff,22,HALSTEAD_EFFORT,numeric
+dpp_ref,mc2,MC2.arff,23,HALSTEAD_ERROR_EST,numeric
+dpp_ref,mc2,MC2.arff,24,HALSTEAD_LENGTH,numeric
+dpp_ref,mc2,MC2.arff,25,HALSTEAD_LEVEL,numeric
+dpp_ref,mc2,MC2.arff,26,HALSTEAD_PROG_TIME,numeric
+dpp_ref,mc2,MC2.arff,27,HALSTEAD_VOLUME,numeric
+dpp_ref,mc2,MC2.arff,28,MAINTENANCE_SEVERITY,numeric
+dpp_ref,mc2,MC2.arff,29,MODIFIED_CONDITION_COUNT,numeric
+dpp_ref,mc2,MC2.arff,30,MULTIPLE_CONDITION_COUNT,numeric
+dpp_ref,mc2,MC2.arff,31,NODE_COUNT,numeric
+dpp_ref,mc2,MC2.arff,32,NORMALIZED_CYLOMATIC_COMPLEXITY,numeric
+dpp_ref,mc2,MC2.arff,33,NUM_OPERANDS,numeric
+dpp_ref,mc2,MC2.arff,34,NUM_OPERATORS,numeric
+dpp_ref,mc2,MC2.arff,35,NUM_UNIQUE_OPERANDS,numeric
+dpp_ref,mc2,MC2.arff,36,NUM_UNIQUE_OPERATORS,numeric
+dpp_ref,mc2,MC2.arff,37,NUMBER_OF_LINES,numeric
+dpp_ref,mc2,MC2.arff,38,PERCENT_COMMENTS,numeric
+dpp_ref,mc2,MC2.arff,39,LOC_TOTAL,numeric
+dpp_ref,mc2,MC2.arff,40,Defective,"{Y,N}"
+dpp_ref,mw1,MW1.arff,1,LOC_BLANK,numeric
+dpp_ref,mw1,MW1.arff,2,BRANCH_COUNT,numeric
+dpp_ref,mw1,MW1.arff,3,CALL_PAIRS,numeric
+dpp_ref,mw1,MW1.arff,4,LOC_CODE_AND_COMMENT,numeric
+dpp_ref,mw1,MW1.arff,5,LOC_COMMENTS,numeric
+dpp_ref,mw1,MW1.arff,6,CONDITION_COUNT,numeric
+dpp_ref,mw1,MW1.arff,7,CYCLOMATIC_COMPLEXITY,numeric
+dpp_ref,mw1,MW1.arff,8,CYCLOMATIC_DENSITY,numeric
+dpp_ref,mw1,MW1.arff,9,DECISION_COUNT,numeric
+dpp_ref,mw1,MW1.arff,10,DECISION_DENSITY,numeric
+dpp_ref,mw1,MW1.arff,11,DESIGN_COMPLEXITY,numeric
+dpp_ref,mw1,MW1.arff,12,DESIGN_DENSITY,numeric
+dpp_ref,mw1,MW1.arff,13,EDGE_COUNT,numeric
+dpp_ref,mw1,MW1.arff,14,ESSENTIAL_COMPLEXITY,numeric
+dpp_ref,mw1,MW1.arff,15,ESSENTIAL_DENSITY,numeric
+dpp_ref,mw1,MW1.arff,16,LOC_EXECUTABLE,numeric
+dpp_ref,mw1,MW1.arff,17,PARAMETER_COUNT,numeric
+dpp_ref,mw1,MW1.arff,18,HALSTEAD_CONTENT,numeric
+dpp_ref,mw1,MW1.arff,19,HALSTEAD_DIFFICULTY,numeric
+dpp_ref,mw1,MW1.arff,20,HALSTEAD_EFFORT,numeric
+dpp_ref,mw1,MW1.arff,21,HALSTEAD_ERROR_EST,numeric
+dpp_ref,mw1,MW1.arff,22,HALSTEAD_LENGTH,numeric
+dpp_ref,mw1,MW1.arff,23,HALSTEAD_LEVEL,numeric
+dpp_ref,mw1,MW1.arff,24,HALSTEAD_PROG_TIME,numeric
+dpp_ref,mw1,MW1.arff,25,HALSTEAD_VOLUME,numeric
+dpp_ref,mw1,MW1.arff,26,MAINTENANCE_SEVERITY,numeric
+dpp_ref,mw1,MW1.arff,27,MODIFIED_CONDITION_COUNT,numeric
+dpp_ref,mw1,MW1.arff,28,MULTIPLE_CONDITION_COUNT,numeric
+dpp_ref,mw1,MW1.arff,29,NODE_COUNT,numeric
+dpp_ref,mw1,MW1.arff,30,NORMALIZED_CYLOMATIC_COMPLEXITY,numeric
+dpp_ref,mw1,MW1.arff,31,NUM_OPERANDS,numeric
+dpp_ref,mw1,MW1.arff,32,NUM_OPERATORS,numeric
+dpp_ref,mw1,MW1.arff,33,NUM_UNIQUE_OPERANDS,numeric
+dpp_ref,mw1,MW1.arff,34,NUM_UNIQUE_OPERATORS,numeric
+dpp_ref,mw1,MW1.arff,35,NUMBER_OF_LINES,numeric
+dpp_ref,mw1,MW1.arff,36,PERCENT_COMMENTS,numeric
+dpp_ref,mw1,MW1.arff,37,LOC_TOTAL,numeric
+dpp_ref,mw1,MW1.arff,38,Defective,"{Y,N}"
+dpp_ref,pc1,PC1.arff,1,LOC_BLANK,numeric
+dpp_ref,pc1,PC1.arff,2,BRANCH_COUNT,numeric
+dpp_ref,pc1,PC1.arff,3,CALL_PAIRS,numeric
+dpp_ref,pc1,PC1.arff,4,LOC_CODE_AND_COMMENT,numeric
+dpp_ref,pc1,PC1.arff,5,LOC_COMMENTS,numeric
+dpp_ref,pc1,PC1.arff,6,CONDITION_COUNT,numeric
+dpp_ref,pc1,PC1.arff,7,CYCLOMATIC_COMPLEXITY,numeric
+dpp_ref,pc1,PC1.arff,8,CYCLOMATIC_DENSITY,numeric
+dpp_ref,pc1,PC1.arff,9,DECISION_COUNT,numeric
+dpp_ref,pc1,PC1.arff,10,DECISION_DENSITY,numeric
+dpp_ref,pc1,PC1.arff,11,DESIGN_COMPLEXITY,numeric
+dpp_ref,pc1,PC1.arff,12,DESIGN_DENSITY,numeric
+dpp_ref,pc1,PC1.arff,13,EDGE_COUNT,numeric
+dpp_ref,pc1,PC1.arff,14,ESSENTIAL_COMPLEXITY,numeric
+dpp_ref,pc1,PC1.arff,15,ESSENTIAL_DENSITY,numeric
+dpp_ref,pc1,PC1.arff,16,LOC_EXECUTABLE,numeric
+dpp_ref,pc1,PC1.arff,17,PARAMETER_COUNT,numeric
+dpp_ref,pc1,PC1.arff,18,HALSTEAD_CONTENT,numeric
+dpp_ref,pc1,PC1.arff,19,HALSTEAD_DIFFICULTY,numeric
+dpp_ref,pc1,PC1.arff,20,HALSTEAD_EFFORT,numeric
+dpp_ref,pc1,PC1.arff,21,HALSTEAD_ERROR_EST,numeric
+dpp_ref,pc1,PC1.arff,22,HALSTEAD_LENGTH,numeric
+dpp_ref,pc1,PC1.arff,23,HALSTEAD_LEVEL,numeric
+dpp_ref,pc1,PC1.arff,24,HALSTEAD_PROG_TIME,numeric
+dpp_ref,pc1,PC1.arff,25,HALSTEAD_VOLUME,numeric
+dpp_ref,pc1,PC1.arff,26,MAINTENANCE_SEVERITY,numeric
+dpp_ref,pc1,PC1.arff,27,MODIFIED_CONDITION_COUNT,numeric
+dpp_ref,pc1,PC1.arff,28,MULTIPLE_CONDITION_COUNT,numeric
+dpp_ref,pc1,PC1.arff,29,NODE_COUNT,numeric
+dpp_ref,pc1,PC1.arff,30,NORMALIZED_CYLOMATIC_COMPLEXITY,numeric
+dpp_ref,pc1,PC1.arff,31,NUM_OPERANDS,numeric
+dpp_ref,pc1,PC1.arff,32,NUM_OPERATORS,numeric
+dpp_ref,pc1,PC1.arff,33,NUM_UNIQUE_OPERANDS,numeric
+dpp_ref,pc1,PC1.arff,34,NUM_UNIQUE_OPERATORS,numeric
+dpp_ref,pc1,PC1.arff,35,NUMBER_OF_LINES,numeric
+dpp_ref,pc1,PC1.arff,36,PERCENT_COMMENTS,numeric
+dpp_ref,pc1,PC1.arff,37,LOC_TOTAL,numeric
+dpp_ref,pc1,PC1.arff,38,Defective,"{Y,N}"
+dpp_ref,pc2,PC2.arff,1,BRANCH_COUNT,numeric
+dpp_ref,pc2,PC2.arff,2,CALL_PAIRS,numeric
+dpp_ref,pc2,PC2.arff,3,LOC_CODE_AND_COMMENT,numeric
+dpp_ref,pc2,PC2.arff,4,LOC_COMMENTS,numeric
+dpp_ref,pc2,PC2.arff,5,CONDITION_COUNT,numeric
+dpp_ref,pc2,PC2.arff,6,CYCLOMATIC_COMPLEXITY,numeric
+dpp_ref,pc2,PC2.arff,7,CYCLOMATIC_DENSITY,numeric
+dpp_ref,pc2,PC2.arff,8,DECISION_COUNT,numeric
+dpp_ref,pc2,PC2.arff,9,DECISION_DENSITY,numeric
+dpp_ref,pc2,PC2.arff,10,DESIGN_COMPLEXITY,numeric
+dpp_ref,pc2,PC2.arff,11,DESIGN_DENSITY,numeric
+dpp_ref,pc2,PC2.arff,12,EDGE_COUNT,numeric
+dpp_ref,pc2,PC2.arff,13,ESSENTIAL_COMPLEXITY,numeric
+dpp_ref,pc2,PC2.arff,14,ESSENTIAL_DENSITY,numeric
+dpp_ref,pc2,PC2.arff,15,LOC_EXECUTABLE,numeric
+dpp_ref,pc2,PC2.arff,16,PARAMETER_COUNT,numeric
+dpp_ref,pc2,PC2.arff,17,HALSTEAD_CONTENT,numeric
+dpp_ref,pc2,PC2.arff,18,HALSTEAD_DIFFICULTY,numeric
+dpp_ref,pc2,PC2.arff,19,HALSTEAD_EFFORT,numeric
+dpp_ref,pc2,PC2.arff,20,HALSTEAD_ERROR_EST,numeric
+dpp_ref,pc2,PC2.arff,21,HALSTEAD_LENGTH,numeric
+dpp_ref,pc2,PC2.arff,22,HALSTEAD_LEVEL,numeric
+dpp_ref,pc2,PC2.arff,23,HALSTEAD_PROG_TIME,numeric
+dpp_ref,pc2,PC2.arff,24,HALSTEAD_VOLUME,numeric
+dpp_ref,pc2,PC2.arff,25,MAINTENANCE_SEVERITY,numeric
+dpp_ref,pc2,PC2.arff,26,MODIFIED_CONDITION_COUNT,numeric
+dpp_ref,pc2,PC2.arff,27,MULTIPLE_CONDITION_COUNT,numeric
+dpp_ref,pc2,PC2.arff,28,NODE_COUNT,numeric
+dpp_ref,pc2,PC2.arff,29,NORMALIZED_CYLOMATIC_COMPLEXITY,numeric
+dpp_ref,pc2,PC2.arff,30,NUM_OPERANDS,numeric
+dpp_ref,pc2,PC2.arff,31,NUM_OPERATORS,numeric
+dpp_ref,pc2,PC2.arff,32,NUM_UNIQUE_OPERANDS,numeric
+dpp_ref,pc2,PC2.arff,33,NUM_UNIQUE_OPERATORS,numeric
+dpp_ref,pc2,PC2.arff,34,NUMBER_OF_LINES,numeric
+dpp_ref,pc2,PC2.arff,35,PERCENT_COMMENTS,numeric
+dpp_ref,pc2,PC2.arff,36,LOC_TOTAL,numeric
+dpp_ref,pc2,PC2.arff,37,Defective,"{Y,N}"
+dpp_ref,pc3,PC3.arff,1,LOC_BLANK,numeric
+dpp_ref,pc3,PC3.arff,2,BRANCH_COUNT,numeric
+dpp_ref,pc3,PC3.arff,3,CALL_PAIRS,numeric
+dpp_ref,pc3,PC3.arff,4,LOC_CODE_AND_COMMENT,numeric
+dpp_ref,pc3,PC3.arff,5,LOC_COMMENTS,numeric
+dpp_ref,pc3,PC3.arff,6,CONDITION_COUNT,numeric
+dpp_ref,pc3,PC3.arff,7,CYCLOMATIC_COMPLEXITY,numeric
+dpp_ref,pc3,PC3.arff,8,CYCLOMATIC_DENSITY,numeric
+dpp_ref,pc3,PC3.arff,9,DECISION_COUNT,numeric
+dpp_ref,pc3,PC3.arff,10,DECISION_DENSITY,numeric
+dpp_ref,pc3,PC3.arff,11,DESIGN_COMPLEXITY,numeric
+dpp_ref,pc3,PC3.arff,12,DESIGN_DENSITY,numeric
+dpp_ref,pc3,PC3.arff,13,EDGE_COUNT,numeric
+dpp_ref,pc3,PC3.arff,14,ESSENTIAL_COMPLEXITY,numeric
+dpp_ref,pc3,PC3.arff,15,ESSENTIAL_DENSITY,numeric
+dpp_ref,pc3,PC3.arff,16,LOC_EXECUTABLE,numeric
+dpp_ref,pc3,PC3.arff,17,PARAMETER_COUNT,numeric
+dpp_ref,pc3,PC3.arff,18,HALSTEAD_CONTENT,numeric
+dpp_ref,pc3,PC3.arff,19,HALSTEAD_DIFFICULTY,numeric
+dpp_ref,pc3,PC3.arff,20,HALSTEAD_EFFORT,numeric
+dpp_ref,pc3,PC3.arff,21,HALSTEAD_ERROR_EST,numeric
+dpp_ref,pc3,PC3.arff,22,HALSTEAD_LENGTH,numeric
+dpp_ref,pc3,PC3.arff,23,HALSTEAD_LEVEL,numeric
+dpp_ref,pc3,PC3.arff,24,HALSTEAD_PROG_TIME,numeric
+dpp_ref,pc3,PC3.arff,25,HALSTEAD_VOLUME,numeric
+dpp_ref,pc3,PC3.arff,26,MAINTENANCE_SEVERITY,numeric
+dpp_ref,pc3,PC3.arff,27,MODIFIED_CONDITION_COUNT,numeric
+dpp_ref,pc3,PC3.arff,28,MULTIPLE_CONDITION_COUNT,numeric
+dpp_ref,pc3,PC3.arff,29,NODE_COUNT,numeric
+dpp_ref,pc3,PC3.arff,30,NORMALIZED_CYLOMATIC_COMPLEXITY,numeric
+dpp_ref,pc3,PC3.arff,31,NUM_OPERANDS,numeric
+dpp_ref,pc3,PC3.arff,32,NUM_OPERATORS,numeric
+dpp_ref,pc3,PC3.arff,33,NUM_UNIQUE_OPERANDS,numeric
+dpp_ref,pc3,PC3.arff,34,NUM_UNIQUE_OPERATORS,numeric
+dpp_ref,pc3,PC3.arff,35,NUMBER_OF_LINES,numeric
+dpp_ref,pc3,PC3.arff,36,PERCENT_COMMENTS,numeric
+dpp_ref,pc3,PC3.arff,37,LOC_TOTAL,numeric
+dpp_ref,pc3,PC3.arff,38,Defective,"{Y,N}"
+dpp_ref,pc4,PC4.arff,1,LOC_BLANK,numeric
+dpp_ref,pc4,PC4.arff,2,BRANCH_COUNT,numeric
+dpp_ref,pc4,PC4.arff,3,CALL_PAIRS,numeric
+dpp_ref,pc4,PC4.arff,4,LOC_CODE_AND_COMMENT,numeric
+dpp_ref,pc4,PC4.arff,5,LOC_COMMENTS,numeric
+dpp_ref,pc4,PC4.arff,6,CONDITION_COUNT,numeric
+dpp_ref,pc4,PC4.arff,7,CYCLOMATIC_COMPLEXITY,numeric
+dpp_ref,pc4,PC4.arff,8,CYCLOMATIC_DENSITY,numeric
+dpp_ref,pc4,PC4.arff,9,DECISION_COUNT,numeric
+dpp_ref,pc4,PC4.arff,10,DECISION_DENSITY,numeric
+dpp_ref,pc4,PC4.arff,11,DESIGN_COMPLEXITY,numeric
+dpp_ref,pc4,PC4.arff,12,DESIGN_DENSITY,numeric
+dpp_ref,pc4,PC4.arff,13,EDGE_COUNT,numeric
+dpp_ref,pc4,PC4.arff,14,ESSENTIAL_COMPLEXITY,numeric
+dpp_ref,pc4,PC4.arff,15,ESSENTIAL_DENSITY,numeric
+dpp_ref,pc4,PC4.arff,16,LOC_EXECUTABLE,numeric
+dpp_ref,pc4,PC4.arff,17,PARAMETER_COUNT,numeric
+dpp_ref,pc4,PC4.arff,18,HALSTEAD_CONTENT,numeric
+dpp_ref,pc4,PC4.arff,19,HALSTEAD_DIFFICULTY,numeric
+dpp_ref,pc4,PC4.arff,20,HALSTEAD_EFFORT,numeric
+dpp_ref,pc4,PC4.arff,21,HALSTEAD_ERROR_EST,numeric
+dpp_ref,pc4,PC4.arff,22,HALSTEAD_LENGTH,numeric
+dpp_ref,pc4,PC4.arff,23,HALSTEAD_LEVEL,numeric
+dpp_ref,pc4,PC4.arff,24,HALSTEAD_PROG_TIME,numeric
+dpp_ref,pc4,PC4.arff,25,HALSTEAD_VOLUME,numeric
+dpp_ref,pc4,PC4.arff,26,MAINTENANCE_SEVERITY,numeric
+dpp_ref,pc4,PC4.arff,27,MODIFIED_CONDITION_COUNT,numeric
+dpp_ref,pc4,PC4.arff,28,MULTIPLE_CONDITION_COUNT,numeric
+dpp_ref,pc4,PC4.arff,29,NODE_COUNT,numeric
+dpp_ref,pc4,PC4.arff,30,NORMALIZED_CYLOMATIC_COMPLEXITY,numeric
+dpp_ref,pc4,PC4.arff,31,NUM_OPERANDS,numeric
+dpp_ref,pc4,PC4.arff,32,NUM_OPERATORS,numeric
+dpp_ref,pc4,PC4.arff,33,NUM_UNIQUE_OPERANDS,numeric
+dpp_ref,pc4,PC4.arff,34,NUM_UNIQUE_OPERATORS,numeric
+dpp_ref,pc4,PC4.arff,35,NUMBER_OF_LINES,numeric
+dpp_ref,pc4,PC4.arff,36,PERCENT_COMMENTS,numeric
+dpp_ref,pc4,PC4.arff,37,LOC_TOTAL,numeric
+dpp_ref,pc4,PC4.arff,38,Defective,"{Y,N}"
+dpp_ref,pc5,PC5.arff,1,LOC_BLANK,numeric
+dpp_ref,pc5,PC5.arff,2,BRANCH_COUNT,numeric
+dpp_ref,pc5,PC5.arff,3,CALL_PAIRS,numeric
+dpp_ref,pc5,PC5.arff,4,LOC_CODE_AND_COMMENT,numeric
+dpp_ref,pc5,PC5.arff,5,LOC_COMMENTS,numeric
+dpp_ref,pc5,PC5.arff,6,CONDITION_COUNT,numeric
+dpp_ref,pc5,PC5.arff,7,CYCLOMATIC_COMPLEXITY,numeric
+dpp_ref,pc5,PC5.arff,8,CYCLOMATIC_DENSITY,numeric
+dpp_ref,pc5,PC5.arff,9,DECISION_COUNT,numeric
+dpp_ref,pc5,PC5.arff,10,DESIGN_COMPLEXITY,numeric
+dpp_ref,pc5,PC5.arff,11,DESIGN_DENSITY,numeric
+dpp_ref,pc5,PC5.arff,12,EDGE_COUNT,numeric
+dpp_ref,pc5,PC5.arff,13,ESSENTIAL_COMPLEXITY,numeric
+dpp_ref,pc5,PC5.arff,14,ESSENTIAL_DENSITY,numeric
+dpp_ref,pc5,PC5.arff,15,LOC_EXECUTABLE,numeric
+dpp_ref,pc5,PC5.arff,16,PARAMETER_COUNT,numeric
+dpp_ref,pc5,PC5.arff,17,GLOBAL_DATA_COMPLEXITY,numeric
+dpp_ref,pc5,PC5.arff,18,GLOBAL_DATA_DENSITY,numeric
+dpp_ref,pc5,PC5.arff,19,HALSTEAD_CONTENT,numeric
+dpp_ref,pc5,PC5.arff,20,HALSTEAD_DIFFICULTY,numeric
+dpp_ref,pc5,PC5.arff,21,HALSTEAD_EFFORT,numeric
+dpp_ref,pc5,PC5.arff,22,HALSTEAD_ERROR_EST,numeric
+dpp_ref,pc5,PC5.arff,23,HALSTEAD_LENGTH,numeric
+dpp_ref,pc5,PC5.arff,24,HALSTEAD_LEVEL,numeric
+dpp_ref,pc5,PC5.arff,25,HALSTEAD_PROG_TIME,numeric
+dpp_ref,pc5,PC5.arff,26,HALSTEAD_VOLUME,numeric
+dpp_ref,pc5,PC5.arff,27,MAINTENANCE_SEVERITY,numeric
+dpp_ref,pc5,PC5.arff,28,MODIFIED_CONDITION_COUNT,numeric
+dpp_ref,pc5,PC5.arff,29,MULTIPLE_CONDITION_COUNT,numeric
+dpp_ref,pc5,PC5.arff,30,NODE_COUNT,numeric
+dpp_ref,pc5,PC5.arff,31,NORMALIZED_CYLOMATIC_COMPLEXITY,numeric
+dpp_ref,pc5,PC5.arff,32,NUM_OPERANDS,numeric
+dpp_ref,pc5,PC5.arff,33,NUM_OPERATORS,numeric
+dpp_ref,pc5,PC5.arff,34,NUM_UNIQUE_OPERANDS,numeric
+dpp_ref,pc5,PC5.arff,35,NUM_UNIQUE_OPERATORS,numeric
+dpp_ref,pc5,PC5.arff,36,NUMBER_OF_LINES,numeric
+dpp_ref,pc5,PC5.arff,37,PERCENT_COMMENTS,numeric
+dpp_ref,pc5,PC5.arff,38,LOC_TOTAL,numeric
+dpp_ref,pc5,PC5.arff,39,Defective,"{Y,N}"

@@ -1,0 +1,24 @@
+grupo,conjunto,arquivo,formato,bytes,sha256,fim_de_linha,codificacao,relacao_declarada,n_atributos,nome_ultimo_atributo,n_linhas_dados,n_duplicatas_exatas,n_celulas_ausentes,distribuicao_rotulo
+promise,cm1,cm1.arff,arff,57609,fbd4a74687d24350ee90b67211698c15406be0b6e435b98f5039e94302b97f09,CRLF,utf-8,CM1,22,defects,498,56,0,false=449; true=49
+promise,cm1,cm1.csv,csv,41410,c05e4834217c7b0af59f4615c4972b36ef636d2f8414141de6e523bb82e70ac5,CRLF,utf-8,,22,defects,498,56,0,false=449; true=49
+promise,jm1,jm1.arff,arff,872828,8ac4744e0807b49158964a05f1066da3a9e7f8fa27f47a52e80031e7942c5d97,CRLF,utf-8,JM1,22,defects,10885,1973,25,false=8779; true=2106
+promise,jm1,jm1.csv,csv,1039663,013cb035b07f176e217c0db3abeaeeb214d262e1a63b237a44737ea0f301cc03,CRLF,utf-8,,22,defects,13204,4296,0,false=11101; true=2103
+promise,kc1,kc1.arff,arff,169887,82fa208e6fc2c3b96072401c11c077897f713d8d93f7ad4cda89b8e4636bb5c0,CRLF,utf-8,KC1,22,defects,2109,897,0,false=1783; true=326
+promise,kc1,kc1.csv,csv,153640,bdc2221d5490243bd033baaf35a1a906a460cd88a54444dfe8be92aba430e798,CRLF,utf-8,,22,defects,2109,897,0,false=1783; true=326
+promise,kc2,kc2.arff,arff,56194,ebeebe41f511f966062e86c187e478e2c1864a466410701007e11fd37d0183fb,CRLF,utf-8,KC2,22,problems,522,147,0,no=415; yes=107
+promise,kc2,kc2.csv,csv,38782,fedb0f8b4e131dad110e2a7713f7d3b1c0efb68a55b7df7c469610998dafbec7,CRLF,utf-8,,22,problems,522,147,0,no=415; yes=107
+promise,pc1,pc1.arff,arff,107368,b57312981180a748de4fc618e8c1173e01fc9d5c9923048e1aaa2d4572a95b35,CRLF,utf-8,PC1,22,defects,1109,155,0,false=1032; true=77
+promise,pc1,pc1.csv,csv,91139,9331ea04c83dfbcb618dbb707c8123e661f2ac5f59c85c03031f46fa0ce9f3e4,CRLF,utf-8,,22,defects,1109,155,0,false=1032; true=77
+dpp_ref,cm1,CM1.arff,arff,45281,e5895daab40c79b861c9217f0256e8d9d9032ab1d5c43e4d9493332ffbf67d7b,LF,utf-8,CM1,38,Defective,327,0,0,N=285; Y=42
+dpp_ref,jm1,JM1.arff,arff,621559,d3afc565c5157d4f43249dc4e23d1e79ba77e11008c7ebe55c3846ea0ee890e0,LF,utf-8,JM1,22,label,7782,0,0,N=6110; Y=1672
+dpp_ref,kc1,KC1.arff,arff,89474,74cb1451e916764a26251f744d31cbdf2aff53973345abb3f786a28428408f92,LF,utf-8,KC1,22,Defective,1183,0,0,N=869; Y=314
+dpp_ref,kc3,KC3.arff,arff,27968,03dbaef8715efc7a3cbc6c1e6319e091db00b889af30edbda63e309bba271782,LF,utf-8,KC3,40,Defective,194,0,0,N=158; Y=36
+dpp_ref,kc4,KC4.arff,arff,49,87ede1924377df78fdd5a71138b8d7adf8bba6a36d8492bddbdf48eaababbe4a,LF,utf-8,KC4,1,Defective,0,0,0,
+dpp_ref,mc1,MC1.arff,arff,239485,e4d6643699afe30ae9428bbd6111cc0f01d80784bc194432aba3df38362b46e6,LF,utf-8,MC1,39,Defective,1988,0,0,N=1942; Y=46
+dpp_ref,mc2,MC2.arff,arff,18905,582784f798f2aa94e70bc162932713b6a05e68a5eb90bef72b01c6cac2f5234a,LF,utf-8,MC2,40,Defective,125,0,0,N=81; Y=44
+dpp_ref,mw1,MW1.arff,arff,34030,d58064066605ac42a87dfe43ee41eff2f9887c09316700212144f0186c8a912a,LF,utf-8,MW1,38,Defective,253,0,0,N=226; Y=27
+dpp_ref,pc1,PC1.arff,arff,93689,e0f49be1a968f024eaac8ea7fe39da1a3134ba564f9bf28951ff7a8320648484,LF,utf-8,PC1,38,Defective,705,0,0,N=644; Y=61
+dpp_ref,pc2,PC2.arff,arff,91332,4fb5dbf367395ef5d6b891eca81089b6108a3f0905987a4789117109808402b6,LF,utf-8,PC2,37,Defective,745,0,0,N=729; Y=16
+dpp_ref,pc3,PC3.arff,arff,141883,34b9930c423a2598ef5eca1cf55e74d520a11c61a0f11d42e401a56069b06ea0,LF,utf-8,PC3,38,Defective,1077,0,0,N=943; Y=134
+dpp_ref,pc4,PC4.arff,arff,161598,0bf3231530e2c166aec23d1f560ba45e5fc545181941c0e494cb08116258bbd3,LF,utf-8,PC4,38,Defective,1287,0,0,N=1110; Y=177
+dpp_ref,pc5,PC5.arff,arff,223246,cd2b973663eeffea09eb26e7e2179eda2d648aeccc075c33be7f27d36a5fc164,LF,utf-8,PC5,39,Defective,1711,0,0,N=1240; Y=471

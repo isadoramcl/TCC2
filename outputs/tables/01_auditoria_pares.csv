@@ -1,0 +1,6 @@
+grupo,conjunto,n_linhas_arff,n_linhas_csv,atributos_iguais,n_linhas_iguais,conteudo_identico,primeira_linha_divergente,n_linhas_distintas_arff,n_linhas_distintas_csv,n_exclusivas_arff,n_exclusivas_csv,mesmo_conjunto_de_observacoes,equivalentes_numericamente,primeira_diferenca_semantica
+promise,cm1,498,498,True,True,True,,442,442,0,0,True,True,
+promise,jm1,10885,13204,True,False,False,144,8912,8908,5,1,False,False,numero de linhas difere (10885 vs 13204)
+promise,kc1,2109,2109,True,True,True,,1212,1212,0,0,True,True,
+promise,kc2,522,522,True,True,False,2,375,375,374,374,False,True,
+promise,pc1,1109,1109,True,True,True,,954,954,0,0,True,True,

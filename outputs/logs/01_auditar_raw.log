@@ -1,0 +1,64 @@
+==============================================================================
+AUDITORIA DOS ARQUIVOS BRUTOS NASA MDP
+Execucao: 2026-09-03T15:17:56
+Raiz do projeto: C:\Users\Isadora\Dev\TCC2
+==============================================================================
+
+--- Grupo 'promise' -- 10 arquivo(s) em nasa_promise/
+  cm1.arff                        498 linhas   22 atributos  CRLF
+  cm1.csv                         498 linhas   22 atributos  CRLF
+  jm1.arff                      10885 linhas   22 atributos  CRLF
+  jm1.csv                       13204 linhas   22 atributos  CRLF
+  kc1.arff                       2109 linhas   22 atributos  CRLF
+  kc1.csv                        2109 linhas   22 atributos  CRLF
+  kc2.arff                        522 linhas   22 atributos  CRLF
+  kc2.csv                         522 linhas   22 atributos  CRLF
+  pc1.arff                       1109 linhas   22 atributos  CRLF
+  pc1.csv                        1109 linhas   22 atributos  CRLF
+
+--- Grupo 'dpp_ref' -- 13 arquivo(s) em nasa_dpp_reference/
+  CM1.arff                        327 linhas   38 atributos  LF
+  JM1.arff                       7782 linhas   22 atributos  LF
+  KC1.arff                       1183 linhas   22 atributos  LF
+  KC3.arff                        194 linhas   40 atributos  LF
+  KC4.arff                          0 linhas    1 atributos  LF
+  MC1.arff                       1988 linhas   39 atributos  LF
+  MC2.arff                        125 linhas   40 atributos  LF
+  MW1.arff                        253 linhas   38 atributos  LF
+  PC1.arff                        705 linhas   38 atributos  LF
+  PC2.arff                        745 linhas   37 atributos  LF
+  PC3.arff                       1077 linhas   38 atributos  LF
+  PC4.arff                       1287 linhas   38 atributos  LF
+  PC5.arff                       1711 linhas   39 atributos  LF
+
+==============================================================================
+COMPARACAO ARFF x CSV (mesmo conjunto, mesmo grupo)
+==============================================================================
+  cm1      arff=   498  csv=   498  distintas: arff=   442 csv=   442  exclusivas: arff=   0 csv=   0
+           -> IDENTICOS (texto)
+  jm1      arff= 10885  csv= 13204  distintas: arff=  8912 csv=  8908  exclusivas: arff=   5 csv=   1
+           -> DIVERGENTES (conteudo diferente)
+              1a diferenca real: numero de linhas difere (10885 vs 13204)
+  kc1      arff=  2109  csv=  2109  distintas: arff=  1212 csv=  1212  exclusivas: arff=   0 csv=   0
+           -> IDENTICOS (texto)
+  kc2      arff=   522  csv=   522  distintas: arff=   375 csv=   375  exclusivas: arff= 374 csv= 374
+           -> EQUIVALENTES (mesmos valores, grafia numerica diferente)
+  pc1      arff=  1109  csv=  1109  distintas: arff=   954 csv=   954  exclusivas: arff=   0 csv=   0
+           -> IDENTICOS (texto)
+
+==============================================================================
+TABELAS GERADAS
+==============================================================================
+  outputs\tables\01_auditoria_arquivos.csv  (23 linhas)
+  outputs\tables\01_auditoria_atributos.csv  (650 linhas)
+  outputs\tables\01_auditoria_pares.csv  (5 linhas)
+
+==============================================================================
+RESUMO
+==============================================================================
+Arquivos auditados : 23
+Observacoes lidas  : 49942
+Duplicatas exatas  : 8779
+Celulas ausentes   : 25
+
+Nenhum arquivo de entrada foi modificado.
