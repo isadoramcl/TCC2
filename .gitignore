@@ -1,0 +1,36 @@
+# ---------------------------------------------------------------
+# Ambiente virtual Python
+# Nao versionado: e recriavel a partir de requirements.txt e contem
+# binarios especificos desta maquina/sistema operacional.
+# ---------------------------------------------------------------
+.venv/
+venv/
+
+# ---------------------------------------------------------------
+# Cache do interpretador Python
+# ---------------------------------------------------------------
+__pycache__/
+*.pyc
+*.pyo
+
+# ---------------------------------------------------------------
+# Configuracoes locais de editor
+# ---------------------------------------------------------------
+.vscode/
+.idea/
+
+# ---------------------------------------------------------------
+# Arquivos gerados pelo sistema operacional
+# ---------------------------------------------------------------
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# ---------------------------------------------------------------
+# NOTA METODOLOGICA
+# data/ e outputs/ SAO versionados de proposito.
+# Os dados brutos somam ~4,4 MB (texto), volume trivial para o Git,
+# e mante-los no repositorio garante que qualquer replicacao parta
+# exatamente dos mesmos arquivos de entrada. Se outputs/ crescer
+# muito, esta decisao sera revista e o commit registrara a mudanca.
+# ---------------------------------------------------------------
