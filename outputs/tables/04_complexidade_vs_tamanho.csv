@@ -1,0 +1,3 @@
+teste,termo,estatistica_LR,graus_de_liberdade,p_valor,or_ajustado,ic95_inferior,ic95_superior
+tamanho acrescenta sobre complexidade,log_LOC_TOTAL,431.188,1,8.961908256022396e-96,2.08956,1.94691,2.24267
+complexidade acrescenta sobre tamanho,log_CYCLOMATIC_COMPLEXITY,1.915,1,0.16640599430359404,0.94378,0.86952,1.02438

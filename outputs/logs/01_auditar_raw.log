@@ -1,7 +1,7 @@
 ==============================================================================
 AUDITORIA DOS ARQUIVOS BRUTOS NASA MDP
-Execucao: 2026-09-03T15:17:56
-Raiz do projeto: C:\Users\Isadora\Dev\TCC2
+Execucao: 2026-09-03T18:53:44
+Raiz do projeto: /sessions/rcw-01h9cwfc8pyna6ei468aeaen/mnt/TCC2
 ==============================================================================
 
 --- Grupo 'promise' -- 10 arquivo(s) em nasa_promise/
@@ -49,9 +49,9 @@ COMPARACAO ARFF x CSV (mesmo conjunto, mesmo grupo)
 ==============================================================================
 TABELAS GERADAS
 ==============================================================================
-  outputs\tables\01_auditoria_arquivos.csv  (23 linhas)
-  outputs\tables\01_auditoria_atributos.csv  (650 linhas)
-  outputs\tables\01_auditoria_pares.csv  (5 linhas)
+  outputs/tables/01_auditoria_arquivos.csv  (23 linhas)
+  outputs/tables/01_auditoria_atributos.csv  (650 linhas)
+  outputs/tables/01_auditoria_pares.csv  (5 linhas)
 
 ==============================================================================
 RESUMO

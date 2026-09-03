@@ -1,0 +1,137 @@
+==============================================================================
+MODELOS LOGISTICOS — complexidade e risco de defeito
+Execucao: 2026-09-03T18:37:33
+==============================================================================
+
+Base: 17377 observacoes, 12 projetos, 3040 defeituosos (17.49%)
+
+==============================================================================
+MODELOS ANINHADOS
+==============================================================================
+
+M0_nulo
+  formula        : defective ~ 1
+  n              : 17377
+  log-verossim.  : -8056.66
+  pseudo-R2      : 0.0000
+  AIC / BIC      : 16115.3 / 16123.1
+
+M1_projeto
+  formula        : defective ~ C(project)
+  n              : 17377
+  log-verossim.  : -7549.44
+  pseudo-R2      : 0.0630
+  AIC / BIC      : 15122.9 / 15216.0
+
+M2_projeto_complexidade
+  formula        : defective ~ C(project) + log_CYCLOMATIC_COMPLEXITY
+  n              : 17377
+  log-verossim.  : -7229.52
+  pseudo-R2      : 0.1027
+  AIC / BIC      : 14485.0 / 14586.0
+
+M3_projeto_complexidade_tamanho
+  formula        : defective ~ C(project) + log_CYCLOMATIC_COMPLEXITY + log_LOC_TOTAL
+  n              : 17377
+  log-verossim.  : -7013.93
+  pseudo-R2      : 0.1294
+  AIC / BIC      : 14055.9 / 14164.5
+
+M4_completo
+  formula        : defective ~ C(project) + log_CYCLOMATIC_COMPLEXITY + log_LOC_TOTAL + log_DESIGN_COMPLEXITY + log_ESSENTIAL_COMPLEXITY + log_HALSTEAD_DIFFICULTY
+  n              : 17377
+  log-verossim.  : -6992.28
+  pseudo-R2      : 0.1321
+  AIC / BIC      : 14018.6 / 14150.5
+
+------------------------------------------------------------------------------
+TESTES DE RAZAO DE VEROSSIMILHANCA ENTRE MODELOS ANINHADOS
+------------------------------------------------------------------------------
+  comparacao                                               LR   gl            p
+  M0_nulo -> M1_projeto                               1014.45   11   1.490e-210
+  M1_projeto -> M2_projeto_complexidade                639.83    1   3.642e-141
+  M2_projeto_complexidade -> M3_projeto_complexidade_tamanho     431.19    1    8.962e-96
+  M3_projeto_complexidade_tamanho -> M4_completo        43.29    3    2.136e-09
+
+==============================================================================
+COMPARACAO ENTRE METRICAS CANDIDATAS (cada uma sobre M1_projeto)
+==============================================================================
+  metrica                  escala         OR                 IC95        LR  pseudoR2  obs
+  CYCLOMATIC_COMPLEXITY    original   1.0369 [  1.0327;  1.0411]     411.1    0.0885  
+  CYCLOMATIC_COMPLEXITY    log1p      1.9022 [  1.8087;  2.0004]     639.8    0.1027  
+  DESIGN_COMPLEXITY        original   1.0592 [  1.0521;  1.0664]     373.8    0.0862  
+  DESIGN_COMPLEXITY        log1p      2.1115 [  1.9929;  2.2371]     650.8    0.1033  
+  ESSENTIAL_COMPLEXITY     original   1.0422 [  1.0356;  1.0488]     200.6    0.0754  
+  ESSENTIAL_COMPLEXITY     log1p      1.5488 [  1.4679;  1.6342]     245.8    0.0782  
+  HALSTEAD_DIFFICULTY      original   1.0189 [  1.0167;  1.0210]     364.2    0.0856  
+  HALSTEAD_DIFFICULTY      log1p      1.8620 [  1.7662;  1.9631]     568.0    0.0982  
+  HALSTEAD_EFFORT          original   1.0000 [  1.0000;  1.0000]      86.9    0.0684  
+  HALSTEAD_EFFORT          log1p      1.3081 [  1.2823;  1.3343]     784.8    0.1117  
+  LOC_TOTAL                original   1.0063 [  1.0056;  1.0070]     495.1    0.0937  
+  LOC_TOTAL                log1p      2.0099 [  1.9230;  2.1006]    1069.1    0.1293  
+  HALSTEAD_ERROR_EST       original   1.4144 [  1.3383;  1.4948]     231.1    0.0773  CIRCULAR
+  HALSTEAD_ERROR_EST       log1p      5.3107 [  4.6323;  6.0884]     663.2    0.1041  CIRCULAR
+
+==============================================================================
+COMPLEXIDADE x TAMANHO: quem sobrevive ao controle do outro
+==============================================================================
+
+  tamanho acrescenta sobre complexidade
+    LR = 431.19  gl = 1  p = 8.962e-96
+    OR ajustado de log_LOC_TOTAL = 2.0896 [1.9469; 2.2427]
+
+  complexidade acrescenta sobre tamanho
+    LR = 1.92  gl = 1  p = 1.664e-01
+    OR ajustado de log_CYCLOMATIC_COMPLEXITY = 0.9438 [0.8695; 1.0244]
+
+  OR isolados (cada um sobre M1_projeto, para comparacao):
+    log_CYCLOMATIC_COMPLEXITY sozinho : 1.9022
+    log_LOC_TOTAL sozinho             : 2.0099
+
+  Leitura: a reducao do OR de uma variavel quando a outra entra no
+  modelo mede quanto do seu efeito aparente era, na verdade, da outra.
+
+==============================================================================
+MULTICOLINEARIDADE ENTRE AS METRICAS (escala log1p)
+==============================================================================
+  variavel                        R2 vs demais        VIF  situacao
+  log_HALSTEAD_EFFORT                   0.9567      23.11  problema serio
+  log_HALSTEAD_DIFFICULTY               0.9342      15.20  problema serio
+  log_CYCLOMATIC_COMPLEXITY             0.8489       6.62  atencao
+  log_LOC_TOTAL                         0.8341       6.03  atencao
+  log_DESIGN_COMPLEXITY                 0.7183       3.55  OK
+  log_HALSTEAD_ERROR_EST                0.6336       2.73  OK
+  log_ESSENTIAL_COMPLEXITY              0.5325       2.14  OK
+
+------------------------------------------------------------------------------
+CORRELACAO DE SPEARMAN ENTRE AS METRICAS CANDIDATAS
+(Spearman, e nao Pearson, porque as metricas sao fortemente
+ assimetricas e a relacao entre elas nao e necessariamente linear;
+ Spearman mede associacao monotonica, baseada em postos.)
+------------------------------------------------------------------------------
+                           CYCLOMATI  DESIGN_CO  ESSENTIAL  HALSTEAD_  HALSTEAD_  LOC_TOTAL  HALSTEAD_
+  CYCLOMATIC_COMPLEXITY        1.000      0.795      0.645      0.789      0.792      0.752      0.755
+  DESIGN_COMPLEXITY            0.795      1.000      0.483      0.620      0.672      0.680      0.674
+  ESSENTIAL_COMPLEXITY         0.645      0.483      1.000      0.516      0.496      0.450      0.461
+  HALSTEAD_DIFFICULTY          0.789      0.620      0.516      1.000      0.952      0.795      0.874
+  HALSTEAD_EFFORT              0.792      0.672      0.496      0.952      1.000      0.897      0.979
+  LOC_TOTAL                    0.752      0.680      0.450      0.795      0.897      1.000      0.919
+  HALSTEAD_ERROR_EST           0.755      0.674      0.461      0.874      0.979      0.919      1.000
+
+==============================================================================
+VERIFICACOES
+==============================================================================
+  [OK]    Todos os modelos usaram as 17377 observacoes
+  [OK]    Log-verossimilhanca melhora monotonicamente nos aninhados
+  [OK]    M1 reproduz as taxas por projeto (erro maximo 1.11e-16)
+
+--- Arquivos gerados ---
+  outputs/tables/04_coeficientes.csv
+  outputs/tables/04_comparacao_modelos.csv
+  outputs/tables/04_metricas_candidatas.csv
+  outputs/tables/04_vif.csv
+  outputs/tables/04_correlacao_spearman.csv
+
+==============================================================================
+RESULTADO: CONCLUIDO, VERIFICACOES OK
+==============================================================================

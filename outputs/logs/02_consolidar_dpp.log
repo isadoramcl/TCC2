@@ -1,0 +1,88 @@
+==============================================================================
+CONSOLIDACAO DA BASE D''
+Execucao: 2026-09-03T18:35:00
+==============================================================================
+
+--- Leitura dos arquivos ---
+  CM1       327 observacoes,  38 atributos (rotulo: Defective)
+  JM1      7782 observacoes,  22 atributos (rotulo: label)
+  KC1      1183 observacoes,  22 atributos (rotulo: Defective)
+  KC3       194 observacoes,  40 atributos (rotulo: Defective)
+  KC4    EXCLUIDO -- arquivo sem observacoes
+  MC1      1988 observacoes,  39 atributos (rotulo: Defective)
+  MC2       125 observacoes,  40 atributos (rotulo: Defective)
+  MW1       253 observacoes,  38 atributos (rotulo: Defective)
+  PC1       705 observacoes,  38 atributos (rotulo: Defective)
+  PC2       745 observacoes,  37 atributos (rotulo: Defective)
+  PC3      1077 observacoes,  38 atributos (rotulo: Defective)
+  PC4      1287 observacoes,  38 atributos (rotulo: Defective)
+  PC5      1711 observacoes,  39 atributos (rotulo: Defective)
+
+  Arquivos excluidos desta consolidacao:
+    KC4: arquivo sem observacoes (somente cabecalho)
+
+--- Selecao de metricas ---
+  Metricas presentes em ao menos um arquivo : 39
+  Metricas comuns a TODOS os arquivos       : 20
+    descartada: CALL_PAIRS                         ausente em JM1, KC1
+    descartada: CONDITION_COUNT                    ausente em JM1, KC1
+    descartada: CYCLOMATIC_DENSITY                 ausente em JM1, KC1
+    descartada: DECISION_COUNT                     ausente em JM1, KC1
+    descartada: DECISION_DENSITY                   ausente em JM1, KC1, MC1, PC5
+    descartada: DESIGN_DENSITY                     ausente em JM1, KC1
+    descartada: EDGE_COUNT                         ausente em JM1, KC1
+    descartada: ESSENTIAL_DENSITY                  ausente em JM1, KC1
+    descartada: GLOBAL_DATA_COMPLEXITY             ausente em CM1, JM1, KC1, MW1, PC1, PC2, PC3, PC4
+    descartada: GLOBAL_DATA_DENSITY                ausente em CM1, JM1, KC1, MW1, PC1, PC2, PC3, PC4
+    descartada: LOC_BLANK                          ausente em PC2
+    descartada: MAINTENANCE_SEVERITY               ausente em JM1, KC1
+    descartada: MODIFIED_CONDITION_COUNT           ausente em JM1, KC1
+    descartada: MULTIPLE_CONDITION_COUNT           ausente em JM1, KC1
+    descartada: NODE_COUNT                         ausente em JM1, KC1
+    descartada: NORMALIZED_CYLOMATIC_COMPLEXITY    ausente em JM1, KC1
+    descartada: NUMBER_OF_LINES                    ausente em JM1, KC1
+    descartada: PARAMETER_COUNT                    ausente em JM1, KC1
+    descartada: PERCENT_COMMENTS                   ausente em JM1, KC1
+
+  Verificacao das metricas de interesse do trabalho:
+    CYCLOMATIC_COMPLEXITY    PRESERVADA
+    DESIGN_COMPLEXITY        PRESERVADA
+    ESSENTIAL_COMPLEXITY     PRESERVADA
+    LOC_TOTAL                PRESERVADA
+    HALSTEAD_DIFFICULTY      PRESERVADA
+    HALSTEAD_EFFORT          PRESERVADA
+    HALSTEAD_ERROR_EST       PRESERVADA
+
+--- Montagem da base consolidada ---
+  Base construida: 17377 linhas x 25 colunas
+
+--- Verificacoes ---
+  [OK]    Total de linhas confere: 17377 = soma dos arquivos
+  [OK]    Nenhum valor ausente nas metricas
+  [OK]    Chave (source_file, source_row) e unica
+  [OK]    Rotulo assume apenas ['N', 'Y']
+
+--- Distribuicao por projeto ---
+  projeto        n  defeituosos     taxa  rotulo no arquivo
+  CM1          327           42   12.84%  Defective
+  JM1         7782         1672   21.49%  label
+  KC1         1183          314   26.54%  Defective
+  KC3          194           36   18.56%  Defective
+  MC1         1988           46    2.31%  Defective
+  MC2          125           44   35.20%  Defective
+  MW1          253           27   10.67%  Defective
+  PC1          705           61    8.65%  Defective
+  PC2          745           16    2.15%  Defective
+  PC3         1077          134   12.44%  Defective
+  PC4         1287          177   13.75%  Defective
+  PC5         1711          471   27.53%  Defective
+  TOTAL      17377         3040   17.49%
+
+--- Arquivos gerados ---
+  data/processed/nasa/base_dpp_consolidada.csv
+  outputs/tables/02_consolidacao_resumo.csv
+  outputs/tables/02_metricas_descartadas.csv
+
+==============================================================================
+RESULTADO: CONSOLIDACAO CONCLUIDA, TODAS AS VERIFICACOES PASSARAM
+==============================================================================

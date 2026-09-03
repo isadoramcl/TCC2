@@ -1,0 +1,40 @@
+==============================================================================
+VALIDACAO DOS ARQUIVOS D'' CONTRA O ALGORITMO PUBLICADO
+Execucao: 2026-09-03T18:53:44
+==============================================================================
+
+  base        D1      D2 |  A:ambos  B:um so |  atributos  conteudo  rot.dif
+  ----------------------------------------------------------------------------
+  CM1        344     327 |      327      327 |       True      True        0
+  JM1       9593    7782 |     7722     7782 |       True     False        8
+  KC1       2096    1183 |     1163     1183 |       True     False       15
+  KC3        200     194 |      194      194 |       True      True        0
+  KC4          0       0 |        -        - | (arquivo vazio nas duas versoes)
+  MC1       9277    1988 |     1978     1988 |       True     False        6
+  MC2        127     125 |      125      125 |       True      True        0
+  MW1        264     253 |      251      253 |       True     False        2
+  PC1        759     705 |      699      705 |       True     False        6
+  PC2       1585     745 |      745      745 |       True      True        0
+  PC3       1125    1077 |     1075     1077 |       True     False        1
+  PC4       1399    1287 |     1286     1287 |       True      True        0
+  PC5      17001    1711 |     1699     1711 |       True     False        8
+
+==============================================================================
+SINTESE
+==============================================================================
+  Conjuntos avaliados                                      : 12
+  Contagem reproduzida pela interpretacao A (remover ambos): 4/12
+  Contagem reproduzida pela interpretacao B (preservar um) : 12/12
+  Multiconjunto de atributos reproduzido (interpretacao B) : 12/12
+  Conteudo completo reproduzido (interpretacao B)          : 5/12
+
+  Linhas com rotulo divergente: 46 de 17377 (0.2647%)
+
+  LEITURA DO RESULTADO
+  Se o multiconjunto de atributos e reproduzido em todos os conjuntos,
+  entao os MODULOS preservados no D'' publicado sao exatamente os que o
+  algoritmo seleciona, e o unico residuo esta em qual rotulo foi mantido
+  nos grupos que tinham rotulos conflitantes -- ponto em que o
+  pseudocodigo publicado e a distribuicao efetiva divergem.
+
+  -> outputs/tables/03_validacao_dpp.csv

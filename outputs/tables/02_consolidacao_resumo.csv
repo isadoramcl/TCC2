@@ -1,0 +1,13 @@
+projeto,n_observacoes,n_defeituosos,n_nao_defeituosos,taxa_defeito,nome_rotulo_no_arquivo
+CM1,327,42,285,0.1284,Defective
+JM1,7782,1672,6110,0.2149,label
+KC1,1183,314,869,0.2654,Defective
+KC3,194,36,158,0.1856,Defective
+MC1,1988,46,1942,0.0231,Defective
+MC2,125,44,81,0.352,Defective
+MW1,253,27,226,0.1067,Defective
+PC1,705,61,644,0.0865,Defective
+PC2,745,16,729,0.0215,Defective
+PC3,1077,134,943,0.1244,Defective
+PC4,1287,177,1110,0.1375,Defective
+PC5,1711,471,1240,0.2753,Defective

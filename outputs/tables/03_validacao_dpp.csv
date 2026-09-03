@@ -1,0 +1,14 @@
+conjunto,n_D1,n_D2_publicado,n_apos_passo3,n_interpretacao_A_remover_ambos,n_interpretacao_B_preservar_um,contagem_bate_A,contagem_bate_B,multiconjunto_de_atributos_identico_B,conteudo_completo_identico_A,conteudo_completo_identico_B,n_linhas_com_rotulo_divergente,n_D2,observacao
+CM1,344,327.0,327.0,327.0,327.0,True,True,True,True,True,0.0,,
+JM1,9593,7782.0,7842.0,7722.0,7782.0,False,True,True,False,False,8.0,,
+KC1,2096,1183.0,1203.0,1163.0,1183.0,False,True,True,False,False,15.0,,
+KC3,200,194.0,194.0,194.0,194.0,True,True,True,True,True,0.0,,
+KC4,0,,,,,,,,,,,0.0,vazio
+MC1,9277,1988.0,1998.0,1978.0,1988.0,False,True,True,False,False,6.0,,
+MC2,127,125.0,125.0,125.0,125.0,True,True,True,True,True,0.0,,
+MW1,264,253.0,255.0,251.0,253.0,False,True,True,False,False,2.0,,
+PC1,759,705.0,711.0,699.0,705.0,False,True,True,False,False,6.0,,
+PC2,1585,745.0,745.0,745.0,745.0,True,True,True,True,True,0.0,,
+PC3,1125,1077.0,1079.0,1075.0,1077.0,False,True,True,False,False,1.0,,
+PC4,1399,1287.0,1288.0,1286.0,1287.0,False,True,True,False,True,0.0,,
+PC5,17001,1711.0,1723.0,1699.0,1711.0,False,True,True,False,False,8.0,,

@@ -1,0 +1,9 @@
+eixo,origem_dos_cortes,cortes,nivel,n,defeituosos,F_base_frequencia_bruta,F_base_ajustado_por_projeto,ic95_inferior,ic95_superior,tendencia_z,tendencia_p,monotonica_bruta,monotonica_ajustada
+CYCLOMATIC_COMPLEXITY,"NASA SWE-220 (adaptado, 4 niveis nao sobrepostos)","[10, 15, 20]",baixa,14986,2203,0.147,0.14876,0.14142,0.15276,25.5932,1.8158688376744622e-144,True,True
+CYCLOMATIC_COMPLEXITY,"NASA SWE-220 (adaptado, 4 niveis nao sobrepostos)","[10, 15, 20]",media,1079,307,0.28452,0.27293,0.2584,0.31217,25.5932,1.8158688376744622e-144,True,True
+CYCLOMATIC_COMPLEXITY,"NASA SWE-220 (adaptado, 4 niveis nao sobrepostos)","[10, 15, 20]",alta,503,175,0.34791,0.33102,0.30758,0.39055,25.5932,1.8158688376744622e-144,True,True
+CYCLOMATIC_COMPLEXITY,"NASA SWE-220 (adaptado, 4 niveis nao sobrepostos)","[10, 15, 20]",muito alta,809,355,0.43881,0.39422,0.40499,0.47322,25.5932,1.8158688376744622e-144,True,True
+LOC_TOTAL,quartis da propria base (decisao deste trabalho),"[10.0, 20.0, 41.0]",baixa,4372,277,0.06336,0.07267,0.05651,0.07097,34.3311,2.697926611989808e-258,True,True
+LOC_TOTAL,quartis da propria base (decisao deste trabalho),"[10.0, 20.0, 41.0]",media,4365,526,0.1205,0.12197,0.11118,0.1305,34.3311,2.697926611989808e-258,True,True
+LOC_TOTAL,quartis da propria base (decisao deste trabalho),"[10.0, 20.0, 41.0]",alta,4373,786,0.17974,0.17419,0.16864,0.1914,34.3311,2.697926611989808e-258,True,True
+LOC_TOTAL,quartis da propria base (decisao deste trabalho),"[10.0, 20.0, 41.0]",muito alta,4267,1451,0.34005,0.30833,0.32599,0.3544,34.3311,2.697926611989808e-258,True,True
