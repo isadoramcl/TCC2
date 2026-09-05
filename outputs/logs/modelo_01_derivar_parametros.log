@@ -1,0 +1,48 @@
+==============================================================================
+CAMADA 1 — PARÂMETROS DERIVADOS DA BASE
+Execucao: 2026-09-05T15:04:09
+==============================================================================
+
+Instancias : 480
+Recursos   : ['R1', 'R2', 'R3', 'R4']
+
+==============================================================================
+VERIFICACOES DO ESCALONAMENTO DE REFERENCIA
+==============================================================================
+  [OK]    480 instancias escalonadas sem violar precedencia,
+          recursos, nem produzir makespan inferior ao do CPM
+  Razao makespan_recursos/CPM  minima: 1.0000 (deve ser >= 1)
+
+==============================================================================
+PARAMETROS DERIVADOS
+==============================================================================
+
+  n_agentes = 6
+    tarefas simultaneas — media das medias : 3.99
+    tarefas simultaneas — media do p90     : 6.31  <- adotado
+    tarefas simultaneas — media do maximo  : 7.60
+    Adotado o p90 e nao o maximo: o maximo e um pico transitorio, e
+    dimensionar a equipe pelo pico deixaria agentes ociosos a maior
+    parte do tempo. O p90 cobre a carga sustentada.
+
+  horizonte_maximo_fator = 9
+    maior razao makespan/CPM observada : 2.5849
+    mu_minimo                          : 0.5500
+    inflacao de duracao no pior caso   : 1/mu_minimo^2 = 3.3058
+    O horizonte cobre o produto dos dois efeitos. Nao terminar dentro
+    dele passa a ser ACHADO -- configuracao degenerada -- e nao artefato
+    de horizonte apertado.
+
+  escala_pressao = 1.8499
+    p90 da razao makespan_recursos/CPM
+    Interpretacao: atraso estrutural que o gestor observa mesmo sem
+    nenhuma degradacao humana. P(t) atinge o maximo quando o atraso
+    relativo alcanca esse valor.
+
+--- Arquivos gerados ---
+  config/parametros_derivados.yaml
+  outputs/tables/modelo_01_derivacao.csv (480 linhas)
+
+==============================================================================
+RESULTADO: CONCLUIDO, VERIFICACOES OK
+==============================================================================

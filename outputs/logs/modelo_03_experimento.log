@@ -1,0 +1,54 @@
+==============================================================================
+EXPERIMENTO — GOVERNANCA CENTRALIZADA x ADAPTATIVA
+Execucao: 2026-09-05T16:54:32
+==============================================================================
+
+Instancias : 16
+Sementes   : 12
+Execucoes  : 384 (pareadas)
+
+Parametros organizacionais que variam entre cenarios:
+  tau_inicial    centralizada=0.25   adaptativa=0.8
+  tau_min        centralizada=0.6    adaptativa=0.25
+  p_reporte      centralizada=0.15   adaptativa=0.75
+  p_deteccao     centralizada=0.03   adaptativa=0.12
+  P(t) e D_i sao IDENTICOS entre cenarios — controle experimental
+
+  Execucoes que nao concluiram no horizonte: 0 de 384
+
+==============================================================================
+COMPARACAO PAREADA
+==============================================================================
+
+  metrica                      central.     adapt.     dif %  p (Wilcoxon)   d Cohen   % pares
+  E_total                        0.7839     0.8885     13.3%      2.27e-32     1.901    97.4%
+  S_UR_maximo                   25.1123     6.8235    -72.8%      3.72e-33    -2.058    98.4%
+  n_com_erro                    13.0208     3.8229    -70.6%      9.23e-33    -2.400    97.9%
+  atraso_relativo                3.1345     1.9991    -36.2%      2.94e-33    -1.988   100.0%
+  taxa_omissao                   0.2170     0.0637    -70.6%      1.02e-32    -2.400    97.9%
+  retrabalho_sobre_plano         0.2031     0.1545    -23.9%      2.38e-17    -0.729    77.1%
+  divida_latente_sobre_plano     0.0741     0.0201    -72.8%      3.78e-33    -2.046    98.4%
+  retrabalho_sobre_esforco_realizado     0.0770     0.0846      9.9%      2.40e-04     0.288    39.6%
+  TR                            68.8653    52.5089    -23.8%      3.08e-17    -0.720    77.1%
+  TU                           126.2656     5.9427    -95.3%      2.98e-33    -2.252    99.5%
+
+  `[ACHADO 6]` 'retrabalho_sobre_esforco_realizado' e reportada apenas
+  como DIAGNOSTICO. Ela divide pelo esforco realizado, que inclui o
+  tempo ocioso TU; o braco centralizado infla o proprio denominador e
+  parece melhor nessa razao enquanto seu retrabalho ABSOLUTO (TR) e
+  maior. A medida de dano e 'retrabalho_sobre_plano', cuja base
+  (E_plano) e propriedade da instancia e identica nos dois bracos.
+
+
+  Leitura: 'd Cohen' e o tamanho do efeito na diferenca pareada;
+  '% pares' e a fracao de pares em que o cenario adaptativo foi melhor.
+  Com centenas de pares, o valor-p sozinho nao distingue diferenca
+  relevante de diferenca detectavel.
+
+--- Arquivos gerados ---
+  outputs/tables/modelo_03_experimento_bruto.csv (384 linhas)
+  outputs/tables/modelo_03_experimento_resumo.csv (10 linhas)
+
+==============================================================================
+RESULTADO: CONCLUIDO
+==============================================================================

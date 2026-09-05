@@ -1,0 +1,16 @@
+verificacao,resultado,detalhe
+1. toda tarefa termina em estado terminal,OK,0 tarefas nao terminais
+2. precedencia respeitada,OK,0 violacoes
+3. disponibilidade de recursos nunca excedida,OK,0 instancias com excesso
+4. relogios nao negativos e soma positiva,OK,
+"5. E_total, bateria, competencia e multiplicadores em [0,1]",OK,
+6. mesma semente reproduz o mesmo resultado,OK,
+6b. sementes diferentes produzem resultados diferentes,OK,"se falhar, o gerador nao esta sendo usado"
+"7a. sem risco nem pressao, nenhuma tarefa falha",OK,erros=0 reportadas=0
+"7b. sem risco nem pressao, E_total tende a 1",OK,E_total=0.9671
+"7c. sem risco nem pressao, divida tecnica nula",OK,S_UR_max=0.0000
+8a. divida tecnica cresce com a pressao (teste de tendencia),OK,rho=+1.000 p=0.0000
+8b. tempo em modo heuristico cresce com a pressao,OK,rho=+1.000 p=0.0000
+9a. mediana do retrabalho na faixa de plausibilidade [1%; 50%],OK,mediana=0.1913
+9b. cauda fora da faixa inferior a 10% das execucoes,OK,0/24 = 0.0%
+9c. divida latente estritamente positiva (estoque nao inerte),OK,mediana=0.0423

@@ -58,55 +58,82 @@ def limpar(ax, eixo_y=True):
 # FIGURA 1 — arquitetura do pipeline
 # =====================================================================
 def figura_1_arquitetura():
-    fig, ax = plt.subplots(figsize=(7.2, 4.6))
+    """
+    Arquitetura completa do pipeline: os dois ramos e sua convergencia.
+
+    A figura anterior mostrava apenas o ramo NASA. Com o ramo PSPLIB
+    implementado, uma arquitetura que o omitisse descreveria um sistema que nao
+    e mais o sistema construido.
+    """
+    fig, ax = plt.subplots(figsize=(7.4, 5.4))
     ax.set_xlim(0, 10); ax.set_ylim(0, 10); ax.axis("off")
 
-    def caixa(x, y, w, h, titulo, linhas, cor_borda=TINTA2, preenchimento="white"):
-        ax.add_patch(plt.Rectangle((x, y), w, h, facecolor=preenchimento,
-                                   edgecolor=cor_borda, linewidth=1.1, zorder=2))
-        ax.text(x + w / 2, y + h - 0.30, titulo, ha="center", va="top",
-                fontsize=8.2, fontweight="bold", color=TINTA, zorder=3)
+    def caixa(x, y, w, h, titulo, linhas, cor=TINTA2, fundo="white", tam=8.0):
+        ax.add_patch(plt.Rectangle((x, y), w, h, facecolor=fundo, edgecolor=cor,
+                                   linewidth=1.1, zorder=2))
+        ax.text(x + w / 2, y + h - 0.26, titulo, ha="center", va="top",
+                fontsize=tam, fontweight="bold", color=TINTA, zorder=3)
         for i, t in enumerate(linhas):
-            ax.text(x + w / 2, y + h - 0.68 - i * 0.32, t, ha="center", va="top",
-                    fontsize=6.8, color=TINTA2, zorder=3)
+            ax.text(x + w / 2, y + h - 0.60 - i * 0.29, t, ha="center", va="top",
+                    fontsize=6.5, color=TINTA2, zorder=3)
 
-    def seta(x1, y1, x2, y2):
+    def seta(x1, y1, x2, y2, cor=TINTA2):
         ax.annotate("", xy=(x2, y2), xytext=(x1, y1), zorder=1,
-                    arrowprops=dict(arrowstyle="-|>", color=TINTA2, linewidth=1.0,
+                    arrowprops=dict(arrowstyle="-|>", color=cor, linewidth=1.0,
                                     shrinkA=2, shrinkB=2))
 
-    ax.text(5, 9.72, "Pipeline de dados — calibracao NASA MDP",
-            ha="center", fontsize=10.5, fontweight="bold", color=TINTA)
+    ax.text(5, 9.78, "Arquitetura do pipeline — calibração NASA e transferência para o PSPLIB J60",
+            ha="center", fontsize=10.0, fontweight="bold", color=TINTA)
 
-    # Camada 1 — dados brutos imutaveis
-    ax.add_patch(plt.Rectangle((0.25, 6.55), 9.5, 2.5, facecolor="#f5f5f2",
+    # --- camada de dados brutos ---
+    ax.add_patch(plt.Rectangle((0.2, 7.55), 9.6, 1.85, facecolor="#f5f5f2",
                                edgecolor="none", zorder=0))
-    ax.text(0.45, 8.86, "data/raw/  — imutavel, versionado, integridade por SHA-256",
-            fontsize=7.2, style="italic", color=TINTA2)
-    caixa(0.6, 6.85, 2.7, 1.75, "PROMISE", ["cm1, jm1, kc1,", "kc2, pc1", "10 arquivos"], AZUL)
-    caixa(3.65, 6.85, 2.7, 1.75, "MDP  D'", ["13 arquivos", "43.770 casos", "referencia"], AZUL)
-    caixa(6.7, 6.85, 2.7, 1.75, "MDP  D''", ["13 arquivos", "17.377 casos", "base de analise"], AZUL)
+    ax.text(0.38, 9.26, "data/raw/  — imutável, versionado, integridade por SHA-256",
+            fontsize=6.9, style="italic", color=TINTA2)
 
-    # Camada 2 — scripts
-    caixa(0.6, 4.75, 2.05, 1.3, "01 auditar", ["hashes, formatos,", "pares ARFF/CSV"])
-    caixa(2.85, 4.75, 2.05, 1.3, "03 validar", ["D' -> D''", "12/12 conferem"])
-    caixa(5.1, 4.75, 2.05, 1.3, "02 consolidar", ["12 projetos", "20 metricas"])
-    caixa(7.35, 4.75, 2.05, 1.3, "04 modelar", ["logistica,", "OR, IC, LRT"])
-    caixa(3.97, 2.85, 2.05, 1.3, "05 F_base", ["faixas, tendencia,", "sensibilidade"])
+    caixa(0.45, 7.75, 2.0, 1.28, "PROMISE", ["5 conjuntos", "10 arquivos"], AZUL)
+    caixa(2.65, 7.75, 2.0, 1.28, "MDP  D'", ["13 arquivos", "43.770 casos"], AZUL)
+    caixa(4.85, 7.75, 2.0, 1.28, "MDP  D''", ["13 arquivos", "17.377 casos"], AZUL)
+    caixa(7.35, 7.75, 2.2, 1.28, "PSPLIB J60", ["480 instâncias", "28.800 tarefas"], LARANJA)
 
-    seta(1.95, 6.85, 1.62, 6.05)
-    seta(5.0, 6.85, 3.87, 6.05)
-    seta(8.05, 6.85, 6.12, 6.05)
-    seta(6.12, 4.75, 8.37, 4.75 + 0.65) if False else seta(7.15, 5.40, 7.35, 5.40)
-    seta(8.37, 4.75, 5.4, 4.15)
+    # --- ramo NASA ---
+    ax.text(0.45, 7.22, "ramo NASA  —  calibração do risco basal",
+            fontsize=7.4, fontweight="bold", color=AZUL)
+    caixa(0.45, 5.75, 1.85, 1.15, "01 auditar", ["hashes, pares", "ARFF/CSV"])
+    caixa(2.45, 5.75, 1.85, 1.15, "03 validar", ["D' → D''", "12/12"])
+    caixa(4.45, 5.75, 1.85, 1.15, "02 consolidar", ["12 projetos", "20 métricas"])
+    caixa(0.45, 4.15, 1.85, 1.15, "04 modelar", ["logística, RC,", "IC, VIF"])
+    caixa(2.45, 4.15, 1.85, 1.15, "05 F_base", ["faixas, tendência,", "sensibilidade"])
 
-    # Camada 3 — saidas
-    caixa(0.6, 0.75, 2.7, 1.5, "outputs/tables", ["14 tabelas .csv"], LARANJA)
-    caixa(3.65, 0.75, 2.7, 1.5, "outputs/figures", ["figuras 300 dpi"], LARANJA)
-    caixa(6.7, 0.75, 2.7, 1.5, "outputs/logs", ["log de cada execucao"], LARANJA)
-    seta(4.6, 2.85, 2.0, 2.25)
-    seta(5.0, 2.85, 5.0, 2.25)
-    seta(5.4, 2.85, 8.0, 2.25)
+    seta(1.40, 7.75, 1.38, 6.90)
+    seta(3.60, 7.75, 3.38, 6.90)
+    seta(5.85, 7.75, 5.38, 6.90)
+    seta(5.38, 5.75, 1.90, 5.30)
+    seta(2.30, 4.72, 2.45, 4.72)
+
+    # --- ramo PSPLIB ---
+    ax.text(6.55, 7.22, "ramo PSPLIB  —  dificuldade da tarefa",
+            fontsize=7.4, fontweight="bold", color=LARANJA)
+    caixa(6.55, 5.75, 1.5, 1.15, "01 auditar", ["NC, RF, RS", "3×4×4"], LARANJA)
+    caixa(8.15, 5.75, 1.4, 1.15, "02 Di", ["CPM, folga,", "4 níveis"], LARANJA)
+    seta(8.45, 7.75, 7.30, 6.90)
+    seta(8.05, 6.32, 8.15, 6.32)
+
+    # --- convergencia ---
+    caixa(3.35, 2.35, 3.30, 1.30,
+          "03  transferência ordinal",
+          ["razão de risco NASA → J60", "bootstrap por projeto, IC 95%"],
+          "#4a3aa7", "#f4f3fb", tam=8.6)
+    seta(3.38, 4.15, 4.40, 3.65, AZUL)
+    seta(8.60, 5.75, 5.90, 3.65, LARANJA)
+
+    # --- saidas ---
+    caixa(0.45, 0.45, 2.6, 1.15, "outputs/tables", ["23 tabelas .csv"], LARANJA)
+    caixa(3.45, 0.45, 3.1, 1.15, "tarefas_j60_com_risco", ["28.800 multiplicadores", "com intervalo"], LARANJA)
+    caixa(6.95, 0.45, 2.6, 1.15, "figuras e logs", ["300 dpi + rastro"], LARANJA)
+    seta(4.40, 2.35, 2.10, 1.60)
+    seta(5.00, 2.35, 5.00, 1.60)
+    seta(5.60, 2.35, 8.00, 1.60)
 
     fig.tight_layout()
     fig.savefig(FIG / "fig1_arquitetura_pipeline.png", bbox_inches="tight")

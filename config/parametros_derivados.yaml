@@ -1,0 +1,32 @@
+versao: '1.0'
+origem: derivado de data/processed/psplib/ pelo script src/modelo/01_derivar_parametros.py
+gerado_em: '2026-09-05T15:04:10'
+procedimento: serial SGS com prioridade por menor folga total; KOLISCH, R. EJOR v.90
+  n.2 p.320-333, 1996
+n_agentes:
+  valor: 6
+  condicao: derivado
+  fonte: media do p90 de tarefas simultaneas no escalonamento de referencia
+  estatisticas:
+    media_das_medias: 3.9881
+    media_do_p90: 6.3138
+    media_do_maximo: 7.6042
+    faixa_do_maximo:
+    - 3
+    - 16
+  varredura:
+  - 4
+  - 6
+  - 9
+horizonte_maximo_fator:
+  valor: 9
+  condicao: derivado
+  fonte: razao makespan_recursos/CPM maxima multiplicada por 1/mu_minimo^2
+  razao_maxima_observada: 2.5849
+  inflacao_por_produtividade: 3.3058
+escala_pressao:
+  valor: 1.8499
+  condicao: derivado
+  fonte: p90 da razao makespan_recursos/CPM
+  razao_mediana: 1.0554
+  razao_media: 1.2337

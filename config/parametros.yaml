@@ -1,0 +1,186 @@
+# =====================================================================
+# parametros.yaml — fonte única de verdade dos parâmetros do modelo
+# =====================================================================
+# Nenhum valor numérico deve ser embutido no código do simulador.
+# Toda alteração aqui é uma alteração metodológica e deve constar do
+# registro de decisões.
+#
+# campo `condicao`:
+#   calibrado  — estimado empiricamente nesta fase, com incerteza reportada
+#   literatura — valor ou forma vindos de fonte publicada
+#   tcc1       — fixado na fase conceitual
+#   premissa   — arbitrado por nós; exige análise de sensibilidade
+#   aberto     — sem base para arbitrar; varrido, nunca reportado como estimativa
+# =====================================================================
+
+versao: "1.0"
+semente_padrao: 20260905
+
+# ---------------------------------------------------------------------
+# 1. RISCO BASAL — vem da calibração NASA
+# ---------------------------------------------------------------------
+risco:
+  razoes_de_risco:
+    valor: { baixa: 1.000, media: 1.935, alta: 2.367, muito_alta: 2.985 }
+    ic95:
+      media:      [1.758, 2.599]
+      alta:       [1.720, 3.229]
+      muito_alta: [1.878, 4.156]
+    condicao: calibrado
+    fonte: "outputs/tables/psplib_03_razoes_de_risco.csv; bootstrap por projeto, 4.000 réplicas"
+    unidade: adimensional
+
+  F_ancora:
+    valor: 0.10
+    varredura: [0.05, 0.10, 0.15, 0.20, 0.25]
+    condicao: aberto
+    fonte: "taxa basal de retrabalho do domínio de engenharia; não estimada neste trabalho"
+    nota: "Nenhum resultado pode ser reportado como absoluto enquanto este valor for arbitrado."
+
+  R_error:
+    valor: 0.15
+    varredura: [0.05, 0.15, 0.30]
+    condicao: aberto
+    fonte: "taxa de erro adicional sob degradação cognitiva; equação (4) do TCC I"
+
+# ---------------------------------------------------------------------
+# 2. DIFICULDADE DA TAREFA — vem do índice Di
+# ---------------------------------------------------------------------
+dificuldade:
+  pesos_Di:
+    valor: { duracao: 0.3333, recursos: 0.3333, criticidade: 0.3334 }
+    varredura_alternativa:
+      criticidade_reduzida: { duracao: 0.40, recursos: 0.40, criticidade: 0.20 }
+      duracao_dominante:    { duracao: 0.60, recursos: 0.20, criticidade: 0.20 }
+      recursos_dominante:   { duracao: 0.20, recursos: 0.60, criticidade: 0.20 }
+    condicao: premissa
+    fonte: "Guia Metodológico; menor correlação de ordenação entre esquemas: 0,847"
+
+# ---------------------------------------------------------------------
+# 3. AGENTES
+# ---------------------------------------------------------------------
+agentes:
+  n_agentes:
+    valor: 6
+    varredura: [3, 6, 10]
+    condicao: aberto
+    fonte: "sem base empírica; o J60 não especifica equipe"
+
+  b_inicial:      { valor: 1.00, condicao: premissa, fonte: "bateria plena no início" }
+  b_min:          { valor: 0.05, condicao: premissa, fonte: "piso numérico; evita divisão por zero na equação (1)" }
+  k_analitico:    { valor: 0.04, varredura: [0.02, 0.04, 0.08], condicao: aberto,
+                    fonte: "drenagem por período em modo analítico" }
+  k_heuristico:   { valor: 0.10, varredura: [0.06, 0.10, 0.16], condicao: aberto,
+                    fonte: "drenagem em modo heurístico; TCC I exige > k_analitico" }
+  r_recuperacao:  { valor: 0.06, varredura: [0.03, 0.06, 0.12], condicao: aberto,
+                    fonte: "recuperação por período de descanso" }
+  competencia_inicial:
+    valor: { media: 0.55, desvio: 0.12 }
+    condicao: premissa
+    fonte: "distribuição inicial de competência na equipe"
+
+  tau_sat:        { valor: 1.00, varredura: [0.7, 1.0, 1.4], condicao: aberto,
+                    fonte: "limiar de saturação da atenção; equação (1) do TCC I" }
+  s_transicao:    { valor: 0.25, varredura: [0.01, 0.25, 0.60], condicao: aberto,
+                    fonte: "escala da transição estocástica; s→0 recupera o limiar determinístico" }
+
+# ---------------------------------------------------------------------
+# 4. GESTOR E PRESSÃO
+# ---------------------------------------------------------------------
+gestor:
+  P_min:   { valor: 0.30, condicao: premissa, fonte: "pressão de base" }
+  P_max:   { valor: 1.00, condicao: premissa, fonte: "pressão máxima" }
+  omega:   { valor: 0.50, condicao: premissa,
+             fonte: "restrição orçamentária; IGUAL nos dois cenários, é controle experimental" }
+  limite_aversao_perda:
+    valor: 0.60
+    varredura: [0.40, 0.60, 0.80]
+    condicao: aberto
+    fonte: "Porta 1 do TCC I; acima deste valor o agente foge em vez de omitir"
+
+# ---------------------------------------------------------------------
+# 5. RETRABALHO
+# ---------------------------------------------------------------------
+retrabalho:
+  f_corrup:      { valor: 0.10, varredura: [0.05, 0.10, 0.20], condicao: aberto,
+                   fonte: "Porta 1 do TCC I; parcela de (E − τ_sat) injetada em S_UR" }
+  f_retrabalho:  { valor: 0.50, varredura: [0.30, 0.50, 0.80], condicao: aberto,
+                   fonte: "duração do retrabalho como fração da duração original" }
+  p_deteccao:    { valor: 0.05, condicao: aberto,
+                   fonte: "probabilidade por período de a dívida oculta ser detectada" }
+
+# ---------------------------------------------------------------------
+# 6. SISTEMA DIFUSO
+# ---------------------------------------------------------------------
+fuzzy:
+  vertices_triangulares:
+    valor: { baixa: [0.0, 0.0, 0.5], media: [0.0, 0.5, 1.0], alta: [0.5, 1.0, 1.0] }
+    condicao: premissa
+    fonte: "TCC I especifica pertinências triangulares; os vértices são decisão nossa"
+  consequentes:
+    valor: { baixo: 0.30, medio: 0.65, alto: 0.95 }
+    condicao: premissa
+    fonte: "níveis de saída dos multiplicadores; nunca zero, que anularia a produtividade"
+  mu_minimo:
+    valor: 0.55
+    varredura: [0.40, 0.55, 0.70]
+    condicao: aberto
+    fonte: "piso do multiplicador de produtividade; ver ACHADO 5 em src/modelo/simulador.py"
+    nota: "a saida difusa e reescalada para [mu_minimo, 1]; condicao ideal nao penaliza"
+  t_norma:
+    valor: "produto"
+    varredura: ["produto", "minimo"]
+    condicao: literatura
+    fonte: >-
+      VAN BROEKHOVEN, E.; DE BAETS, B. Only Smooth Rule Bases Can Generate
+      Monotone Mamdani-Assilian Models Under Center-of-Gravity Defuzzification.
+      IEEE Transactions on Fuzzy Systems, v. 17, n. 5, p. 1157-1174, out. 2009.
+      DOI 10.1109/TFUZZ.2009.2023328. Tabela IX, linha 4: para m = 2 entradas,
+      a monotonicidade sob defuzzificacao por centroide so e garantida com a
+      t-norma PRODUTO e base de regras monotona e suave. O TCC I especifica
+      max-min (t-norma minimo), configuracao que NAO consta da tabela e para a
+      qual a monotonicidade nao e garantida - e de fato falha. Ver ACHADO 8.
+    nota: "'minimo' reproduz a especificacao do TCC I e e mantido para varredura"
+  particao_saida:
+    valor: "uniforme"
+    varredura: ["uniforme", "centros_declarados"]
+    condicao: literatura
+    fonte: >-
+      Secao II do mesmo artigo exige que os termos de saida formem PARTICAO
+      DIFUSA (soma das pertinencias igual a 1 em todo o dominio), premissa dos
+      teoremas. Os conjuntos originais (centros 0,30/0,65/0,95 com meia-base
+      0,30) somam entre 0 e 1 e nao constituem particao.
+    nota: >-
+      'uniforme' e a particao de tres termos em [0,1] com nucleos em 0, 0,5 e 1;
+      dispensa 'consequentes' e 'largura_saida', que deixam de ser premissas
+  inferencia:      { valor: "mamdani-assilian, agregacao por maximo", condicao: tcc1, fonte: "TCC I, seção 4.4.2 (t-norma revista: ver fuzzy.t_norma)" }
+  defuzzificacao:  { valor: "centroide", condicao: premissa, fonte: "método usual; saída contínua" }
+
+# ---------------------------------------------------------------------
+# 7. EXECUÇÃO
+# ---------------------------------------------------------------------
+execucao:
+  horizonte_maximo_fator: { valor: 5, condicao: premissa,
+                            fonte: "múltiplo do makespan do CPM; evita laço infinito" }
+  politica_atribuicao:    { valor: "maior_Di_para_maior_C",
+                            alternativas: ["aleatoria", "menor_folga_primeiro"],
+                            condicao: premissa,
+                            fonte: "heurística gulosa; não é objeto de estudo, mas precisa ser explícita" }
+  replicacoes:            { valor: 30, condicao: premissa,
+                            fonte: "número de execuções por cenário para a comparação" }
+
+# ---------------------------------------------------------------------
+# 8. CENÁRIOS — só variam parâmetros organizacionais
+# ---------------------------------------------------------------------
+# Conforme a Tabela 5.1 do TCC I, P(t) e D_i são IDÊNTICOS entre cenários.
+cenarios:
+  centralizada:
+    tau_inicial:  { valor: 0.25, condicao: premissa, fonte: "confiança mútua baixa" }
+    tau_min:      { valor: 0.60, condicao: premissa, fonte: "limiar alto para conceder ajuda" }
+    p_reporte:    { valor: 0.15, condicao: premissa, fonte: "ocultação/adiamento (matriz de cenários)" }
+    p_deteccao:   { valor: 0.03, condicao: premissa, fonte: "segurança psicológica restrita" }
+  adaptativa:
+    tau_inicial:  { valor: 0.80, condicao: premissa, fonte: "confiança mútua alta" }
+    tau_min:      { valor: 0.25, condicao: premissa, fonte: "limiar baixo para conceder ajuda" }
+    p_reporte:    { valor: 0.75, condicao: premissa, fonte: "reporte imediato (matriz de cenários)" }
+    p_deteccao:   { valor: 0.12, condicao: premissa, fonte: "segurança psicológica elevada" }

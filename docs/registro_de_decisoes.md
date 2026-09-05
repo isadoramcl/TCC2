@@ -351,6 +351,7 @@ ainda mais forte (z = 34,3).
 | `src/psplib/01_auditar_j60.py` | auditoria do J60, reconstrução de NC/RF/RS | concluído, verificações OK |
 | `src/psplib/02_indice_dificuldade.py` | CPM, índice `Di` e níveis ordinais | concluído, verificações OK |
 | `src/psplib/03_transferencia_ordinal.py` | razões de risco NASA → J60 | concluído, verificações OK |
+| `src/psplib/04_figuras.py` | figuras do bloco PSPLIB | concluído |
 
 Entrega ao orientador: `docs/entrega1_metodologia_resultados_iniciais.docx`.
 
@@ -641,3 +642,348 @@ se fosse dado.
 dificuldade é transferível entre domínios, ainda que o nível não seja. É
 suposição, não resultado. É mais fraca do que supor equivalência métrica direta —
 que os dados não sustentam — mas não é vazia e deve ser declarada explicitamente.
+
+
+---
+
+## 14. Entrega 1 — estado final
+
+`[DECISÃO]` A entrega foi segurada até que o arco NASA → J60 estivesse fechado.
+Justificativa: até a seção 11, o documento mostrava duas bases auditadas
+separadamente; ele não mostrava as duas **ligadas**, que é a contribuição do
+trabalho. Com as seções 12 e 13 concluídas, a entrega passa de "auditei duas
+bases" para "liguei uma à outra, com incerteza quantificada".
+
+`[DECISÃO]` A Figura 1 do documento (arquitetura) foi redesenhada. A versão
+anterior exibia apenas o ramo NASA; mantê-la descreveria um sistema que não é
+mais o sistema construído. A nova figura mostra os dois ramos e o ponto de
+convergência.
+
+`[ACHADO]` Revisão posterior identificou duas lacunas, ambas apontadas pela
+autora: (i) o documento não exibia **nenhuma fórmula**, apenas descrições em
+prosa; (ii) mais grave, não apresentava a **formulação do modelo de simulação**,
+embora o modelo da entrega exija explicitamente "Projeto e Arquitetura:
+modelagem teórica da solução". A seção 1.3 descrevia a arquitetura do *pipeline*
+de dados, não a do modelo.
+
+`[DECISÃO]` As equações foram escritas com símbolos Unicode em texto formatado, e
+não com o suporte a OMML do gerador. Motivo: a renderização OMML saiu vazia na
+verificação, e sem poder testar no Word o risco de entregar fórmulas invisíveis
+não compensava. Unicode renderiza de forma idêntica em qualquer editor.
+
+`[DECISÃO]` A formulação do modelo foi recuperada do TCC I (seção 4.4) e
+reapresentada como equações (1) a (5); o instrumental de calibração ocupa as
+equações (6) a (19). Acrescentou-se a seção **1.7 — Pontos de acoplamento**,
+que identifica os dois lugares exatos onde os resultados desta entrega entram no
+modelo:
+
+- o índice `Dᵢ` da equação (17) é a grandeza do numerador da equação (1),
+  o esforço cognitivo exigido;
+- o risco basal `F_base` da equação (19) é o termo da equação de falhas (4),
+  que governa a válvula do estoque de retrabalho oculto.
+
+Antes desta etapa, ambos seriam parâmetros arbitrados. É esse acoplamento que
+define o escopo da entrega e justifica tê-la segurado até aqui.
+
+Conteúdo final do documento `docs/entrega1_metodologia_resultados_iniciais.docx`:
+17 páginas, 6 figuras, 4 tabelas, 19 equações numeradas, 13 referências.
+
+| seção | conteúdo |
+|---|---|
+| 1.1–1.4 | metodologia: classificação, materiais, processo, procedimentos |
+| 1.5 | modelagem do sistema: agentes, equações (1)–(5), árvore de decisão |
+| 1.6 | instrumental de calibração: equações (6)–(19) |
+| 1.7 | pontos de acoplamento entre a calibração e o modelo |
+| 2.1 | arquitetura (Figura 1) |
+| 2.2 | indicadores dos ensaios (Tabela 1, 17 linhas) |
+| 2.3 | discussão: qualidade dos dados, fidelidade da base, complexidade × tamanho (Figuras 2, 3 e 4) |
+| 2.4 | caracterização do J60 (Tabela 2) |
+| 2.5 | índice `Di` (Figura 5) |
+| 2.6 | transferência ordinal (Tabela 3, Figura 6) |
+| 2.7 | cronograma (Tabela 4) |
+
+**Pendente para as etapas seguintes**, fora do escopo desta entrega: fixação da
+âncora `F_ancora` por dado do domínio; inferência difusa; simulador ABM +
+Dinâmica de Sistemas; ensaios de sensibilidade do modelo integrado; redação da
+monografia.
+
+---
+
+## 15. Métrica de retrabalho — defeito encontrado e corrigido (`ACHADO 6` e `ACHADO 7`)
+
+> Os números desta seção são **gerados a partir de**
+> `outputs/tables/modelo_03_experimento_bruto.csv` e
+> `outputs/tables/modelo_03_experimento_resumo.csv`, e não transcritos à mão.
+
+### 15.1 Como o problema apareceu
+
+No primeiro experimento pareado (16 instâncias × 12 sementes = 384 execuções),
+cinco das seis métricas favoreciam fortemente o cenário adaptativo. A sexta,
+`retrabalho_sobre_esforco`, movia-se em **sentido contrário**, com efeito pequeno
+e menos da metade dos pares favoráveis.
+
+`[DEC]` Um resultado isolado que contraria todos os demais é tratado como
+suspeita de defeito de medida até prova em contrário, e não como achado. A
+investigação confirmou o defeito.
+
+### 15.2 Defeito (i) — o termo de dívida latente era estruturalmente nulo
+
+A métrica era `(TR + S_UR) / (TW + TL + TU + TR)`. O laço de simulação só termina
+quando `divida_pendente` está vazia; logo `S_UR_final = 0` ao final de **384
+de 384** execuções (resíduo máximo 1.1e-13, compatível com erro de ponto
+flutuante). A métrica prometia somar dívida oculta e nunca somava nada:
+reduzia-se exatamente a `TR / esforço_realizado`.
+
+### 15.3 Defeito (ii) — o denominador era inflado pela disfunção sob estudo
+
+O esforço realizado inclui `TU`, o tempo ocioso ou bloqueado.
+
+| componente | centralizada | adaptativa |
+|---|---|---|
+| `TW` (trabalho) | 696,80 | 547,19 |
+| `TL` (aprendizado) | 0,00 | 10,49 |
+| `TU` (ocioso/bloqueado) | 126,27 | 5,94 |
+| `TR` (retrabalho) | **68,87** | **52,51** |
+| total realizado | 891,93 | 616,13 |
+
+O braço centralizado gasta 45% mais esforço total, quase todo
+improdutivo. Isso **dilui** seu retrabalho: ele parecia melhor na razão enquanto
+seu retrabalho **absoluto é 23,8% maior**. A razão invertia o sinal do
+efeito por artefato de auto-normalização — um cenário podia melhorar a métrica
+piorando o projeto.
+
+### 15.4 Correção
+
+`[DEC]` A base passa a ser o **esforço planejado** `E_plano = Σ_j duração_j`,
+propriedade da instância e portanto **idêntica nos dois braços** (verificado:
+`nunique == 1` em todos os pares; média 339,25 períodos). A razão só pode se
+mover pelo numerador.
+
+`[DEC]` A métrica conflacionada é substituída por duas, reportadas separadamente:
+
+    retrabalho_sobre_plano     = TR            / E_plano
+    divida_latente_sobre_plano = max_t S_UR(t) / E_plano
+
+A separação é **necessária**, não cosmética: os cenários diferem justamente em
+`p_reporte` (0,15 contra 0,75). O adaptativo converte dívida oculta em
+retrabalho visível; um agregado que soma as duas parcelas não distingue
+**conversão** de **redução**. Usa-se o **máximo** de `S_UR(t)`, e não o valor
+final, porque o final é nulo por construção — o que interessa é a exposição de
+pico.
+
+`retrabalho_sobre_esforco_realizado = TR / esforço_realizado` é mantida como
+**diagnóstico de eficiência alocativa** e explicitamente rotulada como tal.
+
+### 15.5 Efeito da correção
+
+| métrica | central. | adapt. | dif % | p (Wilcoxon) | d Cohen | % pares |
+|---|---|---|---|---|---|---|
+| `retrabalho_sobre_plano` | 0,2031 | 0,1545 | -23,9% | 2.38e-17 | -0,729 | 77,1% |
+| `divida_latente_sobre_plano` | 0,0741 | 0,0201 | -72,8% | 3.78e-33 | -2,046 | 98,4% |
+| `TR` (absoluto) | 68,87 | 52,51 | -23,8% | 3.08e-17 | -0,720 | 77,1% |
+| `TU` (absoluto) | 126,27 | 5,94 | -95,3% | 2.98e-33 | -2,252 | 99,5% |
+| `…_esforco_realizado` *(diagnóstico)* | 0,0770 | 0,0846 | 9,9% | 2.40e-04 | 0,288 | 39,6% |
+
+O sinal se inverte e passa a concordar com todas as demais métricas. A
+divergência remanescente do diagnóstico é agora **explicada pelo mecanismo**, e
+não uma anomalia.
+
+### 15.6 `ACHADO 7` — incompatibilidade de unidades na validação externa
+
+A verificação 9 comparava `retrabalho/esforço` (razão de **esforço**) contra a
+faixa de Love (razão de **custo sobre valor de contrato**). A seção 10.1 da
+especificação já recusava exatamente essa confusão ao descartar Love como base
+de `F_ancora`, e o teste a reintroduzia um parágrafo adiante.
+
+`[DEC]` O alvo passa a ser a referência medida na **mesma unidade**:
+
+> BOEHM, B.; BASILI, V. R. *Software Defect Reduction Top 10 List*. **Computer**,
+> v. 34, n. 1, p. 135-137, jan. 2001. DOI 10.1109/2.962984 — item 2: *"Current
+> software projects spend about 40 to 50 percent of their effort on avoidable
+> rework."*
+> `https://www.cs.umd.edu/~basili/publications/journals/J81.pdf`
+
+As cifras de Love são retidas como **piso de ordem de grandeza**, com a
+diferença de unidade declarada:
+
+> LOVE, P. E. D. et al. *Quantifying the Costs of Field Rework in Construction*.
+> **JCEM**, v. 152, n. 1, 2026. DOI 10.1061/JCEMD4.COENG-17026 — 0,38% do valor
+> de contrato (máx. 3,67%); 0,76% incluindo pós-conclusão (máx. 7,34%).
+> `https://ascelibrary.org/doi/10.1061/JCEMD4.COENG-17026`
+>
+> LOVE, P. E. D.; LI, H. *Quantifying the causes and costs of rework in
+> construction*. **Construction Management and Economics**, v. 18, n. 4,
+> p. 479-490, 2000 — 3,15% e 2,40%.
+
+Faixa admitida: **1% a 50% do esforço planejado**. Resultado corrente: mediana
+0,1913; **0 de 24** execuções fora da faixa.
+
+`[LIMITACAO]` **Este é um teste fraco e deve ser apresentado como tal.** A faixa
+cobre uma ordem e meia de grandeza porque as duas literaturas medem construtos
+diferentes (custo × esforço) em domínios diferentes (construção × software). Ele
+rejeita desalinhamento grosseiro e nada mais; não é confirmação empírica do
+modelo nem substitui calibração. A verificação 9c — dívida latente mediana > 0 —
+foi acrescentada para garantir que o estoque `S_UR` não volte a ficar inerte sem
+que um teste o detecte.
+
+### 15.7 Estado das verificações
+
+15 de 15 aprovadas (eram 14; a verificação 9 foi desdobrada em 9a, 9b e 9c).
+
+### 15.8 Figuras do experimento (`src/modelo/05_figuras_modelo.py`)
+
+| figura | conteúdo |
+|---|---|
+| `fig7_efeitos_pareados.png` | floresta de `d` de Cohen pareado, com IC 95% por bootstrap sobre os 192 pares (4000 réplicas); eixo orientado de modo que **negativo = vantagem do arranjo adaptativo** |
+| `fig8_decomposicao_esforco.png` | painel A: composição do esforço realizado contra a linha do esforço planejado; painel B: o **mesmo** retrabalho sob as duas bases, mostrando a inversão de sinal |
+| `fig9_trajetorias.png` | trajetórias médias de `S_UR`, `B(t)`, `P(t)` e `S_PV` nos dois braços, com faixa interquartil |
+
+`[DEC]` A fig7 reporta **tamanho de efeito com incerteza**, e não valor-p. Com
+192 pares, o valor-p não distingue diferença relevante de diferença apenas
+detectável — os IC bootstrap distinguem.
+
+`[DEC]` A fig8 existe para tornar o `ACHADO 6` **auditável pela banca**: mostra
+lado a lado a quantidade absoluta e as duas razões, de modo que a inversão de
+sinal possa ser conferida visualmente e não apenas aceita no texto.
+
+`[OBS]` A fig9 exibe graficamente o defeito (i): a curva de `S_UR` do braço
+centralizado sobe, atinge o pico e **drena até zero** antes do fim da execução.
+É a confirmação visual de que o valor final do estoque não carrega informação e
+de que o pico é a estatística correta.
+
+| IC 95% do `d` pareado (bootstrap, 4000 réplicas) | `d` | IC |
+|---|---|---|
+| tarefas concluídas com defeito | -2,400 | [-2,729; -2,136] |
+| taxa de omissão | -2,400 | [-2,729; -2,130] |
+| dívida latente de pico | -2,046 | [-2,306; -1,837] |
+| atraso relativo | -1,988 | [-2,224; -1,822] |
+| eficiência alocativa `E_total` | -1,901 | [-2,194; -1,661] |
+| retrabalho pago / plano | -0,729 | [-0,908; -0,563] |
+| *diagnóstico:* retrabalho / esforço realizado | 0,288 | [0,150; 0,433] |
+
+Nenhum intervalo cruza zero. Os seis primeiros favorecem o arranjo adaptativo; o
+sétimo é o diagnóstico cujo mecanismo está explicado em 15.3.
+
+---
+
+## 16. Monotonicidade do sistema difuso — teorema aplicável (`ACHADO 8` e `ACHADO 9`)
+
+### 16.1 O problema
+
+A saída do sistema difuso é um **multiplicador de produtividade**. Monotonicidade
+não é preferência estética: produtividade não pode SUBIR quando a fadiga ou a
+pressão sobem. A implementação fiel ao TCC I — Mamdani com inferência **Max-Min**,
+agregação por máximo e defuzzificação por centroide — apresentava regiões de
+derivada positiva.
+
+O refinamento de malha mostrou que o efeito é de **inclinação**, não de
+discretização: a violação escala linearmente com o passo e a razão converge para
+≈ 0,26. Ou seja, não desaparecia refinando a malha.
+
+Na ausência da fonte, a verificação havia sido escrita com um **invariante
+inventado por nós** — "a maior derivada positiva não pode alcançar metade da
+inclinação média da superfície". Era defensável, mas era um critério nosso.
+
+### 16.2 A fonte
+
+> VAN BROEKHOVEN, E.; DE BAETS, B. *Only Smooth Rule Bases Can Generate Monotone
+> Mamdani–Assilian Models Under Center-of-Gravity Defuzzification.* **IEEE
+> Transactions on Fuzzy Systems**, v. 17, n. 5, p. 1157-1174, out. 2009.
+> DOI 10.1109/TFUZZ.2009.2023328.
+> `https://ieeexplore.ieee.org/document/4957084/`
+
+A **Tabela IX** enumera as **cinco únicas** configurações de modelo
+Mamdani–Assilian sob defuzzificação por centroide para as quais a monotonicidade
+é garantida:
+
+| # | entradas `m` | t-norma | base de regras | exigência extra |
+|---|---|---|---|---|
+| 1 | 1 | mínimo `T_M` | monótona | consequentes não usam os termos extremos; intervalos de transição de igual comprimento |
+| 2 | 1 | produto `T_P` | monótona | — |
+| 3 | 1 | Łukasiewicz `T_L` | monótona | idem linha 1 |
+| 4 | **2** | **produto `T_P`** | **monótona e suave** | **—** |
+| 5 | 3 | produto `T_P` | monótona e suave | várias |
+
+Este sistema tem **duas** entradas. A combinação (`m = 2`, `T_M`) **não aparece
+na tabela**. O artigo conclui textualmente: *"when designing a monotone model
+with more than one input variable, one should opt for the product `T_P` and use
+a monotone smooth rule base"*.
+
+**A não-monotonicidade não era defeito de implementação nem ruído numérico: era
+o comportamento previsto pela teoria para a configuração que o TCC I escolheu.**
+
+### 16.3 Verificação das premissas do artigo, por código
+
+Duas premissas foram testadas em `_base_de_regras_monotona_e_suave()` e no
+autoteste de `fuzzy.py`, e não por inspeção visual:
+
+1. **Base de regras monótona (Def. 2.1) e suave (Def. 2.2).** A matriz 3×3
+   satisfaz ambas — as diferenças de índice de consequente entre regras vizinhas
+   são todas 0 ou +1. Esta condição **já era atendida**.
+2. **Termos de saída formando partição difusa** (Seção II do artigo, premissa
+   dos teoremas). Os conjuntos originais — centros 0,30 / 0,65 / 0,95 com
+   meia-base 0,30 — somam entre 0 e 1. **Não** constituem partição. Esta
+   condição **não era atendida**.
+
+### 16.4 `ACHADO 9` — erro de implementação revelado pela correção
+
+A implementação aplicava `mínimo` para modificar o consequente **qualquer que
+fosse a t-norma**. As equações (2), (5) e (6) do artigo usam a **mesma** t-norma
+`T` na conjunção do antecedente e na modificação do consequente:
+`A'_i(y) = T(α_i, A_i(y))`.
+
+Com `T_M` isso é truncamento, e coincidia com o que estava escrito — o erro era
+invisível. Com `T_P` é **escala**. Na primeira tentativa de troca, o produto
+reduziu a violação de 0,258 para 0,092 mas **não** a eliminou, o que contrariava
+o teorema; a discrepância levou à releitura das equações e à identificação do
+erro. Corrigido, a violação foi a zero. *O teorema funcionou como teste do
+código.*
+
+### 16.5 Medição — malha de 161 × 161 pontos
+
+| configuração | pior derivada positiva |
+|---|---|
+| `T_M` (mínimo) + conjuntos originais — **especificação do TCC I** | 0,258112 |
+| `T_P` (produto) + conjuntos originais | 0,000000 |
+| `T_M` (mínimo) + partição difusa | 0,420881 |
+| `T_P` (produto) + partição difusa — **Tabela IX, linha 4** | 0,000000 |
+
+### 16.6 Decisão
+
+`[DEC]` Adota-se a configuração da **linha 4 da Tabela IX**: t-norma **produto**
+e **partição difusa uniforme** na saída. A configuração do TCC I permanece
+disponível como `fuzzy.t_norma: minimo` e entra na varredura, de modo que a
+diferença seja **medida e não decretada**.
+
+`[DEC]` O critério do autoteste deixa de ser o invariante inventado por nós e
+passa a ser a **previsão do teorema**: derivada positiva nula. Medido:
+`2,7 × 10⁻¹⁴`, isto é, zero a menos do erro de ponto flutuante.
+
+`[DEC]` O autoteste também **exige que a configuração max-min viole** a
+monotonicidade (medido: 0,242085). Se algum dia não violar, o diagnóstico desta
+seção está errado e o teste falha — a troca de t-norma deixa de ser justificada.
+É um teste do raciocínio, não só do código.
+
+`[DEC]` A partição uniforme torna os centros de saída **estruturais** (núcleos em
+0, 0,5 e 1). Com isso `consequentes` e `largura_saida` **deixam de ser premissas
+numéricas** — dois parâmetros arbitrados a menos no inventário. A faixa bruta
+muda de [0,300; 0,867] para [0,165; 0,835], absorvida pelo reescalonamento para
+[μ_mín, 1] do `ACHADO 5`: o sistema difuso fornece a FORMA da degradação e a
+magnitude é parâmetro declarado.
+
+### 16.7 Efeito sobre os resultados
+
+Todas as conclusões do experimento se mantêm; as diferenças são de terceira casa.
+
+| métrica | antes (max-min) | depois (produto) |
+|---|---|---|
+| `retrabalho_sobre_plano` — variação | −23,9% (d = −0,724) | −23,9% (d = −0,729) |
+| `divida_latente_sobre_plano` — variação | −73,6% (d = −2,127) | −72,8% (d = −2,046) |
+| `atraso_relativo` — variação | −35,0% (d = −2,161) | −36,2% (d = −1,988) |
+| verificação 8a (dívida × pressão) | ρ = +0,900, p = 0,037 | **ρ = +1,000, p < 0,001** |
+| verificações aprovadas | 15 de 15 | 15 de 15 |
+
+`[OBS]` A robustez é ela própria um resultado a reportar: as conclusões sobre
+governança **não dependem** da escolha da t-norma. E a verificação 8a melhorou
+de ρ = 0,900 para ρ = 1,000 — com o sistema difuso exatamente monótono, a
+relação entre pressão e dívida técnica deixou de ter inversões locais.
