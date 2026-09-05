@@ -423,3 +423,50 @@ que soma as duas parcelas não distingue conversão de redução.
 consequência metodológica é que os resultados do simulador serão apresentados
 como comparação **entre cenários sob os mesmos parâmetros**, e não como previsão
 de valores absolutos.
+
+
+---
+
+## 11. Calibração e identificabilidade
+
+`[LIT]` **Procedimento:** History Matching com medida de implausibilidade e corte
+em 3 (Andrianakis et al., 2015; Pukelsheim, 1994). A saída é o conjunto **NROY**
+— não uma estimativa pontual.
+
+`[LIT]` **Validação do procedimento:** teste do **gêmeo idêntico** (McCulloch et
+al., 2022). Observações sintéticas são geradas de um vetor de parâmetros
+conhecido, com sementes disjuntas das do simulador, e verifica-se se a
+calibração o recupera.
+
+`[DEC]` History Matching **sem emulador**: o simulador custa 0,108 s por
+execução, e avaliá-lo diretamente elimina o termo de erro de emulação.
+
+### 11.1 Resultado
+
+Duas ondas de 400 pontos. **Aprovado**: NROY não vazio (115 pontos), contém o
+vetor verdadeiro nos cinco parâmetros calibrados, volume da caixa envolvente
+reduzido a 14,8% do a priori.
+
+### 11.2 O que os dados determinam — a reportar com honestidade
+
+| parâmetro | redução da largura marginal | veredito |
+|---|---|---|
+| `mu_minimo` | 70,3% | identificado |
+| `F_ancora` | 36,8% | parcialmente identificado |
+| `tau_sat` | 10,9% | **não identificado** |
+| `f_retrabalho` | 6,0% | **não identificado** |
+| `k_heuristico` | 5,8% | **não identificado** |
+
+`[ACHADO 10]` Crista de equifinalidade entre `F_ancora` e `f_retrabalho`
+(ρ = −0,840), com causa **estrutural**: os observáveis agregados só enxergam o
+produto `p_falha × f_retrabalho`. O produto tem redução de **74,7%**, contra
+36,8% e 6,0% dos fatores isolados.
+
+`[DEC]` Com dados reais, estimar o **produto** — esforço esperado de retrabalho
+por tarefa — e declarar a divisão entre frequência e severidade como não
+identificada.
+
+`[LIMITACAO]` O gêmeo idêntico tem `V_mod = 0`: o modelo é a verdade. O teste é
+otimista por construção. Falhar nele condenaria o procedimento; passar nele não
+garante desempenho com dados reais, onde a discrepância modelo-realidade precisa
+ser especificada. Registrar assim na entrega.

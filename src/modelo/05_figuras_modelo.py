@@ -330,3 +330,83 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+# =====================================================================
+def figura_10():
+    """NROY do History Matching: a crista e a identificabilidade."""
+    d = pd.read_csv(TAB / "modelo_04_hm_onda2.csv")
+    ident = pd.read_csv(TAB / "modelo_04_identificabilidade.csv")
+    ident = ident[ident["onda"] == "onda2"]
+    CORTE = 3.0
+    nroy = d[d["implausibilidade"] <= CORTE]
+    fora = d[d["implausibilidade"] > CORTE]
+    VF, VR = 0.180, 0.420          # vetor verdadeiro nos dois eixos da crista
+
+    fig, (ax, ax2) = plt.subplots(1, 2, figsize=(7.6, 3.9),
+                                  gridspec_kw={"width_ratios": [1.15, 1]})
+
+    # --- painel A: a crista ---
+    ax.grid(color=GRADE, linewidth=0.6, zorder=0)
+    ax.set_axisbelow(True)
+    ax.scatter(fora["risco.F_ancora"], fora["retrabalho.f_retrabalho"],
+               s=9, color=GRADE, zorder=2, label="descartado (I > 3)")
+    ax.scatter(nroy["risco.F_ancora"], nroy["retrabalho.f_retrabalho"],
+               s=13, color=AZUL, zorder=3, label="NROY (I ≤ 3)")
+    # hiperbole de produto constante passando pelo vetor verdadeiro
+    xx = np.linspace(0.05, 0.25, 300)
+    yy = (VF * VR) / xx
+    m = (yy >= 0.30) & (yy <= 0.80)
+    ax.plot(xx[m], yy[m], color=LARANJA, linewidth=1.6, zorder=4,
+            label="produto constante")
+    ax.plot([VF], [VR], "*", color=LARANJA, markersize=15, zorder=5,
+            markeredgecolor="white", markeredgewidth=0.8, label="vetor verdadeiro")
+    ax.set_xlabel("$F_{âncora}$  (frequência de defeito)", fontsize=8.4)
+    ax.set_ylabel("$f_{retrabalho}$  (severidade)", fontsize=8.4)
+    ax.set_xlim(0.05, 0.25); ax.set_ylim(0.30, 0.80)
+    ax.legend(fontsize=6.9, frameon=False, loc="upper right", handlelength=1.2,
+              labelspacing=0.3, borderaxespad=0.2)
+    ax.set_title("A. crista de equifinalidade  (ρ = −0,84)", fontsize=9.0,
+                 loc="left", pad=8)
+
+    # --- painel B: reducao marginal ---
+    rot = {"risco.F_ancora": "$F_{âncora}$",
+           "retrabalho.f_retrabalho": "$f_{retrabalho}$",
+           "agentes.tau_sat": r"$\tau_{sat}$",
+           "agentes.k_heuristico": "$k_{heurístico}$",
+           "fuzzy.mu_minimo": r"$\mu_{mín}$"}
+    linhas = [(rot[r.parametro], r.reducao) for r in ident.itertuples()]
+    linhas.append(("$F_{âncora}\\times f_{retrabalho}$", 0.747))
+    linhas.sort(key=lambda t: t[1])
+    y = np.arange(len(linhas))
+    cores = [LARANJA if v < 0.25 else (AZUL if v >= 0.50 else "#8fbdf0")
+             for _, v in linhas]
+    ax2.grid(axis="x", color=GRADE, linewidth=0.6, zorder=0)
+    ax2.set_axisbelow(True)
+    ax2.barh(y, [v for _, v in linhas], 0.6, color=cores, zorder=3)
+    for yi, (_, v) in zip(y, linhas):
+        ax2.text(v + 0.015, yi, f"{v:.0%}", va="center", fontsize=7.4,
+                 color=TINTA2)
+    ax2.axvline(0.25, color=TINTA2, linewidth=1.0, linestyle="--", zorder=4)
+    ax2.axvline(0.50, color=TINTA2, linewidth=1.0, linestyle=":", zorder=4)
+    ax2.set_yticks(y)
+    ax2.set_yticklabels([n for n, _ in linhas], fontsize=8.2)
+    ax2.set_xlabel("redução da largura marginal do NROY", fontsize=8.4)
+    ax2.set_xlim(0, 1.0)
+    ax2.set_title("B. identificabilidade", fontsize=9.0, loc="left", pad=8)
+    ax2.text(0.265, 1.0, "não identificado\nà esquerda de 25%",
+             fontsize=6.8, color=TINTA2, va="center", linespacing=1.3)
+    ax2.text(0.515, 3.0, "identificado\nà direita de 50%",
+             fontsize=6.8, color=TINTA2, va="center", linespacing=1.3)
+
+    fig.suptitle("Calibração por History Matching — o que os dados determinam",
+                 fontsize=10.2, x=0.005, ha="left", y=1.045)
+    fig.text(0.005, 0.982, "400 pontos da onda 2; corte de implausibilidade 3 "
+                           "(Pukelsheim, 1994). O NROY contém o vetor verdadeiro "
+                           "em todos os cinco parâmetros.\nA divisão entre "
+                           "frequência e severidade não é identificável — só o "
+                           "produto é.",
+             fontsize=7.4, color=TINTA2, ha="left", va="top", linespacing=1.35)
+    fig.tight_layout(rect=[0, 0, 1, 0.935])
+    fig.savefig(FIG / "fig10_nroy_identificabilidade.png", bbox_inches="tight")
+    plt.close(fig)

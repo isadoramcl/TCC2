@@ -987,3 +987,144 @@ Todas as conclusões do experimento se mantêm; as diferenças são de terceira 
 governança **não dependem** da escolha da t-norma. E a verificação 8a melhorou
 de ρ = 0,900 para ρ = 1,000 — com o sistema difuso exatamente monótono, a
 relação entre pressão e dívida técnica deixou de ter inversões locais.
+
+---
+
+## 17. Calibração e teste do gêmeo idêntico (`src/modelo/04_gemeo_identico.py`)
+
+Responde às duas perguntas que a banca fará sobre qualquer modelo com parâmetros
+não observados: **existe procedimento de calibração?** e **há evidência de que
+ele funcione?** Sem a segunda, a primeira é só um algoritmo rodando.
+
+### 17.1 Método e fontes
+
+`[LIT]` **History Matching.** Em vez de buscar um ponto ótimo, descarta-se do
+espaço de parâmetros tudo o que é implausível à luz dos dados. A saída é um
+conjunto — o **NROY** (*Not Ruled Out Yet*) — e não uma estimativa pontual.
+
+> ANDRIANAKIS, I. et al. *Bayesian History Matching of Complex Infectious Disease
+> Models Using Emulation: A Tutorial and a Case Study on HIV in Uganda.*
+> **PLoS Computational Biology**, v. 11, n. 1, e1003968, 2015.
+> DOI 10.1371/journal.pcbi.1003968
+> `https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003968`
+
+`[LIT]` **Gêmeo idêntico e identificabilidade em modelos baseados em agentes.**
+
+> McCULLOCH, J.; GE, J.; WARD, J. A.; HEPPENSTALL, A.; POLHILL, J. G.;
+> MALLESON, N. *Calibrating Agent-Based Models Using Uncertainty Quantification
+> Methods.* **JASSS**, v. 25, n. 2, artigo 1, 2022. DOI 10.18564/jasss.4791
+> `https://www.jasss.org/25/2/1.html`
+
+`[LIT]` **Corte de implausibilidade em 3.** Pela desigualdade de
+Vysochanskii–Petunin, para qualquer distribuição unimodal ao menos 95% da massa
+está a menos de três desvios da média — descartar `I > 3` raramente descarta o
+verdadeiro. Não é número escolhido por nós.
+
+> PUKELSHEIM, F. *The Three Sigma Rule.* **The American Statistician**, v. 48,
+> n. 2, p. 88-91, 1994. DOI 10.1080/00031305.1994.10476030
+> `https://www.tandfonline.com/doi/abs/10.1080/00031305.1994.10476030`
+
+    I_j(x) = | z_j − f̄_j(x) | / sqrt( V_obs,j + V_sim,j + V_mod,j )
+    I(x)   = max_j I_j(x)        x ∈ NROY  ⟺  I(x) ≤ 3
+
+### 17.2 Decisões de desenho
+
+`[DEC]` **History Matching sem emulador.** O emulador existe para substituir um
+simulador caro; o nosso custa 0,108 s por execução e o desenho completo (3.200
+execuções) roda em minutos. Avalia-se o simulador **diretamente**, o que
+**elimina** o termo de erro de emulação da implausibilidade — uma aproximação a
+menos, não uma a mais. Se o modelo crescer a ponto de encarecer, o emulador entra
+sem alterar o restante do procedimento.
+
+`[DEC]` **Cinco dos treze parâmetros `[ABERTO]`**, escolhidos por terem efeito
+direto sobre grandezas que um projeto real reporta. Calibrar treze parâmetros
+contra quatro observáveis seria garantir não-identificabilidade por construção.
+Os outros oito permanecem premissa declarada, e isso é dito, não omitido.
+
+| calibrados | observáveis |
+|---|---|
+| `F_ancora`, `f_retrabalho`, `tau_sat`, `k_heuristico`, `mu_minimo` | `taxa_omissao`, `atraso_relativo`, `retrabalho_sobre_plano`, `E_total` |
+
+`[DEC]` **Vetor verdadeiro deliberadamente fora do centro das faixas.** Um gêmeo
+cujo alvo esteja no meio do espaço é fácil demais e não testa as bordas.
+
+`[DEC]` **Sementes das observações (100–109) disjuntas das do simulador (0–3).**
+Sem isso o teste compararia ruído idêntico consigo mesmo e passaria trivialmente.
+
+`[LIMITACAO]` **`V_mod = 0` neste teste, e isso é decisivo.** No gêmeo idêntico o
+modelo **é** a verdade: não há discrepância entre modelo e realidade. O teste é
+portanto **otimista por construção** — mede se o procedimento identifica
+parâmetros no melhor cenário concebível. Falhar aqui condenaria o procedimento;
+passar aqui **não** garante que ele funcione com dados reais, onde `V_mod > 0` e
+precisa ser especificado. Apresentar assim na entrega.
+
+### 17.3 Resultado — o teste passa
+
+Duas ondas de 400 pontos por hipercubo latino; a onda 2 amostra dentro da caixa
+envolvente do NROY da onda 1.
+
+| | onda 1 | onda 2 |
+|---|---|---|
+| pontos avaliados | 400 | 400 |
+| NROY | 40 (10,0%) | 115 (28,75%) |
+| implausibilidade mediana | 8,392 | 4,479 |
+
+| critério | resultado |
+|---|---|
+| NROY não vazio | **OK** (115 pontos) |
+| NROY contém o vetor verdadeiro nos **cinco** parâmetros | **OK** |
+| o espaço foi efetivamente reduzido | **OK** (volume da caixa: 14,8% do a priori) |
+
+### 17.4 Identificabilidade — o que os dados realmente determinam
+
+`[DEC]` Critério: redução da largura marginal do NROY em relação à faixa a
+priori. Abaixo de 25%, a calibração praticamente não informou o parâmetro e ele é
+reportado como **não identificado**, não como "estimado". Apresentar como
+resultado um número que os dados não sustentam seria vender artefato de desenho
+como achado.
+
+| parâmetro | redução | veredito |
+|---|---|---|
+| `fuzzy.mu_minimo` | 70,3% | identificado |
+| `risco.F_ancora` | 36,8% | parcialmente identificado |
+| `agentes.tau_sat` | 10,9% | **não identificado** |
+| `retrabalho.f_retrabalho` | 6,0% | **não identificado** |
+| `agentes.k_heuristico` | 5,8% | **não identificado** |
+
+### 17.5 `ACHADO 10` — a crista tem explicação estrutural, e ela é útil
+
+A correlação de Spearman **dentro** do NROY revelou uma crista forte:
+
+    risco.F_ancora  ×  retrabalho.f_retrabalho     rho = −0,840
+
+Não é acidente amostral. O esforço de retrabalho gerado por tarefa é, em
+esperança, `p_falha × f_retrabalho × duração`, e `p_falha` é proporcional a
+`F_ancora`. **Os observáveis agregados só enxergam o produto.** Separar
+frequência de severidade exigiria observar a taxa de defeito e o custo unitário
+de correção separadamente — dado que o desenho atual não contém.
+
+Hipótese testada, e confirmada:
+
+| grandeza | verdade | NROY | redução |
+|---|---|---|---|
+| `F_ancora` | 0,1800 | [0,1118; 0,2383] | 36,8% |
+| `f_retrabalho` | 0,4200 | [0,3036; 0,7737] | 6,0% |
+| **`F_ancora × f_retrabalho`** | **0,0756** | **[0,0572; 0,1041]** | **74,7%** |
+
+O **produto** é muito mais bem determinado do que qualquer um dos fatores.
+
+`[DEC]` **Recomendação para a calibração com dados reais:** tratar o produto como
+o parâmetro a estimar — um "esforço esperado de retrabalho por tarefa" — e
+declarar a divisão entre frequência e severidade como não identificada, em vez de
+reportar dois números que os dados não sustentam.
+
+`[OBS]` As larguras marginais praticamente não mudaram da onda 1 para a onda 2.
+As ondas **convergiram**: uma terceira não reduziria o espaço, porque o limite é
+**identificabilidade estrutural** e não tamanho de amostra. Isso é o oposto de um
+problema — é o método informando corretamente onde está o teto.
+
+### 17.6 Figura
+
+`fig10_nroy_identificabilidade.png` — painel A: a crista, com a hipérbole de
+produto constante passando pelo vetor verdadeiro; painel B: redução marginal por
+parâmetro, com os cortes de 25% e 50%.

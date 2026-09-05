@@ -1,0 +1,113 @@
+==============================================================================
+CALIBRACAO POR HISTORY MATCHING E TESTE DO GEMEO IDENTICO
+Execucao: 2026-09-05T19:51:41
+==============================================================================
+
+Parametros calibrados : 5 dos 13 [ABERTO]
+Observaveis           : 4
+Cenario               : adaptativa   instancias: 2
+Corte de implausibilidade: 3.0  (Pukelsheim, 1994)
+
+Vetor verdadeiro (desconhecido do procedimento):
+  risco.F_ancora               0.1800
+  retrabalho.f_retrabalho      0.4200
+  agentes.tau_sat              0.8500
+  agentes.k_heuristico         0.1350
+  fuzzy.mu_minimo              0.6200
+
+Observacoes sinteticas (sementes 100-109, disjuntas das do simulador):
+  taxa_omissao               z = 0.1033   dp da media = 0.00711
+  atraso_relativo            z = 1.5767   dp da media = 0.01321
+  retrabalho_sobre_plano     z = 0.1972   dp da media = 0.00867
+  E_total                    z = 0.8596   dp da media = 0.00383
+
+==============================================================================
+ONDA1 — 400 pontos avaliados
+==============================================================================
+  NROY: 40 pontos (10.0% do desenho)
+  implausibilidade — min 0.627   mediana 8.392   max 30.774
+
+  parametro                     verdade  NROY min  NROY max  largura   prior  reducao  contem
+  risco.F_ancora                 0.1800    0.1108    0.2429   0.1321  0.2000   34.0%     sim
+  retrabalho.f_retrabalho        0.4200    0.3032    0.7886   0.4855  0.5000    2.9%     sim
+  agentes.tau_sat                0.8500    0.7507    1.3767   0.6260  0.7000   10.6%     sim
+  agentes.k_heuristico           0.1350    0.0609    0.1585   0.0976  0.1000    2.4%     sim
+  fuzzy.mu_minimo                0.6200    0.5779    0.6710   0.0931  0.3000   69.0%     sim
+
+==============================================================================
+ONDA2 — 400 pontos avaliados
+==============================================================================
+  NROY: 115 pontos (28.7% do desenho)
+  implausibilidade — min 0.887   mediana 4.479   max 18.694
+
+  parametro                     verdade  NROY min  NROY max  largura   prior  reducao  contem
+  risco.F_ancora                 0.1800    0.1118    0.2383   0.1265  0.2000   36.8%     sim
+  retrabalho.f_retrabalho        0.4200    0.3036    0.7737   0.4700  0.5000    6.0%     sim
+  agentes.tau_sat                0.8500    0.7515    1.3753   0.6238  0.7000   10.9%     sim
+  agentes.k_heuristico           0.1350    0.0612    0.1554   0.0942  0.1000    5.8%     sim
+  fuzzy.mu_minimo                0.6200    0.5807    0.6697   0.0890  0.3000   70.3%     sim
+
+==============================================================================
+VEREDITO DO TESTE DO GEMEO IDENTICO
+==============================================================================
+  1. NROY nao vazio                          : OK  (115 pontos)
+  2. NROY contem o vetor verdadeiro em todos : OK
+  3. o espaco foi efetivamente reduzido      : OK  (28.7% do desenho sobrevive)
+
+==============================================================================
+IDENTIFICABILIDADE — quais parametros os dados determinam
+==============================================================================
+  `[DEC]` Criterio: reducao da largura marginal do NROY em relacao a
+  faixa a priori. Abaixo de 25% a calibracao praticamente nao informou
+  o parametro, e ele deve ser reportado como NAO identificado — nao
+  como 'estimado'. Esconder isso seria apresentar como resultado o que
+  e artefato do desenho.
+
+  risco.F_ancora               reducao  36.8%   parcialmente identificado
+  retrabalho.f_retrabalho      reducao   6.0%   NAO identificado
+  agentes.tau_sat              reducao  10.9%   NAO identificado
+  agentes.k_heuristico         reducao   5.8%   NAO identificado
+  fuzzy.mu_minimo              reducao  70.3%   identificado
+
+  Equifinalidade — correlacao de Spearman DENTRO do NROY.
+  Correlacao alta indica crista: combinacoes distintas de parametros
+  produzem a mesma saida, e nenhum dos dois e identificavel sozinho.
+    risco.F_ancora               x retrabalho.f_retrabalho      rho = -0.840  <-- crista
+    retrabalho.f_retrabalho      x fuzzy.mu_minimo              rho = -0.186
+    agentes.tau_sat              x agentes.k_heuristico         rho = +0.143
+    retrabalho.f_retrabalho      x agentes.tau_sat              rho = +0.132
+
+==============================================================================
+REPARAMETRIZACAO SUGERIDA PELA CRISTA
+==============================================================================
+  `[ACHADO 10]` A crista entre F_ancora e f_retrabalho nao e acidente
+  amostral: e consequencia da ESTRUTURA do modelo. O esforco de
+  retrabalho gerado por tarefa e, em esperanca,
+
+      E[retrabalho por tarefa] ~ p_falha x f_retrabalho x duracao
+
+  e p_falha e proporcional a F_ancora. Os observaveis agregados so veem
+  o PRODUTO. Separar os dois fatores exigiria observar a taxa de defeito
+  e o custo unitario de correcao SEPARADAMENTE — dado que o desenho
+  atual nao contem. E nao-identificabilidade ESTRUTURAL, nao falta de
+  amostra: por isso as ondas 1 e 2 produzem larguras quase iguais.
+
+  grandeza                            verdade  NROY min  NROY max  reducao
+  risco.F_ancora                       0.1800    0.1118    0.2383   36.8%
+  retrabalho.f_retrabalho              0.4200    0.3036    0.7737    6.0%
+  F_ancora x f_retrabalho (produto)    0.0756    0.0572    0.1041   74.7%
+
+  O PRODUTO e mais bem determinado do que qualquer um dos fatores.
+  `[DEC]` Recomendacao para a calibracao com dados reais: tratar o
+  produto como o parametro a estimar e declarar a divisao entre
+  frequencia e severidade como NAO identificada, em vez de reportar
+  dois numeros que os dados nao sustentam.
+
+  Volume da caixa envolvente do NROY sobre o volume a priori: 0.1480
+  Larguras onda 1 -> onda 2 praticamente estaveis: as ondas CONVERGIRAM.
+  Uma terceira onda nao reduziria o espaco — o limite e a
+  identificabilidade estrutural, nao o tamanho da amostra.
+
+==============================================================================
+RESULTADO: APROVADO
+==============================================================================
