@@ -29,7 +29,7 @@ data/
 │   ├── nasa_promise/         versões brutas do repositório PROMISE (10 arquivos)
 │   ├── nasa_dp_reference/    versão D' — usada para validar o D'' (13 arquivos)
 │   ├── nasa_dpp_reference/   versão D'' — base de análise (13 arquivos)
-│   └── psplib/               instâncias J60 (etapa posterior)
+│   └── psplib/               480 instâncias do PSPLIB J60
 └── processed/                bases derivadas, geradas exclusivamente por código
     ├── nasa/
     └── psplib/
@@ -137,10 +137,67 @@ achados e justificativas.
 | `src/nasa/04_modelos_logisticos.py` | modelos logísticos aninhados, razões de chances, VIF |
 | `src/nasa/05_faixas_complexidade.py` | faixas de risco, F_base, sensibilidade, leave-one-project-out |
 | `src/nasa/06_figuras.py` | figuras a 300 dpi |
+| `src/psplib/01_auditar_j60.py` | auditoria das 480 instâncias, reconstrução da grade NC/RF/RS |
+| `src/psplib/02_indice_dificuldade.py` | CPM, índice de dificuldade `Di`, níveis ordinais |
+| `src/psplib/03_transferencia_ordinal.py` | razões de risco NASA → J60, com bootstrap por projeto |
 
 Execução em sequência, a partir da raiz do projeto, com o ambiente virtual ativo.
+Cada script encerra com verificações automáticas e sai com código de erro se
+alguma falhar, de modo que uma etapa defeituosa não alimente a seguinte.
+
+## Principais resultados até aqui
+
+**Validação da base de análise.** Aplicando ao conjunto D' os dois passos do
+algoritmo de Shepperd et al. que o separam do D'', o conjunto de módulos
+preservados foi reproduzido em 12 de 12 bases. O resíduo — 46 registros, 0,26% —
+restringe-se a qual rótulo foi mantido em grupos com rótulos conflitantes, ponto
+em que os arquivos distribuídos **não seguem literalmente o pseudocódigo
+publicado**, que determina remover ambos os membros do par.
+
+**Complexidade não sobrevive ao controle por tamanho.** Isolada, a complexidade
+ciclomática tem razão de chances 1,90 sobre a ocorrência de defeito. Controlando
+`LOC_TOTAL`, cai para 0,944 com IC 95% [0,870; 1,024] e p = 0,17 — o intervalo
+contém o valor nulo. O tamanho, ao contrário, sobrevive ao controle pela
+complexidade (LR = 431,2; p ≈ 9 × 10⁻⁹⁶). Nenhuma métrica candidata apresenta
+efeito positivo independente do tamanho. A complexidade é preservada no trabalho
+como **marcador ordinal** de risco, não como fator causal independente.
+
+**Risco basal por faixa, robusto.** Sobre faixas adaptadas do requisito NASA
+SWE-220, o risco cresce monotonicamente: 0,147 → 0,285 → 0,348 → 0,439. Tendência
+de Cochran-Armitage z = 25,6. Monotonicidade preservada em 5 de 5 esquemas
+alternativos de corte e em 12 de 12 reamostragens por exclusão de projeto.
+
+**Delineamento do J60 reconstruído.** Recalculando NC, RF e RS pelas definições
+de Kolisch, Sprecher e Drexl (1995) e agrupando os valores obtidos, recupera-se
+um fatorial completo e balanceado 3 × 4 × 4 = 48 células com 10 instâncias cada.
+Como os níveis foram derivados dos arquivos e não supostos, o resultado valida
+simultaneamente a leitura e as três formulações.
+
+**Índice `Di` com componentes ortogonais.** Correlações de Spearman entre duração
+normalizada, intensidade de recursos e criticidade: −0,004, 0,003 e 0,193. Cada
+componente carrega informação distinta. A criticidade é medida por folga total do
+CPM; a contagem de sucessores, prevista inicialmente, mostrou correlação de
+apenas 0,116 com a folga e foi descartada como medida (mantida como variável
+alternativa na base).
+
+**Transferência ordinal por razão de risco.** Uma tarefa de dificuldade muito
+alta carrega 2,99 vezes o risco basal de uma tarefa de dificuldade baixa
+(IC 95% [1,878; 4,156], bootstrap por projeto). A correspondência direta de
+rótulos foi descartada com evidência numérica: inflaria o risco médio em 1,74
+vezes por artefato do tamanho dos estratos.
+
+---
 
 ## Estado atual
 
-Pipeline NASA MDP concluído e verificado (17.377 observações, 12 projetos).
-Entrega 1 ao orientador gerada em `docs/`. Etapa PSPLIB J60 ainda não iniciada.
+Camada de dados concluída e verificada em ambas as bases. Nove scripts, todos com
+verificação automática aprovada, reproduzidos de forma idêntica em dois ambientes
+computacionais distintos.
+
+Pendente: modelo de simulação (ABM + Dinâmica de Sistemas), parâmetros
+comportamentais, inferência difusa, e a fixação da âncora `F_ancora` por dado do
+domínio de engenharia.
+
+Entrega 1 ao orientador em `docs/entrega1_metodologia_resultados_iniciais.docx`.
+Registro completo de decisões, achados e justificativas em
+`docs/registro_de_decisoes.md`.
