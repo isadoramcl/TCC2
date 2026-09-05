@@ -349,6 +349,8 @@ ainda mais forte (z = 34,3).
 | `05_faixas_complexidade.py` | faixas, F_base, tendência, sensibilidade, LOO | concluído, verificações OK |
 | `06_figuras.py` | figuras 300 dpi para o documento | concluído |
 | `src/psplib/01_auditar_j60.py` | auditoria do J60, reconstrução de NC/RF/RS | concluído, verificações OK |
+| `src/psplib/02_indice_dificuldade.py` | CPM, índice `Di` e níveis ordinais | concluído, verificações OK |
+| `src/psplib/03_transferencia_ordinal.py` | razões de risco NASA → J60 | concluído, verificações OK |
 
 Entrega ao orientador: `docs/entrega1_metodologia_resultados_iniciais.docx`.
 
@@ -440,3 +442,202 @@ na rede. A ponderação deve levar em conta o achado da seção 6.2: o component
 magnitude tem respaldo empírico na base NASA; o componente estrutural não tem
 respaldo independente e deve ser ponderado conservadoramente, com análise de
 sensibilidade específica.
+
+
+---
+
+## 12. Índice de dificuldade técnica `Di` (`src/psplib/02_indice_dificuldade.py`)
+
+### 12.1 Correção de proveniência de uma referência
+
+`[ACHADO]` O Guia Metodológico atribuía a construção do `Di` a DE REYCK, B.;
+HERROELEN, W. *On the use of the complexity index as a measure of complexity in
+activity networks.* EJOR, v. 91, n. 2, p. 347-366, 1996.
+
+**A atribuição está incorreta.** O índice de complexidade ali avaliado deriva de
+BEIN, W.; KAMBUROWSKI, J.; STALLMANN, M. *Optimal reduction of two-terminal
+directed acyclic graphs.* SIAM Journal on Computing, v. 21, n. 6, p. 1112-1129,
+1992, e mede a distância da **rede inteira** à série-paralelidade. É propriedade
+do grafo, não da atividade. O gerador RanGen (DEMEULEMEESTER et al., *Journal of
+Scheduling*, 2003) o emprega como parâmetro de topologia de instância.
+
+`[DECISÃO]` A referência permanece no trabalho, **realocada**: sustenta a
+caracterização da rede por instância (o NC do script 01), não o índice por
+tarefa. O `Di` é declarado como construção deste trabalho, com cada componente
+apoiado em fonte própria.
+
+### 12.2 Componentes e suas origens
+
+| componente | definição | origem |
+|---|---|---|
+| duração normalizada | min-max da duração, **dentro da instância** | medida direta do arquivo |
+| intensidade de recursos | (1/K)·Σₖ (r_jk / a_k) | análogo por atividade do *resource factor* de Kolisch, Sprecher & Drexl (1995); versão por atividade é adaptação deste trabalho |
+| criticidade | 1 − folga_norm, com folga = LS − ES do CPM | medida canônica de criticidade por atividade |
+
+`[DECISÃO]` A normalização é **intra-instância**: o modelo compara tarefas dentro
+de um mesmo projeto, não entre projetos diferentes.
+
+`[DECISÃO]` A intensidade de recursos é ponderada pela disponibilidade a_k.
+Consumir 4 unidades de um recurso com 5 disponíveis é muito mais restritivo do
+que consumir 4 de um recurso com 40.
+
+### 12.3 ACHADO — contagem de sucessores não mede criticidade
+
+`[ACHADO]` O Guia previa **contagem de sucessores** como medida de criticidade.
+Comparada à folga total na mesma base:
+
+- **Correlação de Spearman entre as duas: 0,1164** — praticamente nenhuma.
+- 5.742 tarefas (19,94%) estão sobre o caminho crítico (folga zero).
+- **3.488 tarefas têm folga acima da mediana e 3 ou mais sucessores** — muitos
+  sucessores e nenhuma urgência.
+
+`[DECISÃO]` A criticidade do `Di` passa a ser medida por **folga total**. A
+contagem de sucessores permanece calculada e gravada na base, como variável
+alternativa disponível para análise de sensibilidade, mas não compõe o índice.
+
+### 12.4 ACHADO — os três componentes são quase ortogonais
+
+`[ACHADO]` Correlações de Spearman entre os componentes:
+
+| | duração | intensidade | criticidade |
+|---|---|---|---|
+| duração | 1,000 | −0,004 | 0,193 |
+| intensidade | −0,004 | 1,000 | 0,003 |
+| criticidade | 0,193 | 0,003 | 1,000 |
+
+Cada componente carrega informação distinta: o composto não é uma única grandeza
+sob três nomes. Contraste com a base NASA, onde complexidade e tamanho tinham
+correlação de 0,75 e o composto colapsava em um só eixo.
+
+### 12.5 Pesos e sensibilidade
+
+`[DECISÃO]` Pesos de partida iguais (1/3 cada), conforme o Guia, que os trata
+como suposição inicial sujeita a sensibilidade.
+
+`[ACHADO]` Correlação de ordenação (Spearman) entre esquemas de peso:
+
+| esquema | w_dur | w_rec | w_crit | ρ vs. referência |
+|---|---|---|---|---|
+| iguais (referência) | 0,33 | 0,33 | 0,33 | 1,0000 |
+| criticidade reduzida (achado NASA) | 0,40 | 0,40 | 0,20 | 0,9695 |
+| duração dominante | 0,60 | 0,20 | 0,20 | 0,9036 |
+| criticidade dominante | 0,20 | 0,20 | 0,60 | 0,8944 |
+| só magnitude | 0,50 | 0,50 | 0,00 | 0,8488 |
+| recursos dominante | 0,20 | 0,60 | 0,20 | 0,8470 |
+
+A menor correlação entre qualquer par é 0,847: a ordenação das tarefas é
+razoavelmente robusta à ponderação, mas **não indiferente** a ela. O esquema
+"criticidade reduzida", sugerido pelo achado da seção 6.2, mantém ρ = 0,97 com a
+referência — a mudança de ponderação sugerida pela NASA alteraria pouco a
+ordenação.
+
+### 12.6 Níveis ordinais
+
+`[DECISÃO]` Cortes nos **quartis** da distribuição de `Di`. Justificativa: não
+existe, para tarefas de projeto, limiar normativo externo equivalente ao SWE-220
+do domínio de software. Quartis produzem quatro níveis de tamanho comparável,
+requisito para a transferência ordinal. É decisão declarada deste trabalho, não
+limiar da literatura.
+
+`[ACHADO]` Cortes em Di = 0,4137 / 0,5424 / 0,6662. Comportamento dos níveis:
+
+| nível | n | duração média | folga média |
+|---|---|---|---|
+| baixa | 7.200 | 2,87 | 26,07 |
+| média | 7.200 | 4,62 | 16,45 |
+| alta | 7.200 | 6,38 | 11,22 |
+| muito alta | 7.200 | 8,22 | 5,42 |
+
+Duração cresce e folga cai monotonicamente ao longo dos níveis — comportamento
+coerente com a interpretação do índice.
+
+### 12.7 Verificações
+
+`[ACHADO]` 28.800 tarefas reais (480 × 60); componentes e `Di` dentro de [0,1];
+tarefas fictícias de início e fim com folga zero em todas as instâncias;
+makespan da passagem para trás coincidente com o do script 01 em 480/480.
+
+### 12.8 Próximo passo
+
+`[RESOLVIDA]` **Transferência ordinal NASA → J60.** Ver seção 13.
+
+
+---
+
+## 13. Transferência ordinal de risco NASA → J60 (`src/psplib/03_transferencia_ordinal.py`)
+
+### 13.1 A decisão e a evidência que a determina
+
+`[DECISÃO]` A transferência é feita por **razão de risco relativo**, não por
+correspondência direta de rótulos.
+
+`[ACHADO]` A razão é numérica e verificável. Os quatro níveis não têm o mesmo
+tamanho relativo nos dois domínios:
+
+| nível | NASA (módulos) | J60 (tarefas) |
+|---|---|---|
+| baixa | 86,24% | 25,00% |
+| média | 6,21% | 25,00% |
+| alta | 2,89% | 25,00% |
+| muito alta | 4,66% | 25,00% |
+
+Atribuir a cada nível do J60 o `F_base` absoluto do nível homônimo da NASA
+produziria risco médio de **0,3046** nas tarefas, contra taxa observada de
+**0,1749** na NASA — **inflação de 1,74×** gerada exclusivamente pela diferença
+de tamanho dos estratos. Seria artefato de construção apresentado como resultado.
+
+`[DECISÃO]` O que os dados NASA sustentam não é o **nível** absoluto de risco de
+um módulo de software — que não tem razão para valer em tarefas de engenharia —
+e sim a **forma** do gradiente. A razão é adimensional e independe da taxa basal
+do domínio:
+
+    F(nível) = F_ancora × RR(nível)
+
+### 13.2 Razões de risco estimadas
+
+`[ACHADO]` Estimativas na base NASA, com intervalos por **bootstrap por projeto**
+(4.000 réplicas, semente fixa 20260905):
+
+| nível | F_base NASA | RR | IC 95% |
+|---|---|---|---|
+| baixa (referência) | 0,1470 | 1,000 | — |
+| media | 0,2845 | 1,935 | [1,758; 2,599] |
+| alta | 0,3479 | 2,367 | [1,720; 3,229] |
+| muito alta | 0,4388 | 2,985 | [1,878; 4,156] |
+
+`[DECISÃO]` A reamostragem é feita **por projeto**, não por observação. As
+observações dentro de um mesmo projeto não são independentes — compartilham
+equipe, processo, domínio e critério de registro de defeito. Reamostrar módulos
+individuais trataria 17.377 observações como 17.377 evidências independentes e
+produziria intervalos artificialmente estreitos. É o mesmo raciocínio da
+validação leave-one-project-out.
+
+`[ACHADO]` Os intervalos são largos, sobretudo no nível mais alto ([1,88; 4,16]).
+Isso é informação, não defeito: com 12 projetos, a incerteza sobre o gradiente é
+substancial, e a monografia deve reportá-la em vez de apresentar o valor pontual
+como preciso.
+
+### 13.3 A âncora
+
+`[ABERTO]` `F_ancora` é a taxa basal de retrabalho do domínio de engenharia, no
+nível de dificuldade mais baixo. **Não é estimada neste trabalho até aqui**: é
+parâmetro do modelo, a ser fixado por dado do domínio (ObrasGov.br, CoST, World
+Bank Projects, já identificados como fontes) ou tratado como incerteza na
+simulação. A varredura está em `outputs/tables/psplib_03_ancora_sensibilidade.csv`.
+
+`[ACHADO]` Nenhuma âncora entre 0,05 e 0,25 produz risco acima de 1 em qualquer
+nível.
+
+### 13.4 O que a base de tarefas recebe
+
+`[DECISÃO]` `tarefas_j60_com_risco.csv` grava o **multiplicador** de risco e seu
+intervalo, não uma probabilidade absoluta. A probabilidade só existe depois que o
+modelo fixa `F_ancora`; gravá-la aqui embutiria um valor arbitrário na base como
+se fosse dado.
+
+### 13.5 Limitação a declarar na monografia
+
+`[LIMITACAO]` A construção assume que o **gradiente ordinal** de risco por
+dificuldade é transferível entre domínios, ainda que o nível não seja. É
+suposição, não resultado. É mais fraca do que supor equivalência métrica direta —
+que os dados não sustentam — mas não é vazia e deve ser declarada explicitamente.

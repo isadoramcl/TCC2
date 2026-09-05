@@ -1,0 +1,5 @@
+nivel,F_base_nasa,razao_de_risco,ic95_inferior,ic95_superior,mediana_bootstrap,n_replicas
+baixa,0.147004,1.0,1.0,1.0,1.0,4000
+media,0.284523,1.93548,1.75809,2.59922,1.94828,4000
+alta,0.347913,2.36669,1.72008,3.22851,2.35211,4000
+muito alta,0.438813,2.98505,1.87825,4.15626,2.92869,4000

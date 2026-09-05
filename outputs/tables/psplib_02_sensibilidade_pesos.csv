@@ -1,0 +1,7 @@
+esquema,peso_duracao,peso_recursos,peso_criticidade,Di_medio,Di_desvio_padrao,Di_min,Di_max,spearman_vs_referencia
+iguais (partida do Guia),0.3333333333333333,0.3333333333333333,0.3333333333333333,0.5378,0.17465,0.0,1.0,1.0
+criticidade reduzida (achado NASA),0.4,0.4,0.2,0.51062,0.17884,0.0,1.0,0.96951
+so magnitude,0.5,0.5,0.0,0.46985,0.20228,0.0,1.0,0.8488
+duracao dominante,0.6,0.2,0.2,0.52372,0.21557,0.0,1.0,0.90357
+recursos dominante,0.2,0.6,0.2,0.49753,0.17523,0.0,1.0,0.84697
+criticidade dominante,0.2,0.2,0.6,0.59217,0.19565,0.0,1.0,0.89444

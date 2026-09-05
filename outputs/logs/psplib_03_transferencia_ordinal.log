@@ -1,0 +1,75 @@
+==============================================================================
+TRANSFERENCIA ORDINAL DE RISCO — NASA -> PSPLIB J60
+Execucao: 2026-09-05T14:11:00
+==============================================================================
+
+NASA : 17377 modulos, 12 projetos
+J60  : 28800 tarefas, 480 instancias
+
+==============================================================================
+RAZOES DE RISCO ESTIMADAS NA BASE NASA
+==============================================================================
+  Referencia: nivel 'baixa'. RR e adimensional: quantas vezes mais
+  provavel e o defeito em relacao ao nivel mais facil.
+
+  Replicas bootstrap validas: 4000 de 4000
+
+  nivel         F_base NASA       RR         IC95 bootstrap  mediana boot
+  baixa              0.1470    1.000 [   1.000;    1.000]         1.000
+  media              0.2845    1.935 [   1.758;    2.599]         1.948
+  alta               0.3479    2.367 [   1.720;    3.229]         2.352
+  muito alta         0.4388    2.985 [   1.878;    4.156]         2.929
+
+==============================================================================
+POR QUE NAO CORRESPONDENCIA DIRETA DE ROTULOS
+==============================================================================
+  nivel             NASA       J60
+  baixa           86.24%    25.00%
+  media            6.21%    25.00%
+  alta             2.89%    25.00%
+  muito alta       4.66%    25.00%
+
+  Risco medio no J60 sob correspondencia direta : 0.3046
+  Taxa observada na NASA                        : 0.1749
+  Fator de inflacao                             : 1.74x
+  Essa inflacao vem da diferenca de tamanho dos estratos, nao de
+  qualquer propriedade das tarefas. E artefato, e por isso o metodo
+  adotado transfere a razao e nao o nivel.
+
+==============================================================================
+APLICACAO AO J60 — VARREDURA DA ANCORA F_ancora
+==============================================================================
+  `[ABERTO]` F_ancora e a taxa basal de retrabalho do dominio de
+  engenharia, no nivel de dificuldade mais baixo. NAO e estimada aqui:
+  e parametro do modelo, a ser fixado por dado do dominio (ObrasGov,
+  CoST, World Bank) ou tratado como incerteza na simulacao.
+
+   F_ancora |       baixa       media        alta  muito alta |  medio J60
+       0.05 |      0.0500      0.0968      0.1183      0.1493 |     0.1036
+       0.10 |      0.1000      0.1935      0.2367      0.2985 |     0.2072
+       0.15 |      0.1500      0.2903      0.3550      0.4478 |     0.3108
+       0.20 |      0.2000      0.3871      0.4733      0.5970 |     0.4144
+       0.25 |      0.2500      0.4839      0.5917      0.7463 |     0.5180
+
+==============================================================================
+SAIDA POR TAREFA
+==============================================================================
+  `[DECISAO]` A base de tarefas recebe o MULTIPLICADOR de risco e seu
+  intervalo, nao uma probabilidade absoluta. A probabilidade so existe
+  depois que o modelo fixa F_ancora; grava-la aqui embutiria um valor
+  arbitrario na base como se fosse dado.
+
+  data/processed/psplib/tarefas_j60_com_risco.csv (28800 linhas)
+
+==============================================================================
+VERIFICACOES
+==============================================================================
+  [OK]    RR do nivel de referencia = 1 por construcao
+  [OK]    RR reproduzem as razoes das frequencias do script 05
+  [OK]    Mediana bootstrap proxima da estimativa pontual (desvio maximo 0.0564)
+  [OK]    Nenhuma ancora varrida produz risco acima de 1
+  [OK]    Todas as 28800 tarefas receberam multiplicador
+
+==============================================================================
+RESULTADO: CONCLUIDO, VERIFICACOES OK
+==============================================================================

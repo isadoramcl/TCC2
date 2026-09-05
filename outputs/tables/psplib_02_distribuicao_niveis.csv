@@ -1,0 +1,5 @@
+nivel,n,proporcao,Di_min,Di_max,duracao_media,folga_media,intensidade_recursos_media
+baixa,7200,0.25,0.0,0.41364,2.8703,26.0731,0.09769
+media,7200,0.25,0.41371,0.54237,4.6244,16.4544,0.12006
+alta,7200,0.25,0.5424,0.66622,6.3774,11.2179,0.13289
+muito alta,7200,0.25,0.66622,1.0,8.2204,5.415,0.16447
