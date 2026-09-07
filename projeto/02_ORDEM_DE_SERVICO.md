@@ -39,7 +39,7 @@ número publicado que mudar, e nada muda em silêncio.
 - [ ] **B4** Restaurar a verificação 4 original: Σ(TW+TL+TU+TR) = tempo total de agente alocado (hoje 891,9 contra 1.426,1 na centralizada — ver C1).
 - [ ] **B5** History Matching, onda 2: usar **gerador independente**, re-rodar as duas ondas, reportar as reduções contra a caixa a priori **e** contra a caixa amostrada em cada onda. Corrigir o comentário "sem excluir nada que a onda 1 não excluiu". Se as larguras continuarem estáveis com desenho independente, a conclusão de limite estrutural volta a valer; se não, **retirar a afirmação**.
 - [ ] **B6** Gêmeo idêntico: declarar que os critérios são fracos e que `V_mod = 0` torna o teste otimista. Reportar que I(verdade) tem média 2,15 em 20 blocos e ultrapassa 3 em 10% deles, e que o z publicado está 3,4 EP abaixo da média de 160 execuções (Welch p = 0,002) sem mudar o veredito.
-- [ ] **B7** Experimento: refazer a inferência com a **instância** como unidade. Já medido: 16 de 16 favorecem o adaptativo, p = 3,05e-05, *d* de 3,07 a 7,82. IC bootstrap reamostrando instâncias.
+- [x] **B7** Experimento: refazer a inferência com a **instância** como unidade. Já medido: 16 de 16 favorecem o adaptativo, p = 3,05e-05, *d* de 3,07 a 7,82. IC bootstrap reamostrando instâncias.
 - [ ] **B8** Rodar com as **480 instâncias**. A seleção atual cobre 16 das 48 células, todas com sufixo `_1`. Custo ~21 min.
 - [x] **B9** **Ablação obrigatória.** Quatro parâmetros variam juntos. Rodar isoladamente: só `tau_inicial`; só `tau_min`; só `p_reporte` (em varredura, não binário); só `p_deteccao`; e o pacote completo.
 - [ ] **B10** Sensibilidade de `F_âncora` (0,05–0,25) e do gradiente RR, incluindo **RR = (1,1,1,1)** — nenhuma transferência. Se a conclusão de governança sobreviver a isso, a transferência ordinal deixa de ser o ponto fraco do trabalho.
@@ -107,9 +107,22 @@ o que muda texto.
 
 Em ordem de consequência, não de esforço.
 
-1. **B7 — unidade inferencial.** A Tabela do experimento ainda pareia por
-   (instância, semente). São pseudorreplicação. Refazer com a instância como
-   unidade; já medido que o resultado se fortalece (16 de 16, p = 3,05e-05).
+1. ~~**B7 — unidade inferencial.**~~ **FEITO** por re-análise do artefato
+   existente (`14_experimento_por_instancia.py`), sem simulação nova. A Tabela 9
+   passou à instância como unidade: *d* de −2,4 para −7,8 e 16 de 16 instâncias
+   favoráveis. **Resta**: regerar a fig7 na unidade de instância. Ela foi
+   **retirada** da Entrega 1 — manter uma figura cuja legenda precisa avisar que
+   ela não serve para inferência entrega à banca uma pergunta de graça, e a
+   Tabela 9 já traz a análise válida.
+
+1b. **Números de resultado digitados no gerador, fora das seções novas.** A
+   busca global confirmou que a Tabela 9 não era caso isolado: a Tabela 5
+   (ensaios) e os valores citados no corpo das Seções 2.2 a 2.6 — camada de
+   dados — ainda são transcritos à mão das saídas dos scripts. Conferidos por
+   amostragem contra os CSV de origem (a razão de chances 0,944, o IC
+   [0,870; 1,024] e o p = 0,17 batem exatamente), mas sem a garantia
+   estrutural. O documento passou a declarar esse escopo. **Estender o
+   mecanismo CSV → documento às seções de dados.**
 2. **B5 — onda 2 do History Matching com gerador independente.** A afirmação de
    limite estrutural cai se não for reproduzida.
 3. **C3 — τ dinâmico.** A B9 mostrou que a metade temporal do contraste depende
@@ -126,4 +139,26 @@ Em ordem de consequência, não de esforço.
 7. **B8 — 480 instâncias.** A seleção atual cobre 16 das 48 células.
 8. **B11 — remover a métrica duplicada** (`n_com_erro` ou `taxa_omissao`).
 9. **B10 — sensibilidade de F_âncora e do gradiente RR**, incluindo RR = (1,1,1,1).
-10. **C1, C4, C5, C6** — medir e decidir.
+10. **C1, C4, C5, C6** — medir e decidir. Dois já estão declarados no
+    documento como adaptação, e precisam de medição antes de decisão:
+    **C1** (TR não ocupa agente nem avança o cronograma) e **C6** (o ganho de
+    competência de Crowder é permanente aqui, e o artigo especifica retorno ao
+    valor inicial a cada subtarefa).
+11. **Correção para comparações múltiplas na figura de sobrevivência.** O
+    procedimento de Holm já está calculado em
+    `04_sobrevivencia_ao_controle_de_tamanho.csv`, e o texto passou a reportá-lo,
+    mas a **figura** ainda desenha o intervalo não corrigido. Marcar as métricas
+    que não sobrevivem a Holm na própria figura.
+12. **Inferência robusta a agrupamento na camada NASA.** Os valores-p dos
+    modelos logísticos e do teste de tendência são calculados sobre 17.377
+    módulos agrupados em 12 projetos. O efeito fixo de projeto trata o
+    confundimento entre projetos, não a dependência dentro deles; os erros-padrão
+    estão subestimados. Já declarado no documento. Refazer com erro-padrão
+    robusto a agrupamento — não muda estimativa pontual, muda a precisão.
+13. **Lacuna bibliográfica declarada.** A relação segurança psicológica →
+    disposição a reportar → `p_reporte` está sustentada no TCC1, que a apoia em
+    Cole et al. (2022), Danquah (2024), Siverbo (2023) e Ye et al. (2025).
+    **Essas fontes não foram auditadas nesta entrega e não constam da lista de
+    referências.** Enquanto isso não for feito, a relação está apresentada no
+    documento como premissa de modelagem, e não como resultado da literatura.
+    Auditar as quatro e incluí-las, ou manter a classificação como premissa.

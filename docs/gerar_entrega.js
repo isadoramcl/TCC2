@@ -53,8 +53,8 @@ const LARGURA_UTIL = 9070; // DXA (~16 cm) para tabelas
 // arquivo INTERROMPE a geracao se algo nao fechar.
 // ============================================================
 const ORDEM_EQ = ['esforco', 'delta_c', 'pr_efetiva', 'tge', 'e_total', 'p_heuristico', 'logistica', 'rc', 'lr', 'vif', 'nc', 'rf', 'rs', 'folga', 'd_norm', 'r_int', 'crit', 'd_index', 'rr', 'f_base', 'implaus_j', 'implaus_max'];
-const ORDEM_TAB = ['fuzzy_config', 'cenarios', 'ensaios', 'j60_grade', 'razoes_risco', 'verificacoes', 'tendencia', 'poder_9a', 'experimento', 'fatorial', 'tau_min', 'ablacao', 'porta2', 'identificabilidade', 'procedencia', 'rastreabilidade', 'cronograma'];
-const ORDEM_FIG = ['arquitetura', 'controle_tamanho', 'fbase_faixa', 'loo', 'niveis_di', 'gradiente', 'efeitos', 'decomposicao', 'trajetorias', 'nroy'];
+const ORDEM_TAB = ['fuzzy_config', 'cenarios', 'ensaios', 'j60_grade', 'razoes_risco', 'verificacoes', 'tendencia', 'poder_9a', 'experimento', 'fatorial', 'tau_min', 'ablacao', 'porta2', 'rastreabilidade', 'identificabilidade', 'procedencia', 'cronograma'];
+const ORDEM_FIG = ['arquitetura', 'controle_tamanho', 'fbase_faixa', 'loo', 'niveis_di', 'gradiente', 'decomposicao', 'trajetorias', 'nroy'];
 
 const emitido = { eq: new Set(), tab: new Set(), fig: new Set() };
 const citado = { eq: new Set(), tab: new Set(), fig: new Set() };
@@ -346,9 +346,15 @@ filhos.push(simbolo('B(t)', '— bateria cognitiva disponível do agente.'));
 
 filhos.push(p('Quando existe hiato de competência e o agente recorre à rede, a transferência lateral de conhecimento produz incremento de competência ao custo de tempo, conforme a formulação de Crowder, Robinson e Hughes (2012):', { indent: false }));
 filhos.push(equacao('ΔC = [ 15 + 3 ( C_k − C ) ] / 100', 'delta_c'));
-filhos.push(p('Os escalares 15 e 3 representam, respectivamente, o incremento base de assimilação por interação bem-sucedida e um fator de eficiência de transferência proporcional ao hiato técnico entre provedor e receptor. São premissas iniciais e serão submetidos a análise de sensibilidade na fase de implementação, e não tratados como constantes absolutas.'));
+filhos.push(pRuns([
+  { t: 'Procedência dos coeficientes. ', b: true },
+  { t: 'Os escalares 15 e 3 não são premissas deste trabalho: integram a formulação publicada por Crowder, Robinson e Hughes (2012), na qual o primeiro representa o incremento base de assimilação por interação bem-sucedida e o segundo pondera o ganho adicional pelo hiato técnico entre provedor e receptor. São reproduzidos sem alteração. O que este trabalho decide, e declara como decisão própria, é o contexto em que a equação opera.' },
+]));
+filhos.push(bullet('a equação e seus dois coeficientes, tal como publicados.', 'Da formulação original: '));
+filhos.push(bullet('os autores estabelecem que o incremento é limitado ao intervalo de zero a três décimos, que a competência resultante não ultrapassa a dificuldade da subtarefa, e que, concluída a subtarefa, a competência do agente RETORNA ao valor de partida, por entenderem que parte da competência é específica da subtarefa. A implementação atual não reproduz esse retorno: o ganho obtido com o apoio permanece entre tarefas. Trata-se de adaptação da dinâmica original, e é assim que deve ser lida — não como correção nem como aperfeiçoamento. Nenhum teste foi executado nesta entrega para comparar as duas dinâmicas, e por isso nada se afirma sobre qual delas representa melhor o fenômeno. A avaliação está registrada como pendência para a etapa seguinte.', 'Adaptação declarada nesta implementação: '));
+filhos.push(bullet('a exigência adicional de que o agente que presta apoio seja mais competente que o solicitante, discutida na Seção 2.10, e a seleção de um único apoiador por evento, onde a formulação original admite múltiplos respondentes com ganhos acumulados.', 'Decisão de operacionalização deste trabalho: '));
 
-filhos.push(p('A saturação individual e o atrito na rede traduzem-se em multiplicadores adimensionais no intervalo [0,1], obtidos por inferência difusa — fuzzificação dos estados contínuos de fadiga e atrito por funções de pertinência, avaliação por regras e defuzzificação —, procedimento validado para representar variáveis qualitativas em Dinâmica de Sistemas (Liu, Triantis e Sarangi, 2011). A produtividade efetiva resulta da modulação da produtividade nominal por esses multiplicadores:', { indent: false }));
+filhos.push(p('A saturação individual e o atrito na rede traduzem-se em multiplicadores adimensionais no intervalo [0,1], obtidos por inferência difusa — fuzzificação dos estados contínuos de fadiga e atrito por funções de pertinência, avaliação por regras e defuzzificação —, procedimento proposto e ilustrado por Liu, Triantis e Sarangi (2011) para representar variáveis qualitativas em Dinâmica de Sistemas. Registre-se que os autores propõem e demonstram o método em aplicação, sem estabelecer validação geral dele; a adoção aqui é, portanto, de um procedimento proposto na literatura, e não de um procedimento validado. A produtividade efetiva resulta da modulação da produtividade nominal por esses multiplicadores:', { indent: false }));
 filhos.push(equacao('PR_efetiva = PR_nominal · μ_cognitivo · μ_rede', 'pr_efetiva'));
 
 filhos.push(p('A válvula que alimenta o estoque de retrabalho oculto é regida pela equação de falhas, na qual o risco basal da tarefa soma-se a uma parcela que cresce à medida que a degradação cognitiva avança:', { indent: false }));
@@ -356,12 +362,12 @@ filhos.push(equacao('TGE = PR_efetiva · ( F_base + R_error · ( 1 − μ_cognit
 filhos.push(simbolo('F_base', '— risco basal de falha associado à dificuldade da tarefa;'));
 filhos.push(simbolo('R_error', '— taxa de erro adicional sob degradação cognitiva.'));
 
-filhos.push(p('A métrica terminal condensa a ociosidade da rede e a penalidade do satisficing num índice de eficiência total do esforço, razão entre o tempo de trabalho efetivo e o tempo total consumido:', { indent: false }));
+filhos.push(p('A métrica terminal agrega os quatro relógios do projeto na fração do esforço contabilizado que corresponde a trabalho produtivo, razão entre o tempo de trabalho efetivo e a soma dos quatro relógios:', { indent: false }));
 filhos.push(equacao('E_total = Σ TWᵢ / Σ ( TWᵢ + TLᵢ + TUᵢ + TRᵢ )', 'e_total'));
 filhos.push(simbolo('TWᵢ', '— tempo de trabalho efetivo na tarefa i;'));
 filhos.push(simbolo('TLᵢ', '— tempo de espera por suporte técnico;'));
 filhos.push(simbolo('TUᵢ', '— tempo improdutivo por adiamento ou indisponibilidade da rede;'));
-filhos.push(simbolo('TRᵢ', '— tempo de retrabalho decorrente de falhas detectadas.'));
+filhos.push(simbolo('TRᵢ', '— esforço de retrabalho contabilizado, decorrente de falhas detectadas. Não ocupa agente nem avança o cronograma na implementação atual (ver Seção 2.8).'));
 
 filhos.push(p('A execução temporal dessas equações é governada por uma árvore de decisão de três portas, avaliada a cada passo. A Porta 1 detecta sobrecarga: quando o esforço exigido supera o limiar de saturação, o agente transita para processamento heurístico e, conforme o nível da restrição orçamentária, ou adia a tarefa ou a conclui com erro, injetando no estoque de retrabalho oculto uma parcela proporcional ao excesso sobre o limiar. A Porta 2 trata o hiato de competência, disparando requisição à rede e aplicando a equação (' + E('delta_c') + ') caso exista agente disponível e com confiança mútua suficiente. A Porta 3 corresponde à execução analítica nominal, acionada quando não há sobrecarga nem hiato de competência.'));
 
@@ -476,13 +482,13 @@ filhos.push(simbolo('f̄_j(x)', 'média do simulador na saída j sob o vetor de 
 filhos.push(simbolo('V_obs', 'variância da observação;'));
 filhos.push(simbolo('V_sim', 'variância da média do simulador, decorrente da estocasticidade;'));
 filhos.push(simbolo('V_mod', 'variância de discrepância entre modelo e realidade.'));
-filhos.push(p('O corte em três desvios não é escolha deste trabalho. Pela desigualdade de Vysochanskii–Petunin, para qualquer distribuição unimodal ao menos noventa e cinco por cento da massa de probabilidade situa-se a menos de três desvios da média, de modo que descartar valores com implausibilidade superior a três raramente descarta o vetor verdadeiro (PUKELSHEIM, 1994).'));
+filhos.push(p('O corte em três desvios não é escolha deste trabalho. Pela desigualdade de Vysochanskii–Petunin, para distribuições unimodais dotadas de densidade e com variância finita, ao menos noventa e cinco por cento da massa de probabilidade situa-se a menos de três desvios da média (PUKELSHEIM, 1994), de modo que descartar valores com implausibilidade superior a três raramente descarta o vetor verdadeiro. As condições do resultado são registradas porque o corte se apoia nelas: a desigualdade não vale para uma distribuição unimodal qualquer.'));
 filhos.push(pRuns([
   { t: 'Dispensa do emulador. ', b: true },
   { t: 'A literatura de History Matching recorre a emuladores estatísticos porque o simulador que se deseja calibrar costuma ser caro. O simulador aqui construído custa cerca de um décimo de segundo por execução, e o delineamento completo, com três mil e duzentas execuções, conclui em minutos. Avalia-se o simulador diretamente. A decisão elimina o termo de erro de emulação da Equação ' + E('implaus_j') + ', isto é, remove uma aproximação em vez de acrescentá-la. Caso o modelo venha a encarecer, o emulador pode ser introduzido sem alteração do restante do procedimento.' },
 ]));
 filhos.push(pRuns([
-  { t: 'Validação por gêmeo idêntico. ', b: true },
+  { t: 'Teste do gêmeo idêntico. ', b: true },
   { t: 'Para verificar se o procedimento identifica parâmetros, empregou-se o teste do gêmeo idêntico (McCULLOCH et al., 2022): geram-se observações sintéticas a partir de um vetor de parâmetros conhecido, executa-se a calibração sem informar esse vetor, e verifica-se se o conjunto NROY resultante o contém. Duas precauções de desenho foram adotadas. O vetor verdadeiro foi posicionado deliberadamente fora do centro das faixas, pois um alvo situado no meio do espaço não testa as bordas do procedimento. E as sementes aleatórias que geram as observações sintéticas são disjuntas das utilizadas pelo simulador durante a calibração; sem essa separação, o teste compararia ruído idêntico consigo mesmo e seria aprovado trivialmente.' },
 ]));
 filhos.push(pRuns([
@@ -510,7 +516,7 @@ filhos.push(tabela(
 filhos.push(legenda('Fonte: Elaborado pela autora (2026), a partir de config/parametros.yaml.'));
 filhos.push(pRuns([
   { t: 'Quatro parâmetros variam simultaneamente. ', b: true },
-  { t: 'Os dois arranjos diferem em todos os quatro parâmetros organizacionais, e não apenas na probabilidade de reporte. Essa é uma limitação de delineamento que precisa ser declarada: um contraste que move quatro variáveis ao mesmo tempo não permite atribuir o efeito observado a nenhum mecanismo isolado. O experimento compara dois PACOTES de governança, e é assim que deve ser lido. A decomposição do efeito por parâmetro exige um ensaio de ablação, que consta do cronograma e ainda não foi executado.' },
+  { t: 'Os dois arranjos diferem em todos os quatro parâmetros organizacionais, e não apenas na probabilidade de reporte. Essa é uma limitação de delineamento que precisa ser declarada: um contraste que move quatro variáveis ao mesmo tempo não permite atribuir o efeito observado a nenhum mecanismo isolado. O experimento compara dois PACOTES de governança, e é assim que deve ser lido. A decomposição do efeito exige ablação, executada e apresentada na Seção 2.9 — cujo resultado obriga a qualificar parte da leitura mecanística deste experimento.' },
 ]));
 filhos.push(pRuns([
   { t: 'Sobre a probabilidade de detecção. ', b: true },
@@ -519,7 +525,7 @@ filhos.push(pRuns([
 
 filhos.push(pRuns([
   { t: 'Segurança psicológica como mecanismo. ', b: true },
-  { t: 'O parâmetro que distingue substantivamente os dois arranjos é a probabilidade de reporte de defeito. Ela operacionaliza a noção de segurança psicológica: em um arranjo centralizado, o agente que detecta um defeito próprio antecipa custo pessoal ao reportá-lo e tende a ocultá-lo, alimentando o estoque de dívida técnica latente; em um arranjo adaptativo, o mesmo agente reporta, e o retrabalho é pago imediatamente e de forma visível. O modelo não presume qual arranjo é superior: a diferença de desempenho, se existir, emerge da interação entre ocultação, acúmulo de dívida e pressão de prazo.' },
+  { t: 'A probabilidade de reporte de defeito operacionaliza a noção de segurança psicológica: em um arranjo centralizado, o agente que detecta um defeito próprio antecipa custo pessoal ao reportá-lo e tende a ocultá-lo, alimentando o estoque de dívida técnica latente; em um arranjo adaptativo, o mesmo agente reporta, e o retrabalho é pago imediatamente e de forma visível. A relação entre segurança psicológica e disposição a reportar erros é sustentada na fase conceitual deste trabalho, que a apoia em literatura própria de comportamento organizacional. Esta entrega, porém, NÃO auditou essas fontes primárias, e elas não constam das referências aqui listadas. Em consequência, a relação é apresentada como PREMISSA DE MODELAGEM herdada da fase conceitual, e não como resultado estabelecido da literatura, e a verificação das fontes correspondentes fica registrada como pendência bibliográfica para a etapa seguinte. O que esta entrega afirma é apenas o que mediu: dado o parâmetro, como o modelo se comporta. O modelo não presume qual arranjo é superior; a diferença de desempenho emerge da interação entre ocultação, acúmulo de dívida e pressão de prazo.' },
 ]));
 filhos.push(pRuns([
   { t: 'Delineamento pareado. ', b: true },
@@ -536,13 +542,13 @@ filhos.push(pRuns([
   { t: 'Segundo acoplamento. ', b: true },
   { t: 'O risco basal F_base, obtido pela equação (' + E('f_base') + ') a partir da calibração sobre a base NASA, é o termo que aparece na equação de falhas (4), governando a válvula que alimenta o estoque de retrabalho oculto. Antes desta etapa, esse risco seria uma suposição; ele passa a ser um gradiente estimado empiricamente, com incerteza quantificada, ainda que ancorado a uma taxa basal a definir.' },
 ]));
-filhos.push(p('Os resultados apresentados no capítulo seguinte referem-se integralmente a esses dois acoplamentos. Os demais componentes do modelo — a inferência difusa que produz μ_cognitivo e μ_rede, a árvore de decisão de três portas, os estoques e a integração temporal — permanecem na especificação formal estabelecida na fase conceitual e serão implementados na etapa subsequente, conforme o cronograma da Seção 2.7.'));
+filhos.push(p('Os resultados apresentados no capítulo seguinte referem-se integralmente a esses dois acoplamentos. Os demais componentes do modelo — a inferência difusa que produz μ_cognitivo e μ_rede, a árvore de decisão de três portas, os estoques e a integração temporal — encontram-se implementados e verificados, e são eles que produzem os resultados das Seções 2.7 a 2.11; a Seção 2.7 relaciona as verificações executadas sobre cada um.'));
 
 // ============================================================
 filhos.push(h1('2  RESULTADOS INICIAIS E DISCUSSÃO'));
 
 filhos.push(h2('2.1  Arquitetura e implementação da solução inicial'));
-filhos.push(p('A primeira versão funcional do pipeline de dados foi concluída e validada. Os requisitos essenciais de rastreabilidade, imutabilidade e verificação automática foram atendidos. A Figura ' + F('arquitetura') + ' apresenta a arquitetura implementada, organizada em três camadas: dados brutos imutáveis, scripts de processamento e saídas auditáveis.'));
+filhos.push(p('A primeira versão funcional do pipeline de dados foi concluída e verificada. Os requisitos essenciais de rastreabilidade, imutabilidade e verificação automática foram atendidos. A Figura ' + F('arquitetura') + ' apresenta a arquitetura implementada, organizada em três camadas: dados brutos imutáveis, scripts de processamento e saídas auditáveis.'));
 filhos.push(tituloFigura('arquitetura', 'Arquitetura do pipeline de dados implementado'));
 filhos.push(figura('fig1_arquitetura_pipeline.png', 15.5, 0.633));
 filhos.push(fonte('Dados da pesquisa (2026).'));
@@ -595,15 +601,19 @@ filhos.push(pRuns([
 
 filhos.push(pRuns([
   { t: 'Complexidade, tamanho e risco. ', b: true },
-  { t: 'O resultado de maior consequência para o trabalho é negativo e foi obtido pelo teste que a metodologia previa. Isoladamente, a complexidade ciclomática apresenta associação forte com a ocorrência de defeito, mesmo controlando o projeto de origem (razão de chances 1,90 por unidade logarítmica; LR = 639,8). Contudo, ao se acrescentar o tamanho do módulo ao modelo, o efeito da complexidade desaparece: a razão de chances ajustada cai para 0,944, com intervalo de confiança de 95% entre 0,870 e 1,024 — contendo, portanto, o valor nulo — e p = 0,17. A relação inversa não se verifica: o tamanho sobrevive folgadamente ao controle pela complexidade (LR = 431,2; p ≈ 9 × 10⁻⁹⁶). A Figura ' + F('controle_tamanho') + ' apresenta o mesmo teste aplicado a todas as métricas candidatas; nenhuma delas exibe efeito positivo independente do tamanho, e as que permanecem estatisticamente distinguíveis do nulo o fazem com sinal negativo, padrão característico de colinearidade e não de mecanismo causal.' },
+  { t: 'O resultado de maior consequência para o trabalho é negativo e foi obtido pelo teste que a metodologia previa. Isoladamente, a complexidade ciclomática apresenta associação forte com a ocorrência de defeito, mesmo controlando o projeto de origem (razão de chances 1,90 por unidade logarítmica; LR = 639,8). Contudo, ao se acrescentar o tamanho do módulo ao modelo, o efeito da complexidade desaparece: a razão de chances ajustada cai para 0,944, com intervalo de confiança de 95% entre 0,870 e 1,024 — contendo, portanto, o valor nulo — e p = 0,17. A relação inversa não se verifica: o tamanho sobrevive folgadamente ao controle pela complexidade (LR = 431,2; p ≈ 9 × 10⁻⁹⁶). A Figura ' + F('controle_tamanho') + ' apresenta o mesmo teste aplicado a todas as seis métricas candidatas. Uma delas — a complexidade de projeto — exibe efeito positivo com intervalo de confiança acima da unidade (razão de chances 1,098; IC 95% [1,010; 1,194]; p = 0,028); as demais que permanecem distinguíveis do nulo o fazem com sinal negativo, padrão característico de colinearidade e não de mecanismo causal. O efeito positivo isolado, porém, não sobrevive à correção para comparações múltiplas: as seis métricas foram testadas na mesma base, e sob o procedimento de Holm–Bonferroni o valor-p corrigido dessa métrica sobe a 0,084. NENHUMA das seis sobrevive à correção. A distinção é registrada porque a figura mostra o intervalo não corrigido: lida isoladamente, ela sugere um sobrevivente que a correção elimina.' },
 ]));
 
 filhos.push(tituloFigura('controle_tamanho', 'Razões de chances das métricas candidatas antes e depois do controle pelo tamanho do módulo'));
 filhos.push(figura('fig3_controle_por_tamanho.png', 15.5, 0.538));
 filhos.push(fonte('Dados da pesquisa (2026).'));
 
-filhos.push(p('Esse resultado não invalida o uso da complexidade como eixo ordinal, mas altera o que se pode afirmar a partir dele. A ordenação do risco pelas faixas de complexidade é forte e robusta, como mostram a Figura ' + F('fbase_faixa') + ' e a Tabela ' + T('ensaios') + ': o risco cresce monotonicamente de 0,147 a 0,439 entre a faixa mais baixa e a mais alta, a tendência é altamente significativa, e a monotonicidade se preserva sob todos os cinco esquemas alternativos de corte testados e sob todas as doze reamostragens por exclusão de projeto. O que os dados não sustentam é a atribuição causal: a complexidade ciclomática opera, nesta base, como marcador ordinal de risco correlacionado ao tamanho, e não como fator de risco independente dele. Para o propósito deste trabalho — transferência ordinal de risco entre domínios — um marcador estável é suficiente; a afirmação de efeito independente, que não seria sustentável, é explicitamente abandonada.'));
+filhos.push(p('Esse resultado não invalida o uso da complexidade como eixo ordinal, mas altera o que se pode afirmar a partir dele. A ordenação do risco pelas faixas de complexidade é forte e robusta, como mostram a Figura ' + F('fbase_faixa') + ' e a Tabela ' + T('ensaios') + ': o risco cresce monotonicamente de 0,147 a 0,439 entre a faixa mais baixa e a mais alta, e a monotonicidade se preserva sob todos os cinco esquemas alternativos de corte testados e sob todas as doze reamostragens por exclusão de projeto. O que os dados não sustentam é a atribuição causal: a complexidade ciclomática opera, nesta base, como marcador ordinal de risco correlacionado ao tamanho, e não como fator de risco independente dele. Para o propósito deste trabalho — transferência ordinal de risco entre domínios — um marcador estável é suficiente; a afirmação de efeito independente, que não seria sustentável, é explicitamente abandonada.'));
 
+filhos.push(pRuns([
+  { t: 'A força dos valores-p desta camada, e por que ela não deve ser lida ao pé da letra. ', b: true },
+  { t: 'Os valores-p reportados na Tabela ' + T('ensaios') + ' para os modelos logísticos e para o teste de tendência são calculados sobre dezessete mil trezentos e setenta e sete módulos, tratados como observações independentes. Eles não são: os módulos estão agrupados em doze projetos, e módulos do mesmo projeto compartilham equipe, processo e período. Os modelos incluem o projeto de origem como efeito fixo, o que impede que uma associação seja atribuída a uma métrica quando puder ser explicada pela procedência da observação, mas isso trata o confundimento ENTRE projetos e não a dependência DENTRO de cada um. Em consequência, os erros-padrão estão subestimados e valores-p da ordem de dez elevado a menos cento e quarenta expressam o tamanho da base, não a força da evidência. O que sustenta a conclusão desta seção não são esses valores-p, e sim duas verificações que operam na unidade correta: a monotonicidade se preserva nas doze reamostragens por exclusão sucessiva de projeto, e os intervalos das razões de risco por faixa são obtidos por reamostragem de PROJETOS, não de módulos. A inferência com erros-padrão robustos a agrupamento fica registrada como pendência; ela não altera as estimativas pontuais, apenas a precisão declarada.' },
+]));
 filhos.push(tituloFigura('fbase_faixa', 'Risco basal por faixa de complexidade ciclomática, em frequência bruta e em probabilidade ajustada pelo efeito do projeto de origem'));
 filhos.push(figura('fig2_fbase_por_faixa.png', 14.5, 0.587));
 filhos.push(fonte('Dados da pesquisa (2026).'));
@@ -754,29 +764,37 @@ filhos.push(legenda('Fonte: Dados da pesquisa (2026). A faixa varrida é a faixa
 
 filhos.push(h2('2.8  Experimento central: governança centralizada e adaptativa'));
 filhos.push(p('O experimento comparou os dois arranjos da Tabela ' + T('cenarios') + ' sobre dezesseis instâncias do J60 com doze sementes cada, totalizando trezentas e oitenta e quatro execuções pareadas. Nenhuma execução deixou de concluir dentro do horizonte estabelecido. A Tabela ' + T('experimento') + ' apresenta os resultados.'));
-filhos.push(tituloTabela('experimento', 'Comparação pareada entre os arranjos de governança (192 pares)'));
-filhos.push(tabela(
-  [2700, 1220, 1220, 1120, 1330, 1480],
-  ['Indicador', 'Centraliz.', 'Adaptat.', 'Variação', 'd de Cohen', 'Pares favoráveis'],
-  [
-    ['Tarefas concluídas com defeito', '13,02', '3,82', '−70,6%', '−2,400', '97,9%'],
-    ['Taxa de omissão', '0,2170', '0,0637', '−70,6%', '−2,400', '97,9%'],
-    ['Dívida latente de pico sobre o plano', '0,0741', '0,0201', '−72,8%', '−2,046', '98,4%'],
-    ['Atraso relativo (makespan sobre CPM)', '3,1345', '1,9991', '−36,2%', '−1,988', '100,0%'],
-    ['Ocupação E_total (fração do esforço em trabalho produtivo)', '0,7839', '0,8885', '+13,3%', '+1,901', '97,4%'],
-    ['Retrabalho pago sobre o plano', '0,2031', '0,1545', '−23,9%', '−0,729', '77,1%'],
-    ['Retrabalho sobre esforço realizado (diagnóstico)', '0,0770', '0,0846', '+9,9%', '+0,288', '39,6%'],
-  ],
-  { centrar: [1, 2, 3, 4, 5] },
-));
-filhos.push(legenda('Fonte: Dados da pesquisa (2026). A última linha é métrica de diagnóstico, discutida adiante. Os valores-p do teste de Wilcoxon não são reportados nesta tabela porque a unidade de pareamento adotada é a combinação de instância e semente — ver a ressalva de pseudorreplicação a seguir.'));
-filhos.push(tituloFigura('efeitos', 'Tamanhos de efeito pareados com intervalos de confiança por reamostragem sobre os pares'));
-filhos.push(figura('fig7_efeitos_pareados.png', 14.5, 0.640));
-filhos.push(fonte('Dados da pesquisa (2026).'));
-filhos.push(p('O arranjo adaptativo supera o centralizado em todos os indicadores substantivos, com tamanhos de efeito grandes e intervalos de confiança que não cruzam a origem. A leitura mecanística — a de que o arranjo adaptativo, ao converter defeito oculto em retrabalho visível e imediato, impede o acúmulo de dívida técnica que no arranjo centralizado retorna adiante sob pressão de prazo — é compatível com estes números, mas não decorre deles: os dois arranjos diferem em quatro parâmetros ao mesmo tempo, e enquanto variarem juntos a comparação mede o pacote e não um mecanismo. A Seção 2.9 executa a ablação que separa as parcelas, e o resultado obriga a qualificar parte desta leitura.'));
+filhos.push(tituloTabela('experimento', 'Comparação pareada entre os arranjos de governança, por instância'));
+{
+  const ex = lerCsvPV(caminhoTabela('entrega_experimento.csv'));
+  filhos.push(tabela(
+    [2620, 1180, 1180, 1080, 1080, 1160, 770],
+    ['Indicador', 'Centraliz.', 'Adaptat.', 'Variação', 'd de Cohen', 'Instâncias favor.', 'p'],
+    ex.map(r => [r.indicador, r.centralizada, r.adaptativa, r.variacao, r.d_cohen, r.instancias_favoraveis, r.p]),
+    { centrar: [1, 2, 3, 4, 5, 6] },
+  ));
+}
+filhos.push(legenda('Fonte: Dados da pesquisa (2026). Dezesseis instâncias, cada uma com a média das suas doze sementes. “= piso” indica que o valor-p atingiu 3,05 × 10⁻⁵, o menor possível com dezesseis pares. A última linha é métrica de diagnóstico, discutida adiante.'));
 filhos.push(pRuns([
-  { t: 'Sobre a unidade de inferência. ', b: true },
-  { t: 'Os pares da Tabela ' + T('experimento') + ' são combinações de instância e semente. As doze sementes de uma mesma instância não são projetos independentes, e tratá-las como observações separadas é pseudorreplicação: infla o número de graus de liberdade e produz valores-p que não correspondem à quantidade de informação disponível. A refação da inferência tomando a instância como unidade está prevista para a próxima etapa. Registre-se desde já que, nas verificações desta entrega que já adotam a instância como unidade — as das Seções 2.9 e 2.10 —, o menor valor-p bilateral atingível com dezesseis instâncias é da ordem de três centésimos de milésimo, de modo que qualquer valor inferior a esse, em qualquer tabela, é artefato da unidade escolhida e não medida de evidência.' },
+  { t: 'O atraso depende da definição de conclusão. ', b: true },
+  { t: 'O laço de simulação só encerra quando, além de todas as tarefas concluídas, a dívida oculta pendente foi integralmente detectada. O makespan aqui reportado inclui, portanto, uma cauda posterior à conclusão da última tarefa, durante a qual nenhuma tarefa está ativa e o projeto apenas aguarda que a dívida aflore. Essa cauda é maior no arranjo centralizado, que acumula mais dívida oculta e a detecta com probabilidade menor. Em consequência, a magnitude do contraste de atraso é condicionada à definição operacional de conclusão adotada, e não é independente dela: medido até a conclusão da última tarefa, e não até a quitação da dívida, o contraste seria menor. As duas definições são legítimas e medem coisas diferentes — prazo até entregar e prazo até estabilizar —, e apenas a segunda está implementada. Quantificar a alternativa exige alterar a condição de parada, o que não foi feito nesta entrega; a comparação entre as duas medidas está registrada como pendência. O sinal do efeito não está em questão: o arranjo adaptativo conclui antes sob a definição adotada, e a cauda que a definição acrescenta é maior justamente no arranjo que já era o mais lento.' },
+]));
+// `[AUDITORIA]` A figura de tamanhos de efeito (fig7) foi REMOVIDA desta
+// entrega. Ela foi construída sobre 192 pares de instância e semente, unidade
+// superada pela correção de pseudorreplicação, e seus intervalos vêm de
+// reamostragem sobre esses pares. Manter uma visualização que exige, na própria
+// legenda, o aviso de que não deve ser usada para inferência acrescenta risco de
+// leitura sem acrescentar evidência: a Tabela do experimento já traz a análise
+// válida, por instância, com tamanho de efeito e proporção de casos favoráveis.
+// A figura permanece no repositório e será regerada na unidade correta.
+filhos.push(p('O arranjo adaptativo supera o centralizado em todos os indicadores substantivos, em dezesseis de dezesseis instâncias, com tamanhos de efeito grandes. A leitura mecanística — a de que o arranjo adaptativo, ao converter defeito oculto em retrabalho visível e imediato, impede o acúmulo de dívida técnica que no arranjo centralizado retorna adiante sob pressão de prazo — é compatível com estes números, mas não decorre deles: os dois arranjos diferem em quatro parâmetros ao mesmo tempo, e enquanto variarem juntos a comparação mede o pacote e não um mecanismo. A Seção 2.9 executa a ablação que separa as parcelas, e o resultado obriga a qualificar parte desta leitura.'));
+filhos.push(pRuns([
+  { t: 'A unidade de inferência é a instância, e não a semente. ', b: true },
+  { t: 'Uma versão anterior desta tabela pareava por combinação de instância e semente, totalizando cento e noventa e dois pares. As doze sementes de uma mesma instância não são projetos independentes: tratá-las como observações separadas é pseudorreplicação, que infla os graus de liberdade e produz valores-p sem correspondência com a informação disponível — com cento e noventa e dois pares, o menor valor-p atingível no teste de Wilcoxon é da ordem de três vezes dez elevado a menos cinquenta e oito, e nenhum valor nessa escala é interpretável. A inferência foi refeita tomando a instância como unidade, cada uma entrando com a média das suas doze sementes. As médias por braço não se alteram; alteram-se o tamanho de efeito e a proporção de casos favoráveis, que passam a ser calculados sobre a unidade correta. A correção FORTALECE o resultado: os tamanhos de efeito crescem, e a proporção de casos favoráveis ao arranjo adaptativo vai a dezesseis de dezesseis em todos os indicadores substantivos. Em contrapartida, os valores-p deixam de ser astronômicos e vários passam a coincidir com o piso de três vírgula zero cinco vezes dez elevado a menos cinco, o menor atingível com dezesseis pares; o piso informa que todos os pares apontam no mesmo sentido, e não a magnitude do efeito, que deve ser lida no tamanho de efeito e na proporção.' },
+]));
+filhos.push(pRuns([
+  { t: 'Evidência duplicada na tabela. ', b: true },
+  { t: 'As duas primeiras linhas são a mesma grandeza dividida por sessenta. Os tamanhos de efeito e as proporções coincidem exatamente, e os valores-p diferem apenas pelo tratamento de empates no teste sobre valores inteiros. Mantê-las juntas faz a mesma evidência aparecer duas vezes; a supressão de uma delas está registrada como pendência de apresentação.' },
 ]));
 filhos.push(pRuns([
   { t: 'Uma métrica que media visibilidade, não dano. ', b: true },
@@ -790,11 +808,19 @@ filhos.push(pRuns([
   { t: 'A base da razão passou a ser o esforço planejado do projeto, dado pela soma das durações nominais das tarefas. Trata-se de propriedade da instância, idêntica nos dois braços, de modo que a razão só pode variar pelo numerador. A métrica agregada original foi ainda decomposta em duas: o retrabalho efetivamente pago e a dívida latente de pico. A decomposição é necessária, e não cosmética, porque os arranjos diferem justamente na probabilidade de reporte: o adaptativo converte dívida oculta em retrabalho visível, e um agregado que soma as duas parcelas não distingue conversão de redução. Com a correção, o indicador passa a favorecer o arranjo adaptativo em vinte e três vírgula nove por cento, em concordância com os demais.' },
 ]));
 filhos.push(p('Registra-se ainda que o valor final do estoque de dívida latente é nulo em todas as trezentas e oitenta e quatro execuções, por construção do laço de simulação, que só encerra após a quitação da dívida pendente. Por essa razão, a estatística informativa é o valor de pico do estoque, e não o seu valor terminal.'));
+filhos.push(pRuns([
+  { t: 'O que TR mede, e o que não mede. ', b: true },
+  { t: 'A grandeza designada TR é ESFORÇO DE RETRABALHO CONTABILIZADO, e não tempo consumido no cronograma. Quando um defeito é reportado ou aflora, a implementação atual acresce a parcela correspondente ao relógio de retrabalho, mas essa parcela não ocupa um agente nem avança o calendário do projeto do mesmo modo que a execução de uma tarefa. A denominação foi corrigida ao longo do texto para não induzir a leitura de tempo efetivamente despendido. A limitação tem duas consequências que ficam declaradas. A primeira é que o custo de cronograma do retrabalho está subestimado: no modelo atual, refazer não disputa capacidade com executar. A segunda incide sobre a métrica de ocupação, cujo denominador soma os quatro relógios e portanto inclui TR: uma parcela que não consome capacidade entra no denominador como se consumisse, de modo que a métrica não deve ser lida como medida de produtividade. Fazer o retrabalho ocupar agente e recurso é alteração estrutural do modelo, não implementada nesta entrega, e está registrada como pendência.' },
+]));
 filhos.push(tituloFigura('trajetorias', 'Trajetórias médias dos estoques nos dois arranjos, com faixa interquartil'));
 filhos.push(figura('fig9_trajetorias.png', 15.0, 0.7463));
 filhos.push(fonte('Dados da pesquisa (2026).'));
 filhos.push(p('A Figura ' + F('trajetorias') + ' torna visível o mecanismo. No arranjo centralizado, a dívida técnica latente cresce ao longo de todo o período nominal do projeto, atinge o máximo em torno de uma vez e meia o prazo do caminho crítico e só então é drenada, o que prolonga a execução muito além do previsto. No arranjo adaptativo, o mesmo estoque permanece próximo de zero, e o progresso validado acumula-se de forma sustentada. A bateria cognitiva média recupera-se mais cedo, o que é consequência, e não causa, do menor volume de retrabalho tardio.'));
 
+filhos.push(pRuns([
+  { t: 'Comportamento no limite de pressão nula. ', b: true },
+  { t: 'Registra-se um comportamento de fronteira, fora do domínio de operação. Com pressão nula o esforço cognitivo exigido zera, e a probabilidade de transição para o modo heurístico cai ao seu piso, de aproximadamente um vírgula oito por cento por período de agente. Como no arranjo centralizado a confiança constante impede toda concessão de ajuda, uma tarefa cuja dificuldade excede a competência de todos os agentes passa a depender exclusivamente desse piso para ser iniciada, o que corresponde a uma espera média da ordem de cinquenta e seis períodos por tarefa. O efeito é de lentidão severa, e não de travamento: a transição é estocástica e sua probabilidade nunca chega a zero, de modo que a execução sempre termina. O caso está fora do domínio nominal, porque a pressão é limitada inferiormente a três décimos e nunca atinge zero em nenhuma execução apresentada; e as trezentas e oitenta e quatro execuções do experimento e as duas mil oitocentas e oitenta da ablação concluíram todas dentro do horizonte. Nenhuma conclusão desta entrega depende de ignorar esse comportamento. Ele é consequência lógica da formulação atual — transição estocástica combinada com confiança constante — e desaparece assim que qualquer das duas hipóteses estruturais em avaliação for alterada.' },
+]));
 filhos.push(h2('2.9  Ablação: a que o contraste entre os arranjos se deve'));
 filhos.push(pRuns([
   { t: 'Por que a ablação é obrigatória. ', b: true },
@@ -873,7 +899,7 @@ filhos.push(pRuns([
 ]));
 
 filhos.push(h2('2.11  Rastreabilidade das verificações'));
-filhos.push(p('A Tabela ' + T('rastreabilidade') + ' registra, para cada procedimento, as instâncias e sementes utilizadas, o número de execuções e o arquivo de saída correspondente, de modo que qualquer número apresentado possa ser reencontrado. Todas as tabelas desta seção são montadas em tempo de geração a partir desses arquivos; nenhum valor é digitado no texto.'));
+filhos.push(p('A Tabela ' + T('rastreabilidade') + ' registra, para cada procedimento, as instâncias e sementes utilizadas, o número de execuções e o arquivo de saída correspondente, de modo que qualquer número apresentado possa ser reencontrado. As tabelas das Seções 2.7 a 2.11, bem como a matriz de cenários e a tabela do experimento, são montadas em tempo de geração a partir desses arquivos, sem valor digitado. Registre-se, para não induzir generalização indevida, que as demais tabelas e os valores citados no corpo do texto das Seções 2.2 a 2.6 — a camada de dados — ainda são transcritos manualmente a partir das saídas dos scripts correspondentes. Foram conferidos contra os arquivos de origem, mas a garantia que vale para as seções derivadas de CSV não vale para eles; a extensão desse mecanismo às seções de dados está registrada como pendência.'));
 filhos.push(tituloTabela('rastreabilidade', 'Procedimentos de verificação, condições de execução e arquivos de saída'));
 {
   const ra = lerCsvPV(caminhoTabela('entrega_rastreabilidade.csv'));
@@ -912,7 +938,10 @@ filhos.push(tituloFigura('nroy', 'Conjunto NROY projetado sobre a crista de equi
 filhos.push(figura('fig10_nroy_identificabilidade.png', 15.5, 0.5428));
 filhos.push(fonte('Dados da pesquisa (2026).'));
 filhos.push(p('A hipótese foi testada e confirmada: o produto dos dois fatores apresenta redução de setenta e quatro vírgula sete por cento, contra trinta e seis vírgula oito e seis vírgula zero por cento dos fatores isolados. Decorre daí uma recomendação de reparametrização: em calibração com dados reais, deve-se estimar o produto — interpretável como esforço esperado de retrabalho por tarefa — e declarar a divisão entre frequência e severidade como não identificada, em vez de reportar dois números que os dados não sustentam. A separação dos fatores exigiria observar a taxa de defeito e o custo unitário de correção de forma independente, dado que o delineamento atual não contempla.'));
-filhos.push(p('Registra-se, por fim, que as larguras marginais praticamente não se alteraram entre a primeira e a segunda onda. As ondas convergiram, e uma terceira não reduziria o espaço, porque o limite encontrado é de identificabilidade estrutural e não de tamanho de amostra.'));
+filhos.push(pRuns([
+  { t: 'Estabilidade entre ondas: achado preliminar. ', b: true },
+  { t: 'As larguras marginais praticamente não se alteraram entre a primeira e a segunda onda. Essa estabilidade é compatível com um limite de identificabilidade estrutural, e não de tamanho de amostra, mas a hipótese ainda não está demonstrada: a segunda onda foi amostrada a partir do mesmo gerador da primeira, e um desenho amostral independente é necessário para distinguir estabilidade real de estabilidade herdada do delineamento. Até que essa verificação seja executada, o achado é registrado como preliminar, e não se afirma que uma terceira onda não reduziria o espaço.' },
+]));
 
 filhos.push(h2('2.13  Procedência dos parâmetros e limitações declaradas'));
 filhos.push(p('A Tabela ' + T('procedencia') + ' resume a procedência dos parâmetros do modelo, segundo a classificação mantida no arquivo único de configuração. A distinção é mantida explícita porque a credibilidade de um modelo de simulação depende menos do número de parâmetros do que da clareza sobre a origem de cada um.'));
@@ -929,7 +958,7 @@ filhos.push(tabela(
 filhos.push(legenda('Fonte: Elaborado pela autora (2026), a partir do arquivo de configuração do modelo.'));
 filhos.push(pRuns([
   { t: 'Limitações. ', b: true },
-  { t: 'Quatro limitações são declaradas. Primeira, a transferência ordinal de risco entre domínios pressupõe que o gradiente de risco por dificuldade seja transferível, ainda que o nível absoluto não seja; trata-se de suposição, e não de resultado. Segunda, a validação externa do retrabalho é um teste fraco, pelas razões expostas na Seção 2.7. Terceira, o teste do gêmeo idêntico é otimista por construção, uma vez que anula a discrepância entre modelo e realidade. Quarta, três dos cinco parâmetros submetidos à calibração não são identificáveis com os observáveis do delineamento atual, e assim são reportados.' },
+  { t: 'Quatro limitações são declaradas. Primeira, a transferência ordinal de risco entre domínios pressupõe que o gradiente de risco por dificuldade seja transferível, ainda que o nível absoluto não seja; trata-se de suposição, e não de resultado. Segunda, e mais importante para a leitura desta entrega, NÃO foi realizada validação externa do simulador: não há aqui nenhum critério confrontado com observação de campo que pudesse reprová-lo. A comparação da fração de retrabalho com a literatura funciona apenas como verificação de ordem de grandeza, e a Seção 2.7 demonstra que ela aprova em toda a faixa declarada do parâmetro de risco basal, isto é, que seu poder de rejeição é nulo. Terceira, o teste do gêmeo idêntico é otimista por construção, uma vez que anula a discrepância entre modelo e realidade. Quarta, três dos cinco parâmetros submetidos à calibração não são identificáveis com os observáveis do delineamento atual, e assim são reportados.' },
 ]));
 
 filhos.push(h2('2.14  Cronograma de atividades e próximas etapas'));
