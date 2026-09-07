@@ -3,7 +3,7 @@
 Implementação do pipeline de dados do Trabalho de Conclusão de Curso II.
 
 - **Autora:** Isadora Maria Carvalho Lopes
-- **Orientador:** Prof. André Batista
+- **Orientador:** Prof. André Costa Batista
 - **Curso:** Engenharia de Sistemas — UFMG
 
 ---
