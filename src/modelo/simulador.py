@@ -31,10 +31,19 @@ Sob a Porta 3, μ_cognitivo é alto e p_falha aproxima-se de F_base; sob a Porta
 μ_cognitivo cai e p_falha cresce. A Porta 3 deixa de garantir execução limpa e
 passa a ser a execução de MENOR risco, o que é a leitura coerente com a equação.
 
-`[ACHADO 3] A injeção em S_UR é negativa fora da sobrecarga.`
-O pseudocódigo injeta `(E − τ_sat) · f_corrup` no estoque, expressão que é
-negativa sempre que não há sobrecarga — o estoque diminuiria por execução
-limpa, o que não tem sentido físico.
+`[ACHADO 3] A unidade do estoque S_UR precisava ser fixada.`
+`[CORREÇÃO]` A versão anterior desta nota afirmava que o pseudocódigo do TCC I
+tinha o defeito de injetar valor negativo fora da sobrecarga. **A acusação era
+injusta e foi retirada.** No TCC I a injeção ocorre DENTRO do ramo
+`se E(t) > τ_sat`, onde a expressão `(E − τ_sat) · f_corrup` é sempre positiva.
+O sinal negativo só passou a ser possível aqui por causa do ACHADO 2, que levou
+a falha a ser sorteada em TODAS as execuções, inclusive fora da sobrecarga. O
+defeito é nosso, não do TCC I.
+
+A justificativa correta para a reformulação é de UNIDADE, não de sinal: o
+estoque precisa ser comparável ao esforço do projeto para que os alvos externos
+de validação façam sentido, e `(E − τ_sat) · f_corrup` não tem unidade de
+esforço.
 `[DEC]` O estoque passa a acumular **esforço latente de retrabalho**, medido em
 períodos, que é a grandeza que será efetivamente paga depois:
     S_UR += f_retrabalho · duração · ( 1 + f_corrup · max(E − τ_sat, 0) )
@@ -76,7 +85,9 @@ experimento (384 execuções pareadas, `outputs/tables/modelo_03_experimento_bru
 
 (i) **O termo de dívida latente é estruturalmente nulo.** O laço só termina
 quando `divida_pendente` está vazia; logo `S_UR_final = 0` em 384 de 384
-execuções (resíduo máximo 1,4·10⁻¹⁴, compatível com erro de ponto flutuante).
+execuções (resíduo da ordem de 10⁻¹³, compatível com erro de ponto flutuante;
+o valor exato depende da execução e por isso NÃO é fixado aqui — é medido em
+`src/modelo/03_experimento_cenarios.py` e reportado no registro de decisões).
 A métrica prometia somar dívida oculta e, de fato, nunca somava nada: reduzia-se
 a `TR / esforço_realizado`.
 
@@ -208,6 +219,7 @@ class Resultado:
     retrabalho_sobre_plano: float
     divida_latente_sobre_plano: float
     retrabalho_sobre_esforco_realizado: float
+    contadores: dict = field(default_factory=dict)
     trajetorias: dict = field(default_factory=dict)
     violacoes: list = field(default_factory=list)
 
@@ -216,8 +228,28 @@ class Resultado:
 # Simulador
 # =====================================================================
 class Simulacao:
+    #: `[B9]` Ablacoes disponiveis. Nomeadas explicitamente para que um nome
+    #: digitado errado FALHE em vez de silenciosamente nao ablacionar nada.
+    ABLACOES_VALIDAS = frozenset({
+        "sem_assistencia",        # a Porta 2 nunca concede ajuda, em nenhum cenario
+        "assistencia_universal",  # a Porta 2 ignora tau_min: ajuda sempre que houver
+                                  # colega livre mais competente, em ambos cenarios
+        "sem_filtro_competencia", # a Porta 2 dispensa `k.competencia > a.competencia`,
+                                  # reproduzindo LITERALMENTE o TCC1 §4.4.3, cuja
+                                  # condicao e apenas `a_k > 0 e tau_k > tau_min`
+    })
+
     def __init__(self, tarefas: pd.DataFrame, disponibilidade: list[int],
-                 makespan_cpm: int, parametros: dict, cenario: str, semente: int):
+                 makespan_cpm: int, parametros: dict, cenario: str, semente: int,
+                 ablacoes: frozenset = frozenset()):
+        # `[B9]` Instrumento de ablacao. Vazio por padrao: com o padrao, nenhuma
+        # linha de decisao do modelo muda e a execucao nominal e bit-a-bit
+        # identica a de antes desta instrumentacao (conferido por impressao
+        # digital SHA-256 sobre 32 execucoes pareadas).
+        self.ablacoes = frozenset(ablacoes)
+        desconhecidas = self.ablacoes - self.ABLACOES_VALIDAS
+        if desconhecidas:
+            raise ValueError(f"ablacao desconhecida: {sorted(desconhecidas)}")
         self.par = parametros
         self.cen = parametros["cenarios"][cenario]
         self.nome_cenario = cenario
@@ -276,6 +308,30 @@ class Simulacao:
         self.n_adiamentos = 0
         self.n_reportadas = 0
         self.divida_pendente: list[tuple[int, float]] = []   # (tarefa, esforço latente)
+
+        # `[B9]` Contadores PURAMENTE OBSERVACIONAIS: nenhum deles e lido por
+        # qualquer decisao do modelo e nenhum consome numero aleatorio.
+        comp_max_inicial = max(x.competencia for x in self.agentes)
+        self.cnt = {
+            "p1_omissao": 0,          # executou em modo heuristico (Porta 1)
+            "p1_fuga": 0,             # adiou por aversao a perda (ramo de fuga)
+            "p2_ajuda": 0,            # ajuda CONCEDIDA (Porta 2)
+            "p2_bloqueio": 0,         # hiato sem ajuda -> ociosidade
+            "p3_analitica": 0,        # executou em modo analitico (Porta 3)
+            "hiato_encontrado": 0,    # atribuicoes com dD > 0 e sem saturacao
+            "hiato_sem_colega_capaz": 0,   # nao havia colega livre mais competente
+            "hiato_sem_colega_livre": 0,   # nao havia colega livre, ponto — separa
+                                           # "ninguem livre" de "livre mas nao mais
+                                           # competente" (filtro proprio do TCC2)
+            "hiato_colega_capaz_sem_confianca": 0,  # havia, mas tau <= tau_min
+            "competencia_maxima_inicial": float(comp_max_inicial),
+            "competencia_minima_inicial": float(min(x.competencia
+                                                    for x in self.agentes)),
+            "tarefas_acima_da_competencia_maxima_inicial": int(sum(
+                1 for x in self.tarefas.values()
+                if x.dificuldade > comp_max_inicial)),
+            "n_tarefas": len(self.tarefas),
+        }
         self.traj = {k: [] for k in ("t", "P", "bateria_media", "mu_cog", "mu_rede",
                                      "S_PV", "S_UR", "concluidas")}
         self.violacoes: list[str] = []
@@ -405,6 +461,7 @@ class Simulacao:
 
                 if heuristico and omega > lim_av:
                     # fuga: adia
+                    self.cnt["p1_fuga"] += 1
                     self.TU += 1.0
                     self.n_adiamentos += 1
                     a.bateria = max(0.0, a.bateria - k_he * E)
@@ -412,18 +469,41 @@ class Simulacao:
 
                 # PORTA 2 — hiato de competência (só se não saturado)
                 if not heuristico and dD > 0:
-                    apoio = [k for k in self.agentes
-                             if k.ident != a.ident and k.tarefa_atual is None
-                             and k.confianca > tau_min and k.competencia > a.competencia]
+                    self.cnt["hiato_encontrado"] += 1
+                    # `[B9]` Colegas livres e mais competentes, ANTES do filtro de
+                    # confianca. Separa 'nao ha quem ajude' de 'ha quem ajude, mas
+                    # tau_inicial <= tau_min impede'. So contagem: nao decide nada.
+                    # `[DEC]` O filtro `k.competencia > a.competencia` NAO existe
+                    # no TCC1 §4.4.3; e acrescimo desta implementacao. A ablacao
+                    # `sem_filtro_competencia` reproduz a regra conceitual literal.
+                    livres = [k for k in self.agentes
+                              if k.ident != a.ident and k.tarefa_atual is None]
+                    capazes = (livres if "sem_filtro_competencia" in self.ablacoes
+                               else [k for k in livres
+                                     if k.competencia > a.competencia])
+                    self.cnt["hiato_sem_colega_livre"] += 0 if livres else 1
+                    if "sem_assistencia" in self.ablacoes:
+                        apoio = []
+                    elif "assistencia_universal" in self.ablacoes:
+                        apoio = list(capazes)
+                    else:
+                        apoio = [k for k in capazes if k.confianca > tau_min]
+                    if not apoio:
+                        if capazes:
+                            self.cnt["hiato_colega_capaz_sem_confianca"] += 1
+                        else:
+                            self.cnt["hiato_sem_colega_capaz"] += 1
                     if apoio:
                         melhor = max(apoio, key=lambda k: k.competencia)
                         a.competencia = min(0.98, a.competencia +
                                             (15 + 3 * (melhor.competencia - a.competencia)) / 100)
+                        self.cnt["p2_ajuda"] += 1
                         self.TL += 1.0
                         melhor.livre_em = t + 1
                         melhor.tarefa_atual = -1     # ocupado dando suporte
                         continue
                     else:
+                        self.cnt["p2_bloqueio"] += 1
                         self.TU += 1.0
                         continue
 
@@ -437,6 +517,7 @@ class Simulacao:
                 tar.inicio = t
                 tar.fim = t + dur_efetiva
                 tar.porta = "P1_omissao" if heuristico else "P3_analitica"
+                self.cnt["p1_omissao" if heuristico else "p3_analitica"] += 1
                 a.tarefa_atual = j
                 a.livre_em = t + dur_efetiva
                 for k in range(len(uso)):
@@ -529,6 +610,10 @@ class Simulacao:
                 if self.traj["S_UR"] and self.E_plano > 0 else 0.0),
             retrabalho_sobre_esforco_realizado=(
                 float(self.TR / total) if total > 0 else 0.0),
+            contadores=dict(self.cnt,
+                            competencia_maxima_final=float(
+                                max(x.competencia for x in self.agentes)),
+                            ablacoes=";".join(sorted(self.ablacoes)) or "nenhuma"),
             trajetorias=self.traj, violacoes=self.violacoes,
         )
 

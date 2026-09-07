@@ -45,8 +45,11 @@ DIR_TABELAS = RAIZ / "outputs" / "tables"
 DIR_LOGS = RAIZ / "outputs" / "logs"
 _log: list[str] = []
 
-N_INSTANCIAS = int(sys.argv[1]) if len(sys.argv) > 1 else 24
-N_SEMENTES = int(sys.argv[2]) if len(sys.argv) > 2 else 20
+# `[A6]` Os padroes eram 24 e 20 e NAO reproduziam as tabelas publicadas, que
+# foram geradas com 16 e 12. Rodar o script sem argumentos produzia numeros
+# diferentes dos do documento, sem aviso.
+N_INSTANCIAS = int(sys.argv[1]) if len(sys.argv) > 1 else 16
+N_SEMENTES = int(sys.argv[2]) if len(sys.argv) > 2 else 12
 
 
 def log(m: str = "") -> None:

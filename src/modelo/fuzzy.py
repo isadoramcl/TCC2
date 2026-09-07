@@ -95,8 +95,20 @@ deixam de ser premissas numéricas do modelo. A faixa bruta muda de
 para [μ_mín, 1] descrito no ACHADO 5 de `simulador.py`: o sistema difuso fornece
 a FORMA da degradação, e a magnitude é parâmetro declarado.
 
-Nenhum valor numérico está embutido aqui: vértices, consequentes e malha vêm de
-config/parametros.yaml.
+`[A9]` **Correção de uma afirmação falsa.** Esta docstring dizia "nenhum valor
+numérico está embutido aqui". Não era verdade: `n_malha` (201),
+`resolucao_cache` (0,001), `largura_saida` (0,30), a matriz `REGRAS` e o clip
+0,05/0,98 da competência estavam — e continuam — no código.
+
+A afirmação honesta é: **os parâmetros que o modelo varre** (vértices,
+consequentes, t-norma, partição de saída, μ_mín) vêm de
+`config/parametros.yaml`. Os demais são constantes de implementação, declaradas
+aqui e não varridas: a malha e a resolução do cache governam apenas precisão
+numérica, e seu efeito é medido pelo autoteste; a base `REGRAS` é estrutural e
+sua monotonicidade e suavidade são verificadas por código.
+
+Afirmar "nenhum valor embutido" quando há cinco é pior do que não afirmar nada:
+dá ao leitor uma garantia que o arquivo não cumpre.
 """
 
 from __future__ import annotations
@@ -232,9 +244,15 @@ class SistemaDifuso:
 
         area = agregada.sum()
         if area <= 0.0:
-            # Nenhuma regra disparou: situação impossível com termos que cobrem
-            # [0,1], mas tratada para não devolver NaN silenciosamente.
-            return float(np.mean(list(self.consequentes.values())))
+            # `[A9]` O fallback devolvia a média dos consequentes DECLARADOS
+            # (0,633), valor que não pertence à partição uniforme efetivamente em
+            # uso — devolveria uma saída de um sistema que não é este. Como as
+            # entradas formam partição e a base é completa, alguma regra SEMPRE
+            # dispara: chegar aqui é defeito, não caso de contorno. Falha alto.
+            raise RuntimeError(
+                f"nenhuma regra disparou em ({entrada1:.4f}, {entrada2:.4f}): "
+                "a base de regras deixou de ser completa ou a partição de "
+                "entrada deixou de cobrir [0,1]")
         return float((self.malha * agregada).sum() / area)
 
 

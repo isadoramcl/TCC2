@@ -34,3 +34,13 @@ desktop.ini
 # exatamente dos mesmos arquivos de entrada. Se outputs/ crescer
 # muito, esta decisao sera revista e o commit registrara a mudanca.
 # ---------------------------------------------------------------
+
+# Parciais das execucoes em lote: sao reconstruidos rodando os scripts com
+# --rodar, e somam dezenas de MB. Os CSV CONSOLIDADOS, que alimentam o
+# documento, ficam versionados.
+outputs/tables/_b9_parciais/
+outputs/tables/_fatorial_parciais/
+outputs/tables/_tau_min_parciais/
+outputs/tables/_tendencia_parciais/
+outputs/tables/_orfaos/
+outputs/_to_delete/
