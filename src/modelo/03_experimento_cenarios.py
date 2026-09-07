@@ -17,10 +17,20 @@ potência em relação a um desenho independente de mesmo tamanho.
 modelo (dívida técnica, contagem de erros) são assimétricas e limitadas
 inferiormente por zero; o Wilcoxon não pressupõe normalidade.
 
-`[DEC]` Tamanho de efeito por **d de Cohen pareado** e pela **proporção de pares
-em que o cenário adaptativo supera o centralizado**. Reportar apenas o valor-p
-seria insuficiente: com pareamento e centenas de pares, diferenças irrelevantes
-tornam-se significativas.
+`[DEC]` Tamanho de efeito por **d de Cohen pareado** e pela **proporção de casos
+em que o cenário adaptativo supera o centralizado**, complementando o valor-p com
+medidas de magnitude e de consistência do contraste. Reportar apenas o valor-p
+seria insuficiente: ele não distingue diferença relevante de diferença meramente
+detectável.
+
+`[B7]` **ATENÇÃO — este script produz a análise em nível de SEMENTE, que NÃO é a
+inferência definitiva.** As doze sementes de uma mesma instância não são projetos
+independentes, e tratá-las como observações separadas é pseudorreplicação. A
+inferência válida usa a INSTÂNCIA como unidade (n = 16) e é produzida por
+`src/modelo/14_experimento_por_instancia.py`, por re-análise do arquivo bruto
+gerado aqui. As saídas deste script — inclusive `modelo_03_experimento_resumo.csv`
+e `modelo_03_experimento.log` — permanecem como ARTEFATO HISTÓRICO da versão
+anterior da inferência, e não devem ser citadas como resultado.
 
 SAIDA
 -----
@@ -167,9 +177,17 @@ def main() -> None:
     log("  (E_plano) e propriedade da instancia e identica nos dois bracos.")
     log("")
     log("\n  Leitura: 'd Cohen' e o tamanho do efeito na diferenca pareada;")
-    log("  '% pares' e a fracao de pares em que o cenario adaptativo foi melhor.")
-    log("  Com centenas de pares, o valor-p sozinho nao distingue diferenca")
-    log("  relevante de diferenca detectavel.")
+    log("  '% pares' e a fracao de casos em que o cenario adaptativo foi melhor.")
+    log("  O valor-p sozinho nao distingue diferenca relevante de diferenca")
+    log("  meramente detectavel; leia-o com o tamanho de efeito e a proporcao.")
+    log("")
+    log("  `[B7]` ESTA ANALISE E EM NIVEL DE SEMENTE e NAO e a inferencia")
+    log("  definitiva. As 12 sementes de uma instancia nao sao projetos")
+    log("  independentes; trata-las como observacoes separadas e")
+    log("  pseudorreplicacao. A inferencia valida usa a INSTANCIA como unidade")
+    log("  (n = 16) e esta em src/modelo/14_experimento_por_instancia.py, que")
+    log("  re-analisa o arquivo bruto gerado aqui. Estas saidas ficam como")
+    log("  ARTEFATO HISTORICO e nao devem ser citadas como resultado.")
 
     log("\n--- Arquivos gerados ---")
     log(f"  outputs/tables/modelo_03_experimento_bruto.csv ({len(d)} linhas)")

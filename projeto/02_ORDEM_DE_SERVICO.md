@@ -110,10 +110,13 @@ Em ordem de consequência, não de esforço.
 1. ~~**B7 — unidade inferencial.**~~ **FEITO** por re-análise do artefato
    existente (`14_experimento_por_instancia.py`), sem simulação nova. A Tabela 9
    passou à instância como unidade: *d* de −2,4 para −7,8 e 16 de 16 instâncias
-   favoráveis. **Resta**: regerar a fig7 na unidade de instância. Ela foi
+   favoráveis. A figura de tamanhos de efeito construída na unidade antiga foi
    **retirada** da Entrega 1 — manter uma figura cuja legenda precisa avisar que
    ela não serve para inferência entrega à banca uma pergunta de graça, e a
-   Tabela 9 já traz a análise válida.
+   Tabela 9 já traz a análise válida. **Nada resta deste item.** Se um dia
+   quisermos uma visualização da inferência por instância, será uma FIGURA NOVA;
+   não confundir com a Figura 7 atual, que após a renumeração é outra figura e
+   não deve ser alterada.
 
 1b. **Números de resultado digitados no gerador, fora das seções novas.** A
    busca global confirmou que a Tabela 9 não era caso isolado: a Tabela 5

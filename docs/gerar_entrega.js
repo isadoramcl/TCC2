@@ -529,7 +529,7 @@ filhos.push(pRuns([
 ]));
 filhos.push(pRuns([
   { t: 'Delineamento pareado. ', b: true },
-  { t: 'Cada par de execuções emprega a mesma instância e a mesma semente aleatória nos dois braços. A variação atribuível à instância e ao sorteio é, portanto, comum aos dois e cancela-se na diferença, o que eleva substancialmente a potência estatística em relação a um delineamento independente de mesmo tamanho. A inferência emprega o teste de Wilcoxon para amostras pareadas, e não o teste t, porque as saídas do modelo são assimétricas e limitadas inferiormente por zero. O tamanho de efeito é reportado pelo d de Cohen pareado e pela proporção de pares favoráveis, uma vez que, com centenas de pares, o valor-p isoladamente não distingue diferença relevante de diferença meramente detectável.' },
+  { t: 'Cada par de execuções emprega a mesma instância e a mesma semente aleatória nos dois braços. A variação atribuível à instância e ao sorteio é, portanto, comum aos dois e cancela-se na diferença, o que eleva substancialmente a potência estatística em relação a um delineamento independente de mesmo tamanho. A inferência emprega o teste de Wilcoxon para amostras pareadas, e não o teste t, porque as saídas do modelo são assimétricas e limitadas inferiormente por zero. O tamanho de efeito é reportado pelo d de Cohen pareado e pela proporção de instâncias favoráveis, complementando o valor-p com medidas de magnitude e de consistência do contraste. O valor-p sozinho não distingue diferença relevante de diferença meramente detectável, e com dezesseis unidades ele satura rapidamente no seu piso, de modo que a leitura substantiva depende das outras duas medidas.' },
 ]));
 
 filhos.push(h2('1.10  Pontos de acoplamento entre a calibração e o modelo'));
@@ -763,7 +763,7 @@ filhos.push(tituloTabela('poder_9a', 'Poder de rejeição do critério de plausi
 filhos.push(legenda('Fonte: Dados da pesquisa (2026). A faixa varrida é a faixa aberta declarada para o parâmetro.'));
 
 filhos.push(h2('2.8  Experimento central: governança centralizada e adaptativa'));
-filhos.push(p('O experimento comparou os dois arranjos da Tabela ' + T('cenarios') + ' sobre dezesseis instâncias do J60 com doze sementes cada, totalizando trezentas e oitenta e quatro execuções pareadas. Nenhuma execução deixou de concluir dentro do horizonte estabelecido. A Tabela ' + T('experimento') + ' apresenta os resultados.'));
+filhos.push(p('O experimento comparou os dois arranjos da Tabela ' + T('cenarios') + ' sobre dezesseis instâncias do J60, com doze sementes cada. São trezentas e oitenta e quatro execuções no total, organizadas em cento e noventa e dois pares de instância e semente — cada par confronta os dois arranjos sob a mesma instância e a mesma semente. A unidade da inferência final, porém, não é o par e sim a INSTÂNCIA: as doze sementes de cada instância são agregadas pela média, e os testes correm sobre as dezesseis instâncias resultantes, pelas razões expostas adiante nesta seção. Nenhuma execução deixou de concluir dentro do horizonte estabelecido. A Tabela ' + T('experimento') + ' apresenta os resultados.'));
 filhos.push(tituloTabela('experimento', 'Comparação pareada entre os arranjos de governança, por instância'));
 {
   const ex = lerCsvPV(caminhoTabela('entrega_experimento.csv'));
