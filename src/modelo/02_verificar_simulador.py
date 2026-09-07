@@ -271,8 +271,24 @@ def main() -> None:
     # tem de eliminar a ociosidade e concluir mais rapido que a nominal, NA MESMA
     # instancia. Sao os unicos itens da verificacao 7 que constituem evidencia.
     tu_max = max(r.TU for _, _, r in ids)
-    registrar("7d. condicao ideal elimina a ociosidade (TU = 0)",
-              tu_max == 0.0, f"TU maximo = {tu_max:.1f}")
+    # `[AUDITORIA]` PODER DE DETECCAO DE 7d — declarado.
+    # Na condicao ideal a competencia sorteada e 0,99 com desvio 0,001, mas o
+    # simulador aplica clip em 0,98: todos os agentes ficam com 0,98 exatos.
+    # A ociosidade so pode nascer de dois lugares: (i) o ramo de fuga da Porta 1,
+    # que NUNCA dispara porque omega (0,50) nao excede o limite de aversao
+    # (0,60) — item C5; (ii) a Porta 2, que exige dD > 0, isto e, alguma tarefa
+    # com dificuldade acima de 0,98. Logo 7d passa se e somente se nenhuma
+    # tarefa das instancias amostradas ultrapassar 0,98.
+    # NAO e verdadeira por construcao: 32 das 28.800 tarefas da base tem
+    # Di > 0,98, distribuidas em 32 das 480 instancias. Nas 12 instancias desta
+    # bateria o maximo e 0,9530, e por isso o teste passa. O resultado e,
+    # portanto, CONTINGENTE A AMOSTRA DE INSTANCIAS e nao se generaliza as 480.
+    di_max = float(tarefas_todas[tarefas_todas["arquivo"].isin(instancias)]["Di"].max())
+    registrar("7d. [contingente a amostra] condicao ideal elimina a ociosidade "
+              "(TU = 0)", tu_max == 0.0,
+              f"TU maximo = {tu_max:.1f}; Di maximo nas {len(instancias)} "
+              f"instancias = {di_max:.4f} contra competencia 0,98 — falharia em "
+              f"instancia com Di > 0,98 (32 das 480)")
 
     nominal = {(arq, cen): r for arq, cen, _, r in resultados}
     pares = [(arq, cen, r, nominal[(arq, cen)])
@@ -281,9 +297,19 @@ def main() -> None:
     ganho = sum(rn.makespan - ri.makespan for _, _, ri, rn in pares) / len(pares)
     log(f"    pareado por instancia e cenario: {len(pares)} pares, "
         f"ganho medio de makespan {ganho:+.1f} periodos")
-    registrar("7e. condicao ideal conclui mais rapido que a nominal (pareado)",
-              not lentos,
-              f"{len(pares) - len(lentos)} de {len(pares)} pares favoraveis")
+    # `[AUDITORIA]` PODER DE DETECCAO DE 7e — declarado.
+    # A condicao ideal desliga TODOS os mecanismos que alongam o cronograma
+    # (risco, pressao, drenagem) e ainda remove o hiato de competencia. Que ela
+    # conclua antes e, portanto, quase garantido pela propria construcao da
+    # condicao. NAO e vacuo: esta verificacao JA FALHOU, na versao anterior da
+    # condicao ideal, e foi essa falha que expos o ACHADO 11 — a condicao dita
+    # ideal produzia projeto PIOR que o nominal (makespan 303,5 contra 249,2).
+    # O teste tem poder demonstrado; o que ele nao e e evidencia estrutural
+    # independente: e uma DEMONSTRACAO DE COMPORTAMENTO sob condicao completa.
+    registrar("7e. [comportamento sob condicao ideal] conclui mais rapido que a "
+              "nominal (pareado)", not lentos,
+              f"{len(pares) - len(lentos)} de {len(pares)} pares favoraveis; "
+              f"ganho medio {ganho:+.1f} periodos")
 
     log("\n" + "=" * 78)
     log("8 — RESPOSTA A PRESSAO: teste de tendencia  [B1]")

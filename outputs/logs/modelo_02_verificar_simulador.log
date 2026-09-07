@@ -1,6 +1,6 @@
 ==============================================================================
 VERIFICACOES DO SIMULADOR
-Execucao: 2026-09-07T03:01:04
+Execucao: 2026-09-07T03:11:58
 ==============================================================================
 
 Instancias na bateria: 12
@@ -51,9 +51,9 @@ Instancias na bateria: 12
     24 execucoes na condicao ideal — E_total minimo 1.0000, ociosidade maxima 0.0
   [OK   ] 7a. sem risco nem pressao, nenhuma tarefa falha — 24 execucoes — VERDADEIRA POR CONSTRUCAO (F_ancora=0)
   [OK   ] 7c. sem risco nem pressao, divida tecnica nula — VERDADEIRA POR CONSTRUCAO (F_ancora=0)
-  [OK   ] 7d. condicao ideal elimina a ociosidade (TU = 0) — TU maximo = 0.0
+  [OK   ] 7d. [contingente a amostra] condicao ideal elimina a ociosidade (TU = 0) — TU maximo = 0.0; Di maximo nas 12 instancias = 0.9530 contra competencia 0,98 — falharia em instancia com Di > 0,98 (32 das 480)
     pareado por instancia e cenario: 24 pares, ganho medio de makespan +68.5 periodos
-  [OK   ] 7e. condicao ideal conclui mais rapido que a nominal (pareado) — 24 de 24 pares favoraveis
+  [OK   ] 7e. [comportamento sob condicao ideal] conclui mais rapido que a nominal (pareado) — 24 de 24 pares favoraveis; ganho medio +68.5 periodos
 
 ==============================================================================
 8 — RESPOSTA A PRESSAO: teste de tendencia  [B1]

@@ -113,8 +113,8 @@ v = pd.read_csv(T / "modelo_02_verificacoes.csv")
 CLASSE = {
     "1.": "construção", "2.": "estrutural", "3.": "estrutural", "4a": "construção",
     "4b": "construção", "5.": "construção", "6.": "construção", "7a": "construção",
-    "7b": "comportamento", "7c": "construção", "7d": "comportamento",
-    "7e": "comportamento", "8a": "implementação", "8b": "implementação",
+    "7b": "comportamento", "7c": "construção", "7d": "contingente",
+    "7e": "cond. ideal", "8a": "implementação", "8b": "implementação",
     "8c": "exploratória", "9a": "ordem de grandeza", "9b": "ordem de grandeza",
     "9c": "ordem de grandeza", "9d": "meta",
 }

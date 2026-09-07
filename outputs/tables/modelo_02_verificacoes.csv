@@ -9,8 +9,8 @@ verificacao,resultado,detalhe
 6b. sementes diferentes produzem resultados diferentes,OK,"se falhar, o gerador nao esta sendo usado"
 "7a. sem risco nem pressao, nenhuma tarefa falha",OK,24 execucoes — VERDADEIRA POR CONSTRUCAO (F_ancora=0)
 "7c. sem risco nem pressao, divida tecnica nula",OK,VERDADEIRA POR CONSTRUCAO (F_ancora=0)
-7d. condicao ideal elimina a ociosidade (TU = 0),OK,TU maximo = 0.0
-7e. condicao ideal conclui mais rapido que a nominal (pareado),OK,24 de 24 pares favoraveis
+7d. [contingente a amostra] condicao ideal elimina a ociosidade (TU = 0),OK,"TU maximo = 0.0; Di maximo nas 12 instancias = 0.9530 contra competencia 0,98 — falharia em instancia com Di > 0,98 (32 das 480)"
+7e. [comportamento sob condicao ideal] conclui mais rapido que a nominal (pareado),OK,24 de 24 pares favoraveis; ganho medio +68.5 periodos
 8a-centralizada. divida oculta (S_UR max) cresce com a pressao,OK,"2 de 2 instancias, n = 500 por celula"
 8a-adaptativa. divida oculta (S_UR max) cresce com a pressao,OK,"2 de 2 instancias, n = 500 por celula"
 8b-centralizada. tempo em modo heuristico cresce com a pressao,OK,"2 de 2 instancias, n = 500 por celula"

@@ -9,8 +9,8 @@ id;verificacao;classe;situacao;medido
 6b;sementes diferentes produzem resultados diferentes;estrutural;aprovada;se falhar - o gerador não está sendo usado
 7a;sem risco nem pressão, nenhuma tarefa falha;construção;aprovada;24 execuções — verdadeira por construção…
 7c;sem risco nem pressão, dívida técnica nula;construção;aprovada;verdadeira por construção (F_âncora=0)
-7d;condição ideal elimina a ociosidade (TU = 0);comportamento;aprovada;TU máximo = 0,0
-7e;condição ideal conclui mais rápido que a nominal (pareado);comportamento;aprovada;24 de 24 pares favoráveis
+7d;[contingente a amostra] condição ideal elimina a ociosidade (TU = 0);contingente;aprovada;TU máximo = 0,0 - Di máximo nas 12…
+7e;[comportamento sob condição ideal] conclui mais rápido que a nominal (pareado);cond. ideal;aprovada;24 de 24 pares favoráveis - ganho medio…
 8a‑C;dívida oculta (S_UR max) cresce com a pressão;implementação;aprovada;2 de 2 instâncias - n = 500 por célula
 8a‑A;dívida oculta (S_UR max) cresce com a pressão;implementação;aprovada;2 de 2 instâncias - n = 500 por célula
 8b‑C;tempo em modo heurístico cresce com a pressão;implementação;aprovada;2 de 2 instâncias - n = 500 por célula
