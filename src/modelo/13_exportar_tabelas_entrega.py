@@ -112,7 +112,7 @@ def salvar(nome, linhas, cols):
 v = pd.read_csv(T / "modelo_02_verificacoes.csv")
 CLASSE = {
     "1.": "construção", "2.": "estrutural", "3.": "estrutural", "4a": "construção",
-    "4b": "estrutural", "5.": "construção", "6.": "construção", "7a": "construção",
+    "4b": "construção", "5.": "construção", "6.": "construção", "7a": "construção",
     "7b": "comportamento", "7c": "construção", "7d": "comportamento",
     "7e": "comportamento", "8a": "implementação", "8b": "implementação",
     "8c": "exploratória", "9a": "ordem de grandeza", "9b": "ordem de grandeza",
@@ -121,14 +121,18 @@ CLASSE = {
 linhas = []
 for r in v.itertuples():
     ch = str(r.verificacao)[:2]
-    medido = acentuar(limpo(str(r.detalhe).split("|")[0].strip()))
+    # Detalhe vazio vira travessao, nunca "nan": a verificacao 5 nao registra
+    # valor medido e a conversao ingenua imprimia "nan" na tabela do documento.
+    bruto = r.detalhe
+    bruto = "" if (bruto is None or str(bruto).lower() in ("nan", "none")) else str(bruto)
+    medido = acentuar(limpo(bruto.split("|")[0].strip())) or "—"
     if len(medido) > 46:
         medido = medido[:44].rsplit(" ", 1)[0] + "…"
     ident = limpo(r.verificacao.split(".", 1)[0])
     ident = (ident.replace("-centralizada", "\u2011C")
                   .replace("-adaptativa", "\u2011A"))
     linhas.append([ident,
-                   acentuar(limpo(r.verificacao.split(". ", 1)[-1]))[:110],
+                   acentuar(str(r.verificacao).split(". ", 1)[-1].replace(";", " -"))[:110],
                    CLASSE.get(ch, "estrutural"),
                    {"OK": "aprovada", "NAO CONFIRMADA": "não confirmada",
                     "FALHA": "falha"}[r.resultado],
@@ -183,7 +187,7 @@ salvar("entrega_tau_min.csv",
 ab = pd.read_csv(T / "modelo_07_ablacao_mecanismo.csv")
 ROTM = {"atraso_relativo": "atraso relativo", "E_total": "ocupação E_total",
         "TL": "tempo de ajuda TL", "TU": "ociosidade TU",
-        "TR": "retrabalho pago TR", "TW": "trabalho efetivo TW",
+        "TR": "esforço de retrabalho TR", "TW": "trabalho efetivo TW",
         "n_com_erro": "tarefas com defeito oculto",
         "taxa_omissao": "taxa de omissão",
         "retrabalho_sobre_plano": "retrabalho sobre o plano",

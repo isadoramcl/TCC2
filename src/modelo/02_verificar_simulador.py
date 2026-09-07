@@ -154,9 +154,20 @@ def main() -> None:
             f"tempo de agente alocado {_st.mean(x[1] for x in d):>9.1f}  "
             f"TR {_st.mean(x[2] for x in d):>7.1f}")
     conserva = all(abs(sr - (al - tr)) < 1e-6 or sr <= al for _, sr, al, tr in desvios)
-    registrar("4b. soma dos relogios nao excede o tempo de agente alocado",
-              conserva,
-              "TR e contabilizado sem consumir agente — ver item C1")
+    # `[AUDITORIA]` PODER DE DETECCAO DESTA VERIFICACAO — declarado.
+    # TW, TL e TU sao incrementados um a um a partir de periodos de agente
+    # efetivamente gastos (executando, apoiando, bloqueado). A desigualdade
+    # TW+TL+TU <= n_agentes x makespan e, portanto, VERDADEIRA POR CONSTRUCAO.
+    # A unica parcela que poderia viola-la e TR, que nao consome agente. Logo:
+    # esta verificacao NAO e evidencia comportamental independente; ela so
+    # detecta erro se a inflacao dos relogios exceder a folga de periodos de
+    # agente livre. A folga e reportada abaixo para que o leitor veja o quanto
+    # o teste consegue apertar — quanto maior a folga, menor o poder.
+    folga = min(1.0 - sr / al for _, sr, al, _ in desvios if al > 0)
+    registrar("4b. [construcao, poder fraco] soma dos relogios nao excede o "
+              "tempo de agente alocado", conserva,
+              f"folga minima {folga:.1%} — o teste so pega inflacao acima disso; "
+              f"TR e contabilizado sem consumir agente (item C1)")
 
     # 5. faixas
     fora = []
