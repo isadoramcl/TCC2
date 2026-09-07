@@ -1,0 +1,85 @@
+==============================================================================
+PORTA 2 — regra do TCC1 (B) x operacionalizacao do TCC2 (A)
+Execucao: 2026-09-07T01:39:17
+==============================================================================
+
+  A = nominal implementado : disponivel + tau_k > tau_min + competencia_k > competencia
+  B = fiel ao TCC1 §4.4.3  : disponivel + tau_k > tau_min
+  Diferenca                : o filtro de competencia, ausente no TCC1
+
+==============================================================================
+CENARIO CENTRALIZADA   (16 instancias x 12 sementes, pareadas)
+==============================================================================
+
+  Contadores da Porta 2 (media por execucao):
+    contador                               A nominal      B TCC1        dif
+    p2_ajuda                                    0.00        0.00      +0.00
+    p2_bloqueio                               126.27      126.27      +0.00
+    hiato_encontrado                          126.27      126.27      +0.00
+    hiato_sem_colega_capaz                     44.84       11.39     -33.46
+    hiato_sem_colega_livre                     11.39       11.39      +0.00
+    hiato_colega_capaz_sem_confianca           81.42      114.88     +33.46
+    p1_omissao                                 38.64       38.64      +0.00
+    p3_analitica                               21.36       21.36      +0.00
+
+  Metricas principais (unidade inferencial: instancia, n = 16):
+    metrica                        A nominal      B TCC1        dif    dif %          p       d
+    atraso_relativo                   3.1345      3.1345    +0.0000    +0.0%        nan     nan
+    E_total                           0.7839      0.7839    +0.0000    +0.0%        nan     nan
+    TL                                0.0000      0.0000    +0.0000    +nan%        nan     nan
+    TU                              126.2656    126.2656    +0.0000    +0.0%        nan     nan
+    TR                               68.8653     68.8653    +0.0000    +0.0%        nan     nan
+    TW                              696.7969    696.7969    +0.0000    +0.0%        nan     nan
+    n_com_erro                       13.0208     13.0208    +0.0000    +0.0%        nan     nan
+    taxa_omissao                      0.2170      0.2170    +0.0000    +0.0%        nan     nan
+    retrabalho_sobre_plano            0.2031      0.2031    +0.0000    +0.0%        nan     nan
+    divida_latente_sobre_plano        0.0741      0.0741    +0.0000    +0.0%        nan     nan
+    S_UR_maximo                      25.1123     25.1123    +0.0000    +0.0%        nan     nan
+
+==============================================================================
+CENARIO ADAPTATIVA   (16 instancias x 12 sementes, pareadas)
+==============================================================================
+
+  Contadores da Porta 2 (media por execucao):
+    contador                               A nominal      B TCC1        dif
+    p2_ajuda                                   10.49       10.22      -0.27
+    p2_bloqueio                                 5.94        6.89      +0.95
+    hiato_encontrado                           16.43       17.11      +0.68
+    hiato_sem_colega_capaz                      5.94        6.89      +0.95
+    hiato_sem_colega_livre                      1.95        6.89      +4.94
+    hiato_colega_capaz_sem_confianca            0.00        0.00      +0.00
+    p1_omissao                                 19.17       19.91      +0.74
+    p3_analitica                               40.83       40.09      -0.74
+
+  Metricas principais (unidade inferencial: instancia, n = 16):
+    metrica                        A nominal      B TCC1        dif    dif %          p       d
+    atraso_relativo                   1.9991      1.9977    -0.0014    -0.1%   8.60e-01   -0.03
+    E_total                           0.8885      0.8879    -0.0006    -0.1%   9.40e-01   -0.05
+    TL                               10.4896     10.2188    -0.2708    -2.6%   3.46e-01   -0.36
+    TU                                5.9427      6.8906    +0.9479   +16.0%   8.20e-01    0.17
+    TR                               52.5089     52.9729    +0.4640    +0.9%   7.82e-01    0.09
+    TW                              547.1927    551.2812    +4.0885    +0.7%   4.18e-03    0.85
+    n_com_erro                        3.8229      3.7344    -0.0885    -2.3%   8.15e-01   -0.14
+    taxa_omissao                      0.0637      0.0622    -0.0015    -2.3%   7.56e-01   -0.14
+    retrabalho_sobre_plano            0.1545      0.1561    +0.0017    +1.1%   7.44e-01    0.11
+    divida_latente_sobre_plano        0.0201      0.0205    +0.0003    +1.7%   7.06e-01    0.11
+    S_UR_maximo                       6.8235      6.9315    +0.1080    +1.6%   7.44e-01    0.10
+
+==============================================================================
+MAGNITUDE DA DIVERGENCIA
+==============================================================================
+
+  centralizada: 0 de 11 metricas com p < 0,05; maior efeito relativo em 'atraso_relativo' (+0.0%)
+
+  adaptativa: 1 de 11 metricas com p < 0,05; maior efeito relativo em 'TU' (+16.0%)
+
+  `[DEC]` Criterio de materialidade declarado ANTES de olhar o
+  resultado: a divergencia e MATERIAL se alterar em mais de 5% alguma
+  metrica publicada nos resultados, ou se inverter algum sinal. Os 5%
+  vem da menor diferenca entre politicas que o trabalho reporta como
+  achado (E_total, +13,3%): abaixo de metade disso a escolha de
+  operacionalizacao nao muda nenhuma conclusao.
+
+  NAO MATERIAL: nenhuma metrica publicada muda mais de 5% com
+  significancia. A divergencia e registrada e a harmonizacao fica
+  para a proxima versao.

@@ -1,0 +1,8 @@
+procedimento;instancias;sementes;execucoes;arquivo
+Experimento central;16 instâncias J60 (todas[::30][:16]);0 a 11;384;modelo_03_experimento_bruto.csv
+Ablação de governança (B9);as mesmas 16 instâncias;0 a 11;2880;modelo_07_ablacao_bruto.csv
+Decomposição fatorial 2⁴;as mesmas 16 instâncias;0 a 11;3072;modelo_10_fatorial_celulas.csv
+Sensibilidade de τ_mín;as mesmas 16 instâncias;0 a 11;2112;modelo_09_sensibilidade_tau_min.csv
+Tendência sob pressão — piloto;j6010_1 e j6014_1;0 a 39;800;modelo_11_tendencia_piloto.csv
+Tendência sob pressão — confirmatório;j6010_1 e j6014_1;1000 a 1099;2000;modelo_11_tendencia_confirmatorio.csv
+Porta 2 — TCC1 × TCC2;as mesmas 16 instâncias;0 a 11;768;modelo_12_porta2_comparacao.csv

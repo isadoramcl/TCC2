@@ -1,6 +1,6 @@
 ==============================================================================
 VERIFICACOES DO SIMULADOR
-Execucao: 2026-09-05T16:53:55
+Execucao: 2026-09-07T01:35:57
 ==============================================================================
 
 Instancias na bateria: 12
@@ -11,39 +11,114 @@ Instancias na bateria: 12
   [OK   ] 1. toda tarefa termina em estado terminal — 0 tarefas nao terminais
   [OK   ] 2. precedencia respeitada — 0 violacoes
   [OK   ] 3. disponibilidade de recursos nunca excedida — 0 instancias com excesso
-  [OK   ] 4. relogios nao negativos e soma positiva
+  [OK   ] 4a. relogios nao negativos e soma positiva — VERDADEIRA POR CONSTRUCAO — nao e evidencia
+
+    centralizada   soma dos relogios     863.6  tempo de agente alocado    1336.0  TR    71.2
+    adaptativa     soma dos relogios     595.6  tempo de agente alocado     941.5  TR    54.0
+  [OK   ] 4b. soma dos relogios nao excede o tempo de agente alocado — TR e contabilizado sem consumir agente — ver item C1
   [OK   ] 5. E_total, bateria, competencia e multiplicadores em [0,1]
 
 ==============================================================================
 6 — DETERMINISMO
 ==============================================================================
-  [OK   ] 6. mesma semente reproduz o mesmo resultado
+  [OK   ] 6. mesma semente reproduz o mesmo resultado (12 instancias x 2 cenarios) — VERDADEIRA POR CONSTRUCAO se o RNG e semeado corretamente
   [OK   ] 6b. sementes diferentes produzem resultados diferentes — se falhar, o gerador nao esta sendo usado
 
 ==============================================================================
 7 — CASO DEGENERADO (condicao ideal deve produzir execucao limpa)
 ==============================================================================
-  [OK   ] 7a. sem risco nem pressao, nenhuma tarefa falha — erros=0 reportadas=0
-  [OK   ] 7b. sem risco nem pressao, E_total tende a 1 — E_total=0.9671
-  [OK   ] 7c. sem risco nem pressao, divida tecnica nula — S_UR_max=0.0000
+  `[ACHADO 11]` A condicao 'ideal' anterior NAO era ideal. Ela zerava
+  risco, pressao e drenagem, mas deixava a competencia nominal — e o
+  resultado era um projeto PIOR que o nominal: makespan 303,5 contra
+  249,2 e ociosidade 1.030 contra 97.
+
+  A causa e estrutural e vale como achado do modelo: a Porta 3 exige
+  DeltaD <= 0, isto e, o agente em modo analitico so executa tarefa
+  dentro da sua competencia. Com pressao zero o agente praticamente
+  nunca entra em modo heuristico (E = D_i*P/B = 0), de modo que as
+  tarefas acima da competencia so poderiam sair por ajuda — e com tau
+  constante a centralizada nunca ajuda (TL = 0).
+
+  Ou seja: NO MODELO, o modo heuristico e simultaneamente a patologia
+  E a unica valvula de escape para o hiato de competencia. Desligar a
+  patologia sem resolver a causa fundamental trava o projeto. Isso e
+  coerente com o arquetipo de Solucoes Sintomaticas do TCC I, mas
+  precisa ser DECLARADO, e nao descoberto pela banca.
+
+  A condicao degenerada correta zera risco, pressao e drenagem E torna
+  a competencia suficiente. So entao 'ideal' significa ideal.
+
+    24 execucoes na condicao ideal — E_total minimo 1.0000, ociosidade maxima 0.0
+  [OK   ] 7a. sem risco nem pressao, nenhuma tarefa falha — 24 execucoes — VERDADEIRA POR CONSTRUCAO (F_ancora=0)
+  [OK   ] 7c. sem risco nem pressao, divida tecnica nula — VERDADEIRA POR CONSTRUCAO (F_ancora=0)
+  [OK   ] 7d. condicao ideal elimina a ociosidade (TU = 0) — TU maximo = 0.0
+    pareado por instancia e cenario: 24 pares, ganho medio de makespan +68.5 periodos
+  [OK   ] 7e. condicao ideal conclui mais rapido que a nominal (pareado) — 24 de 24 pares favoraveis
 
 ==============================================================================
-8 — MONOTONICIDADE ESPERADA: mais pressao nao pode reduzir a divida
+8 — RESPOSTA A PRESSAO: teste de tendencia  [B1]
 ==============================================================================
-    P_max=0.2  S_UR maximo medio =  14.564  (ep 0.827)   tempo heuristico = 34.8%
-    P_max=0.4  S_UR maximo medio =  15.323  (ep 0.765)   tempo heuristico = 42.2%
-    P_max=0.6  S_UR maximo medio =  16.118  (ep 0.802)   tempo heuristico = 51.0%
-    P_max=0.8  S_UR maximo medio =  18.874  (ep 0.910)   tempo heuristico = 57.2%
-    P_max=1.0  S_UR maximo medio =  19.539  (ep 1.008)   tempo heuristico = 62.3%
+  `[B1]` A versao original calculava Spearman sobre CINCO MEDIAS e
+  reportava o valor-p assintotico do scipy. Com n = 5 o menor valor-p
+  bilateral EXATO e 2/5! = 0,0167; um p da ordem de 1e-24 nao e
+  atingivel e nao podia ser evidencia. O teste tambem so rodava no
+  braco centralizado, numa instancia.
 
-    tendencia S_UR      vs pressao : Spearman rho=+1.000  p=0.0000
-    tendencia t.heuristico vs pressao : Spearman rho=+1.000  p=0.0000
-  [OK   ] 8a. divida tecnica cresce com a pressao (teste de tendencia) — rho=+1.000 p=0.0000
-  [OK   ] 8b. tempo em modo heuristico cresce com a pressao — rho=+1.000 p=0.0000
+  Refeito em `src/modelo/11_tendencia_pressao.py`, com desenho em duas
+  etapas: piloto (sementes 0-39) para estimar o tamanho de efeito e
+  dimensionar n por calculo de potencia, e confirmatorio (sementes
+  1000-1099, DISJUNTAS) com o criterio inalterado, rho > 0 e p < 0,05.
+  Resultados lidos daqui; nao sao recalculados neste script.
+
+  `[CLASSIFICACAO]` VERIFICACAO DE IMPLEMENTACAO. Testa se o codigo
+  realiza a direcao que a formulacao preve. Nao e evidencia sobre
+  equipes reais e nao restringe magnitude.
+
+  alvo               cenario        instancia         n     rho               IC95           p
+  defeitos_gerados   centralizada   j6010_1.sm      500  +0.161  [+0.072; +0.248]    2.92e-04
+  S_UR_maximo        centralizada   j6010_1.sm      500  +0.351  [+0.270; +0.428]    5.62e-16
+  fracao_heuristica  centralizada   j6010_1.sm      500  +0.682  [+0.631; +0.728]    9.16e-70
+  defeitos_gerados   adaptativa     j6010_1.sm      500  +0.072  [-0.019; +0.161]    1.10e-01
+  S_UR_maximo        adaptativa     j6010_1.sm      500  +0.091  [+0.000; +0.179]    4.28e-02
+  fracao_heuristica  adaptativa     j6010_1.sm      500  +0.708  [+0.660; +0.750]    2.88e-77
+  defeitos_gerados   centralizada   j6014_1.sm      500  +0.296  [+0.211; +0.376]    1.50e-11
+  S_UR_maximo        centralizada   j6014_1.sm      500  +0.600  [+0.539; +0.655]    3.20e-50
+  fracao_heuristica  centralizada   j6014_1.sm      500  +0.882  [+0.860; +0.900]   1.70e-164
+  defeitos_gerados   adaptativa     j6014_1.sm      500  +0.081  [-0.010; +0.170]    7.13e-02
+  S_UR_maximo        adaptativa     j6014_1.sm      500  +0.179  [+0.090; +0.265]    5.92e-05
+  fracao_heuristica  adaptativa     j6014_1.sm      500  +0.939  [+0.927; +0.949]   1.71e-232
+
+  [OK   ] 8a-centralizada. divida oculta (S_UR max) cresce com a pressao — 2 de 2 instancias, n = 500 por celula
+  [OK   ] 8a-adaptativa. divida oculta (S_UR max) cresce com a pressao — 2 de 2 instancias, n = 500 por celula
+  [OK   ] 8b-centralizada. tempo em modo heuristico cresce com a pressao — 2 de 2 instancias, n = 500 por celula
+  [OK   ] 8b-adaptativa. tempo em modo heuristico cresce com a pressao — 2 de 2 instancias, n = 500 por celula
+
+  `[POST HOC — declarado]` 8c foi acrescentada DEPOIS de ver a
+  versao subdimensionada de 8a nao se confirmar. Nao e
+  confirmatoria e nao substitui 8a. Fica declarada como
+  exploratoria no documento, com o resultado que deu — inclusive
+  onde nao se confirma.
+  [OK   ] 8c-centralizada. [exploratoria, post hoc] defeitos GERADOS crescem com a pressao — 2 de 2 instancias, n = 500 por celula
+  [N/CONF] 8c-adaptativa. [exploratoria, post hoc] defeitos GERADOS crescem com a pressao — 0 de 2 instancias, n = 500 por celula, IC95 ate +0.170
+           motivo declarado: duas causas MEDIDAS, nenhuma delas defeito de codigo. (1) DOSE MENOR: P(t) e endogena ao atraso; o braco adaptativo atrasa menos e recebe 57,1% da amplitude de P(t) que o centralizado recebe para o mesmo P_max (0,3399 contra 0,5956 — modelo_11_dose_realizada.csv). (2) CANAL FRACO: por p_falha = F_base + R_error(1-mu_cog), com F_ancora 0,10 e R_error 0,15, a pressao acrescenta no maximo 0,047 a p_falha sobre uma base de 0,100 a 0,299 — a dificuldade domina a pressao de 3 a 20 vezes neste canal. O criterio (rho>0, p<0,05) e o n (500 >= 421 exigido) NAO foram alterados para acomodar o resultado
+
+  `[LIMITACAO]` 'nao confirmada' nao e 'refutada': o IC95 no braco
+  adaptativo contem o zero e valores positivos pequenos.
+  `[LIMITACAO]` A dose difere entre bracos por construcao. O
+  experimento manipula P_max, nao P(t); nao e contraste de mesma
+  dose entre bracos.
+  `[LIMITACAO]` Vale nas 2 instancias e 2 cenarios testados, nao
+  nas 480 instancias.
 
 ==============================================================================
-VALIDACAO EXTERNA — retrabalho contra a literatura de campo
+9 — VERIFICACAO DE ORDEM DE GRANDEZA — retrabalho contra a literatura
 ==============================================================================
+  `[B3]` RECLASSIFICADA. Esta secao chamava-se VALIDACAO EXTERNA. Nao e.
+  Uma validacao externa restringe o modelo: existe valor do parametro
+  que ela reprova. Esta nao reprova nenhum — ver a varredura ao final
+  desta secao. Passa a ser declarada como VERIFICACAO DE ORDEM DE
+  GRANDEZA: rejeita desalinhamento grosseiro e nada mais. Nao sustenta
+  afirmacao de validacao nem de calibracao de F_ancora.
   `[ACHADO 7]` A versao anterior deste teste comparava uma razao de
   ESFORCO (retrabalho/esforco) contra a faixa de LOVE, que e uma razao
   de CUSTO sobre VALOR DE CONTRATO. Sao grandezas de unidades distintas
@@ -73,10 +148,26 @@ VALIDACAO EXTERNA — retrabalho contra a literatura de campo
   retrabalho/plano     — min 0.1178  mediana 0.1913  max 0.3066
   divida latente/plano — min 0.0069  mediana 0.0423  max 0.1300
   execucoes fora da faixa: 0 de 24
-  [OK   ] 9a. mediana do retrabalho na faixa de plausibilidade [1%; 50%] — mediana=0.1913
+  [OK   ] 9a. [ordem de grandeza, NAO validacao] mediana do retrabalho na faixa [1%; 50%] — mediana=0.1913
   [OK   ] 9b. cauda fora da faixa inferior a 10% das execucoes — 0/24 = 0.0%
   [OK   ] 9c. divida latente estritamente positiva (estoque nao inerte) — mediana=0.0423
 
+  `[B3]` Poder de rejeicao do criterio 9a — varredura de F_ancora:
+     F_ancora  mediana retrab./plano   9a aprova?
+         0.05                 0.0750          sim
+         0.10                 0.1752          sim
+         0.15                 0.2181          sim
+         0.20                 0.2922          sim
+         0.25                 0.3632          sim
+
+    O criterio aprova em TODA a faixa de F_ancora. Poder de rejeicao
+    nulo sobre este parametro. Confirmado o rebaixamento: ordem de
+    grandeza, nao validacao externa, nao calibracao.
+  [OK   ] 9d. [meta] o criterio 9a NAO restringe F_ancora (evidencia do rebaixamento) — aprova em 5 de 5 valores
+
 ==============================================================================
-RESULTADO: 15 de 15 verificacoes aprovadas
+RESULTADO: 21 aprovadas, 1 NAO CONFIRMADAS (declaradas), 0 falhas
+
+  NAO CONFIRMADA: 8c-adaptativa. [exploratoria, post hoc] defeitos GERADOS crescem com a pressao
+  Nao contam como aprovacao e estao declaradas no documento.
 ==============================================================================

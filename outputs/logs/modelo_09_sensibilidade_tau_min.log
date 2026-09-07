@@ -1,0 +1,50 @@
+==============================================================================
+SENSIBILIDADE LOCAL DE tau_min — cenario centralizado, resto constante
+Execucao: 2026-09-07T00:56:59
+==============================================================================
+
+tau_inicial (centralizada) = 0.25   exatamente representavel: True
+Instancias: 16   Sementes: 12   Execucoes por ponto: 192
+
+Valores distintos de confianca dentro da equipe: [np.int64(1)]
+  -> Todos os agentes tem a MESMA confianca (= tau_inicial) e ela nao
+     evolui. Logo o portao `confianca > tau_min` e a MESMA comparacao
+     para todos: e uma funcao degrau global de tau_min, e nao pode
+     produzir resposta gradual. Isso e consequencia de tau constante
+     (item C3), nao do valor de tau_min.
+
+------------------------------------------------------------------------------
+   tau_min   ajudas  bloqueios  atraso_rel        TU       TL       TR   E_total
+------------------------------------------------------------------------------
+       0.2     9.97       6.45      2.8600      6.45     9.97    59.64    0.8980
+     0.225     9.97       6.45      2.8600      6.45     9.97    59.64    0.8980
+      0.24     9.97       6.45      2.8600      6.45     9.97    59.64    0.8980
+     0.249     9.97       6.45      2.8600      6.45     9.97    59.64    0.8980
+    0.2499     9.97       6.45      2.8600      6.45     9.97    59.64    0.8980
+      0.25     0.00     126.27      3.1345    126.27     0.00    68.87    0.7839  <-- empate exato com tau_inicial
+    0.2501     0.00     126.27      3.1345    126.27     0.00    68.87    0.7839
+     0.251     0.00     126.27      3.1345    126.27     0.00    68.87    0.7839
+      0.26     0.00     126.27      3.1345    126.27     0.00    68.87    0.7839
+     0.275     0.00     126.27      3.1345    126.27     0.00    68.87    0.7839
+       0.3     0.00     126.27      3.1345    126.27     0.00    68.87    0.7839
+------------------------------------------------------------------------------
+
+  Regimes distintos na grade: 2 de 11 pontos.
+    regime 1: tau_min em [0.2, 0.225, 0.24, 0.249, 0.2499]
+    regime 2: tau_min em [0.25, 0.2501, 0.251, 0.26, 0.275, 0.3]
+
+  DIAGNOSTICO: resposta em DEGRAU, nao gradual. A grade tem 11
+  pontos e apenas 2 comportamentos. Todo ponto com tau_min < 0,25
+  cai num regime e todo ponto com tau_min >= 0,25 cai no outro.
+  Nao existe faixa intermediaria: e descontinuidade, nao gradiente.
+
+  Saltos em numero de ajudas entre pontos consecutivos:
+    0.2499 -> 0.25: -9.97
+
+  A descontinuidade unica esta no intervalo (0.2499; 0.25], de largura 0.0001,
+  e contem exatamente tau_inicial = 0.25. A variacao de 0.0001 em
+  tau_min produz toda a diferenca; nenhuma outra variacao na grade,
+  incluindo a de 0,20 a 0,249 (0,049, 490x maior), produz efeito algum.
+
+--- Arquivos gerados ---
+  outputs/tables/modelo_09_sensibilidade_tau_min.csv

@@ -2,15 +2,22 @@ verificacao,resultado,detalhe
 1. toda tarefa termina em estado terminal,OK,0 tarefas nao terminais
 2. precedencia respeitada,OK,0 violacoes
 3. disponibilidade de recursos nunca excedida,OK,0 instancias com excesso
-4. relogios nao negativos e soma positiva,OK,
+4a. relogios nao negativos e soma positiva,OK,VERDADEIRA POR CONSTRUCAO — nao e evidencia
+4b. soma dos relogios nao excede o tempo de agente alocado,OK,TR e contabilizado sem consumir agente — ver item C1
 "5. E_total, bateria, competencia e multiplicadores em [0,1]",OK,
-6. mesma semente reproduz o mesmo resultado,OK,
+6. mesma semente reproduz o mesmo resultado (12 instancias x 2 cenarios),OK,VERDADEIRA POR CONSTRUCAO se o RNG e semeado corretamente
 6b. sementes diferentes produzem resultados diferentes,OK,"se falhar, o gerador nao esta sendo usado"
-"7a. sem risco nem pressao, nenhuma tarefa falha",OK,erros=0 reportadas=0
-"7b. sem risco nem pressao, E_total tende a 1",OK,E_total=0.9671
-"7c. sem risco nem pressao, divida tecnica nula",OK,S_UR_max=0.0000
-8a. divida tecnica cresce com a pressao (teste de tendencia),OK,rho=+1.000 p=0.0000
-8b. tempo em modo heuristico cresce com a pressao,OK,rho=+1.000 p=0.0000
-9a. mediana do retrabalho na faixa de plausibilidade [1%; 50%],OK,mediana=0.1913
+"7a. sem risco nem pressao, nenhuma tarefa falha",OK,24 execucoes — VERDADEIRA POR CONSTRUCAO (F_ancora=0)
+"7c. sem risco nem pressao, divida tecnica nula",OK,VERDADEIRA POR CONSTRUCAO (F_ancora=0)
+7d. condicao ideal elimina a ociosidade (TU = 0),OK,TU maximo = 0.0
+7e. condicao ideal conclui mais rapido que a nominal (pareado),OK,24 de 24 pares favoraveis
+8a-centralizada. divida oculta (S_UR max) cresce com a pressao,OK,"2 de 2 instancias, n = 500 por celula"
+8a-adaptativa. divida oculta (S_UR max) cresce com a pressao,OK,"2 de 2 instancias, n = 500 por celula"
+8b-centralizada. tempo em modo heuristico cresce com a pressao,OK,"2 de 2 instancias, n = 500 por celula"
+8b-adaptativa. tempo em modo heuristico cresce com a pressao,OK,"2 de 2 instancias, n = 500 por celula"
+"8c-centralizada. [exploratoria, post hoc] defeitos GERADOS crescem com a pressao",OK,"2 de 2 instancias, n = 500 por celula"
+"8c-adaptativa. [exploratoria, post hoc] defeitos GERADOS crescem com a pressao",NAO CONFIRMADA,"0 de 2 instancias, n = 500 por celula, IC95 ate +0.170 | duas causas MEDIDAS, nenhuma delas defeito de codigo. (1) DOSE MENOR: P(t) e endogena ao atraso; o braco adaptativo atrasa menos e recebe 57,1% da amplitude de P(t) que o centralizado recebe para o mesmo P_max (0,3399 contra 0,5956 — modelo_11_dose_realizada.csv). (2) CANAL FRACO: por p_falha = F_base + R_error(1-mu_cog), com F_ancora 0,10 e R_error 0,15, a pressao acrescenta no maximo 0,047 a p_falha sobre uma base de 0,100 a 0,299 — a dificuldade domina a pressao de 3 a 20 vezes neste canal. O criterio (rho>0, p<0,05) e o n (500 >= 421 exigido) NAO foram alterados para acomodar o resultado"
+"9a. [ordem de grandeza, NAO validacao] mediana do retrabalho na faixa [1%; 50%]",OK,mediana=0.1913
 9b. cauda fora da faixa inferior a 10% das execucoes,OK,0/24 = 0.0%
 9c. divida latente estritamente positiva (estoque nao inerte),OK,mediana=0.0423
+9d. [meta] o criterio 9a NAO restringe F_ancora (evidencia do rebaixamento),OK,aprova em 5 de 5 valores
