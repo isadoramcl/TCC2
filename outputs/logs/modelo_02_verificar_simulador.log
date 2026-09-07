@@ -1,6 +1,6 @@
 ==============================================================================
 VERIFICACOES DO SIMULADOR
-Execucao: 2026-09-07T01:35:57
+Execucao: 2026-09-07T03:01:04
 ==============================================================================
 
 Instancias na bateria: 12
@@ -15,7 +15,7 @@ Instancias na bateria: 12
 
     centralizada   soma dos relogios     863.6  tempo de agente alocado    1336.0  TR    71.2
     adaptativa     soma dos relogios     595.6  tempo de agente alocado     941.5  TR    54.0
-  [OK   ] 4b. soma dos relogios nao excede o tempo de agente alocado — TR e contabilizado sem consumir agente — ver item C1
+  [OK   ] 4b. [construcao, poder fraco] soma dos relogios nao excede o tempo de agente alocado — folga minima 10.7% — o teste so pega inflacao acima disso; TR e contabilizado sem consumir agente (item C1)
   [OK   ] 5. E_total, bateria, competencia e multiplicadores em [0,1]
 
 ==============================================================================

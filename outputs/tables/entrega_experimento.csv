@@ -1,0 +1,8 @@
+indicador;centralizada;adaptativa;variacao;d_cohen;instancias_favoraveis;p
+Tarefas concluídas com defeito oculto;13,02;3,82;-70,6%;-7,815;100,0%;0,00044
+Taxa de omissão;0,2170;0,0637;-70,6%;-7,815;100,0%;= piso
+Dívida latente de pico sobre o plano;0,0741;0,0201;-72,8%;-6,726;100,0%;= piso
+Atraso relativo (makespan sobre CPM);3,1345;1,9991;-36,2%;-5,546;100,0%;= piso
+Ocupação E_total;0,7839;0,8885;13,3%;3,752;100,0%;= piso
+Esforço de retrabalho sobre o plano;0,2031;0,1545;-23,9%;-3,074;100,0%;= piso
+Retrabalho sobre esforço realizado (diagnóstico);0,0770;0,0846;9,9%;1,285;6,2%;0,00009

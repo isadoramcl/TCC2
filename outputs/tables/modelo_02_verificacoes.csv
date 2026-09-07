@@ -3,7 +3,7 @@ verificacao,resultado,detalhe
 2. precedencia respeitada,OK,0 violacoes
 3. disponibilidade de recursos nunca excedida,OK,0 instancias com excesso
 4a. relogios nao negativos e soma positiva,OK,VERDADEIRA POR CONSTRUCAO — nao e evidencia
-4b. soma dos relogios nao excede o tempo de agente alocado,OK,TR e contabilizado sem consumir agente — ver item C1
+"4b. [construcao, poder fraco] soma dos relogios nao excede o tempo de agente alocado",OK,folga minima 10.7% — o teste so pega inflacao acima disso; TR e contabilizado sem consumir agente (item C1)
 "5. E_total, bateria, competencia e multiplicadores em [0,1]",OK,
 6. mesma semente reproduz o mesmo resultado (12 instancias x 2 cenarios),OK,VERDADEIRA POR CONSTRUCAO se o RNG e semeado corretamente
 6b. sementes diferentes produzem resultados diferentes,OK,"se falhar, o gerador nao esta sendo usado"
