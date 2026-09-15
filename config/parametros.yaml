@@ -106,8 +106,16 @@ retrabalho:
                    fonte: "Porta 1 do TCC I; parcela de (E − τ_sat) injetada em S_UR" }
   f_retrabalho:  { valor: 0.50, varredura: [0.30, 0.50, 0.80], condicao: aberto,
                    fonte: "duração do retrabalho como fração da duração original" }
-  p_deteccao:    { valor: 0.05, condicao: aberto,
-                   fonte: "probabilidade por período de a dívida oculta ser detectada" }
+  # `[A11]` NAO UTILIZADO — chave morta, mantida comentada como registro.
+  # O simulador le `cenarios.<cenario>.p_deteccao` (0,03 na centralizada e 0,12
+  # na adaptativa); esta homonima em `retrabalho` nunca e lida. Ela induziu erro
+  # real: levou a afirmar, no documento de entrega, que a probabilidade de
+  # deteccao era 0,05 e IDENTICA entre os cenarios — o que e falso e apagava um
+  # dos quatro parametros que distinguem os arranjos.
+  # Detectada por src/modelo/06_exportar_parametros.py, que agora sinaliza
+  # nomes de folha declarados em mais de uma secao.
+  # p_deteccao:    { valor: 0.05, condicao: aberto,
+  #                  fonte: "probabilidade por período de a dívida oculta ser detectada" }
 
 # ---------------------------------------------------------------------
 # 6. SISTEMA DIFUSO

@@ -1,0 +1,23 @@
+id;verificacao;classe;situacao;medido
+1;toda tarefa termina em estado terminal;construção;aprovada;0 tarefas não terminais
+2;precedência respeitada;estrutural;aprovada;0 violações
+3;disponibilidade de recursos nunca excedida;estrutural;aprovada;0 instâncias com excesso
+4a;relógios não negativos e soma positiva;construção;aprovada;verdadeira por construção — não e evidência
+4b;[construcao, poder fraco] soma dos relógios não excede o tempo de agente alocado;construção;aprovada;folga minima 10,7% — o teste so pega…
+5;E_total, bateria, competência e multiplicadores em [0,1];construção;aprovada;—
+6;mesma semente reproduz o mesmo resultado (12 instâncias x 2 cenarios);construção;aprovada;verdadeira por construção se o RNG e…
+6b;sementes diferentes produzem resultados diferentes;estrutural;aprovada;se falhar - o gerador não está sendo usado
+7a;sem risco nem pressão, nenhuma tarefa falha;construção;aprovada;24 execuções — verdadeira por construção…
+7c;sem risco nem pressão, dívida técnica nula;construção;aprovada;verdadeira por construção (F_âncora=0)
+7d;[contingente a amostra] condição ideal elimina a ociosidade (TU = 0);contingente;aprovada;TU máximo = 0,0 - Di máximo nas 12…
+7e;[comportamento sob condição ideal] conclui mais rápido que a nominal (pareado);cond. ideal;aprovada;24 de 24 pares favoráveis - ganho medio…
+8a‑C;dívida oculta (S_UR max) cresce com a pressão;implementação;aprovada;2 de 2 instâncias - n = 500 por célula
+8a‑A;dívida oculta (S_UR max) cresce com a pressão;implementação;aprovada;2 de 2 instâncias - n = 500 por célula
+8b‑C;tempo em modo heurístico cresce com a pressão;implementação;aprovada;2 de 2 instâncias - n = 500 por célula
+8b‑A;tempo em modo heurístico cresce com a pressão;implementação;aprovada;2 de 2 instâncias - n = 500 por célula
+8c‑C;[exploratória, post hoc] defeitos gerados crescem com a pressão;exploratória;aprovada;2 de 2 instâncias - n = 500 por célula
+8c‑A;[exploratória, post hoc] defeitos gerados crescem com a pressão;exploratória;não confirmada;0 de 2 instâncias - n = 500 por célula -…
+9a;[ordem de grandeza, não validação] mediana do retrabalho na faixa [1% - 50%];ordem de grandeza;aprovada;mediana = 0,1913
+9b;cauda fora da faixa inferior a 10% das execuções;ordem de grandeza;aprovada;0/24 = 0,0%
+9c;dívida latente estritamente positiva (estoque não inerte);ordem de grandeza;aprovada;mediana = 0,0423
+9d;o critério 9a não restringe F_âncora (evidência do rebaixamento);meta;aprovada;aprova em 5 de 5 valores

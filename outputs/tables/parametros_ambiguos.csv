@@ -1,0 +1,5 @@
+folha,caminhos
+p_deteccao,cenarios.adaptativa.p_deteccao | cenarios.centralizada.p_deteccao | retrabalho.p_deteccao
+p_reporte,cenarios.adaptativa.p_reporte | cenarios.centralizada.p_reporte
+tau_inicial,cenarios.adaptativa.tau_inicial | cenarios.centralizada.tau_inicial
+tau_min,cenarios.adaptativa.tau_min | cenarios.centralizada.tau_min

@@ -1,0 +1,5 @@
+chave,rotulo,centralizada,adaptativa,difere,interpretacao
+tau_inicial,τ_inicial,0.25,0.8,True,confiança inicial na rede de pares
+tau_min,τ_mín,0.6,0.25,True,limiar de confiança para conceder ajuda
+p_reporte,p_reporte,0.15,0.75,True,probabilidade de reportar defeito em vez de ocultá-lo
+p_deteccao,p_detecção,0.03,0.12,True,probabilidade de a dívida oculta aflorar por período

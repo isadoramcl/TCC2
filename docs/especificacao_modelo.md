@@ -261,7 +261,7 @@ psicológica, e é o principal contraste entre os dois cenários.
 | aspecto | decisão | origem |
 |---|---|---|
 | passo de tempo | 1 período, mesma unidade das durações do J60 | `[DEC]` |
-| horizonte máximo | 5 × makespan do CPM sem recursos | `[DEC]`, evita laço infinito |
+| horizonte máximo | derivado em `config/parametros_derivados.yaml` (hoje 9 × o makespan do CPM) | `[CALIB]`, do escalonamento de referência |
 | tamanho da equipe | parâmetro `n_agentes` | `[DEC]` |
 | atribuição de tarefa | tarefa elegível de maior `D_i` ao agente de maior `C(t)` disponível | `[DEC]` |
 | restrição de recursos | respeitada: a soma das demandas das tarefas ativas não excede `a_k` | `[TCC1]` via J60 |

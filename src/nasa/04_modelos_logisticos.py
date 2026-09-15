@@ -301,6 +301,108 @@ def main() -> None:
                 f"[{ic_baixo:>8.4f};{ic_alto:>8.4f}] {lr:>9.1f} {r.prsquared:>9.4f}  {nota}")
 
     # -----------------------------------------------------------------
+    # SOBREVIVENCIA AO CONTROLE POR TAMANHO, metrica a metrica
+    #
+    # `[ACHADO A1]` Esta analise existia, alimentava a Figura 3 e havia sido
+    # PERDIDA: o script deixou de grava-la e a figura passou a ler um CSV orfao
+    # de uma execucao antiga (03/09), com numeros ja desatualizados
+    # (OR 0,946 / LR 1,73 / p 0,188 contra os atuais). Em clone limpo o passo
+    # quebrava com FileNotFoundError. Reintroduzida aqui.
+    #
+    # Para cada metrica candidata ajusta-se
+    #     defective ~ C(project) + log_LOC_TOTAL + log_<metrica>
+    # e compara-se, por razao de verossimilhanca, com o modelo sem a metrica.
+    # A pergunta e se a metrica acrescenta ALGUMA COISA depois que o tamanho do
+    # modulo ja esta no modelo.
+    # -----------------------------------------------------------------
+    log("\n" + "=" * 78)
+    log("SOBREVIVENCIA AO CONTROLE POR TAMANHO, METRICA A METRICA")
+    log("=" * 78)
+    log(f"  {'variavel':<32} {'OR ajustada':>12} {'IC95':>20} {'LR':>8} {'p':>10}  sobrevive")
+
+    m_base_tam = ajustar("defective ~ C(project) + log_LOC_TOTAL", base)
+    linhas_sobrev = []
+    for metrica in CANDIDATAS:
+        coluna = f"log_{metrica}"
+        if metrica == "LOC_TOTAL" or coluna not in base.columns:
+            continue
+        r = ajustar(f"defective ~ C(project) + log_LOC_TOTAL + {coluna}", base)
+        lr, gl, pv = teste_razao_verossimilhanca(m_base_tam, r)
+        b = r.params[coluna]
+        ic = r.conf_int().loc[coluna]
+        razao = float(np.exp(b))
+        ic_baixo, ic_alto = float(np.exp(ic[0])), float(np.exp(ic[1]))
+        # `[DEC]` "Sobrevive" exige DUAS coisas: acrescimo significativo ao
+        # modelo (p < 0,05) E efeito no sentido de MAIS complexidade, MAIS
+        # risco (OR > 1). Uma metrica com OR < 1 significativa nao sustenta a
+        # tese: ela diria que mais complexidade reduz o risco, o que e padrao
+        # de colinearidade e nao evidencia de mecanismo.
+        significativa = pv < 0.05
+        positiva = ic_baixo > 1.0
+        sobrevive = "sim" if (significativa and positiva) else "nao"
+        linhas_sobrev.append({
+            "variavel": coluna,
+            "or_ajustado": round(razao, 5),
+            "ic95_inferior": round(ic_baixo, 5),
+            "ic95_superior": round(ic_alto, 5),
+            "estatistica_LR": round(lr, 3),
+            "graus_liberdade": gl,
+            "p_valor": pv,
+            "sentido": "positivo" if razao > 1 else "negativo",
+            "significativa": significativa,
+            "sobrevive_controle_tamanho": sobrevive,
+            "ressalva": "CIRCULAR" if metrica in CIRCULARES else "",
+        })
+        log(f"  {coluna:<32} {razao:>12.4f} [{ic_baixo:>7.3f}; {ic_alto:>7.3f}] "
+            f"{lr:>8.2f} {pv:>10.3g}  {sobrevive}")
+
+    d_sobrev = pd.DataFrame(linhas_sobrev)
+    n_sobrev = int((d_sobrev["sobrevive_controle_tamanho"] == "sim").sum())
+    n_signif_neg = int((d_sobrev["significativa"] & (d_sobrev["sentido"] == "negativo")).sum())
+
+    # `[DEC]` CORRECAO PARA COMPARACOES MULTIPLAS. Sao seis metricas testadas
+    # sobre a mesma base. Sem correcao, a chance de ao menos um p < 0,05 por
+    # acaso e de 1 - 0,95^6 = 26,5%. Declarar "sobrevive" a partir do p bruto
+    # seria colher o mais favoravel de seis tentativas. Aplica-se Holm-Bonferroni,
+    # que e uniformemente mais potente que Bonferroni e nao exige independencia.
+    #   HOLM, S. A simple sequentially rejective multiple test procedure.
+    #   Scandinavian Journal of Statistics, v. 6, n. 2, p. 65-70, 1979.
+    m = len(d_sobrev)
+    ordem = d_sobrev["p_valor"].rank(method="first").astype(int)
+    d_sobrev["p_holm"] = [min(1.0, pv * (m - r + 1))
+                          for pv, r in zip(d_sobrev["p_valor"], ordem)]
+    # monotonicidade do Holm: o ajustado nao pode decrescer na ordem dos p
+    d_sobrev = d_sobrev.sort_values("p_valor").reset_index(drop=True)
+    for i in range(1, len(d_sobrev)):
+        d_sobrev.loc[i, "p_holm"] = max(d_sobrev.loc[i, "p_holm"],
+                                        d_sobrev.loc[i - 1, "p_holm"])
+    d_sobrev["sobrevive_apos_holm"] = [
+        "sim" if (ph < 0.05 and lo > 1.0) else "nao"
+        for ph, lo in zip(d_sobrev["p_holm"], d_sobrev["ic95_inferior"])]
+
+    log("")
+    log(f"  {'variavel':<32} {'p bruto':>10} {'p Holm':>10}  sobrevive apos correcao")
+    for r in d_sobrev.itertuples():
+        log(f"  {r.variavel:<32} {r.p_valor:>10.3g} {r.p_holm:>10.3g}  "
+            f"{r.sobrevive_apos_holm}")
+    n_holm = int((d_sobrev["sobrevive_apos_holm"] == "sim").sum())
+    log(f"\n  Sobrevivem apos Holm-Bonferroni: {n_holm} de {m}")
+    if n_sobrev > n_holm:
+        log("  `[ACHADO]` Ao menos uma metrica e significativa no p BRUTO e deixa")
+        log("  de ser apos a correcao. Reportar as duas leituras: afirmar efeito")
+        log("  independente com base no p bruto de seis testes seria colher o")
+        log("  resultado mais favoravel de seis tentativas.")
+
+    d_sobrev.to_csv(DIR_TABELAS / "04_sobrevivencia_ao_controle_de_tamanho.csv",
+                    index=False, encoding="utf-8")
+    log(f"\n  Metricas que sobrevivem (p < 0,05 E efeito positivo): {n_sobrev} de {len(d_sobrev)}")
+    log(f"  Metricas significativas com sinal NEGATIVO             : {n_signif_neg}")
+    log("  `[DEC]` Sinal negativo NAO e evidencia de mecanismo protetor. Pode")
+    log("  decorrer de colinearidade, supressao ou especificacao do modelo. O")
+    log("  texto deve dizer que o efeito independente do tamanho nao se sustenta,")
+    log("  sem afirmar causa para a inversao de sinal.")
+
+    # -----------------------------------------------------------------
     # A complexidade sobrevive ao controle por TAMANHO?
     #
     # Esta e a pergunta decisiva do trabalho. Complexidade e tamanho crescem
@@ -421,7 +523,8 @@ def main() -> None:
 
     log("\n--- Arquivos gerados ---")
     for n in ("04_coeficientes.csv", "04_comparacao_modelos.csv",
-              "04_metricas_candidatas.csv", "04_vif.csv", "04_correlacao_spearman.csv"):
+              "04_metricas_candidatas.csv", "04_vif.csv", "04_correlacao_spearman.csv",
+              "04_sobrevivencia_ao_controle_de_tamanho.csv"):
         log(f"  outputs/tables/{n}")
 
     log("\n" + "=" * 78)

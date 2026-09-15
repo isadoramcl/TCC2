@@ -213,11 +213,18 @@ def figura_8(d):
     y_lar, y_cin = topo * 0.80, topo * 0.62
     ax2.annotate("", xy=(xo[1], y_lar), xytext=(xo[0], y_lar),
                  arrowprops=dict(arrowstyle="->", color=LARANJA, linewidth=1.3))
-    ax2.text((xo[0] + xo[1]) / 2, y_lar + topo * 0.022, "−23,9%", ha="center",
+    # `[A3]` Estes percentuais estavam ESCRITOS A MAO e ficaram vencidos apos a
+    # troca da t-norma difusa: diziam 30% / 118,2 vs 6,3 / +8,1% quando os
+    # valores corretos ja eram outros. Passam a ser calculados do CSV.
+    var_plano = 100 * (r_plano[1] / r_plano[0] - 1)
+    var_real = 100 * (r_real[1] / r_real[0] - 1)
+    ax2.text((xo[0] + xo[1]) / 2, y_lar + topo * 0.022,
+             f"{var_plano:+.1f}%".replace(".", ","), ha="center",
              va="bottom", fontsize=7.8, color=LARANJA)
     ax2.annotate("", xy=(xc[1], y_cin), xytext=(xc[0], y_cin),
                  arrowprops=dict(arrowstyle="->", color=TINTA2, linewidth=1.3))
-    ax2.text((xc[0] + xc[1]) / 2, y_cin + topo * 0.022, "+8,1%", ha="center",
+    ax2.text((xc[0] + xc[1]) / 2, y_cin + topo * 0.022,
+             f"{var_real:+.1f}%".replace(".", ","), ha="center",
              va="bottom", fontsize=7.8, color=TINTA2)
 
     ax2.set_xticks(x)
@@ -232,10 +239,14 @@ def figura_8(d):
 
     fig.suptitle("Por que a razão sobre o esforço realizado inverte o sinal",
                  fontsize=10.2, x=0.005, ha="left", y=1.035)
-    fig.text(0.005, 0.975, "O braço centralizado gasta 30% mais esforço total, "
-                           "quase todo improdutivo (ocioso 118,2 contra 6,3). "
-                           "Isso infla o denominador\ne dilui o retrabalho — que "
-                           "em termos absolutos é 23,8% maior.",
+    var_total = 100 * (base[0] / base[1] - 1)          # centralizada sobre adaptativa
+    var_tr = 100 * (g.loc[ordem[0], "TR"] / g.loc[ordem[1], "TR"] - 1)
+    tu_c, tu_a = g.loc[ordem[0], "TU"], g.loc[ordem[1], "TU"]
+    fig.text(0.005, 0.975,
+             f"O braço centralizado gasta {var_total:.1f}% mais esforço total, "
+             f"quase todo improdutivo (ocioso {tu_c:.1f} contra {tu_a:.1f}). "
+             f"Isso infla o denominador\ne dilui o retrabalho — que "
+             f"em termos absolutos é {var_tr:.1f}% maior.".replace(".", ","),
              fontsize=7.4, color=TINTA2, ha="left", va="top", linespacing=1.35)
     fig.tight_layout(rect=[0, 0, 1, 0.945])
     fig.savefig(FIG / "fig8_decomposicao_esforco.png", bbox_inches="tight")
@@ -315,6 +326,7 @@ def main():
     linhas = figura_7(piv)
     figura_8(d)
     figura_9()
+    figura_10()
     print("=" * 74)
     print("FIGURAS DO EXPERIMENTO")
     print("=" * 74)
@@ -324,15 +336,11 @@ def main():
     print("\n  Orientacao: negativo = vantagem do arranjo adaptativo.")
     print("\n--- Arquivos gerados ---")
     for f in ("fig7_efeitos_pareados.png", "fig8_decomposicao_esforco.png",
-              "fig9_trajetorias.png"):
+              "fig9_trajetorias.png", "fig10_nroy_identificabilidade.png"):
         print(f"  outputs/figures/{f}")
 
 
-if __name__ == "__main__":
-    main()
 
-
-# =====================================================================
 def figura_10():
     """NROY do History Matching: a crista e a identificabilidade."""
     d = pd.read_csv(TAB / "modelo_04_hm_onda2.csv")
@@ -341,7 +349,9 @@ def figura_10():
     CORTE = 3.0
     nroy = d[d["implausibilidade"] <= CORTE]
     fora = d[d["implausibilidade"] > CORTE]
-    VF, VR = 0.180, 0.420          # vetor verdadeiro nos dois eixos da crista
+    # `[A2]` vetor verdadeiro lido da tabela de identificabilidade
+    VF = float(ident[ident["parametro"] == "risco.F_ancora"]["verdade"].iloc[0])
+    VR = float(ident[ident["parametro"] == "retrabalho.f_retrabalho"]["verdade"].iloc[0])
 
     fig, (ax, ax2) = plt.subplots(1, 2, figsize=(7.6, 3.9),
                                   gridspec_kw={"width_ratios": [1.15, 1]})
@@ -366,8 +376,10 @@ def figura_10():
     ax.set_xlim(0.05, 0.25); ax.set_ylim(0.30, 0.80)
     ax.legend(fontsize=6.9, frameon=False, loc="upper right", handlelength=1.2,
               labelspacing=0.3, borderaxespad=0.2)
-    ax.set_title("A. crista de equifinalidade  (ρ = −0,84)", fontsize=9.0,
-                 loc="left", pad=8)
+    rho = nroy[["risco.F_ancora", "retrabalho.f_retrabalho"]].corr(
+        method="spearman").iloc[0, 1]
+    ax.set_title(f"A. crista de equifinalidade  (ρ = {rho:+.2f})".replace(".", ","),
+                 fontsize=9.0, loc="left", pad=8)
 
     # --- painel B: reducao marginal ---
     rot = {"risco.F_ancora": "$F_{âncora}$",
@@ -376,7 +388,11 @@ def figura_10():
            "agentes.k_heuristico": "$k_{heurístico}$",
            "fuzzy.mu_minimo": r"$\mu_{mín}$"}
     linhas = [(rot[r.parametro], r.reducao) for r in ident.itertuples()]
-    linhas.append(("$F_{âncora}\\times f_{retrabalho}$", 0.747))
+    # `[A2]` A reducao do produto e a correlacao vinham FIXAS no codigo.
+    # Passam a ser calculadas do proprio NROY, como todo o resto.
+    prod = nroy["risco.F_ancora"] * nroy["retrabalho.f_retrabalho"]
+    red_prod = 1 - (prod.max() - prod.min()) / (0.25 * 0.80 - 0.05 * 0.30)
+    linhas.append(("$F_{âncora}\\times f_{retrabalho}$", float(red_prod)))
     linhas.sort(key=lambda t: t[1])
     y = np.arange(len(linhas))
     cores = [LARANJA if v < 0.25 else (AZUL if v >= 0.50 else "#8fbdf0")
@@ -410,3 +426,10 @@ def figura_10():
     fig.tight_layout(rect=[0, 0, 1, 0.935])
     fig.savefig(FIG / "fig10_nroy_identificabilidade.png", bbox_inches="tight")
     plt.close(fig)
+
+
+if __name__ == "__main__":
+    main()
+
+
+# =====================================================================

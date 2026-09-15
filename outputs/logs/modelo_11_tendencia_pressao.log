@@ -1,0 +1,89 @@
+==============================================================================
+VERIFICACAO 8 REFEITA — resposta a pressao, desenho em duas etapas [B1]
+Execucao: 2026-09-07T01:35:13
+==============================================================================
+
+Instancias: ['j6010_1.sm', 'j6014_1.sm']   Cenarios: ['centralizada', 'adaptativa']
+Niveis de P_max: [0.2, 0.4, 0.6, 0.8, 1.0]
+Piloto       : sementes 0-39, n = 200 por celula, 800 execucoes
+Confirmatorio: sementes 1000-1099, n = 500 por celula, 2000 execucoes
+As sementes do confirmatorio sao DISJUNTAS das do piloto: a escolha de n
+nao contamina o teste.
+
+------------------------------------------------------------------------------
+DOSE REALIZADA — P(t) e endogena, logo os bracos nao recebem o mesmo
+tratamento para o mesmo P_max nominal
+------------------------------------------------------------------------------
+  cenario        P_max=0.2 P_max=0.4 P_max=0.6 P_max=0.8 P_max=1.0   amplitude
+  centralizada      0.2000    0.3469    0.4953    0.6405    0.7956      0.5956
+  adaptativa        0.2000    0.2658    0.3463    0.4361    0.5399      0.3399
+
+  Razao de amplitude adaptativa/centralizada = 0.5707
+
+------------------------------------------------------------------------------
+ETAPA 1 — PILOTO (nao confirmatorio): estimativa do tamanho de efeito
+------------------------------------------------------------------------------
+  instancia     cenario       alvo                  n     rho               IC95          p
+  j6010_1.sm    centralizada  defeitos_gerados    200  +0.156  [+0.014; +0.293]   2.70e-02
+  j6010_1.sm    centralizada  S_UR_maximo         200  +0.319  [+0.184; +0.441]   4.27e-06
+  j6010_1.sm    centralizada  fracao_heuristica   200  +0.690  [+0.607; +0.758]   1.36e-29
+  j6010_1.sm    adaptativa    defeitos_gerados    200  +0.089  [-0.054; +0.229]   2.08e-01
+  j6010_1.sm    adaptativa    S_UR_maximo         200  +0.042  [-0.102; +0.183]   5.59e-01
+  j6010_1.sm    adaptativa    fracao_heuristica   200  +0.667  [+0.579; +0.739]   4.15e-27
+  j6014_1.sm    centralizada  defeitos_gerados    200  +0.321  [+0.187; +0.443]   3.58e-06
+  j6014_1.sm    centralizada  S_UR_maximo         200  +0.650  [+0.559; +0.726]   2.00e-25
+  j6014_1.sm    centralizada  fracao_heuristica   200  +0.884  [+0.848; +0.911]   3.28e-67
+  j6014_1.sm    adaptativa    defeitos_gerados    200  +0.036  [-0.107; +0.178]   6.13e-01
+  j6014_1.sm    adaptativa    S_UR_maximo         200  +0.142  [-0.001; +0.279]   4.53e-02
+  j6014_1.sm    adaptativa    fracao_heuristica   200  +0.930  [+0.908; +0.947]   3.20e-88
+
+  Calculo de n, por alvo (alfa 0,05 bilateral, potencia 0,80):
+  alvo                rho ref. (centr.)   rho esperado adapt.  n necessario
+  defeitos_gerados               +0.239                +0.136           421
+  S_UR_maximo                    +0.484                +0.276           101
+  fracao_heuristica              +0.787                +0.449            37
+
+  n adotado no confirmatorio: 500 por celula.
+    defeitos_gerados   exige       421  ->  suficiente
+    S_UR_maximo        exige       101  ->  suficiente
+    fracao_heuristica  exige        37  ->  suficiente
+
+------------------------------------------------------------------------------
+ETAPA 2 — CONFIRMATORIO (criterio inalterado: rho > 0 e p < 0,05)
+------------------------------------------------------------------------------
+  instancia     cenario       alvo                  n     rho               IC95          p  veredito
+  j6010_1.sm    centralizada  defeitos_gerados    500  +0.161  [+0.072; +0.248]   2.92e-04  CONFIRMA
+  j6010_1.sm    centralizada  S_UR_maximo         500  +0.351  [+0.270; +0.428]   5.62e-16  CONFIRMA
+  j6010_1.sm    centralizada  fracao_heuristica   500  +0.682  [+0.631; +0.728]   9.16e-70  CONFIRMA
+  j6010_1.sm    adaptativa    defeitos_gerados    500  +0.072  [-0.019; +0.161]   1.10e-01  NAO CONFIRMA
+  j6010_1.sm    adaptativa    S_UR_maximo         500  +0.091  [+0.000; +0.179]   4.28e-02  CONFIRMA
+  j6010_1.sm    adaptativa    fracao_heuristica   500  +0.708  [+0.660; +0.750]   2.88e-77  CONFIRMA
+  j6014_1.sm    centralizada  defeitos_gerados    500  +0.296  [+0.211; +0.376]   1.50e-11  CONFIRMA
+  j6014_1.sm    centralizada  S_UR_maximo         500  +0.600  [+0.539; +0.655]   3.20e-50  CONFIRMA
+  j6014_1.sm    centralizada  fracao_heuristica   500  +0.882  [+0.860; +0.900]  1.70e-164  CONFIRMA
+  j6014_1.sm    adaptativa    defeitos_gerados    500  +0.081  [-0.010; +0.170]   7.13e-02  NAO CONFIRMA
+  j6014_1.sm    adaptativa    S_UR_maximo         500  +0.179  [+0.090; +0.265]   5.92e-05  CONFIRMA
+  j6014_1.sm    adaptativa    fracao_heuristica   500  +0.939  [+0.927; +0.949]  1.71e-232  CONFIRMA
+
+------------------------------------------------------------------------------
+SINTESE POR BRACO E ALVO
+------------------------------------------------------------------------------
+  defeitos_gerados   centralizada   confirma em 2 de 2 instancias
+  defeitos_gerados   adaptativa     confirma em 0 de 2 instancias   -> NAO CONFIRMA
+  S_UR_maximo        centralizada   confirma em 2 de 2 instancias
+  S_UR_maximo        adaptativa     confirma em 2 de 2 instancias
+  fracao_heuristica  centralizada   confirma em 2 de 2 instancias
+  fracao_heuristica  adaptativa     confirma em 2 de 2 instancias
+
+  `[LIMITACAO]` 'NAO CONFIRMA' nao e 'refutado'. Quando o IC95 de rho
+  contem tanto o zero quanto o efeito observado no braco de dose plena,
+  os dados nao distinguem as duas hipoteses.
+  `[LIMITACAO]` A dose recebida difere entre bracos por construcao do
+  modelo (P(t) endogena). O experimento manipula P_max, nao P(t), e
+  portanto nao e um contraste de mesma dose entre bracos.
+
+--- Arquivos gerados ---
+  outputs/tables/modelo_11_tendencia_piloto.csv
+  outputs/tables/modelo_11_tendencia_confirmatorio.csv
+  outputs/tables/modelo_11_tendencia_resumo.csv
+  outputs/tables/modelo_11_dose_realizada.csv

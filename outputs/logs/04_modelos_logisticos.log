@@ -1,6 +1,6 @@
 ==============================================================================
 MODELOS LOGISTICOS — complexidade e risco de defeito
-Execucao: 2026-09-05T13:26:18
+Execucao: 2026-09-06T23:49:44
 ==============================================================================
 
 Base: 17377 observacoes, 12 projetos, 3040 defeituosos (17.49%)
@@ -73,6 +73,38 @@ COMPARACAO ENTRE METRICAS CANDIDATAS (cada uma sobre M1_projeto)
   HALSTEAD_ERROR_EST       log1p      5.3107 [  4.6323;  6.0884]     663.2    0.1041  CIRCULAR
 
 ==============================================================================
+SOBREVIVENCIA AO CONTROLE POR TAMANHO, METRICA A METRICA
+==============================================================================
+  variavel                          OR ajustada                 IC95       LR          p  sobrevive
+  log_CYCLOMATIC_COMPLEXITY              0.9438 [  0.870;   1.024]     1.92      0.166  nao
+  log_DESIGN_COMPLEXITY                  1.0981 [  1.010;   1.194]     4.83      0.028  sim
+  log_ESSENTIAL_COMPLEXITY               0.9412 [  0.883;   1.003]     3.45     0.0633  nao
+  log_HALSTEAD_DIFFICULTY                0.7706 [  0.704;   0.844]    31.78   1.73e-08  nao
+  log_HALSTEAD_EFFORT                    0.9043 [  0.867;   0.943]    21.11   4.34e-06  nao
+  log_HALSTEAD_ERROR_EST                 0.7248 [  0.582;   0.903]     8.14    0.00433  nao
+
+  variavel                            p bruto     p Holm  sobrevive apos correcao
+  log_HALSTEAD_DIFFICULTY            1.73e-08   1.04e-07  nao
+  log_HALSTEAD_EFFORT                4.34e-06   2.17e-05  nao
+  log_HALSTEAD_ERROR_EST              0.00433     0.0173  nao
+  log_DESIGN_COMPLEXITY                 0.028     0.0841  nao
+  log_ESSENTIAL_COMPLEXITY             0.0633      0.127  nao
+  log_CYCLOMATIC_COMPLEXITY             0.166      0.166  nao
+
+  Sobrevivem apos Holm-Bonferroni: 0 de 6
+  `[ACHADO]` Ao menos uma metrica e significativa no p BRUTO e deixa
+  de ser apos a correcao. Reportar as duas leituras: afirmar efeito
+  independente com base no p bruto de seis testes seria colher o
+  resultado mais favoravel de seis tentativas.
+
+  Metricas que sobrevivem (p < 0,05 E efeito positivo): 1 de 6
+  Metricas significativas com sinal NEGATIVO             : 3
+  `[DEC]` Sinal negativo NAO e evidencia de mecanismo protetor. Pode
+  decorrer de colinearidade, supressao ou especificacao do modelo. O
+  texto deve dizer que o efeito independente do tamanho nao se sustenta,
+  sem afirmar causa para a inversao de sinal.
+
+==============================================================================
 COMPLEXIDADE x TAMANHO: quem sobrevive ao controle do outro
 ==============================================================================
 
@@ -131,6 +163,7 @@ VERIFICACOES
   outputs/tables/04_metricas_candidatas.csv
   outputs/tables/04_vif.csv
   outputs/tables/04_correlacao_spearman.csv
+  outputs/tables/04_sobrevivencia_ao_controle_de_tamanho.csv
 
 ==============================================================================
 RESULTADO: CONCLUIDO, VERIFICACOES OK

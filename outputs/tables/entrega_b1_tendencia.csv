@@ -1,0 +1,7 @@
+grandeza;cenario;rho_piloto_n200;rho_confirmatorio_n500;ic95_confirmatorio;confirma
+dívida oculta de pico;centralizada;0,319 a 0,650;0,351 a 0,600;[0,270 a 0,655];2 de 2
+dívida oculta de pico;adaptativa;0,042 a 0,142;0,091 a 0,179;[0,000 a 0,265];2 de 2
+fração de tempo em modo heurístico;centralizada;0,690 a 0,884;0,682 a 0,882;[0,631 a 0,900];2 de 2
+fração de tempo em modo heurístico;adaptativa;0,667 a 0,930;0,708 a 0,939;[0,660 a 0,949];2 de 2
+defeitos gerados (ocultos + reportados);centralizada;0,156 a 0,321;0,161 a 0,296;[0,072 a 0,376];2 de 2
+defeitos gerados (ocultos + reportados);adaptativa;0,036 a 0,089;0,072 a 0,081;[-0,019 a 0,170];0 de 2

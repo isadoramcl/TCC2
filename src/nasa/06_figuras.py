@@ -228,7 +228,31 @@ def figura_3_controle_tamanho():
     # Sem esta linha, a escala log imprime rotulos de tiques menores
     # ("6 x 10^-1") que poluem o eixo.
     ax.get_xaxis().set_minor_formatter(matplotlib.ticker.NullFormatter())
+    # `[AUDITORIA]` A figura desenha o IC NAO CORRIGIDO. Lida isoladamente,
+    # sugere que a metrica com IC acima de 1 "sobrevive" ao controle de tamanho.
+    # Sob Holm-Bonferroni sobre as seis metricas, NENHUMA sobrevive. A anotacao
+    # abaixo torna isso visivel no proprio grafico. Nada na analise muda: o
+    # dado ja estava em 04_sobrevivencia_ao_controle_de_tamanho.csv.
+    n_holm = int((sobr["sobrevive_apos_holm"] == "sim").sum())
+    # O p corrigido relevante e o da unica metrica com efeito POSITIVO — a que
+    # a figura poderia sugerir como sobrevivente. O minimo global seria o de uma
+    # metrica de sinal negativo e diria 0,000, o que confundiria em vez de
+    # esclarecer. Defeito pego na conferencia visual da pagina.
+    pos = sobr[sobr["sentido"] == "positivo"]
+    p_holm_pos = float(pos["p_holm"].min()) if len(pos) else float("nan")
+    # Colocada ABAIXO do rotulo do eixo, via fig.text, e nao dentro dos eixos:
+    # na primeira tentativa a anotacao caiu sobre a area do grafico e vazou
+    # pelas margens. Defeito que so aparece renderizando e olhando a pagina.
     ax.set_xlabel("Razao de chances (escala logaritmica) — IC 95%")
+    fig.text(0.5, -0.055,
+             f"Intervalos SEM correcao para comparacoes multiplas.",
+             fontsize=6.8, color=TINTA2, ha="center", style="italic")
+    fig.text(0.5, -0.105,
+             f"Sob Holm-Bonferroni entre as {len(sobr)} metricas, "
+             f"{'NENHUMA sobrevive' if n_holm == 0 else str(n_holm) + ' sobrevive(m)'}"
+             f" — a unica de efeito positivo tem p corrigido "
+             f"{p_holm_pos:.3f}".replace(".", ","),
+             fontsize=6.8, color=TINTA2, ha="center", style="italic")
     ax.set_title("O efeito da complexidade desaparece ao controlar o tamanho do modulo\n"
                  "cada metrica em escala log(1+x); efeito de projeto sempre no modelo",
                  fontsize=9.4, fontweight="bold", loc="left", pad=26)

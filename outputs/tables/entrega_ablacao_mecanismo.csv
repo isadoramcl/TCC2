@@ -1,0 +1,12 @@
+metrica;nominal;sem_assistencia;assistencia_universal;resta_sem;resta_univ;veredito
+atraso relativo;-1,1354;-0,8240;-0,8608;72,6%;75,8%;DIMINUI
+ocupação E_total;0,1046;-0,0477;-0,0095;-45,6%;-9,0%;INVERTE
+tempo de ajuda TL;10,4896;0,0000;0,5156;0,0%;4,9%;DESAPARECE
+ociosidade TU;-120,3229;18,9323;-0,5052;-15,7%;0,4%;INVERTE
+esforço de retrabalho TR;-16,3564;-4,2601;-7,1266;26,0%;43,6%;DIMINUI
+trabalho efetivo TW;-149,6042;-123,8073;-118,5365;82,8%;79,2%;DIMINUI
+tarefas com defeito oculto;-9,1979;-8,9948;-8,6198;97,8%;93,7%;DIMINUI
+taxa de omissão;-0,1533;-0,1499;-0,1437;97,8%;93,7%;DIMINUI
+retrabalho sobre o plano;-0,0486;-0,0130;-0,0211;26,7%;43,4%;DIMINUI
+dívida latente sobre o plano;-0,0540;-0,0505;-0,0458;93,6%;84,8%;DIMINUI
+dívida latente de pico;-18,2888;-17,1061;-15,5282;93,5%;84,9%;DIMINUI

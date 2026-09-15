@@ -34,3 +34,20 @@ desktop.ini
 # exatamente dos mesmos arquivos de entrada. Se outputs/ crescer
 # muito, esta decisao sera revista e o commit registrara a mudanca.
 # ---------------------------------------------------------------
+
+# Parciais das execucoes em lote: sao reconstruidos rodando os scripts com
+# --rodar, e somam dezenas de MB. Os CSV CONSOLIDADOS, que alimentam o
+# documento, ficam versionados.
+outputs/tables/_b9_parciais/
+outputs/tables/_fatorial_parciais/
+outputs/tables/_tau_min_parciais/
+outputs/tables/_tendencia_parciais/
+outputs/tables/_orfaos/
+outputs/_to_delete/
+
+# `[AUDITORIA]` Os parciais acima sao ignorados, mas os CSV CONSOLIDADOS que
+# alimentam o documento NAO sao. Em particular ficam versionados:
+#   outputs/tables/modelo_12_porta2_bruto.csv  — as 768 execucoes pareadas que
+#     sustentam a Tabela 13 (Porta 2). Sem ele, a analise nao seria rastreavel,
+#     porque os parciais de origem estao em _b9_parciais/, que e ignorado.
+#   outputs/tables/partes_hm/  — mantida, pois e a origem da Tabela 15.
