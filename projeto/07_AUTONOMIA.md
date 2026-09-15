@@ -503,3 +503,18 @@ O objetivo é deixar o projeto progressivamente mais:
 - e defensável cientificamente.
 
 Antes de publicar qualquer alteração, aja simultaneamente como autor da solução e como seu revisor mais crítico.
+
+
+## Revisões externas e continuação — instrução de 15/09/2026
+
+Pareceres são hipóteses, não autoridade automática. Confrontar fonte primária,
+código e outputs; classificar cada crítica como ACCEPTED, PARTIALLY ACCEPTED,
+REJECTED ou UNRESOLVED, com evidência e impacto. Reavaliar o backlog pelo ganho
+de informação e custo. Não escolher algoritmo, número de réplicas ou confiança
+dinâmica antes de investigar alternativas. Preservar experimentos negativos.
+
+Não fazer merge na main nesta etapa. Publicar somente a branch revisada após
+testes, tentativa de refutação, conferência de fontes e preservação integral do
+checkout da autora. Ao terminar um ciclo significativo, informar conclusões
+alteradas, experimentos, commits e próximo gargalo. A resposta mais recente é
+[10_RESPOSTA_REVISAO](10_RESPOSTA_REVISAO_2026-09-15.md).

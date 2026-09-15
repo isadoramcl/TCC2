@@ -34,10 +34,11 @@ ponto: é o conjunto **NROY** (*Not Ruled Out Yet*).
     Methods. JASSS, v. 25, n. 2, artigo 1, 2022. DOI 10.18564/jasss.4791
     <https://www.jasss.org/25/2/1.html>
 
-`[LIT]` **Corte de implausibilidade em 3.** Não é número escolhido por nós: pela
-desigualdade de Vysochanskii–Petunin, para qualquer distribuição unimodal ao
-menos 95% da massa está a menos de 3 desvios da média — de modo que descartar
-|I| > 3 raramente descarta o verdadeiro.
+`[LIT/DEC]` **Corte de implausibilidade em 3.** A desigualdade de
+Vysochanskii–Petunin fornece um limite marginal para variável com densidade
+unimodal e variância finita. Seu uso com variâncias estimadas e o máximo de
+vários observáveis NÃO garante cobertura conjunta de 95%. O corte legado é
+preservado para comparação; ver research/SOURCES.md e a resposta à revisão.
 
     PUKELSHEIM, F. The Three Sigma Rule. The American Statistician, v. 48, n. 2,
     p. 88-91, 1994. DOI 10.1080/00031305.1994.10476030
@@ -252,7 +253,7 @@ def main() -> None:
     log(f"\nParametros calibrados : {len(PARAMETROS)} dos 13 [ABERTO]")
     log(f"Observaveis           : {len(OBSERVAVEIS)}")
     log(f"Cenario               : {CENARIO}   instancias: {len(insts)}")
-    log(f"Corte de implausibilidade: {CORTE}  (Pukelsheim, 1994)")
+    log(f"Corte de implausibilidade: {CORTE}  (convencao legada; sem garantia conjunta de 95%)")
     log("\nVetor verdadeiro (desconhecido do procedimento):")
     for n in NOMES:
         log(f"  {n:<28} {VERDADE[n]:.4f}")
@@ -316,6 +317,8 @@ def main() -> None:
     log(f"  3. o espaco foi efetivamente reduzido      : "
         f"{'OK' if len(nroy) / len(d) < 0.95 else 'FALHA'}  "
         f"({len(nroy) / len(d):.1%} do desenho sobrevive)")
+    log("  [LIMITACAO] Conter a verdade nas projecoes marginais nao prova")
+    log("  que o vetor verdadeiro conjunto pertence ao NROY. Criterios fracos.")
 
     # ---- identificabilidade (Camada 4) ----
     log("\n" + "=" * 78)
@@ -326,6 +329,8 @@ def main() -> None:
     log("  o parametro, e ele deve ser reportado como NAO identificado — nao")
     log("  como 'estimado'. Esconder isso seria apresentar como resultado o que")
     log("  e artefato do desenho.")
+    log("  Os rotulos abaixo descrevem apenas a contracao marginal neste desenho;")
+    log("  essa classificacao nao demonstra identificabilidade estrutural.")
     log("")
     for r_ in [t for t in tabela if t["onda"] == ultima]:
         st = ("identificado" if r_["reducao"] >= 0.50 else
@@ -335,8 +340,8 @@ def main() -> None:
 
     # equifinalidade: correlacoes dentro do NROY revelam cristas
     log("\n  Equifinalidade — correlacao de Spearman DENTRO do NROY.")
-    log("  Correlacao alta indica crista: combinacoes distintas de parametros")
-    log("  produzem a mesma saida, e nenhum dos dois e identificavel sozinho.")
+    log("  Correlacao alta sugere compensacao dentro do conjunto aceito;")
+    log("  nao prova equivalencia das saidas nem impossibilidade de separar fatores.")
     cor = nroy[NOMES].corr(method="spearman")
     pares = [(a, b, float(cor.loc[a, b])) for i, a in enumerate(NOMES)
              for b in NOMES[i + 1:]]
@@ -346,19 +351,17 @@ def main() -> None:
 
     # ---- combinacao derivada sugerida pela crista ----
     log("\n" + "=" * 78)
-    log("REPARAMETRIZACAO SUGERIDA PELA CRISTA")
+    log("PRODUTO DOS PARAMETROS — DESCRICAO DO CONJUNTO LEGADO")
     log("=" * 78)
-    log("  `[ACHADO 10]` A crista entre F_ancora e f_retrabalho nao e acidente")
-    log("  amostral: e consequencia da ESTRUTURA do modelo. O esforco de")
+    log("  [REVISAO] A interpretacao anterior de produto suficiente foi refutada")
+    log("  pelo piloto pareado em research/PLANO_REVISAO.md. O esforco de")
     log("  retrabalho gerado por tarefa e, em esperanca,")
     log("")
     log("      E[retrabalho por tarefa] ~ p_falha x f_retrabalho x duracao")
     log("")
-    log("  e p_falha e proporcional a F_ancora. Os observaveis agregados so veem")
-    log("  o PRODUTO. Separar os dois fatores exigiria observar a taxa de defeito")
-    log("  e o custo unitario de correcao SEPARADAMENTE — dado que o desenho")
-    log("  atual nao contem. E nao-identificabilidade ESTRUTURAL, nao falta de")
-    log("  amostra: por isso as ondas 1 e 2 produzem larguras quase iguais.")
+    log("  mas p_falha inclui um termo cognitivo aditivo e taxa_omissao informa")
+    log("  sobre frequencia separadamente. A crista observada nao justifica")
+    log("  substituir automaticamente os dois parametros pelo produto.")
     log("")
     prod_nroy = (nroy["risco.F_ancora"] * nroy["retrabalho.f_retrabalho"])
     prod_todos = (d["risco.F_ancora"] * d["retrabalho.f_retrabalho"])
@@ -379,11 +382,9 @@ def main() -> None:
     if red_prod > max(t["reducao"] for t in tabela
                       if t["onda"] == ultima
                       and t["parametro"] in ("risco.F_ancora", "retrabalho.f_retrabalho")):
-        log("  O PRODUTO e mais bem determinado do que qualquer um dos fatores.")
-        log("  `[DEC]` Recomendacao para a calibracao com dados reais: tratar o")
-        log("  produto como o parametro a estimar e declarar a divisao entre")
-        log("  frequencia e severidade como NAO identificada, em vez de reportar")
-        log("  dois numeros que os dados nao sustentam.")
+        log("  O produto apresenta maior contracao relativa nesta tabela.")
+        log("  [LIMITACAO] Isso nao demonstra que ele contenha toda a informacao")
+        log("  das saidas. A recomendacao automatica de reparametrizacao foi retirada.")
     else:
         log("  O produto NAO e mais bem determinado que os fatores; a crista tem")
         log("  outra origem e precisa ser reexaminada.")
@@ -395,14 +396,14 @@ def main() -> None:
     vol_final = float(np.prod([nroy[n].max() - nroy[n].min() for n in NOMES]))
     log("\n  Volume da caixa envolvente do NROY sobre o volume a priori: "
         f"{vol_final / vol_prior:.4f}")
-    log(f"  Larguras onda 1 -> onda 2 praticamente estaveis: as ondas CONVERGIRAM.")
-    log("  Uma terceira onda nao reduziria o espaco — o limite e a")
-    log("  identificabilidade estrutural, nao o tamanho da amostra.")
+    log("  [LIMITACAO] Estabilidade do casco nao estabelece convergencia.")
+    log("  As ondas legadas repetem o desenho normalizado. Ruido, observacao e")
+    log("  estimando precisam ser avaliados antes de novas ondas independentes.")
 
     pd.DataFrame(tabela).to_csv(TAB / "modelo_04_identificabilidade.csv",
                                 index=False, encoding="utf-8")
     log("\n" + "=" * 78)
-    log(f"RESULTADO: {'APROVADO' if not falhas else 'REPROVADO'}"
+    log(f"CRITERIOS LEGADOS (nao validacao estrutural): {'APROVADO' if not falhas else 'REPROVADO'}"
         + ("" if not falhas else "  falhas: " + "; ".join(falhas)))
     log("=" * 78)
     LOGS.mkdir(parents=True, exist_ok=True)

@@ -1,11 +1,5 @@
 # Especificação do modelo de simulação — versão 1.0
 
-> **Resposta à revisão científica:** a [reanálise e os pilotos](../projeto/10_RESPOSTA_REVISAO_2026-09-15.md)
-> refutaram a suficiência do produto F_ancora × f_retrabalho para todas as saídas.
-> A interpretação histórica abaixo foi superada; a crista empírica permanece,
-> mas não prova identificabilidade estrutural. Confiança afeta portão e rede.
-> Consulte a resposta para o alcance dos resultados e a prioridade atual.
-
 > **Nota de atualização — 15/09/2026:** este arquivo contém registros anteriores
 > à auditoria atual. Consulte o [estado auditado e as divergências](../projeto/08_AUDITORIA_AUTONOMA_2026-09-15.md)
 > antes de reutilizar conclusões. A análise preliminar oficial é o DOCX local

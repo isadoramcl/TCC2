@@ -1,5 +1,8 @@
 # Auditoria autônoma — 15/09/2026
 
+> Continuidade: [resposta à revisão e backlog atualizado](10_RESPOSTA_REVISAO_2026-09-15.md).
+> Esta auditoria permanece como registro histórico; sua prioridade B5 foi revista.
+
 ## Escopo e estado de referência
 
 [DEC] Primeira auditoria autônoma: reconstrução por documentação, inspeção de

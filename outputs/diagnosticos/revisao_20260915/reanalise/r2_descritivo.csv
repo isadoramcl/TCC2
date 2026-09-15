@@ -1,0 +1,9 @@
+modelo,observavel,R2
+cinco_parametros,media_taxa_omissao,0.9037136915805257
+cinco_parametros,media_atraso_relativo,0.9603266410462616
+cinco_parametros,media_retrabalho_sobre_plano,0.9373744051128051
+cinco_parametros,media_E_total,0.9547308973359137
+produto_e_tres_parametros,media_taxa_omissao,0.6128060750165465
+produto_e_tres_parametros,media_atraso_relativo,0.9602885771151511
+produto_e_tres_parametros,media_retrabalho_sobre_plano,0.9731397384229088
+produto_e_tres_parametros,media_E_total,0.9752958156991618

@@ -1,0 +1,25 @@
+{
+  "etapa": "vertices",
+  "python": "3.9.6",
+  "numpy": "1.26.4",
+  "pandas": "2.2.3",
+  "pyyaml": "6.0.2",
+  "hashes": {
+    "src/modelo/17_pilotos_revisao.py": "38d0377da9c60621884b814fceee9967675ba1a14dd69bf1920d2a90f30ce98f",
+    "src/modelo/04_gemeo_identico.py": "5f4e62ab806869aea634fedc47cf26e1b537d1d688331d2b2f9ba5d1ecede170",
+    "src/modelo/simulador.py": "7d80b6c0927bdcdbc4fa38d60094cd3802cca3b02eb6014fa08bd8d0d55b2495",
+    "src/modelo/fuzzy.py": "8634ef600a50dbb1766d05b99cfe240758f9a26229f7d37ad5a4cc8ca40ec2ff",
+    "config/parametros.yaml": "3cf92553904d5d2fbd30ecd606ee76ff6d86c9ed336cf321193b5d8ba697b59c",
+    "config/parametros_derivados.yaml": "6c14269eb8809430412fa748f2539289a9764044a9308015585feceab32c01bd",
+    "data/processed/psplib/tarefas_j60_com_di.csv": "0db739ad2fbad7af88bceab7ee4f6f10a5d5185f4705f7b0dfb7c9042b55bf1a",
+    "data/processed/psplib/tarefas_j60.csv": "f13247b555019dbaf89865705a6a3b0d3cfc992905e6dcb2d823784d9be83c7f",
+    "data/processed/psplib/instancias_j60.csv": "1f2d8b3a4bc9ccfe9bb635a90f5ab28742153674c16292372be269fc1fa79aec",
+    "data/processed/psplib/tarefas_j60_com_risco.csv": "2dcd6d9497119b7a4599a9ab770562fe53399564bca49775faac63bf165a5fa0",
+    "outputs/tables/modelo_04_identificabilidade.csv": "b383e6947441a6694d56e15a0e99296634642f42d25d796708bc1332b1fbad5c",
+    "outputs/tables/modelo_04_observacoes_sinteticas.csv": "b7c883113e9dc6ae23ee62016ac75b8e4f4abd85757ad4391619c5cdc499e24a",
+    "outputs/tables/modelo_04_hm_onda2.csv": "c03df6dccbc9c5d7e03c3e855b677cc1cb21a19a0064a6ac6bb3adbafa8f4d5e",
+    "outputs/tables/modelo_04_hm_onda1.csv": "11bbb6641209984f845fe859644b2363af6c2d14fac5009e3b06372b331a8c8b",
+    "research/PLANO_REVISAO.md": "e05a26ced50a707ee9457d51e87454c62714dc2a049a59bc3d3f46a387d7cee9"
+  },
+  "criterio": "PLANO_REVISAO.md; piloto não valida identificabilidade nem generalização"
+}

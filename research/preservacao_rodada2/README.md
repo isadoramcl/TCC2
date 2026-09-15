@@ -216,27 +216,7 @@ O documento local já ressalva a conclusão sobre identificabilidade e declara
 que o retrabalho contabilizado não ocupa agentes. Algumas afirmações antigas
 no registro e na especificação ainda divergem desse conteúdo; ver a auditoria.
 
-### Resposta à revisão independente
-
-A [resposta de 15/09/2026](projeto/10_RESPOSTA_REVISAO_2026-09-15.md) classifica
-cada crítica, preserva os resultados negativos e atualiza o backlog. O piloto
-com produto constante refutou a interpretação de que as saídas só observam
-`F_ancora × f_retrabalho`. A confiança atua no portão e no multiplicador de rede;
-sua dinâmica não foi alterada.
-
-A prioridade agora é definir o alvo observacional e avaliar a cobertura da
-calibração. Mais réplicas reduziram o conjunto aceito, mas também rejeitaram o
-vetor verdadeiro contra a observação publicada; contração não basta como critério
-de qualidade. Novas ondas completas permanecem adiadas.
-
-Os [comandos de reprodução](research/REPRODUCAO.md) recuperam evidências históricas
-por commit e hash, sem depender de arquivos da máquina da autora. As
-[fontes verificadas](research/SOURCES.md) distinguem apoio bibliográfico e inferência.
-Há snapshots fiéis da [análise preliminar oficial](docs/snapshots/analise_preliminar_oficial_2026-09-15.docx)
-e do [TCC I](docs/snapshots/TCC_I_referencia_2026-09-15.pdf). Preservar as cópias locais;
-os snapshots não autorizam regenerá-las sobre edições da autora.
-
-### Prioridades científicas históricas (reordenadas na resposta acima)
+### Prioridades científicas
 
 - Corrigir e reavaliar o desenho das ondas de calibração: o diagnóstico
   confirmou repetição das coordenadas normalizadas com a semente legada.
@@ -253,7 +233,7 @@ foram preservados, e as limitações constam do registro.
 
 ### Continuidade e execução
 
-Leia as [orientações atuais da autora](projeto/07_AUTONOMIA.md), a resposta à revisão e a auditoria
+Leia as [orientações atuais da autora](projeto/07_AUTONOMIA.md) e a auditoria
 antes de escolher a próxima tarefa. Não use o backlog histórico como prova de
 que um defeito continua presente: várias correções já existem no estado local.
 
