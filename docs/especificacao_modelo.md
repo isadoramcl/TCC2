@@ -1,5 +1,13 @@
 # Especificação do modelo de simulação — versão 1.0
 
+> **Nota de atualização — 15/09/2026:** este arquivo contém registros anteriores
+> à auditoria atual. Consulte o [estado auditado e as divergências](../projeto/08_AUDITORIA_AUTONOMA_2026-09-15.md)
+> antes de reutilizar conclusões. A análise preliminar oficial é o DOCX local
+> `docs/entrega1_metodologia_resultados_iniciais.docx`, por indicação da autora.
+> Em particular, convergência das ondas e identificabilidade estrutural ainda
+> não estão demonstradas; o simulador contabiliza TR sem ocupar agentes, embora
+> a especificação histórica descreva retorno do retrabalho à fila.
+
 Documento normativo. **Nenhuma linha do simulador deve ser escrita antes desta
 especificação estar revisada**, e nenhum valor numérico deve ser embutido no
 código: todos vêm de `config/parametros.yaml`.
