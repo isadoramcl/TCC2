@@ -1,5 +1,13 @@
 # Registro de decisões metodológicas, achados e problemas
 
+> **Nota de atualização — 15/09/2026:** este arquivo contém registros anteriores
+> à auditoria atual. Consulte o [estado auditado e as divergências](../projeto/08_AUDITORIA_AUTONOMA_2026-09-15.md)
+> antes de reutilizar conclusões. A análise preliminar oficial é o DOCX local
+> `docs/entrega1_metodologia_resultados_iniciais.docx`, por indicação da autora.
+> Em particular, convergência das ondas e identificabilidade estrutural ainda
+> não estão demonstradas; o simulador contabiliza TR sem ocupar agentes, embora
+> a especificação histórica descreva retorno do retrabalho à fila.
+
 Documento vivo. Cada entrada indica a **origem**: `[LITERATURA]` para o que vem
 de fonte publicada, `[DECISÃO]` para escolha metodológica deste trabalho,
 `[ACHADO]` para resultado empírico obtido pelo pipeline, `[ABERTO]` para questão

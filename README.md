@@ -1,6 +1,7 @@
-# TCC2 — Calibração NASA MDP e dificuldade técnica no PSPLIB J60
+# TCC2 — Modelagem e simulação da gestão de equipes de engenharia
 
-Implementação do pipeline de dados do Trabalho de Conclusão de Curso II.
+Desenvolvimento computacional do Trabalho de Conclusão de Curso II: dados,
+modelo híbrido de agentes e dinâmica de sistemas, experimentos e análise.
 
 - **Autora:** Isadora Maria Carvalho Lopes
 - **Orientador:** Prof. André Costa Batista
@@ -10,14 +11,14 @@ Implementação do pipeline de dados do Trabalho de Conclusão de Curso II.
 
 ## Objetivo
 
-Reproduzir em Python, a partir dos dados brutos, o procedimento de limpeza
-**D''** proposto por Shepperd et al. para os conjuntos NASA MDP; validar o
-resultado contra os arquivos D'' publicados pelos autores; e, em etapa
-posterior, construir o proxy de dificuldade técnica sobre o PSPLIB J60.
+Investigar a gestão de equipes em projetos de engenharia por modelagem e
+simulação, dando continuidade ao modelo conceitual do TCC I.
 
-O objetivo **não** é construir o melhor classificador de defeitos de software,
-e sim obter uma relação interpretável e transferível ordinalmente entre
-complexidade e risco basal.
+A camada NASA MDP fornece um gradiente ordinal de risco, sem estabelecer efeito
+causal independente da complexidade. O PSPLIB J60 fornece redes de tarefas,
+durações e restrições de recursos. O simulador combina esses elementos com
+premissas sobre cognição, assistência e governança. A taxa basal absoluta de
+retrabalho em engenharia permanece aberta; não foi estimada pela NASA.
 
 ---
 
@@ -36,14 +37,16 @@ data/
 
 src/
 ├── nasa/                     scripts do pipeline NASA MDP
-└── psplib/                   scripts do pipeline PSPLIB
+├── psplib/                   scripts do pipeline PSPLIB
+└── modelo/                   simulador, verificações e experimentos
 
 outputs/
 ├── tables/                   tabelas de resultado
 ├── figures/                  figuras
 └── logs/                     logs de execução do pipeline
 
-docs/                         guia metodológico e registro de decisões
+docs/                         especificação, entrega e registro de decisões
+projeto/                      orientações, auditoria e backlog
 ```
 
 ---
@@ -188,16 +191,58 @@ vezes por artefato do tamanho dos estratos.
 
 ---
 
-## Estado atual
+## Estado atual e ponto de entrada
 
-Camada de dados concluída e verificada em ambas as bases. Nove scripts, todos com
-verificação automática aprovada, reproduzidos de forma idêntica em dois ambientes
-computacionais distintos.
+O simulador já está implementado. Há experimentos de cenários, calibração com
+gêmeo sintético, ablações de governança, análise fatorial, sensibilidades e
+reanálise por instância. O resultado preliminar não deve ser confundido com
+validação empírica do comportamento humano de equipes.
 
-Pendente: modelo de simulação (ABM + Dinâmica de Sistemas), parâmetros
-comportamentais, inferência difusa, e a fixação da âncora `F_ancora` por dado do
-domínio de engenharia.
+A [auditoria de 15/09/2026](projeto/08_AUDITORIA_AUTONOMA_2026-09-15.md) reúne
+arquitetura, inventário dos resultados, verificações existentes, divergências e
+backlog priorizado. Ela descreve o **estado local auditado**: parte desse código
+e dos resultados está em um merge ainda não concluído no checkout principal.
+Esta branch publica a documentação e o diagnóstico; não incorpora esse merge.
+As seções históricas acima descrevem principalmente a camada de dados.
 
-Entrega 1 ao orientador em `docs/entrega1_metodologia_resultados_iniciais.docx`.
-Registro completo de decisões, achados e justificativas em
-`docs/registro_de_decisoes.md`.
+### Documento oficial
+
+Por indicação da autora, a análise preliminar oficial é a **cópia local** de
+`docs/entrega1_metodologia_resultados_iniciais.docx`. A versão no Git pode estar
+atrasada em relação a ela. O gerador `docs/gerar_entrega.js` deve ser comparado
+com essa cópia antes de qualquer regeneração, preservando ajustes locais.
+
+O documento local já ressalva a conclusão sobre identificabilidade e declara
+que o retrabalho contabilizado não ocupa agentes. Algumas afirmações antigas
+no registro e na especificação ainda divergem desse conteúdo; ver a auditoria.
+
+### Prioridades científicas
+
+- Corrigir e reavaliar o desenho das ondas de calibração: o diagnóstico
+  confirmou repetição das coordenadas normalizadas com a semente legada.
+- Verificar horizonte e término completo no espaço de calibração antes de
+  expandir os experimentos.
+- Investigar a representação do retrabalho e distinguir término das tarefas de
+  encerramento da dívida no indicador de prazo.
+- Avaliar dependência dos resultados em relação à confiança constante,
+  parametrização, seleção de instâncias e transferência ordinal de risco.
+
+A alternativa de desenho testada permanece um piloto: não demonstra
+convergência nem resolve identificabilidade estrutural. Os resultados anteriores
+foram preservados, e as limitações constam do registro.
+
+### Continuidade e execução
+
+Leia as [orientações atuais da autora](projeto/07_AUTONOMIA.md) e a auditoria
+antes de escolher a próxima tarefa. Não use o backlog histórico como prova de
+que um defeito continua presente: várias correções já existem no estado local.
+
+Diagnóstico pequeno, sem sobrescrever resultados publicados:
+
+```sh
+python3 src/modelo/15_diagnostico_hm.py --saida /tmp/tcc2_hm_diagnostico
+```
+
+A pasta de saída deve ainda não existir. Versões do ambiente, sementes, hashes,
+resultados por execução e controles são registrados pelo script. Isso não
+substitui a validação do ambiente completo definido em `requirements.txt`.
