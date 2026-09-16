@@ -79,6 +79,10 @@ class SimulacaoMVP(Simulacao):
         finally:
             agente.confianca=anterior
 
+    def decidir_porta(self,p_heu,sorteio):
+        """Ponto de intervenção contrafactual; nominal mantém o mesmo sorteio."""
+        return sorteio<p_heu
+
     def atualizar_confianca(self,agente,sucesso):
         o=self.opcoes
         if o.lei_confianca=='media_eventos':
@@ -158,7 +162,7 @@ class SimulacaoMVP(Simulacao):
                 mc,mr=self.multiplicadores(a,P)
                 logit=float(np.clip((E-tau)/max(s,1e-9),-700,700))
                 p_heu=1/(1+math.exp(-logit))
-                heu=self.rng.random()<p_heu
+                heu=self.decidir_porta(p_heu,self.rng.random())
                 if heu and omega>limite:
                     self.cnt['p1_fuga']+=1; self.TU+=1.; self.n_adiamentos+=1
                     a.bateria=max(0.,a.bateria-kh*E)

@@ -36,3 +36,7 @@ pareceres incorporados de revisao-auditoria bcf39db (somente documentos).
 - Etapa2: risco adicional no complemento implementado conforme fórmula pedida;
   rho aberto0,35/faixa0,20–0,50 em parametros.yaml, sem consumo extra do RNG.
   Dois testes de forma/extremos passaram; compatibilidade rho0 manteve32/32.
+- Etapa3: contrafactual real P1/P3 forçadas no mesmo estado e mesmos sorteios
+  controlados. Detecta menor duração/maior risco e falha realizada diferencial.
+  Controle negativo fator1/rho0 não detecta diferença e não produz falha.
+  Testes passaram e compatibilidade32/32 permanece. Não se usaram médias P1×P3.
