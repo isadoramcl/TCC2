@@ -89,3 +89,7 @@ Implementação em branch isolada; nunca editar o checkout da autora.
   antes/depois nominal: são desenhos e parâmetros diferentes.
 - O índice final de evidências complementa os hashes das instâncias e tabelas
   históricas usados pela análise de canais; ele é verificação pós-execução.
+
+- Encerramento: 17.920 execuções completas, sem violações. Clone dd29e29 passou
+  19 testes, recuperou 90 evidências e reproduziu nove tabelas exatamente.
+  Próxima etapa: calibração e fragilidades; nenhuma lei de confiança eleita.

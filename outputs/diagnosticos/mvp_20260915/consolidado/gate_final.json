@@ -21,5 +21,11 @@
       "sha256": "0661b79ce3e1f351b298dba222a0ba028a618714c409b11dcdf57bb2fdabecc1",
       "commit_origem": "dc8721f61c45c42d6c027cb7f1013e87fcc86e0e"
     }
+  },
+  "clone_limpo": {
+    "commit_verificado": "dd29e29",
+    "testes_aprovados": 19,
+    "evidencias_historicas_recuperadas": 90,
+    "tabelas_consolidadas_identicas": 9
   }
 }

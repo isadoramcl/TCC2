@@ -27,6 +27,7 @@ fica na branch `codex/resposta-revisao-cientifica`, sem merge em main.
 ## 2. Verificação
 
 - 19 testes automatizados passaram, incluindo censura, conservação, capacidade, confiança e hash.
+- Clone limpo de dd29e29: os 19 testes passaram, 90 evidências históricas foram recuperadas e nove tabelas consolidadas foram regeneradas sem qualquer diferença numérica.
 - Revisão independente do núcleo, desenho e consolidação concluída; correções de TW em censura e dívida zero foram reproduzidas por testes antes do conserto.
 - 17.920 execuções novas: 3.072 alternativas, 1.408 robustez, 12.288 canais e 1.152 B9.
 - Todas terminaram sem trabalho/dívida pendentes e sem violações.
