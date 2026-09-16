@@ -134,6 +134,11 @@ Não ponderar para produzir a contração desejada em um parâmetro.
 | renovada | legado | 0/20 | 0.0% | [0.0%; 16.8%] |
 | renovada | pareada | 3/20 | 15.0% | [3.2%; 37.9%] |
 
+Na linha pareada contra a observação publicada, somente `V_sim` usa a estimativa
+pareada; `V_obs` permanece o valor legado associado à observação fixa. Portanto,
+essa linha é uma combinação híbrida, não uma reestimação pareada de ambas as
+parcelas de variância.
+
 Observação publicada fixa mede desempenho condicional àquela realização;
 observação renovada testa o procedimento sintético conjuntamente. Os blocos
 são independentes entre si; as instâncias dentro de cada bloco permanecem fixas

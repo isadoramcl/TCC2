@@ -200,17 +200,22 @@ validação empírica do comportamento humano de equipes.
 
 A [auditoria de 15/09/2026](projeto/08_AUDITORIA_AUTONOMA_2026-09-15.md) reúne
 arquitetura, inventário dos resultados, verificações existentes, divergências e
-backlog priorizado. Ela descreve o **estado local auditado**: parte desse código
-e dos resultados está em um merge ainda não concluído no checkout principal.
-Esta branch publica a documentação e o diagnóstico; não incorpora esse merge.
+backlog priorizado. O merge auditado foi concluído em `dc8721f`; a preservação
+da rodada 2 foi registrada antes do rebase e reconciliada depois dele.
 As seções históricas acima descrevem principalmente a camada de dados.
 
 ### Documento oficial
 
 Por indicação da autora, a análise preliminar oficial é a **cópia local** de
-`docs/entrega1_metodologia_resultados_iniciais.docx`. A versão no Git pode estar
-atrasada em relação a ela. O gerador `docs/gerar_entrega.js` deve ser comparado
-com essa cópia antes de qualquer regeneração, preservando ajustes locais.
+`docs/entrega1_metodologia_resultados_iniciais.docx`. O snapshot versionado
+[`analise_preliminar_oficial_2026-09-15.docx`](docs/snapshots/analise_preliminar_oficial_2026-09-15.docx)
+é um ponteiro imutável para a cópia conferida, com SHA-256
+`d5a658f1cdf03d99e6bdc0b5d03cb4aaa9420853ec7ebc2bb3f55e85a728c57d`.
+Antes de qualquer regeneração, confira uma cópia viva explicitamente, sem editá-la:
+
+```sh
+python3 research/verificar_documento_oficial.py --vivo /caminho/para/analise_preliminar.docx
+```
 
 O documento local já ressalva a conclusão sobre identificabilidade e declara
 que o retrabalho contabilizado não ocupa agentes. Algumas afirmações antigas
@@ -224,10 +229,10 @@ com produto constante refutou a interpretação de que as saídas só observam
 `F_ancora × f_retrabalho`. A confiança atua no portão e no multiplicador de rede;
 sua dinâmica não foi alterada.
 
-A prioridade agora é definir o alvo observacional e avaliar a cobertura da
-calibração. Mais réplicas reduziram o conjunto aceito, mas também rejeitaram o
-vetor verdadeiro contra a observação publicada; contração não basta como critério
-de qualidade. Novas ondas completas permanecem adiadas.
+A prioridade agora é fechar o MVP na ordem C4, C1 e C3. Em seguida vêm as
+robustezes de `pesos_Di`, horizonte, família Porta 2, contraste de governança e
+canais. Calibração e fragilidades serão retomadas juntas somente depois desse
+fechamento; novas ondas completas permanecem adiadas.
 
 Os [comandos de reprodução](research/REPRODUCAO.md) recuperam evidências históricas
 por commit e hash, sem depender de arquivos da máquina da autora. As
@@ -236,16 +241,12 @@ Há snapshots fiéis da [análise preliminar oficial](docs/snapshots/analise_pre
 e do [TCC I](docs/snapshots/TCC_I_referencia_2026-09-15.pdf). Preservar as cópias locais;
 os snapshots não autorizam regenerá-las sobre edições da autora.
 
-### Prioridades científicas históricas (reordenadas na resposta acima)
+### Prioridades científicas após o MVP
 
-- Corrigir e reavaliar o desenho das ondas de calibração: o diagnóstico
-  confirmou repetição das coordenadas normalizadas com a semente legada.
-- Verificar horizonte e término completo no espaço de calibração antes de
-  expandir os experimentos.
-- Investigar a representação do retrabalho e distinguir término das tarefas de
-  encerramento da dívida no indicador de prazo.
-- Avaliar dependência dos resultados em relação à confiança constante,
-  parametrização, seleção de instâncias e transferência ordinal de risco.
+- Robustez de `pesos_Di` e do horizonte.
+- Família Porta 2 e contraste de governança.
+- Decomposição por canais.
+- Calibração e fragilidades, avaliadas juntas após os itens anteriores.
 
 A alternativa de desenho testada permanece um piloto: não demonstra
 convergência nem resolve identificabilidade estrutural. Os resultados anteriores

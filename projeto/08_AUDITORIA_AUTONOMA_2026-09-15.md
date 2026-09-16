@@ -1,7 +1,9 @@
 # Auditoria autônoma — 15/09/2026
 
 > Continuidade: [resposta à revisão e backlog atualizado](10_RESPOSTA_REVISAO_2026-09-15.md).
-> Esta auditoria permanece como registro histórico; sua prioridade B5 foi revista.
+> Esta auditoria permanece como registro histórico. A prioridade vigente é o
+> MVP C4, C1 e C3; depois, robustez de pesos_Di, horizonte, família Porta 2,
+> contraste de governança e canais; só então calibração e fragilidades juntas.
 
 ## Escopo e estado de referência
 
@@ -196,16 +198,15 @@ Use uma pasta ainda inexistente. Consulte `manifesto.json`, `desenho.csv`,
 As tabelas `comparacao.csv` e `inventario_tabelas.csv` anexas são resumos da
 sessão; os dados e controles essenciais são produzidos pelo script.
 
-**Próximo problema:** A10/B6 — testar término completo nos extremos do espaço
-antes de investir em ondas independentes completas. Depois, corrigir a geração
-por onda no pipeline e o texto de conclusão incondicional. O modelo nominal
-permanece preservado enquanto essas hipóteses são investigadas.
+**Prioridade vigente:** fechar o MVP C4, C1 e C3. Depois vêm as robustezes de
+`pesos_Di`, horizonte, família Porta 2, contraste de governança e canais. A
+calibração e as fragilidades serão tratadas juntas somente depois; não abrir
+novas ondas nesta etapa.
 
-**Publicação:** autorizada pela autora para README e divergências. Publicação
-em branch de documentação, a partir de `origin/main`, sem concluir o merge
-existente no checkout principal. Esta auditoria descreve o estado local, que
-inclui código e tabelas ainda pendentes de integração. A publicação do registro
-não representa resolução de B5 nem incorporação dessas alterações alheias.
+**Publicação:** o merge da revisão foi concluído em `dc8721f`. Os três documentos
+locais foram preservados antes do rebase e reconciliados depois dele; o conteúdo
+vivo permanece integral, acrescido apenas das notas de atualização registradas.
+Esta auditoria não representa resolução de B5.
 
 
 ## Documento oficial e retificação após conferência direta
@@ -226,10 +227,10 @@ no registro histórico e na especificação; não se deve atribuir aquelas
 conclusões categóricas ao documento oficial local. Nenhuma edição do DOCX foi
 realizada por este diagnóstico.
 
-O checkout principal está em merge de `113c638` para `main`, com conflitos já
-resolvidos e alterações preparadas. Esse estado foi confirmado antes da
-publicação e será preservado. A cópia isolada de publicação é
-`/private/tmp/tcc2-publicacao-auditoria`.
+O merge da revisão foi concluído em `dc8721f`. O snapshot acima é a referência
+versionada; a cópia viva deve ser indicada explicitamente ao verificador
+`research/verificar_documento_oficial.py --vivo CAMINHO`, que falha se qualquer
+uma das duas cópias estiver ausente ou divergir do hash fixado e nunca as edita.
 
 
 ### Verificação sobre a base de publicação

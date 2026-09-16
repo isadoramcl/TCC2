@@ -53,12 +53,17 @@ modelo for ampliado a ponto de encarecer, o emulador entra sem mudar o resto.
     I_j(x) = | z_j − f̄_j(x) | / sqrt( V_obs,j + V_sim,j + V_mod,j )
     I(x)   = max_j I_j(x)          x ∈ NROY  ⟺  I(x) ≤ 3
 
-`[DEC]` **V_mod = 0 neste teste, e isso é uma limitação declarada.** No gêmeo
-idêntico o modelo É a verdade: não há discrepância entre modelo e realidade. O
-teste é, portanto, OTIMISTA por construção — ele mede se o procedimento é capaz
-de identificar parâmetros no melhor cenário possível. Falhar aqui condena o
-procedimento; passar aqui não garante que ele funcione com dados reais, onde
-V_mod > 0 e precisa ser especificado. Registrar assim na entrega.
+`[DEC]` **V_mod = 0 neste teste, com z publicada fixa, não torna o teste
+automaticamente otimista.** O conjunto NROY compara a média simulada com uma
+realização sintética já fixada. Ao aumentar réplicas, `V_sim` pode encolher e o
+procedimento pode rejeitar o próprio vetor verdadeiro. Portanto, falhar não
+condena o procedimento em geral e passar não garante desempenho com dados reais.
+A direção pessimista é uma propriedade condicional à z publicada, não um teorema
+para toda observação sintética.
+
+O limite formal de implausibilidade para o vetor verdadeiro exigiria a média
+exata `mu` do simulador. A estimativa baseada em 64 réplicas não prova
+permanência no NROY. Com dados reais, `V_mod` também precisa ser especificado.
 
 SAIDA
 -----
