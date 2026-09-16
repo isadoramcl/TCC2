@@ -188,3 +188,83 @@ levar a proposta:
 Isso também reformula a pergunta 3: a transferência NASA → PSPLIB deixa de carregar
 o nível absoluto e passa a carregar **apenas o gradiente ordinal entre faixas**, que
 é o que ela de fato mede e o que o trabalho sempre afirmou que ela media.
+
+---
+
+## 9. Correção — unidades e fronteira de sistema (15/09/2026, após objeção da autora)
+
+A autora perguntou se `F_ancora` e `f_retrabalho` estão definidos na mesma unidade
+e com a mesma fronteira de sistema que as fontes propostas. **Não estão.** A
+proposta da seção 3, na forma "uma fonte dá o produto, a outra dá o fator, divide",
+está errada. Três descasamentos, em ordem de gravidade.
+
+### 9.1 Nível de agregação — o descasamento fatal
+
+`F_ancora` é probabilidade por **execução de tarefa**, e a tarefa aqui é uma
+atividade do PSPLIB, com duração média de 5,38 períodos. O HEP do HEART é
+probabilidade por **passo elementar de tarefa humana**. Para uma tarefa que agrega
+n passos, `P(defeito) = 1 − (1 − HEP)^n`, que não é HEP.
+
+Inserir um HEP direto em `F_ancora` é erro de categoria, a menos que se declare
+que uma atividade do modelo equivale a **um** tipo genérico de tarefa do HEART.
+Isso é possível, mas é decisão de modelagem explícita, não empréstimo de número.
+
+### 9.2 Denominador — custo contra esforço
+
+A literatura de construção reporta retrabalho como fração de **custo** (valor de
+contrato ou custo total instalado), que inclui material, equipamento, indireto e
+lucro. O `E_plano` do modelo é **esforço** planejado, em agente-períodos.
+Retrabalho é intensivo em mão de obra, logo a fração sobre esforço é
+sistematicamente **maior** que a fração sobre custo.
+
+**Retratação:** a afirmação da seção 5, de que o modelo opera "de duas a quatro
+vezes acima da faixa empírica", comparou fração de esforço com fração de custo.
+A comparação não é válida na forma em que foi feita, e a magnitude da discrepância
+não está estabelecida. O que permanece válido é o procedimento recomendado:
+**instrumentar a taxa de falha realizada por execução**, que continua desconhecida.
+
+### 9.3 Numerador — o que conta como retrabalho
+
+Os estudos separam retrabalho de projeto e de campo de formas diferentes
+(CII 10-1 divide 9,5% projeto e 2,5% construção); o modelo não tem essa divisão.
+E o `TR` do modelo só contabiliza retrabalho **pago**: a dívida oculta vira `TR`
+apenas quando detectada, de modo que a fronteira do numerador depende da condição
+de parada — que está sob revisão no item C2.
+
+### 9.4 Descasamento interno, dentro do próprio modelo
+
+Mesmo ignorando a literatura, o produto `F_ancora × f_retrabalho` **não** é o
+observável `retrabalho_sobre_plano`. No vetor verdadeiro o produto vale 0,0756 e o
+observável vale 0,196 — razão 2,6. A diferença é o termo cognitivo aditivo de
+`p_falha` e o fator de severidade. Tratar o produto como se fosse o observável,
+como a seção 3 fazia, ignora os dois.
+
+### 9.5 O que cada referência indicada pela autora resolve
+
+| referência | o que resolve |
+|---|---|
+| WILLIAMS & BELL (2017; HEART+ 2023) | tabela consolidada de tipos genéricos — fonte primária do valor, e define a **granularidade** que cada tipo descreve (§9.1) |
+| SETAYESH, DI PASQUALE & NEUMANN (2022) | comparação entre quatro métodos de HRA — fornece a **dispersão entre métodos**, base honesta para uma faixa a priori em vez de um valor pontual |
+| KIRWAN et al. (1997) | validação empírica de THERP, HEART e JHEDI — diz **quanta acurácia** é legítimo reivindicar de um HEP |
+| LEVINE et al. (2024) | identificação de eventos de falha humana, lacunas — é a referência da **fronteira de definição** (§9.1 e §9.3) |
+| ZHANG et al. (2012) | retrabalho em **horas**; se a dissertação associada traz as horas totais, o denominador passa a casar com `E_plano` (§9.2). **É a referência mais valiosa da lista para este problema.** |
+| LOVE (2026) | quantificação mais recente de retrabalho de campo — definição do numerador (§9.3) |
+| KAM et al. (2025) | comparação controlada numa tarefa específica (layout) — candidata rara a observação de **frequência** de erro por tarefa, não de custo agregado |
+| PSPLIB — 382/480 do J60 com ótimo comprovado, com OPT, HRS e limites inferiores publicados | confirma e viabiliza a correção do §6: linha de base viável para `atraso_relativo` |
+
+### 9.6 A proposta corrigida
+
+Não substituir parâmetro por número de literatura. Em vez disso:
+
+1. **Declarar a fronteira na especificação, antes de tudo.** O que é uma "tarefa"
+   em termos humanos, o que conta como defeito, e o que entra em `E_plano`. Hoje
+   as três definições não estão escritas, e toda comparação externa depende delas.
+2. **Usar a família HEART para a forma, não para o nível:** a estrutura
+   multiplicativa das condições produtoras de erro justifica a forma de
+   `μ_cognitivo`, e a ordenação dos tipos genéricos justifica o gradiente ordinal.
+3. **Usar retrabalho medido em horas (Zhang) como alvo de validação externa** do
+   observável `retrabalho_sobre_plano`, em unidade casada.
+4. `F_ancora` e `f_retrabalho` permanecem calibrados, mas agora contra um alvo
+   externo em unidade correta — não estimados por divisão.
+
+Isso é mais fraco que a proposta original e é o que a evidência sustenta.
