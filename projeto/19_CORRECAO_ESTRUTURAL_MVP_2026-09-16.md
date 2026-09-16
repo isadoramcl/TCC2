@@ -147,7 +147,8 @@ Não se atribui a inversão a um único coeficiente de confiança.
 - 21.408 execuções principais: zero incompletas, zero violações e nenhum reparo
   ou dívida pendente ao término; 32 execuções instrumentadas também completas.
 - 384 diagonais corrigidas coincidem com o nominal; 3.072 diagonais legadas
-  reproduzem o histórico. Diferenças máximas verificadas: zero.
+  reproduzem o histórico dentro da tolerância. Diferença máxima: zero no MVP;
+  1,42×10⁻¹⁴ nas diagonais legadas (arredondamento numérico).
 - Horizonte duplicado idêntico em 32 pares para cada rho (96 pares ao todo).
 - 72 hashes históricos intactos. DOCX oficial vivo e snapshot conferidos pelo
   verificador que falha diante de ausência ou divergência.

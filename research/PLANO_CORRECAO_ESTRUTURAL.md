@@ -157,3 +157,10 @@ parcial foi preservada em /private/tmp, caminho corrigido e reprodução integra
 fora do repositório produziu CSV idênticos. Não houve mudança de simulação.
 Relatório19 registra inversão de E_total e limites; relatório11 permanece congelado.
 Próxima prioridade: V_obs/V_mod e ponte de observação, sem novas ondas HM.
+
+
+Verificação de fechamento: clone limpo do commit 6d95b50 passou 34 testes
+em 8,224 s; 41 fontes + 49 artefatos e 72 históricos conferiram por hash.
+Revisão final sem bloqueio técnico; texto ajustado para reportar diferença
+máxima 1,42e-14 nas diagonais legadas, versus zero nas corrigidas. Documento
+oficial vivo conferiu com o snapshot; checkout da autora não foi alterado.
