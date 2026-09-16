@@ -1,5 +1,7 @@
 # B9 — verificação metodológica antes de usar qualquer número no texto
 
+> **PRÉ-CORREÇÃO ESTRUTURAL — congelado em 16/09/2026.** Números históricos preservados; não constituem resultado do MVP corrigido nem alimentam conclusão final sem reexecução. Ver `research/CONGELAMENTO_PRE_CORRECAO.json` e `research/PLANO_CORRECAO_ESTRUTURAL.md`.
+
 > **Atribuição revista no MVP:** A = τ_inicial move o portão de ajuda **e**
 > a entrada do multiplicador de rede. O fatorial 2⁵ separa G (portão), N (rede),
 > B (limiar), C (reporte) e D (detecção). N não é o multiplicador cognitivo

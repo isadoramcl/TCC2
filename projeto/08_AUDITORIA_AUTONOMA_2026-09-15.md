@@ -1,6 +1,6 @@
 # Auditoria autônoma — 15/09/2026
 
-> Continuidade: [MVP e resultados da robustez](11_MVP_RESULTADOS_2026-09-16.md).
+> Continuidade: relatório 11 congelado como pré-correção estrutural. Estado vigente em [PLANO_CORRECAO_ESTRUTURAL](../research/PLANO_CORRECAO_ESTRUTURAL.md); resultados antigos não sustentam conclusão final sem reexecução.
 > Esta auditoria permanece como registro histórico. C4, C1, as duas candidatas
 > C3 e a passada declarada de robustez foram implementadas e verificadas.
 > A prioridade vigente é calibração e fragilidades juntas; a escolha de τ(t)

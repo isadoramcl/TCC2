@@ -116,3 +116,13 @@ em P1 seleciona p_heu maior e amplifica a sensibilidade a rho por q; registrar
 média q geral e condicional sem recalibrar a logística para uma taxa-alvo.
 A opção de desligar instrumentação permite verificar identidade dos resultados
 e do estado RNG. Os 64% anteriores permanecem quantidade a validar externamente.
+
+### Etapa 6 — congelamento antes de reexecutar
+
+B1/B3/B7/B9, tabelas modelo_/entrega_ e todo o lote mvp_20260915 estão
+inventariados por SHA-256 em CONGELAMENTO_PRE_CORRECAO.json. Os CSV antigos
+não foram alterados. Relatório 11 e documentos B9 receberam aviso explícito;
+README retirou a alegação de MVP concluído. Nenhum número anterior será usado
+como conclusão final sem reexecução. Etapa 5 verificada por 34 testes, inclusive
+identidade com instrumentação desligada. Próximo passo: desenho declarado da
+reexecução, sem escolher políticas ou valores pelo resultado.

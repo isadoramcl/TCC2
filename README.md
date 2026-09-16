@@ -229,11 +229,15 @@ com produto constante refutou a interpretação de que as saídas só observam
 `F_ancora × f_retrabalho`. A confiança atua no portão e no multiplicador de rede;
 o legado permanece preservado.
 
-O [MVP e sua passada de robustez estão concluídos](projeto/11_MVP_RESULTADOS_2026-09-16.md):
-C4, C1, duas leis candidatas de C3, pesos Di, horizonte automático, família
-Porta 2 e fatorial com portão/rede separados. Foram 17.920 execuções, sem
-trabalho pendente ou violações. A escolha da lei de confiança aguarda orientação.
-Calibração e fragilidades são a próxima etapa; novas ondas permanecem adiadas.
+O [relatório 11](projeto/11_MVP_RESULTADOS_2026-09-16.md) e suas 17.920
+execuções estão **congelados como pré-correção estrutural**. C4 estava sem o
+excesso de risco; o controle neutro revelou deriva do laço e as leis de
+confiança foram substituídas. Esses números não são resultados do MVP corrigido.
+
+A [sequência de correção](research/PLANO_CORRECAO_ESTRUTURAL.md) registra
+compatibilidade bit a bit, risco da omissão, contrafactual com controle negativo,
+Crowder, reset de competência e instrumentação por tarefa. A reexecução do
+experimento, robustez e canais ainda precisa terminar para fechar o MVP.
 
 Os [comandos de reprodução](research/REPRODUCAO.md) recuperam evidências históricas
 por commit e hash, sem depender de arquivos da máquina da autora. As
@@ -242,23 +246,19 @@ Há snapshots fiéis da [análise preliminar oficial](docs/snapshots/analise_pre
 e do [TCC I](docs/snapshots/TCC_I_referencia_2026-09-15.pdf). Preservar as cópias locais;
 os snapshots não autorizam regenerá-las sobre edições da autora.
 
-### Prioridades científicas após o MVP
+### Prioridade vigente
 
-- Definir V_obs/V_mod e verificar o alvo observacional, sem ajustar para aprovar o gêmeo.
-- Avaliar implausibilidade perfilada dentro de History Matching.
-- Tratar as fragilidades restantes junto da calibração: inferência, retrabalho,
-  generalização e leis candidatas de confiança.
-- Escolher a lei de τ(t) somente após orientação; não buscar a melhor política.
+- Reexecutar comparações incrementais, robustez declarada e decomposição dos canais.
+- B1/B3/B7/B9 e relatório 11 só podem ser usados como controles históricos até reexecução.
+- Depois do MVP: V_obs/V_mod, implausibilidade perfilada e fragilidades restantes.
+- Sem novas ondas de History Matching, substituição do método ou busca de melhor política.
 
-A robustez sustenta a direção do contraste de atraso, omissões e dívida oculta
-na família discreta testada. O retrabalho pago não manteve sinal em todo o
-desenho. Isso não demonstra validade empírica, convergência de HM ou
-identificabilidade estrutural. Consulte os limites e as tabelas ANTES/DEPOIS no
-relatório do MVP.
+Os hashes das saídas congeladas estão no
+[manifesto de congelamento](research/CONGELAMENTO_PRE_CORRECAO.json).
 
 ### Continuidade e execução
 
-Leia as [orientações atuais da autora](projeto/07_AUTONOMIA.md) e o [relatório do MVP](projeto/11_MVP_RESULTADOS_2026-09-16.md)
+Leia as [orientações atuais da autora](projeto/07_AUTONOMIA.md) e a [sequência de correção estrutural](research/PLANO_CORRECAO_ESTRUTURAL.md)
 antes de escolher a próxima tarefa. Não use o backlog histórico como prova de
 que um defeito continua presente: várias correções já existem no estado local.
 

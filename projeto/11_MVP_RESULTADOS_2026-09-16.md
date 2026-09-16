@@ -1,5 +1,7 @@
 # MVP — implementação, robustez e resultados
 
+> **PRÉ-CORREÇÃO ESTRUTURAL — congelado em 16/09/2026.** Números históricos preservados; não constituem resultado do MVP corrigido nem alimentam conclusão final sem reexecução. Ver `research/CONGELAMENTO_PRE_CORRECAO.json` e `research/PLANO_CORRECAO_ESTRUTURAL.md`.
+
 **Estado: software e passada declarada de robustez concluídos.** Duas leis de
 confiança permanecem candidatas; a escolha aguarda orientação da autora.
 Calibração e fragilidades são a próxima etapa, juntas. Nenhuma nova onda HM,
