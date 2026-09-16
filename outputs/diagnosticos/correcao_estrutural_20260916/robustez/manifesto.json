@@ -1,0 +1,3571 @@
+{
+  "criado": "2026-09-16T19:40:53.464658+00:00",
+  "etapa": "robustez",
+  "config": {
+    "opcoes": {
+      "fator_omissao": 0.75,
+      "retrabalho_fila": true,
+      "lei_confianca": "crowder",
+      "comunicacao_crowder": true,
+      "reset_competencia": true,
+      "horizonte_automatico": true,
+      "limite_horizonte_fator": 256,
+      "politica_porta2": "nominal",
+      "tau_portao": null,
+      "tau_rede": null
+    },
+    "alternativas": {
+      "instancias": 16,
+      "sementes": 12
+    },
+    "robustez": {
+      "instancias": 4,
+      "sementes": 4,
+      "F_ancora": [
+        0.05,
+        0.25
+      ],
+      "f_retrabalho": [
+        0.3,
+        0.8
+      ],
+      "mu_minimo": [
+        0.4,
+        0.7
+      ],
+      "centro": [
+        0.15,
+        0.55,
+        0.55
+      ],
+      "politicas_porta2": [
+        "nominal",
+        "sem_assistencia",
+        "assistencia_universal",
+        "sem_filtro_competencia"
+      ],
+      "leis_confianca": [
+        "constante",
+        "crowder"
+      ],
+      "fatores_omissao": [
+        0.5,
+        0.75,
+        1.0
+      ],
+      "rho_omissao": [
+        0.2,
+        0.35,
+        0.5
+      ],
+      "multiplicador_horizonte_verificacao": 2
+    },
+    "pesos_di_fonte": "config/parametros.yaml:dificuldade.pesos_Di",
+    "controle_di": "terco_exato",
+    "limitacoes": "[DEC] Desenho discreto sem otimização ou ranking. Bateria, risco adicional, confiança inicial e limiares mantidos nas configurações declaradas. Rho cruzado com a família discreta inteira. Interior contínuo, interações dos complementos entre si e com vértices não explorados. Intervalos t usam instâncias; n=4 na robustez implica baixa precisão. Resultados censurados permanecem nas tabelas como observações até o limite, não sucesso."
+  },
+  "configuracoes": [
+    {
+      "nome": "p0_yaml_arredondado_rho0.20",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.2
+      },
+      "pesos": {
+        "duracao": 0.3333,
+        "recursos": 0.3333,
+        "criticidade": 0.3334
+      },
+      "parametros": {
+        "F_ancora": 0.05,
+        "f_retrabalho": 0.3,
+        "mu_minimo": 0.4
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p0_criticidade_reduzida_rho0.20",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.2
+      },
+      "pesos": {
+        "duracao": 0.4,
+        "recursos": 0.4,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.05,
+        "f_retrabalho": 0.3,
+        "mu_minimo": 0.4
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p0_duracao_dominante_rho0.20",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.2
+      },
+      "pesos": {
+        "duracao": 0.6,
+        "recursos": 0.2,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.05,
+        "f_retrabalho": 0.3,
+        "mu_minimo": 0.4
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p0_recursos_dominante_rho0.20",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.2
+      },
+      "pesos": {
+        "duracao": 0.2,
+        "recursos": 0.6,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.05,
+        "f_retrabalho": 0.3,
+        "mu_minimo": 0.4
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p1_yaml_arredondado_rho0.20",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.2
+      },
+      "pesos": {
+        "duracao": 0.3333,
+        "recursos": 0.3333,
+        "criticidade": 0.3334
+      },
+      "parametros": {
+        "F_ancora": 0.05,
+        "f_retrabalho": 0.3,
+        "mu_minimo": 0.7
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p1_criticidade_reduzida_rho0.20",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.2
+      },
+      "pesos": {
+        "duracao": 0.4,
+        "recursos": 0.4,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.05,
+        "f_retrabalho": 0.3,
+        "mu_minimo": 0.7
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p1_duracao_dominante_rho0.20",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.2
+      },
+      "pesos": {
+        "duracao": 0.6,
+        "recursos": 0.2,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.05,
+        "f_retrabalho": 0.3,
+        "mu_minimo": 0.7
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p1_recursos_dominante_rho0.20",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.2
+      },
+      "pesos": {
+        "duracao": 0.2,
+        "recursos": 0.6,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.05,
+        "f_retrabalho": 0.3,
+        "mu_minimo": 0.7
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p2_yaml_arredondado_rho0.20",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.2
+      },
+      "pesos": {
+        "duracao": 0.3333,
+        "recursos": 0.3333,
+        "criticidade": 0.3334
+      },
+      "parametros": {
+        "F_ancora": 0.05,
+        "f_retrabalho": 0.8,
+        "mu_minimo": 0.4
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p2_criticidade_reduzida_rho0.20",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.2
+      },
+      "pesos": {
+        "duracao": 0.4,
+        "recursos": 0.4,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.05,
+        "f_retrabalho": 0.8,
+        "mu_minimo": 0.4
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p2_duracao_dominante_rho0.20",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.2
+      },
+      "pesos": {
+        "duracao": 0.6,
+        "recursos": 0.2,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.05,
+        "f_retrabalho": 0.8,
+        "mu_minimo": 0.4
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p2_recursos_dominante_rho0.20",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.2
+      },
+      "pesos": {
+        "duracao": 0.2,
+        "recursos": 0.6,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.05,
+        "f_retrabalho": 0.8,
+        "mu_minimo": 0.4
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p3_yaml_arredondado_rho0.20",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.2
+      },
+      "pesos": {
+        "duracao": 0.3333,
+        "recursos": 0.3333,
+        "criticidade": 0.3334
+      },
+      "parametros": {
+        "F_ancora": 0.05,
+        "f_retrabalho": 0.8,
+        "mu_minimo": 0.7
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p3_criticidade_reduzida_rho0.20",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.2
+      },
+      "pesos": {
+        "duracao": 0.4,
+        "recursos": 0.4,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.05,
+        "f_retrabalho": 0.8,
+        "mu_minimo": 0.7
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p3_duracao_dominante_rho0.20",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.2
+      },
+      "pesos": {
+        "duracao": 0.6,
+        "recursos": 0.2,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.05,
+        "f_retrabalho": 0.8,
+        "mu_minimo": 0.7
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p3_recursos_dominante_rho0.20",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.2
+      },
+      "pesos": {
+        "duracao": 0.2,
+        "recursos": 0.6,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.05,
+        "f_retrabalho": 0.8,
+        "mu_minimo": 0.7
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p4_yaml_arredondado_rho0.20",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.2
+      },
+      "pesos": {
+        "duracao": 0.3333,
+        "recursos": 0.3333,
+        "criticidade": 0.3334
+      },
+      "parametros": {
+        "F_ancora": 0.25,
+        "f_retrabalho": 0.3,
+        "mu_minimo": 0.4
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p4_criticidade_reduzida_rho0.20",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.2
+      },
+      "pesos": {
+        "duracao": 0.4,
+        "recursos": 0.4,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.25,
+        "f_retrabalho": 0.3,
+        "mu_minimo": 0.4
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p4_duracao_dominante_rho0.20",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.2
+      },
+      "pesos": {
+        "duracao": 0.6,
+        "recursos": 0.2,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.25,
+        "f_retrabalho": 0.3,
+        "mu_minimo": 0.4
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p4_recursos_dominante_rho0.20",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.2
+      },
+      "pesos": {
+        "duracao": 0.2,
+        "recursos": 0.6,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.25,
+        "f_retrabalho": 0.3,
+        "mu_minimo": 0.4
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p5_yaml_arredondado_rho0.20",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.2
+      },
+      "pesos": {
+        "duracao": 0.3333,
+        "recursos": 0.3333,
+        "criticidade": 0.3334
+      },
+      "parametros": {
+        "F_ancora": 0.25,
+        "f_retrabalho": 0.3,
+        "mu_minimo": 0.7
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p5_criticidade_reduzida_rho0.20",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.2
+      },
+      "pesos": {
+        "duracao": 0.4,
+        "recursos": 0.4,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.25,
+        "f_retrabalho": 0.3,
+        "mu_minimo": 0.7
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p5_duracao_dominante_rho0.20",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.2
+      },
+      "pesos": {
+        "duracao": 0.6,
+        "recursos": 0.2,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.25,
+        "f_retrabalho": 0.3,
+        "mu_minimo": 0.7
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p5_recursos_dominante_rho0.20",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.2
+      },
+      "pesos": {
+        "duracao": 0.2,
+        "recursos": 0.6,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.25,
+        "f_retrabalho": 0.3,
+        "mu_minimo": 0.7
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p6_yaml_arredondado_rho0.20",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.2
+      },
+      "pesos": {
+        "duracao": 0.3333,
+        "recursos": 0.3333,
+        "criticidade": 0.3334
+      },
+      "parametros": {
+        "F_ancora": 0.25,
+        "f_retrabalho": 0.8,
+        "mu_minimo": 0.4
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p6_criticidade_reduzida_rho0.20",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.2
+      },
+      "pesos": {
+        "duracao": 0.4,
+        "recursos": 0.4,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.25,
+        "f_retrabalho": 0.8,
+        "mu_minimo": 0.4
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p6_duracao_dominante_rho0.20",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.2
+      },
+      "pesos": {
+        "duracao": 0.6,
+        "recursos": 0.2,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.25,
+        "f_retrabalho": 0.8,
+        "mu_minimo": 0.4
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p6_recursos_dominante_rho0.20",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.2
+      },
+      "pesos": {
+        "duracao": 0.2,
+        "recursos": 0.6,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.25,
+        "f_retrabalho": 0.8,
+        "mu_minimo": 0.4
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p7_yaml_arredondado_rho0.20",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.2
+      },
+      "pesos": {
+        "duracao": 0.3333,
+        "recursos": 0.3333,
+        "criticidade": 0.3334
+      },
+      "parametros": {
+        "F_ancora": 0.25,
+        "f_retrabalho": 0.8,
+        "mu_minimo": 0.7
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p7_criticidade_reduzida_rho0.20",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.2
+      },
+      "pesos": {
+        "duracao": 0.4,
+        "recursos": 0.4,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.25,
+        "f_retrabalho": 0.8,
+        "mu_minimo": 0.7
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p7_duracao_dominante_rho0.20",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.2
+      },
+      "pesos": {
+        "duracao": 0.6,
+        "recursos": 0.2,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.25,
+        "f_retrabalho": 0.8,
+        "mu_minimo": 0.7
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p7_recursos_dominante_rho0.20",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.2
+      },
+      "pesos": {
+        "duracao": 0.2,
+        "recursos": 0.6,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.25,
+        "f_retrabalho": 0.8,
+        "mu_minimo": 0.7
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p8_yaml_arredondado_rho0.20",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.2
+      },
+      "pesos": {
+        "duracao": 0.3333,
+        "recursos": 0.3333,
+        "criticidade": 0.3334
+      },
+      "parametros": {
+        "F_ancora": 0.15,
+        "f_retrabalho": 0.55,
+        "mu_minimo": 0.55
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p8_criticidade_reduzida_rho0.20",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.2
+      },
+      "pesos": {
+        "duracao": 0.4,
+        "recursos": 0.4,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.15,
+        "f_retrabalho": 0.55,
+        "mu_minimo": 0.55
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p8_duracao_dominante_rho0.20",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.2
+      },
+      "pesos": {
+        "duracao": 0.6,
+        "recursos": 0.2,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.15,
+        "f_retrabalho": 0.55,
+        "mu_minimo": 0.55
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p8_recursos_dominante_rho0.20",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.2
+      },
+      "pesos": {
+        "duracao": 0.2,
+        "recursos": 0.6,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.15,
+        "f_retrabalho": 0.55,
+        "mu_minimo": 0.55
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "centro_porta2_sem_assistencia_rho0.20",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "sem_assistencia",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.2
+      },
+      "pesos": {
+        "duracao": 0.3333,
+        "recursos": 0.3333,
+        "criticidade": 0.3334
+      },
+      "parametros": {
+        "F_ancora": 0.15,
+        "f_retrabalho": 0.55,
+        "mu_minimo": 0.55
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "centro_porta2_assistencia_universal_rho0.20",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "assistencia_universal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.2
+      },
+      "pesos": {
+        "duracao": 0.3333,
+        "recursos": 0.3333,
+        "criticidade": 0.3334
+      },
+      "parametros": {
+        "F_ancora": 0.15,
+        "f_retrabalho": 0.55,
+        "mu_minimo": 0.55
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "centro_porta2_sem_filtro_competencia_rho0.20",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "sem_filtro_competencia",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.2
+      },
+      "pesos": {
+        "duracao": 0.3333,
+        "recursos": 0.3333,
+        "criticidade": 0.3334
+      },
+      "parametros": {
+        "F_ancora": 0.15,
+        "f_retrabalho": 0.55,
+        "mu_minimo": 0.55
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "centro_tau_constante_rho0.20",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "constante",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.2
+      },
+      "pesos": {
+        "duracao": 0.3333,
+        "recursos": 0.3333,
+        "criticidade": 0.3334
+      },
+      "parametros": {
+        "F_ancora": 0.15,
+        "f_retrabalho": 0.55,
+        "mu_minimo": 0.55
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "centro_fator_0.5_rho0.20",
+      "opcoes": {
+        "fator_omissao": 0.5,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.2
+      },
+      "pesos": {
+        "duracao": 0.3333,
+        "recursos": 0.3333,
+        "criticidade": 0.3334
+      },
+      "parametros": {
+        "F_ancora": 0.15,
+        "f_retrabalho": 0.55,
+        "mu_minimo": 0.55
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "centro_fator_1.0_rho0.20",
+      "opcoes": {
+        "fator_omissao": 1.0,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.2
+      },
+      "pesos": {
+        "duracao": 0.3333,
+        "recursos": 0.3333,
+        "criticidade": 0.3334
+      },
+      "parametros": {
+        "F_ancora": 0.15,
+        "f_retrabalho": 0.55,
+        "mu_minimo": 0.55
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "centro_horizonte_dobrado_rho0.20",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.2
+      },
+      "pesos": {
+        "duracao": 0.3333,
+        "recursos": 0.3333,
+        "criticidade": 0.3334
+      },
+      "parametros": {
+        "F_ancora": 0.15,
+        "f_retrabalho": 0.55,
+        "mu_minimo": 0.55
+      },
+      "horizonte": 2
+    },
+    {
+      "nome": "p0_yaml_arredondado",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.35
+      },
+      "pesos": {
+        "duracao": 0.3333,
+        "recursos": 0.3333,
+        "criticidade": 0.3334
+      },
+      "parametros": {
+        "F_ancora": 0.05,
+        "f_retrabalho": 0.3,
+        "mu_minimo": 0.4
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p0_criticidade_reduzida",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.35
+      },
+      "pesos": {
+        "duracao": 0.4,
+        "recursos": 0.4,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.05,
+        "f_retrabalho": 0.3,
+        "mu_minimo": 0.4
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p0_duracao_dominante",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.35
+      },
+      "pesos": {
+        "duracao": 0.6,
+        "recursos": 0.2,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.05,
+        "f_retrabalho": 0.3,
+        "mu_minimo": 0.4
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p0_recursos_dominante",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.35
+      },
+      "pesos": {
+        "duracao": 0.2,
+        "recursos": 0.6,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.05,
+        "f_retrabalho": 0.3,
+        "mu_minimo": 0.4
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p1_yaml_arredondado",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.35
+      },
+      "pesos": {
+        "duracao": 0.3333,
+        "recursos": 0.3333,
+        "criticidade": 0.3334
+      },
+      "parametros": {
+        "F_ancora": 0.05,
+        "f_retrabalho": 0.3,
+        "mu_minimo": 0.7
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p1_criticidade_reduzida",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.35
+      },
+      "pesos": {
+        "duracao": 0.4,
+        "recursos": 0.4,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.05,
+        "f_retrabalho": 0.3,
+        "mu_minimo": 0.7
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p1_duracao_dominante",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.35
+      },
+      "pesos": {
+        "duracao": 0.6,
+        "recursos": 0.2,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.05,
+        "f_retrabalho": 0.3,
+        "mu_minimo": 0.7
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p1_recursos_dominante",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.35
+      },
+      "pesos": {
+        "duracao": 0.2,
+        "recursos": 0.6,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.05,
+        "f_retrabalho": 0.3,
+        "mu_minimo": 0.7
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p2_yaml_arredondado",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.35
+      },
+      "pesos": {
+        "duracao": 0.3333,
+        "recursos": 0.3333,
+        "criticidade": 0.3334
+      },
+      "parametros": {
+        "F_ancora": 0.05,
+        "f_retrabalho": 0.8,
+        "mu_minimo": 0.4
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p2_criticidade_reduzida",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.35
+      },
+      "pesos": {
+        "duracao": 0.4,
+        "recursos": 0.4,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.05,
+        "f_retrabalho": 0.8,
+        "mu_minimo": 0.4
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p2_duracao_dominante",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.35
+      },
+      "pesos": {
+        "duracao": 0.6,
+        "recursos": 0.2,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.05,
+        "f_retrabalho": 0.8,
+        "mu_minimo": 0.4
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p2_recursos_dominante",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.35
+      },
+      "pesos": {
+        "duracao": 0.2,
+        "recursos": 0.6,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.05,
+        "f_retrabalho": 0.8,
+        "mu_minimo": 0.4
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p3_yaml_arredondado",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.35
+      },
+      "pesos": {
+        "duracao": 0.3333,
+        "recursos": 0.3333,
+        "criticidade": 0.3334
+      },
+      "parametros": {
+        "F_ancora": 0.05,
+        "f_retrabalho": 0.8,
+        "mu_minimo": 0.7
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p3_criticidade_reduzida",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.35
+      },
+      "pesos": {
+        "duracao": 0.4,
+        "recursos": 0.4,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.05,
+        "f_retrabalho": 0.8,
+        "mu_minimo": 0.7
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p3_duracao_dominante",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.35
+      },
+      "pesos": {
+        "duracao": 0.6,
+        "recursos": 0.2,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.05,
+        "f_retrabalho": 0.8,
+        "mu_minimo": 0.7
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p3_recursos_dominante",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.35
+      },
+      "pesos": {
+        "duracao": 0.2,
+        "recursos": 0.6,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.05,
+        "f_retrabalho": 0.8,
+        "mu_minimo": 0.7
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p4_yaml_arredondado",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.35
+      },
+      "pesos": {
+        "duracao": 0.3333,
+        "recursos": 0.3333,
+        "criticidade": 0.3334
+      },
+      "parametros": {
+        "F_ancora": 0.25,
+        "f_retrabalho": 0.3,
+        "mu_minimo": 0.4
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p4_criticidade_reduzida",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.35
+      },
+      "pesos": {
+        "duracao": 0.4,
+        "recursos": 0.4,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.25,
+        "f_retrabalho": 0.3,
+        "mu_minimo": 0.4
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p4_duracao_dominante",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.35
+      },
+      "pesos": {
+        "duracao": 0.6,
+        "recursos": 0.2,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.25,
+        "f_retrabalho": 0.3,
+        "mu_minimo": 0.4
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p4_recursos_dominante",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.35
+      },
+      "pesos": {
+        "duracao": 0.2,
+        "recursos": 0.6,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.25,
+        "f_retrabalho": 0.3,
+        "mu_minimo": 0.4
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p5_yaml_arredondado",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.35
+      },
+      "pesos": {
+        "duracao": 0.3333,
+        "recursos": 0.3333,
+        "criticidade": 0.3334
+      },
+      "parametros": {
+        "F_ancora": 0.25,
+        "f_retrabalho": 0.3,
+        "mu_minimo": 0.7
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p5_criticidade_reduzida",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.35
+      },
+      "pesos": {
+        "duracao": 0.4,
+        "recursos": 0.4,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.25,
+        "f_retrabalho": 0.3,
+        "mu_minimo": 0.7
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p5_duracao_dominante",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.35
+      },
+      "pesos": {
+        "duracao": 0.6,
+        "recursos": 0.2,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.25,
+        "f_retrabalho": 0.3,
+        "mu_minimo": 0.7
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p5_recursos_dominante",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.35
+      },
+      "pesos": {
+        "duracao": 0.2,
+        "recursos": 0.6,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.25,
+        "f_retrabalho": 0.3,
+        "mu_minimo": 0.7
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p6_yaml_arredondado",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.35
+      },
+      "pesos": {
+        "duracao": 0.3333,
+        "recursos": 0.3333,
+        "criticidade": 0.3334
+      },
+      "parametros": {
+        "F_ancora": 0.25,
+        "f_retrabalho": 0.8,
+        "mu_minimo": 0.4
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p6_criticidade_reduzida",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.35
+      },
+      "pesos": {
+        "duracao": 0.4,
+        "recursos": 0.4,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.25,
+        "f_retrabalho": 0.8,
+        "mu_minimo": 0.4
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p6_duracao_dominante",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.35
+      },
+      "pesos": {
+        "duracao": 0.6,
+        "recursos": 0.2,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.25,
+        "f_retrabalho": 0.8,
+        "mu_minimo": 0.4
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p6_recursos_dominante",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.35
+      },
+      "pesos": {
+        "duracao": 0.2,
+        "recursos": 0.6,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.25,
+        "f_retrabalho": 0.8,
+        "mu_minimo": 0.4
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p7_yaml_arredondado",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.35
+      },
+      "pesos": {
+        "duracao": 0.3333,
+        "recursos": 0.3333,
+        "criticidade": 0.3334
+      },
+      "parametros": {
+        "F_ancora": 0.25,
+        "f_retrabalho": 0.8,
+        "mu_minimo": 0.7
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p7_criticidade_reduzida",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.35
+      },
+      "pesos": {
+        "duracao": 0.4,
+        "recursos": 0.4,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.25,
+        "f_retrabalho": 0.8,
+        "mu_minimo": 0.7
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p7_duracao_dominante",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.35
+      },
+      "pesos": {
+        "duracao": 0.6,
+        "recursos": 0.2,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.25,
+        "f_retrabalho": 0.8,
+        "mu_minimo": 0.7
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p7_recursos_dominante",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.35
+      },
+      "pesos": {
+        "duracao": 0.2,
+        "recursos": 0.6,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.25,
+        "f_retrabalho": 0.8,
+        "mu_minimo": 0.7
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p8_yaml_arredondado",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.35
+      },
+      "pesos": {
+        "duracao": 0.3333,
+        "recursos": 0.3333,
+        "criticidade": 0.3334
+      },
+      "parametros": {
+        "F_ancora": 0.15,
+        "f_retrabalho": 0.55,
+        "mu_minimo": 0.55
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p8_criticidade_reduzida",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.35
+      },
+      "pesos": {
+        "duracao": 0.4,
+        "recursos": 0.4,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.15,
+        "f_retrabalho": 0.55,
+        "mu_minimo": 0.55
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p8_duracao_dominante",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.35
+      },
+      "pesos": {
+        "duracao": 0.6,
+        "recursos": 0.2,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.15,
+        "f_retrabalho": 0.55,
+        "mu_minimo": 0.55
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p8_recursos_dominante",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.35
+      },
+      "pesos": {
+        "duracao": 0.2,
+        "recursos": 0.6,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.15,
+        "f_retrabalho": 0.55,
+        "mu_minimo": 0.55
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "centro_porta2_sem_assistencia",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "sem_assistencia",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.35
+      },
+      "pesos": {
+        "duracao": 0.3333,
+        "recursos": 0.3333,
+        "criticidade": 0.3334
+      },
+      "parametros": {
+        "F_ancora": 0.15,
+        "f_retrabalho": 0.55,
+        "mu_minimo": 0.55
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "centro_porta2_assistencia_universal",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "assistencia_universal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.35
+      },
+      "pesos": {
+        "duracao": 0.3333,
+        "recursos": 0.3333,
+        "criticidade": 0.3334
+      },
+      "parametros": {
+        "F_ancora": 0.15,
+        "f_retrabalho": 0.55,
+        "mu_minimo": 0.55
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "centro_porta2_sem_filtro_competencia",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "sem_filtro_competencia",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.35
+      },
+      "pesos": {
+        "duracao": 0.3333,
+        "recursos": 0.3333,
+        "criticidade": 0.3334
+      },
+      "parametros": {
+        "F_ancora": 0.15,
+        "f_retrabalho": 0.55,
+        "mu_minimo": 0.55
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "centro_tau_constante",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "constante",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.35
+      },
+      "pesos": {
+        "duracao": 0.3333,
+        "recursos": 0.3333,
+        "criticidade": 0.3334
+      },
+      "parametros": {
+        "F_ancora": 0.15,
+        "f_retrabalho": 0.55,
+        "mu_minimo": 0.55
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "centro_fator_0.5",
+      "opcoes": {
+        "fator_omissao": 0.5,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.35
+      },
+      "pesos": {
+        "duracao": 0.3333,
+        "recursos": 0.3333,
+        "criticidade": 0.3334
+      },
+      "parametros": {
+        "F_ancora": 0.15,
+        "f_retrabalho": 0.55,
+        "mu_minimo": 0.55
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "centro_fator_1.0",
+      "opcoes": {
+        "fator_omissao": 1.0,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.35
+      },
+      "pesos": {
+        "duracao": 0.3333,
+        "recursos": 0.3333,
+        "criticidade": 0.3334
+      },
+      "parametros": {
+        "F_ancora": 0.15,
+        "f_retrabalho": 0.55,
+        "mu_minimo": 0.55
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "centro_horizonte_dobrado",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.35
+      },
+      "pesos": {
+        "duracao": 0.3333,
+        "recursos": 0.3333,
+        "criticidade": 0.3334
+      },
+      "parametros": {
+        "F_ancora": 0.15,
+        "f_retrabalho": 0.55,
+        "mu_minimo": 0.55
+      },
+      "horizonte": 2
+    },
+    {
+      "nome": "p0_yaml_arredondado_rho0.50",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.5
+      },
+      "pesos": {
+        "duracao": 0.3333,
+        "recursos": 0.3333,
+        "criticidade": 0.3334
+      },
+      "parametros": {
+        "F_ancora": 0.05,
+        "f_retrabalho": 0.3,
+        "mu_minimo": 0.4
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p0_criticidade_reduzida_rho0.50",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.5
+      },
+      "pesos": {
+        "duracao": 0.4,
+        "recursos": 0.4,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.05,
+        "f_retrabalho": 0.3,
+        "mu_minimo": 0.4
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p0_duracao_dominante_rho0.50",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.5
+      },
+      "pesos": {
+        "duracao": 0.6,
+        "recursos": 0.2,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.05,
+        "f_retrabalho": 0.3,
+        "mu_minimo": 0.4
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p0_recursos_dominante_rho0.50",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.5
+      },
+      "pesos": {
+        "duracao": 0.2,
+        "recursos": 0.6,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.05,
+        "f_retrabalho": 0.3,
+        "mu_minimo": 0.4
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p1_yaml_arredondado_rho0.50",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.5
+      },
+      "pesos": {
+        "duracao": 0.3333,
+        "recursos": 0.3333,
+        "criticidade": 0.3334
+      },
+      "parametros": {
+        "F_ancora": 0.05,
+        "f_retrabalho": 0.3,
+        "mu_minimo": 0.7
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p1_criticidade_reduzida_rho0.50",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.5
+      },
+      "pesos": {
+        "duracao": 0.4,
+        "recursos": 0.4,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.05,
+        "f_retrabalho": 0.3,
+        "mu_minimo": 0.7
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p1_duracao_dominante_rho0.50",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.5
+      },
+      "pesos": {
+        "duracao": 0.6,
+        "recursos": 0.2,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.05,
+        "f_retrabalho": 0.3,
+        "mu_minimo": 0.7
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p1_recursos_dominante_rho0.50",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.5
+      },
+      "pesos": {
+        "duracao": 0.2,
+        "recursos": 0.6,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.05,
+        "f_retrabalho": 0.3,
+        "mu_minimo": 0.7
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p2_yaml_arredondado_rho0.50",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.5
+      },
+      "pesos": {
+        "duracao": 0.3333,
+        "recursos": 0.3333,
+        "criticidade": 0.3334
+      },
+      "parametros": {
+        "F_ancora": 0.05,
+        "f_retrabalho": 0.8,
+        "mu_minimo": 0.4
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p2_criticidade_reduzida_rho0.50",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.5
+      },
+      "pesos": {
+        "duracao": 0.4,
+        "recursos": 0.4,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.05,
+        "f_retrabalho": 0.8,
+        "mu_minimo": 0.4
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p2_duracao_dominante_rho0.50",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.5
+      },
+      "pesos": {
+        "duracao": 0.6,
+        "recursos": 0.2,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.05,
+        "f_retrabalho": 0.8,
+        "mu_minimo": 0.4
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p2_recursos_dominante_rho0.50",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.5
+      },
+      "pesos": {
+        "duracao": 0.2,
+        "recursos": 0.6,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.05,
+        "f_retrabalho": 0.8,
+        "mu_minimo": 0.4
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p3_yaml_arredondado_rho0.50",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.5
+      },
+      "pesos": {
+        "duracao": 0.3333,
+        "recursos": 0.3333,
+        "criticidade": 0.3334
+      },
+      "parametros": {
+        "F_ancora": 0.05,
+        "f_retrabalho": 0.8,
+        "mu_minimo": 0.7
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p3_criticidade_reduzida_rho0.50",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.5
+      },
+      "pesos": {
+        "duracao": 0.4,
+        "recursos": 0.4,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.05,
+        "f_retrabalho": 0.8,
+        "mu_minimo": 0.7
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p3_duracao_dominante_rho0.50",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.5
+      },
+      "pesos": {
+        "duracao": 0.6,
+        "recursos": 0.2,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.05,
+        "f_retrabalho": 0.8,
+        "mu_minimo": 0.7
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p3_recursos_dominante_rho0.50",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.5
+      },
+      "pesos": {
+        "duracao": 0.2,
+        "recursos": 0.6,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.05,
+        "f_retrabalho": 0.8,
+        "mu_minimo": 0.7
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p4_yaml_arredondado_rho0.50",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.5
+      },
+      "pesos": {
+        "duracao": 0.3333,
+        "recursos": 0.3333,
+        "criticidade": 0.3334
+      },
+      "parametros": {
+        "F_ancora": 0.25,
+        "f_retrabalho": 0.3,
+        "mu_minimo": 0.4
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p4_criticidade_reduzida_rho0.50",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.5
+      },
+      "pesos": {
+        "duracao": 0.4,
+        "recursos": 0.4,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.25,
+        "f_retrabalho": 0.3,
+        "mu_minimo": 0.4
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p4_duracao_dominante_rho0.50",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.5
+      },
+      "pesos": {
+        "duracao": 0.6,
+        "recursos": 0.2,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.25,
+        "f_retrabalho": 0.3,
+        "mu_minimo": 0.4
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p4_recursos_dominante_rho0.50",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.5
+      },
+      "pesos": {
+        "duracao": 0.2,
+        "recursos": 0.6,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.25,
+        "f_retrabalho": 0.3,
+        "mu_minimo": 0.4
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p5_yaml_arredondado_rho0.50",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.5
+      },
+      "pesos": {
+        "duracao": 0.3333,
+        "recursos": 0.3333,
+        "criticidade": 0.3334
+      },
+      "parametros": {
+        "F_ancora": 0.25,
+        "f_retrabalho": 0.3,
+        "mu_minimo": 0.7
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p5_criticidade_reduzida_rho0.50",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.5
+      },
+      "pesos": {
+        "duracao": 0.4,
+        "recursos": 0.4,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.25,
+        "f_retrabalho": 0.3,
+        "mu_minimo": 0.7
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p5_duracao_dominante_rho0.50",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.5
+      },
+      "pesos": {
+        "duracao": 0.6,
+        "recursos": 0.2,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.25,
+        "f_retrabalho": 0.3,
+        "mu_minimo": 0.7
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p5_recursos_dominante_rho0.50",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.5
+      },
+      "pesos": {
+        "duracao": 0.2,
+        "recursos": 0.6,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.25,
+        "f_retrabalho": 0.3,
+        "mu_minimo": 0.7
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p6_yaml_arredondado_rho0.50",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.5
+      },
+      "pesos": {
+        "duracao": 0.3333,
+        "recursos": 0.3333,
+        "criticidade": 0.3334
+      },
+      "parametros": {
+        "F_ancora": 0.25,
+        "f_retrabalho": 0.8,
+        "mu_minimo": 0.4
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p6_criticidade_reduzida_rho0.50",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.5
+      },
+      "pesos": {
+        "duracao": 0.4,
+        "recursos": 0.4,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.25,
+        "f_retrabalho": 0.8,
+        "mu_minimo": 0.4
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p6_duracao_dominante_rho0.50",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.5
+      },
+      "pesos": {
+        "duracao": 0.6,
+        "recursos": 0.2,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.25,
+        "f_retrabalho": 0.8,
+        "mu_minimo": 0.4
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p6_recursos_dominante_rho0.50",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.5
+      },
+      "pesos": {
+        "duracao": 0.2,
+        "recursos": 0.6,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.25,
+        "f_retrabalho": 0.8,
+        "mu_minimo": 0.4
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p7_yaml_arredondado_rho0.50",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.5
+      },
+      "pesos": {
+        "duracao": 0.3333,
+        "recursos": 0.3333,
+        "criticidade": 0.3334
+      },
+      "parametros": {
+        "F_ancora": 0.25,
+        "f_retrabalho": 0.8,
+        "mu_minimo": 0.7
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p7_criticidade_reduzida_rho0.50",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.5
+      },
+      "pesos": {
+        "duracao": 0.4,
+        "recursos": 0.4,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.25,
+        "f_retrabalho": 0.8,
+        "mu_minimo": 0.7
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p7_duracao_dominante_rho0.50",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.5
+      },
+      "pesos": {
+        "duracao": 0.6,
+        "recursos": 0.2,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.25,
+        "f_retrabalho": 0.8,
+        "mu_minimo": 0.7
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p7_recursos_dominante_rho0.50",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.5
+      },
+      "pesos": {
+        "duracao": 0.2,
+        "recursos": 0.6,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.25,
+        "f_retrabalho": 0.8,
+        "mu_minimo": 0.7
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p8_yaml_arredondado_rho0.50",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.5
+      },
+      "pesos": {
+        "duracao": 0.3333,
+        "recursos": 0.3333,
+        "criticidade": 0.3334
+      },
+      "parametros": {
+        "F_ancora": 0.15,
+        "f_retrabalho": 0.55,
+        "mu_minimo": 0.55
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p8_criticidade_reduzida_rho0.50",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.5
+      },
+      "pesos": {
+        "duracao": 0.4,
+        "recursos": 0.4,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.15,
+        "f_retrabalho": 0.55,
+        "mu_minimo": 0.55
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p8_duracao_dominante_rho0.50",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.5
+      },
+      "pesos": {
+        "duracao": 0.6,
+        "recursos": 0.2,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.15,
+        "f_retrabalho": 0.55,
+        "mu_minimo": 0.55
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "p8_recursos_dominante_rho0.50",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.5
+      },
+      "pesos": {
+        "duracao": 0.2,
+        "recursos": 0.6,
+        "criticidade": 0.2
+      },
+      "parametros": {
+        "F_ancora": 0.15,
+        "f_retrabalho": 0.55,
+        "mu_minimo": 0.55
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "centro_porta2_sem_assistencia_rho0.50",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "sem_assistencia",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.5
+      },
+      "pesos": {
+        "duracao": 0.3333,
+        "recursos": 0.3333,
+        "criticidade": 0.3334
+      },
+      "parametros": {
+        "F_ancora": 0.15,
+        "f_retrabalho": 0.55,
+        "mu_minimo": 0.55
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "centro_porta2_assistencia_universal_rho0.50",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "assistencia_universal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.5
+      },
+      "pesos": {
+        "duracao": 0.3333,
+        "recursos": 0.3333,
+        "criticidade": 0.3334
+      },
+      "parametros": {
+        "F_ancora": 0.15,
+        "f_retrabalho": 0.55,
+        "mu_minimo": 0.55
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "centro_porta2_sem_filtro_competencia_rho0.50",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "sem_filtro_competencia",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.5
+      },
+      "pesos": {
+        "duracao": 0.3333,
+        "recursos": 0.3333,
+        "criticidade": 0.3334
+      },
+      "parametros": {
+        "F_ancora": 0.15,
+        "f_retrabalho": 0.55,
+        "mu_minimo": 0.55
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "centro_tau_constante_rho0.50",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "constante",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.5
+      },
+      "pesos": {
+        "duracao": 0.3333,
+        "recursos": 0.3333,
+        "criticidade": 0.3334
+      },
+      "parametros": {
+        "F_ancora": 0.15,
+        "f_retrabalho": 0.55,
+        "mu_minimo": 0.55
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "centro_fator_0.5_rho0.50",
+      "opcoes": {
+        "fator_omissao": 0.5,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.5
+      },
+      "pesos": {
+        "duracao": 0.3333,
+        "recursos": 0.3333,
+        "criticidade": 0.3334
+      },
+      "parametros": {
+        "F_ancora": 0.15,
+        "f_retrabalho": 0.55,
+        "mu_minimo": 0.55
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "centro_fator_1.0_rho0.50",
+      "opcoes": {
+        "fator_omissao": 1.0,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.5
+      },
+      "pesos": {
+        "duracao": 0.3333,
+        "recursos": 0.3333,
+        "criticidade": 0.3334
+      },
+      "parametros": {
+        "F_ancora": 0.15,
+        "f_retrabalho": 0.55,
+        "mu_minimo": 0.55
+      },
+      "horizonte": 1
+    },
+    {
+      "nome": "centro_horizonte_dobrado_rho0.50",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "crowder",
+        "comunicacao_crowder": true,
+        "reset_competencia": true,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null,
+        "rho_omissao": 0.5
+      },
+      "pesos": {
+        "duracao": 0.3333,
+        "recursos": 0.3333,
+        "criticidade": 0.3334
+      },
+      "parametros": {
+        "F_ancora": 0.15,
+        "f_retrabalho": 0.55,
+        "mu_minimo": 0.55
+      },
+      "horizonte": 2
+    }
+  ],
+  "instancias": [
+    "j6010_1.sm",
+    "j6021_1.sm",
+    "j6032_1.sm",
+    "j6043_1.sm"
+  ],
+  "n_execucoes": 4128,
+  "sha256": {
+    "config/mvp.yaml": "11f0414bbe02c90dc5aae0b51513333fde5e7df137c26e1778563b64227c218c",
+    "config/parametros.yaml": "8b10258054afc20969ee0fa62ccc0b27d4530ea304f658717ca6e2c6babbc7a6",
+    "config/parametros_derivados.yaml": "6c14269eb8809430412fa748f2539289a9764044a9308015585feceab32c01bd",
+    "src/modelo/simulador.py": "101b6cfa829a1d52dcd81776a5142a407a8b6f0fd7bc56bb6aa95b4ef881abf4",
+    "src/modelo/fuzzy.py": "98b7a050d66401ce718e69086ecc0961e82b2ec15ac398f32e9ba155ab427ad1",
+    "src/modelo/simulador_mvp.py": "e16f793624f420b719038a9ef9952f9b866446574e5d19bf2a1c1b2c0214fd49",
+    "src/modelo/20_experimento_mvp.py": "7dbfbd81159338c03271dbb51b7d1662a89cd3bc5a8c35efb4112fdc4297fdf0",
+    "data/processed/psplib/tarefas_j60_com_di.csv": "0db739ad2fbad7af88bceab7ee4f6f10a5d5185f4705f7b0dfb7c9042b55bf1a",
+    "data/processed/psplib/instancias_j60.csv": "1f2d8b3a4bc9ccfe9bb635a90f5ab28742153674c16292372be269fc1fa79aec"
+  },
+  "limitacoes": "[DEC] Desenho discreto sem otimização ou ranking. Bateria, risco adicional, confiança inicial e limiares mantidos nas configurações declaradas. Rho cruzado com a família discreta inteira. Interior contínuo, interações dos complementos entre si e com vértices não explorados. Intervalos t usam instâncias; n=4 na robustez implica baixa precisão. Resultados censurados permanecem nas tabelas como observações até o limite, não sucesso."
+}

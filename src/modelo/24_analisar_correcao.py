@@ -89,6 +89,6 @@ def main():
     (out/'verificacoes.json').write_text(json.dumps(dict(diagonais=len(join),diferencas=dif,
         arquivos_historicos_intactos=len(frozen),horizontes=horizontes),indent=2)+'\n')
     arquivos=sorted(p for p in base.rglob('*') if p.is_file())
-    (out/'hashes.json').write_text(json.dumps({str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest()
+    (out/'hashes.json').write_text(json.dumps({(str(p.relative_to(ROOT)) if p.is_relative_to(ROOT) else str(p)):hashlib.sha256(p.read_bytes()).hexdigest()
         for p in arquivos},indent=2)+'\n')
 if __name__=='__main__':main()

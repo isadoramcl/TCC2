@@ -143,3 +143,17 @@ aos experimentos reexecutados. Auditorias e calibração ficam após o MVP.
 Instrumentação detalhada: amostra fixa das quatro primeiras instâncias do
 desenho, quatro sementes, ambos os cenários, nominal corrigido; resumos
 condicionais de seleção, sem comparar médias P1×P3 como evidência causal.
+
+
+### Fechamento da reexecução
+
+3.840 alternativas + 4.128 robustez + 6.144 canais corrigidos + 6.144 canais
+legados + 1.152 B9 = 21.408 execuções principais. Mais 32 instrumentadas:
+21.440 no total, sem incompletas/violações. Diagonais corrigidas384 e
+legadas3072 conferem; três pares de horizonte rho conferem (32 cada).
+Revisão independente verificou tabelas incrementais, denominadores e sinais.
+O primeiro empacotamento do suplemento falhou por caminho relativo; a saída
+parcial foi preservada em /private/tmp, caminho corrigido e reprodução integral
+fora do repositório produziu CSV idênticos. Não houve mudança de simulação.
+Relatório19 registra inversão de E_total e limites; relatório11 permanece congelado.
+Próxima prioridade: V_obs/V_mod e ponte de observação, sem novas ondas HM.

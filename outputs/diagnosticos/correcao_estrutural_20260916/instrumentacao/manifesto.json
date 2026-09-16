@@ -1,0 +1,38 @@
+{
+  "instancias": [
+    "j6010_1.sm",
+    "j6013_1.sm",
+    "j6016_1.sm",
+    "j6019_1.sm"
+  ],
+  "sementes": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "opcoes": {
+    "fator_omissao": 0.75,
+    "retrabalho_fila": true,
+    "lei_confianca": "crowder",
+    "comunicacao_crowder": true,
+    "reset_competencia": true,
+    "horizonte_automatico": true,
+    "limite_horizonte_fator": 256,
+    "politica_porta2": "nominal",
+    "tau_portao": null,
+    "tau_rede": null
+  },
+  "hashes": {
+    "src/modelo/simulador_mvp.py": "e16f793624f420b719038a9ef9952f9b866446574e5d19bf2a1c1b2c0214fd49",
+    "src/modelo/simulador.py": "101b6cfa829a1d52dcd81776a5142a407a8b6f0fd7bc56bb6aa95b4ef881abf4",
+    "src/modelo/fuzzy.py": "98b7a050d66401ce718e69086ecc0961e82b2ec15ac398f32e9ba155ab427ad1",
+    "src/modelo/23_instrumentacao_correcao.py": "140fb4ebb98880f4e74664075620a29d123ac1e92fec0f457842aae4637013f5",
+    "config/mvp.yaml": "11f0414bbe02c90dc5aae0b51513333fde5e7df137c26e1778563b64227c218c",
+    "config/parametros.yaml": "8b10258054afc20969ee0fa62ccc0b27d4530ea304f658717ca6e2c6babbc7a6",
+    "config/parametros_derivados.yaml": "6c14269eb8809430412fa748f2539289a9764044a9308015585feceab32c01bd",
+    "data/processed/psplib/tarefas_j60_com_di.csv": "0db739ad2fbad7af88bceab7ee4f6f10a5d5185f4705f7b0dfb7c9042b55bf1a",
+    "data/processed/psplib/instancias_j60.csv": "1f2d8b3a4bc9ccfe9bb635a90f5ab28742153674c16292372be269fc1fa79aec"
+  },
+  "denominador": "oportunidades de decis\u00e3o sobre tarefa eleg\u00edvel com recurso"
+}

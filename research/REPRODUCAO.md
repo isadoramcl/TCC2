@@ -99,3 +99,28 @@ arredondamento no modelo saturado. A padronização definitiva da inferência
 entra nas fragilidades após o MVP; nenhum valor-p foi ajustado para obter uma
 conclusão. Os contrastes principais são apresentados com magnitudes, sinais
 por instância e intervalos t, não pelo ranking de valores-p.
+
+
+## Correção estrutural de 16/09/2026
+
+O lote anterior `mvp_20260915` está congelado. Para reproduzir a correção,
+use o ramo com o relatório 19 e um diretório NOVO; não sobreponha os outputs.
+Ambiente registrado em `requirements_mvp.txt` (inclusive SciPy; valores-p
+históricos devem ser comparados ao controle no mesmo ambiente).
+
+```sh
+python3 -m unittest discover -s research -p 'test_*.py' -v
+python3 src/modelo/20_experimento_mvp.py --etapa alternativas --saida /tmp/tcc2-correcao-nova/alternativas --workers 4
+python3 src/modelo/20_experimento_mvp.py --etapa robustez --saida /tmp/tcc2-correcao-nova/robustez --workers 4
+python3 src/modelo/21_canais_mvp.py --modelo mvp --saida /tmp/tcc2-correcao-nova/canais_mvp --workers 4
+python3 src/modelo/21_canais_mvp.py --modelo legado --saida /tmp/tcc2-correcao-nova/canais_legado --workers 4
+python3 src/modelo/22_consolidar_mvp.py --entrada /tmp/tcc2-correcao-nova --rodar-b9 --workers 4
+python3 src/modelo/23_instrumentacao_correcao.py --saida /tmp/tcc2-correcao-nova/instrumentacao
+python3 src/modelo/22_consolidar_mvp.py --entrada /tmp/tcc2-correcao-nova
+python3 src/modelo/24_analisar_correcao.py --entrada /tmp/tcc2-correcao-nova
+```
+
+O script 24 verifica os três pares de horizonte (rho 0,20/0,35/0,50), as
+384 diagonais nominais e os 72 hashes congelados. O script 20 sozinho
+verifica apenas o horizonte central rho0,35; executar o suplemento é obrigatório.
+Nenhum destes comandos inicia History Matching ou escolhe uma configuração ótima.

@@ -236,8 +236,9 @@ confiança foram substituídas. Esses números não são resultados do MVP corri
 
 A [sequência de correção](research/PLANO_CORRECAO_ESTRUTURAL.md) registra
 compatibilidade bit a bit, risco da omissão, contrafactual com controle negativo,
-Crowder, reset de competência e instrumentação por tarefa. A reexecução do
-experimento, robustez e canais ainda precisa terminar para fechar o MVP.
+Crowder, reset de competência e instrumentação por tarefa. A [reexecução e análise corrigidas](projeto/19_CORRECAO_ESTRUTURAL_MVP_2026-09-16.md)
+terminaram: 21.440 execuções e 34 testes, sem violações. O contraste de E_total
+inverteu no nominal; as conclusões anteriores não foram simplesmente mantidas.
 
 Os [comandos de reprodução](research/REPRODUCAO.md) recuperam evidências históricas
 por commit e hash, sem depender de arquivos da máquina da autora. As
@@ -248,7 +249,7 @@ os snapshots não autorizam regenerá-las sobre edições da autora.
 
 ### Prioridade vigente
 
-- Reexecutar comparações incrementais, robustez declarada e decomposição dos canais.
+- MVP corrigido e robustez concluídos; consultar o relatório 19 e as tabelas incrementais.
 - B1/B3/B7/B9 e relatório 11 só podem ser usados como controles históricos até reexecução.
 - Depois do MVP: V_obs/V_mod, implausibilidade perfilada e fragilidades restantes.
 - Sem novas ondas de History Matching, substituição do método ou busca de melhor política.

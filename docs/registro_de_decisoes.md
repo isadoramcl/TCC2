@@ -1192,3 +1192,21 @@ parâmetro, com os cortes de 25% e 50%.
   interações permanecem explícitas. Rede não é o canal cognitivo direto.
 - **Regra de sequência:** robustez no MVP; depois, V_obs/V_mod, perfil de
   implausibilidade e fragilidades. Não executar novas ondas de HM nesta fase.
+
+
+## 16/09/2026 — correção estrutural após pareceres 12–18
+
+Implementação anterior preservada em efd81b7 e no simulador legado. Ordem:
+compatibilidade; C4 qualidade; contrafactual negativo; Crowder/reset; registro
+por tarefa; congelamento; reexecução. Detalhes e evidências em
+[PLANO_CORRECAO_ESTRUTURAL](../research/PLANO_CORRECAO_ESTRUTURAL.md).
+
+[DEC] Crowder usa dC na escala original 0–5 no multiplicador de confiança,
+mas dC/5 no incremento de competência normalizada. Mantém-se destinatário
+único e TL legado; não se alega reprodução integral do protocolo do artigo.
+Reset é de competência por subtarefa, não de confiança (divergência D-01 do
+parecer 18 resolvida pela instrução direta da autora e pelo PDF p. 1431).
+
+Nenhum parâmetro foi escolhido por melhorar o contraste. O contraste de
+E_total inverteu no nominal corrigido e deve aparecer explicitamente nos
+resultados; a razão contábil não será renomeada produtividade calibrada.

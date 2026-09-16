@@ -494,3 +494,17 @@ denominador e pode excluir o vetor gerador. Isso ocorreu no piloto K=64; o
 limite formal usa a média exata, ainda desconhecida. A incerteza de observação
 e a cobertura serão tratadas depois do MVP; não escolher discrepância para
 forçar aprovação.
+
+
+## Alternativa estrutural de 16/09/2026 — implementação separada
+
+O código legado deste documento permanece em `simulador.py`. A alternativa
+`simulador_mvp.py` incorpora C4 completo (tempo e excesso de risco dependente
+de sobrecarga), fila C1, Crowder normalizado, reset C6 e horizonte terminal.
+Fórmulas, decisões de protocolo, unidades e testes estão no
+[relatório 19](../projeto/19_CORRECAO_ESTRUTURAL_MVP_2026-09-16.md) e no
+[registro de execução](../research/PLANO_CORRECAO_ESTRUTURAL.md).
+
+O relatório 11 e B1/B3/B7/B9 anteriores foram congelados. Resultados da
+alternativa devem ser identificados pela pasta e manifesto de reexecução;
+a formulação nova não substitui silenciosamente a evidência histórica.
