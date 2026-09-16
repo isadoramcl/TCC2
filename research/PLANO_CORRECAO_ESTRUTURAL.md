@@ -40,3 +40,23 @@ pareceres incorporados de revisao-auditoria bcf39db (somente documentos).
   controlados. Detecta menor duração/maior risco e falha realizada diferencial.
   Controle negativo fator1/rho0 não detecta diferença e não produz falha.
   Testes passaram e compatibilidade32/32 permanece. Não se usaram médias P1×P3.
+
+### Reabertura do controle após revisão independente — 16/09/2026
+
+A revisão repetida encontrou um limite omitido pelos 32 pares nominais:
+com horizonte fixo 257 ou 300 × CPM, o MVP cortava em 256 × CPM.
+O teto de segurança da extensão automática vazava para o modo fixo.
+Novo teste reproduziu divergência nos horizontes 0, 257 e 300 antes da
+correção; os controles 1 e 256 já coincidiam. A implementação agora usa
+integralmente o horizonte legado quando a extensão automática está desligada.
+O contrato também compara diretamente a fila `divida_pendente`.
+
+Documento 18 lido: D-01 escreve “reset da confiança por subtarefa”. Isso
+conflita com a instrução direta da autora e com o parágrafo após a Eq. (2)
+de Crowder (p. 1431), que estabelece reset da **competência**. A etapa 4
+seguirá competência; não reiniciará confiança a cada tarefa. O documento
+original foi preservado. As fontes apenas catalogadas em 18 não passam a
+ser consideradas verificadas por esta leitura do catálogo.
+
+Verificação após correção do horizonte: 25 testes passaram (incluindo 32 pares
+nominais e cinco horizontes de fronteira); `git diff --check` sem erros.

@@ -112,9 +112,13 @@ class SimulacaoMVP(Simulacao):
         fc=float(v(ret['f_corrup'])); fr=float(v(ret['f_retrabalho']))
         re=float(v(p['risco']['R_error']))
         pr=float(v(c['p_reporte'])); pd=float(v(c['p_deteccao'])); tm=float(v(c['tau_min']))
-        horizonte=max(1,int(v(p['execucao']['horizonte_maximo_fator']))*self.makespan_cpm)
-        cap=o.limite_horizonte_fator*self.makespan_cpm
-        if not o.horizonte_automatico: cap=min(cap,horizonte)
+        horizonte=int(v(p['execucao']['horizonte_maximo_fator']))*self.makespan_cpm
+        if o.horizonte_automatico:
+            horizonte=max(1,horizonte)
+            cap=o.limite_horizonte_fator*self.makespan_cpm
+        else:
+            # O teto de extensão só pertence ao horizonte automático.
+            cap=horizonte
         if kh<=ka: self.violacoes.append('k_heuristico deve exceder k_analitico (TCC I)')
         t=0; motivo='limite_seguranca'
         while True:
