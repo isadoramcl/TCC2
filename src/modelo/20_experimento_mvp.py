@@ -90,6 +90,10 @@ def desenho(cfg,par,etapa):
         for fator in r['fatores_omissao']:
             if fator!=base['fator_omissao']: add('centro_fator_'+str(fator),{**base,'fator_omissao':fator},p,mods)
         add('centro_horizonte_dobrado',base,p,mods,r['multiplicador_horizonte_verificacao'])
+    if etapa=='robustez':
+        out=[{**copy.deepcopy(c),'nome':c['nome']+(f'_rho{rho:.2f}' if rho!=.35 else ''),
+              'opcoes':{**c['opcoes'],'rho_omissao':rho}}
+             for rho in cfg['robustez']['rho_omissao'] for c in out]
     return out
 
 _CACHE={}

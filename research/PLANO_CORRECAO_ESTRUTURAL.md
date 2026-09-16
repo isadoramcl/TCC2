@@ -126,3 +126,20 @@ README retirou a alegação de MVP concluído. Nenhum número anterior será usa
 como conclusão final sem reexecução. Etapa 5 verificada por 34 testes, inclusive
 identidade com instrumentação desligada. Próximo passo: desenho declarado da
 reexecução, sem escolher políticas ou valores pelo resultado.
+
+### Etapa 7 — desenho registrado antes de executar
+
+Pasta nova: outputs/diagnosticos/correcao_estrutural_20260916; não sobrescrever
+mvp_20260915. Dez alternativas em sequência, 16 instâncias espaçadas fixas e
+12 sementes em ambos os cenários (3.840 execuções). Robustez: família já
+registrada de âncora, retrabalho, piso fuzzy, pesos, políticas, fator temporal,
+controle constante e horizonte duplicado, cruzada com rho={0.20,0.35,0.50}.
+Fatorial 2^5 mantém G,N,B,C,D separados, 16 instâncias e 12 sementes; legado
+e corrigido são reexecutados. B9: três políticas de ablação nas mesmas chaves.
+Sem ranking, minimização de função objetivo ou escolha de parâmetros.
+
+B1/B3/B7 antigos continuam congelados; conclusões finais novas limitar-se-ão
+aos experimentos reexecutados. Auditorias e calibração ficam após o MVP.
+Instrumentação detalhada: amostra fixa das quatro primeiras instâncias do
+desenho, quatro sementes, ambos os cenários, nominal corrigido; resumos
+condicionais de seleção, sem comparar médias P1×P3 como evidência causal.

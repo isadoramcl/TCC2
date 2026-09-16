@@ -57,7 +57,7 @@ def consolidar(base):
     alt=pd.read_csv(base/'alternativas/bruto.csv')
     robust=pd.read_csv(base/'robustez/bruto.csv')
     b9=pd.read_csv(base/'b9_mvp/bruto.csv')
-    b9=pd.concat([alt[alt.configuracao=='C4_C1'].assign(configuracao='nominal'),b9],ignore_index=True)
+    b9=pd.concat([alt[alt.configuracao=='MVP_corrigido'].assign(configuracao='nominal'),b9],ignore_index=True)
     rows=[];antigo=pd.read_csv(T/'modelo_14_experimento_por_instancia.csv')
     for nome,g in alt.groupby('configuracao'):
         for r in antigo.itertuples():

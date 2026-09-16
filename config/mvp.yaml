@@ -21,12 +21,14 @@ robustez:
   politicas_porta2: [nominal, sem_assistencia, assistencia_universal, sem_filtro_competencia]
   leis_confianca: [constante, crowder]
   fatores_omissao: [0.50, 0.75, 1.0]
+  rho_omissao: [0.20, 0.35, 0.50]
   multiplicador_horizonte_verificacao: 2
 pesos_di_fonte: config/parametros.yaml:dificuldade.pesos_Di
 controle_di: terco_exato
 limitacoes: >-
   [DEC] Desenho discreto sem otimização ou ranking. Bateria, risco adicional,
-  confiança inicial e limiares mantidos nas configurações declaradas. Interior
+  confiança inicial e limiares mantidos nas configurações declaradas. Rho cruzado
+  com a família discreta inteira. Interior
   contínuo, interações dos complementos entre si e com vértices não explorados.
   Intervalos t usam instâncias; n=4 na robustez implica baixa precisão. Resultados
   censurados permanecem nas tabelas como observações até o limite, não sucesso.
