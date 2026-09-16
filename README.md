@@ -227,12 +227,13 @@ A [resposta de 15/09/2026](projeto/10_RESPOSTA_REVISAO_2026-09-15.md) classifica
 cada crítica, preserva os resultados negativos e atualiza o backlog. O piloto
 com produto constante refutou a interpretação de que as saídas só observam
 `F_ancora × f_retrabalho`. A confiança atua no portão e no multiplicador de rede;
-sua dinâmica não foi alterada.
+o legado permanece preservado.
 
-A prioridade agora é fechar o MVP na ordem C4, C1 e C3. Em seguida vêm as
-robustezes de `pesos_Di`, horizonte, família Porta 2, contraste de governança e
-canais. Calibração e fragilidades serão retomadas juntas somente depois desse
-fechamento; novas ondas completas permanecem adiadas.
+O [MVP e sua passada de robustez estão concluídos](projeto/11_MVP_RESULTADOS_2026-09-16.md):
+C4, C1, duas leis candidatas de C3, pesos Di, horizonte automático, família
+Porta 2 e fatorial com portão/rede separados. Foram 17.920 execuções, sem
+trabalho pendente ou violações. A escolha da lei de confiança aguarda orientação.
+Calibração e fragilidades são a próxima etapa; novas ondas permanecem adiadas.
 
 Os [comandos de reprodução](research/REPRODUCAO.md) recuperam evidências históricas
 por commit e hash, sem depender de arquivos da máquina da autora. As
@@ -243,18 +244,21 @@ os snapshots não autorizam regenerá-las sobre edições da autora.
 
 ### Prioridades científicas após o MVP
 
-- Robustez de `pesos_Di` e do horizonte.
-- Família Porta 2 e contraste de governança.
-- Decomposição por canais.
-- Calibração e fragilidades, avaliadas juntas após os itens anteriores.
+- Definir V_obs/V_mod e verificar o alvo observacional, sem ajustar para aprovar o gêmeo.
+- Avaliar implausibilidade perfilada dentro de History Matching.
+- Tratar as fragilidades restantes junto da calibração: inferência, retrabalho,
+  generalização e leis candidatas de confiança.
+- Escolher a lei de τ(t) somente após orientação; não buscar a melhor política.
 
-A alternativa de desenho testada permanece um piloto: não demonstra
-convergência nem resolve identificabilidade estrutural. Os resultados anteriores
-foram preservados, e as limitações constam do registro.
+A robustez sustenta a direção do contraste de atraso, omissões e dívida oculta
+na família discreta testada. O retrabalho pago não manteve sinal em todo o
+desenho. Isso não demonstra validade empírica, convergência de HM ou
+identificabilidade estrutural. Consulte os limites e as tabelas ANTES/DEPOIS no
+relatório do MVP.
 
 ### Continuidade e execução
 
-Leia as [orientações atuais da autora](projeto/07_AUTONOMIA.md), a resposta à revisão e a auditoria
+Leia as [orientações atuais da autora](projeto/07_AUTONOMIA.md) e o [relatório do MVP](projeto/11_MVP_RESULTADOS_2026-09-16.md)
 antes de escolher a próxima tarefa. Não use o backlog histórico como prova de
 que um defeito continua presente: várias correções já existem no estado local.
 

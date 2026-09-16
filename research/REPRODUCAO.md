@@ -52,3 +52,50 @@ Fora do versionamento: ambientes, caches, diretórios temporários e cópias
 duplicadas de recuperação. Não executar o relatório histórico sobre os CSVs
 publicados para testar: o teste usa diretório temporário e verifica igualdade
 numérica da tabela regenerada.
+
+## MVP — execução alternativa e robustez (16/09/2026)
+
+O simulador legado continua em `src/modelo/simulador.py`. Configurações candidatas
+em `config/mvp.yaml`, desenho em `research/PLANO_MVP.md`. Não alterar o DOCX oficial.
+Use destinos novos: os scripts recusam sobrescrever resultados.
+
+```bash
+python3 -m unittest discover -s research -p 'test*py'
+python3 research/verificar_documento_oficial.py --vivo /caminho/do/documento/oficial.docx
+python3 src/modelo/20_experimento_mvp.py --etapa alternativas --saida outputs/diagnosticos/minha_execucao/alternativas --workers 4
+python3 src/modelo/20_experimento_mvp.py --etapa robustez --saida outputs/diagnosticos/minha_execucao/robustez --workers 4
+python3 src/modelo/21_canais_mvp.py --modelo legado --saida outputs/diagnosticos/minha_execucao/canais_legado --workers 4
+python3 src/modelo/21_canais_mvp.py --modelo mvp --saida outputs/diagnosticos/minha_execucao/canais_mvp --workers 4
+python3 src/modelo/22_consolidar_mvp.py --entrada outputs/diagnosticos/minha_execucao --rodar-b9 --workers 4
+python3 src/modelo/22_consolidar_mvp.py --entrada outputs/diagnosticos/minha_execucao
+```
+
+A saída possui configurações completas, hashes, dados individuais, contrastes
+por instância, censura e tabelas ANTES/DEPOIS. São 17.920 execuções novas: 3.072
+alternativas + 1.408 robustez + 12.288 canais + 1.152 B9. Intervalos sobre
+instâncias são condicionais à família declarada, sem promessa de cobertura
+simultânea nem generalização a todo o espaço contínuo. O pós-processamento
+confere todas as 384 linhas nominais e as 3.072 diagonais históricas.
+
+A verificação de documento aceita somente o hash fixado. Em um clone sem cópia
+viva, fornecer o arquivo designado pela autora. Usar o snapshot como `--vivo`
+verifica apenas sua integridade e **não** verifica se a autora editou o documento.
+
+### Ambiente e valores-p
+
+O ambiente efetivo desta execução é Python 3.9.6 e as versões fixadas em
+`research/requirements_mvp.txt`. O `requirements.txt` geral declara SciPy 1.15.3;
+essa não é a versão efetiva dos experimentos desta branch. `wilcoxon(method='auto')`
+pode selecionar procedimentos diferentes diante de empates/zeros. Exemplo
+reproduzido: TL, braço `so_tau_inicial`, no legado: auto em 1.11.4 retorna
+0,0000305176; `method='approx'` retorna 0,0004358424, o valor publicado.
+As funções antigas e novas, rodadas hoje sobre o mesmo CSV histórico, coincidem.
+Isso sustenta diferença de cálculo, sem provar qual ambiente gerou cada tabela.
+
+As tabelas detalhadas incluem `ANTES`, `CONTROLE_mesmo_ambiente`, `DEPOIS`,
+`delta` e `delta_vs_controle`. Não atribuir mudanças de valores-p já presentes
+no controle ao novo modelo. Parcelas muito pequenas também são sensíveis ao
+arredondamento no modelo saturado. A padronização definitiva da inferência
+entra nas fragilidades após o MVP; nenhum valor-p foi ajustado para obter uma
+conclusão. Os contrastes principais são apresentados com magnitudes, sinais
+por instância e intervalos t, não pelo ranking de valores-p.

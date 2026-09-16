@@ -518,3 +518,13 @@ testes, tentativa de refutação, conferência de fontes e preservação integra
 checkout da autora. Ao terminar um ciclo significativo, informar conclusões
 alteradas, experimentos, commits e próximo gargalo. A resposta mais recente é
 [10_RESPOSTA_REVISAO](10_RESPOSTA_REVISAO_2026-09-15.md).
+
+
+## Continuidade depois do MVP — 16/09/2026
+
+Estado completo e evidências em [11_MVP_RESULTADOS_2026-09-16.md](11_MVP_RESULTADOS_2026-09-16.md).
+Preservar alternativas e comparar famílias pequenas declaradas é permitido;
+buscar melhor política ou melhor valor é proibido. A passada de robustez fez
+parte do MVP. Calibração e fragilidades vêm agora juntas, mantendo History
+Matching e sem novas ondas até resolver V_obs/V_mod. Duas leis de τ(t) estão
+preparadas; a orientação da autora precede a escolha entre elas.

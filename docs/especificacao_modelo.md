@@ -1,5 +1,13 @@
 # Especificação do modelo de simulação — versão 1.0
 
+> **MVP — atualização de 16/09/2026:** a alternativa está em
+> [`simulador_mvp.py`](../src/modelo/simulador_mvp.py), preservando o legado.
+> C4 reduz a duração da omissão; C1 põe reparos na fila com agente e recurso;
+> C3 oferece duas leis candidatas, sem eleger uma. Robustez entra no MVP;
+> calibração e fragilidades vêm depois, juntas. Nenhuma nova onda de HM.
+> As premissas e a sequência de controles estão em
+> [PLANO_MVP](../research/PLANO_MVP.md); números anteriores abaixo são históricos.
+
 > **Resposta à revisão científica:** a [reanálise e os pilotos](../projeto/10_RESPOSTA_REVISAO_2026-09-15.md)
 > refutaram a suficiência do produto F_ancora × f_retrabalho para todas as saídas.
 > A interpretação histórica abaixo foi superada; a crista empírica permanece,
@@ -480,7 +488,9 @@ produto `p_falha × f_retrabalho`. O produto tem redução de **74,7%**, contra
 por tarefa — e declarar a divisão entre frequência e severidade como não
 identificada.
 
-`[LIMITACAO]` O gêmeo idêntico tem `V_mod = 0`: o modelo é a verdade. O teste é
-otimista por construção. Falhar nele condenaria o procedimento; passar nele não
-garante desempenho com dados reais, onde a discrepância modelo-realidade precisa
-ser especificada. Registrar assim na entrega.
+`[CORREÇÃO — rodada 2]` `V_mod = 0` não torna o critério otimista: a
+observação sintética fixa contém erro amostral. Reduzir `V_sim` estreita o
+denominador e pode excluir o vetor gerador. Isso ocorreu no piloto K=64; o
+limite formal usa a média exata, ainda desconhecida. A incerteza de observação
+e a cobertura serão tratadas depois do MVP; não escolher discrepância para
+forçar aprovação.

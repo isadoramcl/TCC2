@@ -67,3 +67,25 @@ Implementação em branch isolada; nunca editar o checkout da autora.
 ## Estado
 
 - Preservação e rebase concluídos. Plano registrado antes de simulações do MVP.
+
+
+## Execução e ajustes documentados
+
+- 16/09: fase 1 commitada em 6086578; núcleo revisado em 9062e8e.
+- Controle_motor e controle_motor_auto acrescentados antes das execuções para
+  separar a reserva dos dois participantes da ajuda e o horizonte de C4.
+- 19 testes passaram. Revisão independente encontrou dois defeitos de borda:
+  TW incluía trabalho futuro em censura; dívida de esforço zero impedia término.
+  Ambos foram reproduzidos em testes que falharam, corrigidos e rechecados.
+- Comparação nominal: 3.072 execuções; robustez: 1.408; sem censura. Legado
+  reproduziu as 384 linhas históricas sem diferença numérica. A ampliação
+  inicial do horizonte não mudou nenhuma saída substantiva na robustez.
+- B9 repetida com 16 instâncias e 12 sementes nos três braços de mecanismo,
+  além do nominal já disponível: 1.152 execuções adicionais, sem otimização.
+- Fatorial expandido executa legado e MVP: 6.144 execuções em cada um, mantendo
+  os quatro fatores antigos e separando A em G/N. Comparação G=N tem 3.072
+  diagonais históricas. Consolidação exige igualdade das chaves, além dos valores.
+- A versão antiga das 36 células de robustez não é usada como substituta do
+  antes/depois nominal: são desenhos e parâmetros diferentes.
+- O índice final de evidências complementa os hashes das instâncias e tabelas
+  históricas usados pela análise de canais; ele é verificação pós-execução.

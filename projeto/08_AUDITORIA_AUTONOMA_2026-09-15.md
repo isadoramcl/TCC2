@@ -1,9 +1,10 @@
 # Auditoria autônoma — 15/09/2026
 
-> Continuidade: [resposta à revisão e backlog atualizado](10_RESPOSTA_REVISAO_2026-09-15.md).
-> Esta auditoria permanece como registro histórico. A prioridade vigente é o
-> MVP C4, C1 e C3; depois, robustez de pesos_Di, horizonte, família Porta 2,
-> contraste de governança e canais; só então calibração e fragilidades juntas.
+> Continuidade: [MVP e resultados da robustez](11_MVP_RESULTADOS_2026-09-16.md).
+> Esta auditoria permanece como registro histórico. C4, C1, as duas candidatas
+> C3 e a passada declarada de robustez foram implementadas e verificadas.
+> A prioridade vigente é calibração e fragilidades juntas; a escolha de τ(t)
+> aguarda orientação. Não executar novas ondas antes de resolver V_obs/V_mod.
 
 ## Escopo e estado de referência
 

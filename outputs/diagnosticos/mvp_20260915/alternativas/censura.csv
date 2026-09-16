@@ -1,0 +1,17 @@
+configuracao,cenario,n,concluidas,censuradas
+C4,adaptativa,192,192,0
+C4,centralizada,192,192,0
+C4_C1,adaptativa,192,192,0
+C4_C1,centralizada,192,192,0
+C4_C1_C3_media_eventos,adaptativa,192,192,0
+C4_C1_C3_media_eventos,centralizada,192,192,0
+C4_C1_C3_saldo_eventos,adaptativa,192,192,0
+C4_C1_C3_saldo_eventos,centralizada,192,192,0
+C4_C1_Di_yaml_arredondado,adaptativa,192,192,0
+C4_C1_Di_yaml_arredondado,centralizada,192,192,0
+controle_motor,adaptativa,192,192,0
+controle_motor,centralizada,192,192,0
+controle_motor_auto,adaptativa,192,192,0
+controle_motor_auto,centralizada,192,192,0
+legado,adaptativa,192,192,0
+legado,centralizada,192,192,0
