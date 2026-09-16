@@ -15,6 +15,7 @@ from simulador import Simulacao, v
 @dataclass(frozen=True)
 class OpcoesMVP:
     fator_omissao: float = .75
+    rho_omissao: float = 0.0
     retrabalho_fila: bool = True
     lei_confianca: str = 'constante'
     taxa_aprendizado: float = .05
@@ -98,8 +99,10 @@ class SimulacaoMVP(Simulacao):
         horizonte=max(1,int(v(p['execucao']['horizonte_maximo_fator']))*self.makespan_cpm)
         cap=o.limite_horizonte_fator*self.makespan_cpm
         if not o.horizonte_automatico: cap=min(cap,horizonte)
+        if kh<=ka: self.violacoes.append('k_heuristico deve exceder k_analitico (TCC I)')
         t=0; motivo='limite_seguranca'
         while True:
+            if t>=cap: break
             for a in self.agentes:
                 if a.tarefa_atual is not None and a.livre_em<=t: a.tarefa_atual=None
             if self._terminal(): motivo='terminal'; break
@@ -123,8 +126,8 @@ class SimulacaoMVP(Simulacao):
                 else: ainda.append((j,e))
             self.divida_pendente=ainda
             eventos_tau=[]
-            for a in sorted(self.agentes,key=lambda a:-a.competencia):
-                if a.tarefa_atual is not None: continue
+            disponiveis=[a for a in self.agentes if a.tarefa_atual is None]
+            for a in sorted(disponiveis,key=lambda a:-a.competencia):
                 reparo=next((q for q in self.reparos if q['agente'] is None and q['restante']>1e-12
                             and q['pronto']<=t and all(u+d<=capr for u,d,capr in
                             zip(uso,self.tarefas[q['j']].demanda,self.disponibilidade))),None)
@@ -159,9 +162,9 @@ class SimulacaoMVP(Simulacao):
                         k=max(apoio,key=lambda k:k.competencia)
                         a.competencia=min(.98,a.competencia+(15+3*(k.competencia-a.competencia))/100)
                         self.cnt['p2_ajuda']+=1; self.TL+=1.
-                        # Ambos indisponíveis neste período. TL conserva a unidade
-                        # legada de um serviço de ajuda, não duas pessoa-horas.
-                        k.tarefa_atual=a.tarefa_atual=-1; k.livre_em=a.livre_em=t+1
+                        # Sem reserva adicional do solicitante: compatibilidade
+                        # com a política de ajuda legada, medida por controle exato.
+                        k.tarefa_atual=-1; k.livre_em=t+1
                         eventos_tau.extend([(a,True),(k,True)])
                     else:
                         self.cnt['p2_bloqueio']+=1; self.TU+=1.
@@ -177,15 +180,20 @@ class SimulacaoMVP(Simulacao):
                 a.tarefa_atual=j; a.livre_em=t+dur
                 a.esforco_corrente=E; a.modo_corrente='heuristico' if heu else 'analitico'
                 uso=[u+d for u,d in zip(uso,tar.demanda)]
+                if not o.retrabalho_fila:
+                    self.TW+=dur
+                    if heu:a.periodos_heuristicos+=dur
+                    else:a.periodos_analiticos+=dur
                 if falhou:
                     e=fr*tar.duracao*(1+fc*max(E-tau,0.)); self.gerado+=e
                     if self.rng.random()<pr:
                         self.n_reportadas+=1
+                        tar.estado_final='reportada'
                         if o.retrabalho_fila and e>1e-12: self._reparo(j,e,t+dur)
                         else: self.TR+=e
                     else:
                         self.S_UR+=e
-                        if e>1e-12: self.divida_pendente.append((j,e))
+                        if e>1e-12 or not o.retrabalho_fila: self.divida_pendente.append((j,e))
                         tar.defeito_oculto=True
             if any(u>capa for u,capa in zip(uso,self.disponibilidade)):
                 self.violacoes.append(f'recurso excedido em t={t}')
@@ -199,13 +207,14 @@ class SimulacaoMVP(Simulacao):
                     self.S_PV+=x.duracao if not x.defeito_oculto else 0.
             for a in self.agentes:
                 if a.tarefa_atual is not None and a.tarefa_atual!=-1:
-                    if a.tarefa_atual>=0:
+                    if o.retrabalho_fila and a.tarefa_atual>=0:
                         self.TW+=1.
                         if a.modo_corrente=='heuristico': a.periodos_heuristicos+=1
                         else: a.periodos_analiticos+=1
                     dr=(kh if a.modo_corrente=='heuristico' else ka)*a.esforco_corrente
                     a.bateria=max(0.,a.bateria-dr); self.S_DC+=dr
                 else: a.bateria=min(1.,a.bateria+rec)
+                if a.tarefa_atual==-1 and a.livre_em<=t+1: a.tarefa_atual=None
             for a,sucesso in eventos_tau: self.atualizar_confianca(a,sucesso)
             valores=dict(t=t,P=P,bateria_media=float(np.mean([a.bateria for a in self.agentes])),
                          mu_cog=float(np.mean([self.multiplicadores(a,P)[0] for a in self.agentes])),
@@ -216,7 +225,7 @@ class SimulacaoMVP(Simulacao):
             for k,x in valores.items(): self.traj[k].append(x)
             t+=1
         r=self._resultado(t)
-        r.concluiu=self._terminal()
+        if o.retrabalho_fila or o.horizonte_automatico: r.concluiu=self._terminal()
         r.contadores.update(retrabalho_gerado=self.gerado,retrabalho_pendente=self._pendente(),
                              ocupacao_retrabalho=self.ocupacao_retrabalho,extensoes_horizonte=self.extensoes,
                              motivo_termino=motivo,confianca_media_final=float(np.mean([a.confianca for a in self.agentes])))
