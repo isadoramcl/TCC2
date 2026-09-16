@@ -7,15 +7,23 @@ precedências já liberadas nem apagamos omissões históricas. Ver PLANO_MVP.md
 """
 from __future__ import annotations
 import math
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 import numpy as np
 from simulador import Simulacao, v
+
+
+def risco_porta(p0, p_heu, heuristico, rho):
+    """C4: excesso no complemento apenas em P1 e acima do limiar de sobrecarga."""
+    q=max(0.,2*p_heu-1.)
+    if not heuristico or rho==0. or q==0.:
+        return p0  # identidade exata para o controle, sem cancelamento numérico
+    return 1.-(1.-p0)*(1.-rho*q)
 
 
 @dataclass(frozen=True)
 class OpcoesMVP:
     fator_omissao: float = .75
-    rho_omissao: float = 0.0
+    rho_omissao: float | None = None
     retrabalho_fila: bool = True
     lei_confianca: str = 'constante'
     taxa_aprendizado: float = .05
@@ -28,6 +36,8 @@ class OpcoesMVP:
     tau_rede: float | None = None
 
     def __post_init__(self):
+        if self.rho_omissao is not None and not 0<=self.rho_omissao<=1:
+            raise ValueError('rho_omissao fora de [0,1]')
         if self.lei_confianca not in {'constante','media_eventos','saldo_eventos'}:
             raise ValueError('lei de confiança desconhecida')
         if self.politica_porta2 not in {'nominal','sem_assistencia','assistencia_universal','sem_filtro_competencia'}:
@@ -44,6 +54,8 @@ class SimulacaoMVP(Simulacao):
     def __init__(self,*args,opcoes=None,**kwargs):
         self.opcoes=opcoes or OpcoesMVP()
         super().__init__(*args,**kwargs)
+        if self.opcoes.rho_omissao is None:
+            self.opcoes=replace(self.opcoes,rho_omissao=float(v(self.par['risco']['rho_omissao'])))
         if self.ablacoes: raise ValueError('use politica_porta2 na alternativa MVP')
         if self.makespan_cpm <= 0 or not self.agentes:
             raise ValueError('CPM e número de agentes devem ser positivos')
@@ -145,7 +157,8 @@ class SimulacaoMVP(Simulacao):
                 E=tar.dificuldade*P/max(a.bateria,bmin)
                 mc,mr=self.multiplicadores(a,P)
                 logit=float(np.clip((E-tau)/max(s,1e-9),-700,700))
-                heu=self.rng.random()<1/(1+math.exp(-logit))
+                p_heu=1/(1+math.exp(-logit))
+                heu=self.rng.random()<p_heu
                 if heu and omega>limite:
                     self.cnt['p1_fuga']+=1; self.TU+=1.; self.n_adiamentos+=1
                     a.bateria=max(0.,a.bateria-kh*E)
@@ -173,7 +186,9 @@ class SimulacaoMVP(Simulacao):
                     continue
                 fator=o.fator_omissao if heu else 1.
                 dur=max(1,int(math.ceil(tar.duracao*fator/max(1e-6,mc*mr))))
-                falhou=self.rng.random()<float(np.clip(self.F_base(tar.nivel)+re*(1-mc),0,1))
+                p0=float(np.clip(self.F_base(tar.nivel)+re*(1-mc),0,1))
+                p_falha=risco_porta(p0,p_heu,heu,o.rho_omissao)
+                falhou=self.rng.random()<p_falha
                 tar.estado='em_execucao'; tar.inicio=t; tar.fim=t+dur
                 tar.porta='P1_omissao' if heu else 'P3_analitica'
                 self.cnt['p1_omissao' if heu else 'p3_analitica']+=1

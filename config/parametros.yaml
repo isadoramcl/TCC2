@@ -20,6 +20,19 @@ semente_padrao: 20260905
 # 1. RISCO BASAL — vem da calibração NASA
 # ---------------------------------------------------------------------
 risco:
+  rho_omissao:
+    valor: 0.35
+    faixa: [0.20, 0.50]
+    condicao: aberto
+    fonte: >-
+      excesso relativo de erro sob pressão temporal,
+      eps(30s)=0,268 IC95 [0,197; 0,339], n=32,
+      Nature Human Behaviour 2026 / OSF q2dm6;
+      transporte de construto declarado
+    nota: >-
+      Referência registrada no parecer 17; não é calibração pontual de engenharia.
+      q depende de p_heu, que seleciona P1: E[q|P1] pode superar E[q].
+      Sensibilidade na faixa declarada; não ajustar para alcançar retrabalho-alvo.
   razoes_de_risco:
     valor: { baixa: 1.000, media: 1.935, alta: 2.367, muito_alta: 2.985 }
     ic95:

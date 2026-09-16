@@ -33,3 +33,6 @@ pareceres incorporados de revisao-auditoria bcf39db (somente documentos).
   do período, estado_final de reporte; no modo sem fila, pré-contagem de TW e
   dívida zero seguem o legado. Com C1, TW continua realizado e término completo.
   Os nove testes anteriores de conservação/censura também passam.
+- Etapa2: risco adicional no complemento implementado conforme fórmula pedida;
+  rho aberto0,35/faixa0,20–0,50 em parametros.yaml, sem consumo extra do RNG.
+  Dois testes de forma/extremos passaram; compatibilidade rho0 manteve32/32.
