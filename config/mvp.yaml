@@ -2,10 +2,9 @@
 opcoes:
   fator_omissao: 0.75
   retrabalho_fila: true
-  lei_confianca: constante
-  taxa_aprendizado: 0.05
-  incremento_sucesso: 0.02
-  decremento_recusa: 0.01
+  lei_confianca: crowder
+  comunicacao_crowder: true
+  reset_competencia: true
   horizonte_automatico: true
   limite_horizonte_fator: 256
   politica_porta2: nominal
@@ -20,7 +19,7 @@ robustez:
   mu_minimo: [0.40, 0.70]
   centro: [0.15, 0.55, 0.55]
   politicas_porta2: [nominal, sem_assistencia, assistencia_universal, sem_filtro_competencia]
-  leis_confianca: [constante, media_eventos, saldo_eventos]
+  leis_confianca: [constante, crowder]
   fatores_omissao: [0.50, 0.75, 1.0]
   multiplicador_horizonte_verificacao: 2
 pesos_di_fonte: config/parametros.yaml:dificuldade.pesos_Di

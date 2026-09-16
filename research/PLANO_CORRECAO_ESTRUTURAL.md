@@ -60,3 +60,42 @@ ser consideradas verificadas por esta leitura do catálogo.
 
 Verificação após correção do horizonte: 25 testes passaram (incluindo 32 pares
 nominais e cinco horizontes de fronteira); `git diff --check` sem erros.
+
+### Etapa 4 — lei, eventos e reset (implementação alternativa)
+
+- Eq. (4) conferida no PDF local de Crowder et al. (2012), p. 1431,
+  DOI 10.1109/TSMCA.2012.2199304. Estado original dos agentes em escala 0–5.
+  Com C normalizada: dC_original=clip((15+3*(5*Cp-5*Cr))/100,0,0.30).
+  Competência recebe dC_original/5; confiança normalizada recebe tau*dC_original
+  no sucesso ou -0.01 no insucesso. Não dividir o multiplicador dC novamente.
+- Removidas as leis media_eventos e saldo_eventos do código ativo; preservadas
+  no commit efd81b7. Constante permanece como controle.
+- N_req conta destinatários efetivamente acionados; N_fail conta destinatários
+  acionados mas ocupados; N_blocked conta tentativas barradas pelo limiar.
+  N_success fecha N_req=N_success+N_fail. Somente o respondente recebe a
+  atualização correspondente; bloqueio e ausência de candidato não alteram tau.
+- [DEC] Mantida uma pessoa contatada por tentativa (política do modelo anterior),
+  não o broadcast de Crowder: melhor elegível disponível; se todos ocupados,
+  contato com o melhor elegível ocupado, registrado como insucesso. Portanto,
+  adota-se a Eq. (4), sem alegar reprodução integral do protocolo do artigo.
+  Atualização acontece no evento; pode afetar pedidos posteriores no período.
+  TL continua uma unidade por sucesso; Eq. (3) não foi transplantada silenciosamente.
+- [DEC] Reset C6 restaura competência inicial ao completar tarefa e ao trocar
+  a tarefa-alvo durante aprendizado. Repetir pedido para a mesma tarefa conserva
+  o aprendizado. Confiança não é reiniciada. Flag separada isola essa alteração.
+- Sob Crowder, tau_portao/tau_rede representam condições iniciais separadas;
+  ambas evoluem pelos mesmos eventos. Assim o fatorial não congela acidentalmente
+  um canal. Sem override, ambos leem a mesma confiança individual.
+- Alternativas registradas separadamente: protocolo, lei, reset e horizonte;
+  nenhuma execução de resultados foi iniciada nesta etapa.
+- Cinco testes de eventos/reset/canais passaram; suíte total 30 testes passou,
+  incluindo compatibilidade neutra. Ainda é necessário verificar integração
+  completa e resultados nas etapas seguintes antes de concluir o MVP.
+
+Revisão independente da etapa 4 conferiu as equações no PDF e encontrou duas
+fronteiras adicionais: reset no último período e override unilateral de portão
+vazando para rede. Ambas receberam regressões reproduzidas antes da correção.
+Reset agora ocorre na conclusão, inclusive para quem aprendeu sobre tarefa
+executada por outro agente. Um override unilateral mantém o outro canal na
+condição inicial do cenário e ambos evoluem por eventos. Teste no laço real
+compara diagonais com execução nominal, contadores e reset final nos dois cenários.

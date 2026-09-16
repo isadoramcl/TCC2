@@ -26,9 +26,8 @@ class OpcoesMVP:
     rho_omissao: float | None = None
     retrabalho_fila: bool = True
     lei_confianca: str = 'constante'
-    taxa_aprendizado: float = .05
-    incremento_sucesso: float = .02
-    decremento_recusa: float = .01
+    comunicacao_crowder: bool = False
+    reset_competencia: bool = False
     horizonte_automatico: bool = True
     limite_horizonte_fator: int = 256
     politica_porta2: str = 'nominal'
@@ -38,14 +37,12 @@ class OpcoesMVP:
     def __post_init__(self):
         if self.rho_omissao is not None and not 0<=self.rho_omissao<=1:
             raise ValueError('rho_omissao fora de [0,1]')
-        if self.lei_confianca not in {'constante','media_eventos','saldo_eventos'}:
+        if self.lei_confianca not in {'constante','crowder'}:
             raise ValueError('lei de confiança desconhecida')
         if self.politica_porta2 not in {'nominal','sem_assistencia','assistencia_universal','sem_filtro_competencia'}:
             raise ValueError('política Porta 2 desconhecida')
         if not 0 < self.fator_omissao <= 1 or self.limite_horizonte_fator < 1:
             raise ValueError('fator de duração/horizonte inválido')
-        for x in [self.taxa_aprendizado,self.incremento_sucesso,self.decremento_recusa]:
-            if not 0 <= x <= 1: raise ValueError('taxa fora de [0,1]')
         for x in [self.tau_portao,self.tau_rede]:
             if x is not None and not 0 <= x <= 1: raise ValueError('confiança fora de [0,1]')
 
@@ -62,6 +59,13 @@ class SimulacaoMVP(Simulacao):
         for tar in self.tarefas.values():
             if any(d<0 or d>cap for d,cap in zip(tar.demanda,self.disponibilidade)):
                 raise ValueError(f'recurso inviável na tarefa {tar.ident}')
+        self.competencias_iniciais={a.ident:a.competencia for a in self.agentes}
+        self.subtarefas_aprendizado={}
+        self.confiancas_rede={a.ident:(a.confianca if self.opcoes.tau_rede is None
+                                      else self.opcoes.tau_rede) for a in self.agentes}
+        if self.opcoes.lei_confianca=='crowder' and self.opcoes.tau_portao is not None:
+            for a in self.agentes:a.confianca=self.opcoes.tau_portao
+        self.cnt.update(N_req=0,N_fail=0,N_blocked=0,N_success=0)
         self.reparos=[]
         self.eventos=[]
         self.gerado=0.
@@ -70,11 +74,13 @@ class SimulacaoMVP(Simulacao):
         self.traj.update({k:[] for k in ['uso_recursos','confianca_media','retrabalho_pendente']})
 
     def multiplicadores(self,agente,P):
-        if self.opcoes.tau_rede is None:
+        separados=self.opcoes.lei_confianca=='crowder' and self.opcoes.tau_portao is not None
+        if self.opcoes.tau_rede is None and not separados:
             return super().multiplicadores(agente,P)
         anterior=agente.confianca
         try:
-            agente.confianca=self.opcoes.tau_rede
+            agente.confianca=(self.confiancas_rede[agente.ident] if self.opcoes.lei_confianca=='crowder'
+                              else self.opcoes.tau_rede)
             return super().multiplicadores(agente,P)
         finally:
             agente.confianca=anterior
@@ -83,13 +89,59 @@ class SimulacaoMVP(Simulacao):
         """Ponto de intervenção contrafactual; nominal mantém o mesmo sorteio."""
         return sorteio<p_heu
 
-    def atualizar_confianca(self,agente,sucesso):
+    def atualizar_confianca(self,agente,sucesso,dC=0.):
+        """Eq.4: dC está na escala original; τ está normalizada em [0,1]."""
+        if self.opcoes.lei_confianca!='crowder':return
+        dC=float(np.clip(dC,0.,.30))
+        def atualizar(tau):
+            return float(np.clip(tau*(1.+dC) if sucesso else tau-.01,0.,1.))
+        agente.confianca=atualizar(agente.confianca)
+        if self.opcoes.tau_rede is not None or self.opcoes.tau_portao is not None:
+            self.confiancas_rede[agente.ident]=atualizar(self.confiancas_rede[agente.ident])
+
+    def preparar_subtarefa(self,agente,j):
+        if self.opcoes.reset_competencia and self.subtarefas_aprendizado.get(agente.ident)!=j:
+            agente.competencia=self.competencias_iniciais[agente.ident]
+            self.subtarefas_aprendizado[agente.ident]=j
+
+    def comunicar(self,a,tar,t,tm):
+        """Um destinatário por tentativa (política legada), antes de disponibilidade.
+
+        [DEC] Preserva escolha do melhor disponível; se todos ocupados, envia ao
+        mais competente elegível e registra insucesso real. Não é broadcast.
+        """
         o=self.opcoes
-        if o.lei_confianca=='media_eventos':
-            agente.confianca += o.taxa_aprendizado*(float(sucesso)-agente.confianca)
-        elif o.lei_confianca=='saldo_eventos':
-            agente.confianca += o.incremento_sucesso if sucesso else -o.decremento_recusa
-        agente.confianca=float(np.clip(agente.confianca,0.,1.))
+        livres=[k for k in self.agentes if k.ident!=a.ident and k.tarefa_atual is None]
+        capazes=[k for k in self.agentes if k.ident!=a.ident and
+                 (o.politica_porta2=='sem_filtro_competencia' or k.competencia>a.competencia)]
+        self.cnt['hiato_sem_colega_livre']+=int(not livres)
+        def confianca(k):
+            return k.confianca if o.lei_confianca=='crowder' or o.tau_portao is None else o.tau_portao
+        elegiveis=[k for k in capazes if o.politica_porta2=='assistencia_universal' or confianca(k)>tm]
+        if o.politica_porta2=='sem_assistencia':elegiveis=[]
+        if not elegiveis:
+            if capazes and o.politica_porta2!='sem_assistencia':self.cnt['N_blocked']+=1
+            self.cnt['p2_bloqueio']+=1;self.TU+=1.
+            self.cnt['hiato_colega_capaz_sem_confianca' if capazes else 'hiato_sem_colega_capaz']+=1
+            return
+        disponiveis=[k for k in elegiveis if k.tarefa_atual is None]
+        k=max(disponiveis or elegiveis,key=lambda x:x.competencia)
+        self.cnt['N_req']+=1
+        if not disponiveis:
+            self.cnt['N_fail']+=1
+            self.cnt['p2_bloqueio']+=1;self.TU+=1.
+            self.atualizar_confianca(k,False)
+            self.eventos.append(dict(tipo='comunicacao',t=t,tarefa=tar.ident,
+                solicitante=a.ident,respondente=k.ident,sucesso=False,dC=0.))
+            return
+        # Crowder C em [0,5]: converter antes de calcular Eq.1; incremento/5 em C normalizada.
+        dC=float(np.clip((15.+3.*(5.*k.competencia-5.*a.competencia))/100.,0.,.30))
+        a.competencia=min(tar.dificuldade,a.competencia+dC/5.)
+        self.cnt['N_success']+=1;self.cnt['p2_ajuda']+=1;self.TL+=1.
+        k.tarefa_atual=-1;k.livre_em=t+1
+        self.atualizar_confianca(k,True,dC)
+        self.eventos.append(dict(tipo='comunicacao',t=t,tarefa=tar.ident,
+            solicitante=a.ident,respondente=k.ident,sucesso=True,dC=dC))
 
     def _pendente(self):
         return sum(e for _,e in self.divida_pendente)+sum(q['restante'] for q in self.reparos)
@@ -124,7 +176,11 @@ class SimulacaoMVP(Simulacao):
         while True:
             if t>=cap: break
             for a in self.agentes:
-                if a.tarefa_atual is not None and a.livre_em<=t: a.tarefa_atual=None
+                if a.tarefa_atual is not None and a.livre_em<=t:
+                    if o.reset_competencia and a.tarefa_atual>=0:
+                        a.competencia=self.competencias_iniciais[a.ident]
+                        self.subtarefas_aprendizado.pop(a.ident,None)
+                    a.tarefa_atual=None
             if self._terminal(): motivo='terminal'; break
             if t>=cap: break
             if t>=horizonte:
@@ -145,9 +201,10 @@ class SimulacaoMVP(Simulacao):
                     else: self.TR+=e
                 else: ainda.append((j,e))
             self.divida_pendente=ainda
-            eventos_tau=[]
             disponiveis=[a for a in self.agentes if a.tarefa_atual is None]
             for a in sorted(disponiveis,key=lambda a:-a.competencia):
+                if (o.comunicacao_crowder or o.lei_confianca=='crowder') and a.tarefa_atual is not None:
+                    continue
                 reparo=next((q for q in self.reparos if q['agente'] is None and q['restante']>1e-12
                             and q['pronto']<=t and all(u+d<=capr for u,d,capr in
                             zip(uso,self.tarefas[q['j']].demanda,self.disponibilidade))),None)
@@ -162,6 +219,7 @@ class SimulacaoMVP(Simulacao):
                 prontas=self.elegiveis(t,uso)
                 if not prontas: continue
                 j=max(prontas,key=lambda j:self.tarefas[j].dificuldade); tar=self.tarefas[j]
+                self.preparar_subtarefa(a,j)
                 E=tar.dificuldade*P/max(a.bateria,bmin)
                 mc,mr=self.multiplicadores(a,P)
                 logit=float(np.clip((E-tau)/max(s,1e-9),-700,700))
@@ -173,6 +231,9 @@ class SimulacaoMVP(Simulacao):
                     continue
                 if not heu and tar.dificuldade>a.competencia:
                     self.cnt['hiato_encontrado']+=1
+                    if o.comunicacao_crowder or o.lei_confianca=='crowder':
+                        self.comunicar(a,tar,t,tm)
+                        continue
                     livres=[k for k in self.agentes if k.ident!=a.ident and k.tarefa_atual is None]
                     capazes=[k for k in livres if o.politica_porta2=='sem_filtro_competencia' or k.competencia>a.competencia]
                     self.cnt['hiato_sem_colega_livre']+=int(not livres)
@@ -186,11 +247,11 @@ class SimulacaoMVP(Simulacao):
                         # Sem reserva adicional do solicitante: compatibilidade
                         # com a política de ajuda legada, medida por controle exato.
                         k.tarefa_atual=-1; k.livre_em=t+1
-                        eventos_tau.extend([(a,True),(k,True)])
+                        self.cnt['N_req']+=1;self.cnt['N_success']+=1
                     else:
                         self.cnt['p2_bloqueio']+=1; self.TU+=1.
                         self.cnt['hiato_colega_capaz_sem_confianca' if capazes else 'hiato_sem_colega_capaz']+=1
-                        if capazes: eventos_tau.append((a,False))
+                        if capazes and o.politica_porta2!='sem_assistencia':self.cnt['N_blocked']+=1
                     continue
                 fator=o.fator_omissao if heu else 1.
                 dur=max(1,int(math.ceil(tar.duracao*fator/max(1e-6,mc*mr))))
@@ -228,6 +289,11 @@ class SimulacaoMVP(Simulacao):
                 if x.estado=='em_execucao' and x.fim<=t+1:
                     x.estado='concluida_com_erro' if x.defeito_oculto else 'concluida_limpa'
                     self.S_PV+=x.duracao if not x.defeito_oculto else 0.
+                    if o.reset_competencia:
+                        for agente in self.agentes:
+                            if self.subtarefas_aprendizado.get(agente.ident)==x.ident:
+                                agente.competencia=self.competencias_iniciais[agente.ident]
+                                self.subtarefas_aprendizado.pop(agente.ident,None)
             for a in self.agentes:
                 if a.tarefa_atual is not None and a.tarefa_atual!=-1:
                     if o.retrabalho_fila and a.tarefa_atual>=0:
@@ -238,7 +304,6 @@ class SimulacaoMVP(Simulacao):
                     a.bateria=max(0.,a.bateria-dr); self.S_DC+=dr
                 else: a.bateria=min(1.,a.bateria+rec)
                 if a.tarefa_atual==-1 and a.livre_em<=t+1: a.tarefa_atual=None
-            for a,sucesso in eventos_tau: self.atualizar_confianca(a,sucesso)
             valores=dict(t=t,P=P,bateria_media=float(np.mean([a.bateria for a in self.agentes])),
                          mu_cog=float(np.mean([self.multiplicadores(a,P)[0] for a in self.agentes])),
                          mu_rede=float(np.mean([self.multiplicadores(a,P)[1] for a in self.agentes])),

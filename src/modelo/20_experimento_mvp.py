@@ -59,12 +59,24 @@ def desenho(cfg,par,etapa):
         out.append(dict(nome=nome,opcoes=op,pesos=peso,parametros=mods or {},horizonte=horizonte))
     if etapa=='alternativas':
         add('legado',None)
-        add('controle_motor',{**base,'fator_omissao':1.,'retrabalho_fila':False,'horizonte_automatico':False})
-        add('controle_motor_auto',{**base,'fator_omissao':1.,'retrabalho_fila':False})
-        add('C4',{**base,'retrabalho_fila':False})
-        add('C4_C1',base)
-        for lei in ['media_eventos','saldo_eventos']: add('C4_C1_C3_'+lei,{**base,'lei_confianca':lei})
-        add('C4_C1_Di_yaml_arredondado',base,familias['yaml_arredondado'])
+        neutro={**base,'fator_omissao':1.,'rho_omissao':0.,'retrabalho_fila':False,
+                'horizonte_automatico':False,'lei_confianca':'constante',
+                'comunicacao_crowder':False,'reset_competencia':False}
+        add('controle_motor',neutro)
+        tempo={**neutro,'fator_omissao':base['fator_omissao']}
+        add('C4_tempo_apenas',tempo)
+        qualidade={**tempo,'rho_omissao':float(S.v(par['risco']['rho_omissao']))}
+        add('C4_completo',qualidade)
+        fila={**qualidade,'retrabalho_fila':True}
+        add('C4_C1',fila)
+        comunicacao={**fila,'comunicacao_crowder':True}
+        add('C4_C1_comunicacao',comunicacao)
+        lei={**comunicacao,'lei_confianca':'crowder'}
+        add('C4_C1_Crowder',lei)
+        reset={**lei,'reset_competencia':True}
+        add('C4_C1_Crowder_C6',reset)
+        add('MVP_corrigido',{**reset,'horizonte_automatico':True})
+        add('MVP_corrigido_Di_yaml',base,familias['yaml_arredondado'])
     else:
         r=cfg['robustez']; pontos=list(itertools.product(r['F_ancora'],r['f_retrabalho'],r['mu_minimo']))+[tuple(r['centro'])]
         for i,point in enumerate(pontos):

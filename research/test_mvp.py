@@ -74,12 +74,12 @@ class TestMVP(unittest.TestCase):
         self.assertFalse(r.concluiu)
         self.assertEqual(r.contadores['motivo_termino'],'limite_seguranca')
 
-    def test_confianca_constante_e_duas_leis_limitadas(self):
+    def test_confianca_constante_e_crowder_limitadas(self):
         g,p=caso()
-        for lei in ['constante','media_eventos','saldo_eventos']:
+        for lei in ['constante','crowder']:
             s=SimulacaoMVP(g,[1],8,p,'centralizada',0,opcoes=OpcoesMVP(lei_confianca=lei))
             a=s.agentes[0]; inicial=a.confianca
-            s.atualizar_confianca(a,True)
+            s.atualizar_confianca(a,True,.15)
             self.assertEqual(a.confianca,inicial) if lei=='constante' else self.assertGreater(a.confianca,inicial)
             for _ in range(1000): s.atualizar_confianca(a,False)
             self.assertTrue(0<=a.confianca<=1)
