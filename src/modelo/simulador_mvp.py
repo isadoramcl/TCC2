@@ -28,6 +28,7 @@ class OpcoesMVP:
     lei_confianca: str = 'constante'
     comunicacao_crowder: bool = False
     reset_competencia: bool = False
+    instrumentar_tarefas: bool = True
     horizonte_automatico: bool = True
     limite_horizonte_fator: int = 256
     politica_porta2: str = 'nominal'
@@ -68,6 +69,7 @@ class SimulacaoMVP(Simulacao):
         self.cnt.update(N_req=0,N_fail=0,N_blocked=0,N_success=0)
         self.reparos=[]
         self.eventos=[]
+        self.registros_tarefas=[]
         self.gerado=0.
         self.ocupacao_retrabalho=0
         self.extensoes=0
@@ -224,12 +226,23 @@ class SimulacaoMVP(Simulacao):
                 mc,mr=self.multiplicadores(a,P)
                 logit=float(np.clip((E-tau)/max(s,1e-9),-700,700))
                 p_heu=1/(1+math.exp(-logit))
-                heu=self.decidir_porta(p_heu,self.rng.random())
+                sorteio_porta=self.rng.random()
+                heu=self.decidir_porta(p_heu,sorteio_porta)
+                registro=dict(t=t,tarefa=j,agente=a.ident,E=E,E_menos_tau_sat=E-tau,
+                    p_heu=p_heu,q=max(0.,2*p_heu-1.),Di=tar.dificuldade,P=P,B=a.bateria,
+                    mu_cog=mc,mu_rede=mr,porta=None,p0=None,p_fail=None,excesso=None,
+                    duracao_nominal=tar.duracao,duracao_efetiva=None,
+                    duracao_analitica=max(1,int(math.ceil(tar.duracao/max(1e-6,mc*mr)))),
+                    sorteio_porta=sorteio_porta,sorteio_falha=None,falhou=None,
+                    executada=False,selecionou_p1=bool(heu),competencia=a.competencia)
+                if o.instrumentar_tarefas:self.registros_tarefas.append(registro)
                 if heu and omega>limite:
+                    registro['porta']='P1_fuga'
                     self.cnt['p1_fuga']+=1; self.TU+=1.; self.n_adiamentos+=1
                     a.bateria=max(0.,a.bateria-kh*E)
                     continue
                 if not heu and tar.dificuldade>a.competencia:
+                    registro['porta']='P2'
                     self.cnt['hiato_encontrado']+=1
                     if o.comunicacao_crowder or o.lei_confianca=='crowder':
                         self.comunicar(a,tar,t,tm)
@@ -257,7 +270,11 @@ class SimulacaoMVP(Simulacao):
                 dur=max(1,int(math.ceil(tar.duracao*fator/max(1e-6,mc*mr))))
                 p0=float(np.clip(self.F_base(tar.nivel)+re*(1-mc),0,1))
                 p_falha=risco_porta(p0,p_heu,heu,o.rho_omissao)
-                falhou=self.rng.random()<p_falha
+                sorteio_falha=self.rng.random()
+                falhou=sorteio_falha<p_falha
+                registro.update(porta='P1_omissao' if heu else 'P3_analitica',p0=p0,
+                    p_fail=p_falha,excesso=p_falha-p0,duracao_efetiva=dur,
+                    sorteio_falha=sorteio_falha,falhou=bool(falhou),executada=True)
                 tar.estado='em_execucao'; tar.inicio=t; tar.fim=t+dur
                 tar.porta='P1_omissao' if heu else 'P3_analitica'
                 self.cnt['p1_omissao' if heu else 'p3_analitica']+=1

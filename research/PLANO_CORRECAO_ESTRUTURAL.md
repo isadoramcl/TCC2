@@ -99,3 +99,20 @@ Reset agora ocorre na conclusão, inclusive para quem aprendeu sobre tarefa
 executada por outro agente. Um override unilateral mantém o outro canal na
 condição inicial do cenário e ambos evoluem por eventos. Teste no laço real
 compara diagonais com execução nominal, contadores e reset final nos dois cenários.
+
+### Etapa 5 — registro por oportunidade de decisão
+
+`registros_tarefas` contém uma linha por tentativa sobre tarefa elegível com
+recursos disponíveis, inclusive P1_fuga e P2 sem execução. Campos de risco e
+duração efetiva ficam nulos quando a tarefa não é executada; não se confundem
+probabilidades hipotéticas com falhas observadas. Registra E, margem E-tau_sat,
+p_heu, q, Di, P, B, mu_cog, mu_rede, porta, p0, p_fail, excesso, duração-base,
+duração analítica contrafactual, duração efetiva, agente/tarefa/período, seleção
+P1 e sorteios efetivamente consumidos. Nenhum sorteio adicional.
+
+A análise P(P1|D,P,B) terá como denominador essas oportunidades, não todos os
+períodos de calendário nem somente tarefas executadas. A amostra condicionada
+em P1 seleciona p_heu maior e amplifica a sensibilidade a rho por q; registrar
+média q geral e condicional sem recalibrar a logística para uma taxa-alvo.
+A opção de desligar instrumentação permite verificar identidade dos resultados
+e do estado RNG. Os 64% anteriores permanecem quantidade a validar externamente.
