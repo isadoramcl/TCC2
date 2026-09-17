@@ -26,6 +26,7 @@ class OpcoesMVP:
     rho_omissao: float | None = None
     retrabalho_fila: bool = True
     lei_confianca: str = 'constante'
+    lei_tempo_aprendizado: str = 'unitario'
     comunicacao_crowder: bool = False
     reset_competencia: bool = False
     instrumentar_tarefas: bool = True
@@ -38,6 +39,8 @@ class OpcoesMVP:
     def __post_init__(self):
         if self.rho_omissao is not None and not 0<=self.rho_omissao<=1:
             raise ValueError('rho_omissao fora de [0,1]')
+        if self.lei_tempo_aprendizado not in {'unitario','crowder_eq3'}:
+            raise ValueError('lei de tempo de aprendizado desconhecida')
         if self.lei_confianca not in {'constante','crowder'}:
             raise ValueError('lei de confiança desconhecida')
         if self.politica_porta2 not in {'nominal','sem_assistencia','assistencia_universal','sem_filtro_competencia'}:
@@ -106,6 +109,13 @@ class SimulacaoMVP(Simulacao):
             agente.competencia=self.competencias_iniciais[agente.ident]
             self.subtarefas_aprendizado[agente.ident]=j
 
+    def contabilizar_tempo_aprendizado(self,sucesso,dC_original=0.):
+        """Eq3 usa ΔC na escala original 0–5; altera só a contagem de TL."""
+        if self.opcoes.lei_tempo_aprendizado=='unitario':
+            if sucesso:self.TL+=1.
+        else:
+            self.TL+=.5*dC_original if sucesso else .05
+
     def comunicar(self,a,tar,t,tm):
         """Um destinatário por tentativa (política legada), antes de disponibilidade.
 
@@ -131,6 +141,7 @@ class SimulacaoMVP(Simulacao):
         self.cnt['N_req']+=1
         if not disponiveis:
             self.cnt['N_fail']+=1
+            self.contabilizar_tempo_aprendizado(False)
             self.cnt['p2_bloqueio']+=1;self.TU+=1.
             self.atualizar_confianca(k,False)
             self.eventos.append(dict(tipo='comunicacao',t=t,tarefa=tar.ident,
@@ -139,7 +150,8 @@ class SimulacaoMVP(Simulacao):
         # Crowder C em [0,5]: converter antes de calcular Eq.1; incremento/5 em C normalizada.
         dC=float(np.clip((15.+3.*(5.*k.competencia-5.*a.competencia))/100.,0.,.30))
         a.competencia=min(tar.dificuldade,a.competencia+dC/5.)
-        self.cnt['N_success']+=1;self.cnt['p2_ajuda']+=1;self.TL+=1.
+        self.cnt['N_success']+=1;self.cnt['p2_ajuda']+=1
+        self.contabilizar_tempo_aprendizado(True,dC)
         k.tarefa_atual=-1;k.livre_em=t+1
         self.atualizar_confianca(k,True,dC)
         self.eventos.append(dict(tipo='comunicacao',t=t,tarefa=tar.ident,
@@ -255,8 +267,10 @@ class SimulacaoMVP(Simulacao):
                     else: apoio=[k for k in capazes if (k.confianca if o.tau_portao is None else o.tau_portao)>tm]
                     if apoio:
                         k=max(apoio,key=lambda k:k.competencia)
+                        dC_tl=float(np.clip((15.+3.*(5.*k.competencia-5.*a.competencia))/100.,0.,.30))
                         a.competencia=min(.98,a.competencia+(15+3*(k.competencia-a.competencia))/100)
-                        self.cnt['p2_ajuda']+=1; self.TL+=1.
+                        self.cnt['p2_ajuda']+=1
+                        self.contabilizar_tempo_aprendizado(True,dC_tl)
                         # Sem reserva adicional do solicitante: compatibilidade
                         # com a política de ajuda legada, medida por controle exato.
                         k.tarefa_atual=-1; k.livre_em=t+1

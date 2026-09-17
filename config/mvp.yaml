@@ -3,6 +3,7 @@ opcoes:
   fator_omissao: 0.75
   retrabalho_fila: true
   lei_confianca: crowder
+  lei_tempo_aprendizado: unitario
   comunicacao_crowder: true
   reset_competencia: true
   horizonte_automatico: true
