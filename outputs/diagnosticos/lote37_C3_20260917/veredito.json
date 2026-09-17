@@ -1,0 +1,25 @@
+{
+  "status": "BLOQUEADO_CONTROLE_PUBLICADO",
+  "n": 25,
+  "respondentes": 94,
+  "p": 0.0163,
+  "CV": 1.13,
+  "phi": 0.845,
+  "alpha_calculado": 0.7540813924348031,
+  "beta_calculado": 45.50858072012981,
+  "frequencias_falhas": 13,
+  "chi2_falhas": 3,
+  "criterio": "mesma terceira casa decimal; parâmetros e alvo não ajustados",
+  "pdf": "/Users/isadoracarvalho/Downloads/Modelling human error rates for human reliability analysis of a structural design task.pdf",
+  "pdf_sha256": "0da3f1e0a4ab4514c47f9946d09996dba0c12debc71d1f2e63af65ff39ac911d",
+  "paginas": [
+    174,
+    175
+  ],
+  "fontes": {
+    "research/lote37/validar_c3.py": "be637657c5f08963c37198b14fea74016d30a18f9e7515e5b0a4f01ee6d8769c",
+    "research/lote37/distribuicoes.py": "27af4557f89b7a519b9693b45de617e8652374e3132864e93e3808bac3029a2d",
+    "research/lote37/PROTOCOLO_C3.md": "6a44401adb2a80bb80e1c014b33f76fae479956c37748bbcb7c5cc3d8d176e7a",
+    "projeto/37_ORDEM_DE_SERVICO_COM_TESTES.md": "3962784b287ca12ac927bb20b348ba92ad39b118f3ec770fbfaf4ef336e241f1"
+  }
+}
