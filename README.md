@@ -273,3 +273,12 @@ python3 src/modelo/15_diagnostico_hm.py --saida /tmp/tcc2_hm_diagnostico
 A pasta de saída deve ainda não existir. Versões do ambiente, sementes, hashes,
 resultados por execução e controles são registrados pelo script. Isso não
 substitui a validação do ambiente completo definido em `requirements.txt`.
+
+### Observáveis e calibração — decisão vigente
+
+`E_total` foi retirada das conclusões de governança: é diagnóstico interno com
+unidades distintas no denominador, reportado nas duas convenções TL. A evidência
+de governança interna e a especificação inicial de V_obs/V_mod estão no
+[contrato de medição](projeto/22_OBSERVAVEIS_VOBS_VMOD.md).
+`atraso_relativo` usa CPM sem recursos e não equivale a crescimento de prazo externo.
+Nenhuma nova onda de History Matching foi iniciada.

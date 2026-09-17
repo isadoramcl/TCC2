@@ -1218,3 +1218,13 @@ A Eq3 entra como alternativa, sem substituir unitário. O contraste nominal
 de E_total troca de sinal mantendo estados físicos/RNG idênticos. Retirada a
 interpretação da inversão como conclusão de governança. C4_C1_comunicacao
 combina protocolo/escala/teto, conforme [resposta21](../projeto/21_TESTE_DISCRIMINANTE_TL_2026-09-17.md).
+
+## 22. Observáveis antes de V_obs/V_mod — 17/09/2026
+
+[DEC] E_total retirada das conclusões de governança e excluída do vetor externo z.
+Diagnóstico interno sempre nas duas convenções TL; soma de unidades distintas
+sem ponte de interpretação. Governança interna apoiada nos três indicadores
+independentes de TL, com evidência e limites no
+[contrato de medição](../projeto/22_OBSERVAVEIS_VOBS_VMOD.md).
+Atraso relativo ao CPM não é crescimento de prazo; ainda não admitido em z externo.
+V_obs/V_mod iniciados pela especificação, sem atribuir variâncias nem executar HM.

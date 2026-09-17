@@ -1,10 +1,29 @@
 # Teste discriminante de TL e resposta ao parecer 20 — 17/09/2026
 
+## Regra de leitura vigente — 17/09/2026
+
+[DEC] `E_total` é exclusivamente uma **grandeza diagnóstica interna**. Foi retirada
+das conclusões de governança. Seu denominador soma termos em unidades distintas:
+TW em períodos de trabalho, TL em eventos de ajuda na convenção unitária
+(ou incrementos contábeis da Eq. 3), TU em períodos bloqueados e TR em esforço.
+Sem uma ponte de unidades, a razão não mede eficiência ou produtividade externa.
+O sinal do contraste depende da convenção de TL. `lei_tempo_aprendizado` permanece
+alternativa varrida; toda nova apresentação de `E_total` deve reportar conjuntamente
+`unitario` e `crowder_eq3`. Tabelas antigas de uma única convenção são arquivo
+histórico, não evidência de governança; os dados originais não são sobrescritos.
+
+A conclusão interna de governança se apoia em `atraso_relativo`, falhas não
+reportadas (`taxa_omissao`) e `divida_latente_sobre_plano`, com contrastes negativos
+em toda a família declarada. Nenhum deles contém TL no denominador nem muda com
+sua convenção. Evidência e limites: [verificação explícita](22_OBSERVAVEIS_VOBS_VMOD.md).
+Isso não transforma atraso contra CPM em crescimento de prazo observado externamente.
+
+
 ## Conclusão
 
 **O sinal de E_total depende da convenção de TL. Não sustenta uma conclusão de governança.**
 O nominal permanece `unitario`; `crowder_eq3` é alternativa declarada. Não se escolheu
-uma convenção por produzir sinal favorável. V_obs/V_mod não foi iniciado.
+uma convenção por produzir sinal favorável. A especificação de V_obs/V_mod foi iniciada no relatório 22; nenhuma nova onda foi executada.
 
 ## 1. MAJOR-7 — teste discriminante
 
@@ -22,9 +41,8 @@ A mudança pareada de contraste é 0.102818, IC95 [0.089531; 0.116105].
 Nos 384 pares, estados dos agentes/tarefas, RNG, trajetórias, eventos,
 TW/TU/TR e demais resultados físicos coincidiram bit a bit. TL e duas razões
 que o usam no denominador mudaram: E_total e retrabalho_sobre_esforco_realizado.
-Assim, a inversão anterior é sensível à convenção contábil, sem mudança no
-comportamento simulado. As conclusões anteriores sobre E_total ficam restritas
-à convenção declarada e não devem ser destacadas como efeito de governança.
+Este é um diagnóstico de dependência da contabilização, sem mudança no comportamento
+simulado. As conclusões de governança baseadas em E_total foram retiradas.
 
 ### Componentes do nominal nas duas convenções
 
@@ -109,7 +127,7 @@ seus commits, não às versões posteriores em HEAD.
 - Parecer20 preservado byte a byte e publicado em revisao-auditoria, commit9ef0f47.
 - Resultados antigos não foram sobrescritos. A leitura do relatório19 é corrigida
   por esta resposta. Nenhuma preferência entre leis é inferida dos sinais.
-- Próxima etapa: discutir unidades/observáveis e V_obs/V_mod; nenhuma onda HM
+- Continuidade: unidades/observáveis e V_obs/V_mod iniciados no relatório 22; nenhuma onda HM
   ou ajuste de parâmetros foi iniciado neste trabalho.
 
 ## Reprodução

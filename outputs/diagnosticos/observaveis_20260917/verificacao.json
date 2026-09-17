@@ -1,0 +1,32 @@
+{
+  "pares_csv_identicos": 384,
+  "metricas": [
+    "atraso_relativo",
+    "taxa_omissao",
+    "divida_latente_sobre_plano"
+  ],
+  "controles_adulterados": {
+    "atraso_relativo": "rejeitado",
+    "taxa_omissao": "rejeitado",
+    "divida_latente_sobre_plano": "rejeitado"
+  },
+  "robustez": {
+    "atraso_relativo": {
+      "negativos": 129,
+      "IC95_inteiro_negativo": 128
+    },
+    "taxa_omissao": {
+      "negativos": 129,
+      "IC95_inteiro_negativo": 129
+    },
+    "divida_latente_sobre_plano": {
+      "negativos": 129,
+      "IC95_inteiro_negativo": 129
+    }
+  },
+  "escopo": "384 pares nominais TL; 129 células históricas de robustez unitária, não reexecutadas",
+  "sha256": {
+    "outputs/diagnosticos/teste_TL_20260917/bruto.csv": "5bd69bee352b4e137e7ccd44fc00d1584523476181eaf046d8e6f6ee92a616db",
+    "outputs/diagnosticos/correcao_estrutural_20260916/robustez/resumo.csv": "430e87bcac6dab9a9b19fe79aab9ed652e88b05bfb4e7b7a687e23118bcb32c9"
+  }
+}

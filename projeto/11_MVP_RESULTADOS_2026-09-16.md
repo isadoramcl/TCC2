@@ -1,5 +1,24 @@
 # MVP — implementação, robustez e resultados
 
+## Regra de leitura vigente — 17/09/2026
+
+[DEC] `E_total` é exclusivamente uma **grandeza diagnóstica interna**. Foi retirada
+das conclusões de governança. Seu denominador soma termos em unidades distintas:
+TW em períodos de trabalho, TL em eventos de ajuda na convenção unitária
+(ou incrementos contábeis da Eq. 3), TU em períodos bloqueados e TR em esforço.
+Sem uma ponte de unidades, a razão não mede eficiência ou produtividade externa.
+O sinal do contraste depende da convenção de TL. `lei_tempo_aprendizado` permanece
+alternativa varrida; toda nova apresentação de `E_total` deve reportar conjuntamente
+`unitario` e `crowder_eq3`. Tabelas antigas de uma única convenção são arquivo
+histórico, não evidência de governança; os dados originais não são sobrescritos.
+
+A conclusão interna de governança se apoia em `atraso_relativo`, falhas não
+reportadas (`taxa_omissao`) e `divida_latente_sobre_plano`, com contrastes negativos
+em toda a família declarada. Nenhum deles contém TL no denominador nem muda com
+sua convenção. Evidência e limites: [verificação explícita](22_OBSERVAVEIS_VOBS_VMOD.md).
+Isso não transforma atraso contra CPM em crescimento de prazo observado externamente.
+
+
 > **PRÉ-CORREÇÃO ESTRUTURAL — congelado em 16/09/2026.** Números históricos preservados; não constituem resultado do MVP corrigido nem alimentam conclusão final sem reexecução. Ver `research/CONGELAMENTO_PRE_CORRECAO.json` e `research/PLANO_CORRECAO_ESTRUTURAL.md`.
 
 **Estado: software e passada declarada de robustez concluídos.** Duas leis de
@@ -37,7 +56,7 @@ fica na branch `codex/resposta-revisao-cientifica`, sem merge em main.
 - As 3.072 diagonais G=N reproduzem o fatorial antigo; diferença máxima de ponto flutuante 1,42×10⁻¹⁴.
 - Dobrar o horizonte inicial produziu saídas substantivas idênticas nos 32 pares de execuções correspondentes.
 
-## 3. Antes/depois do contraste principal
+## 3. Arquivo histórico do contraste pré-correção
 
 Diferença = adaptativa − centralizada. Mesmas 16 instâncias e 12 sementes.
 MVP nesta tabela = C4+C1, τ constante; leis candidatas são braços separados.
@@ -48,7 +67,6 @@ MVP nesta tabela = C4+C1, τ constante; leis candidatas são braços separados.
 | taxa_omissao | -0.153299 | -0.165538 | [-0.175840; -0.155236] |
 | divida_latente_sobre_plano | -0.053983 | -0.056758 | [-0.061317; -0.052200] |
 | retrabalho_sobre_plano | -0.048631 | -0.045743 | [-0.055162; -0.036325] |
-| E_total | 0.104631 | 0.131083 | [0.116536; 0.145630] |
 
 A reserva de ambos os participantes da ajuda é uma correção separada de C4.
 O controle do motor mede essa diferença: atraso adaptativo 1,999133 no legado,
@@ -60,7 +78,7 @@ O reparo disputa capacidade e acrescenta custo tardio; isso implementa o
 mecanismo faltante de soluções sintomáticas. Não é prova de que um arquétipo
 se manifeste com qualquer parâmetro nem de que a omissão sempre seja vantajosa.
 
-## 4. Robustez do resultado principal
+## 4. Arquivo histórico da robustez pré-correção
 
 Família definida antes de simular: oito vértices de F_ancora∈{0,05;0,25},
 f_retrabalho∈{0,30;0,80}, μ_min∈{0,40;0,70}, mais centro, cruzados com quatro
@@ -72,9 +90,8 @@ pesos Di do YAML. Quatro instâncias e quatro sementes por cenário em cada cél
 | taxa_omissao | -0.370833 | -0.060417 | 36/36 |
 | divida_latente_sobre_plano | -0.178358 | -0.013267 | 36/36 |
 | retrabalho_sobre_plano | -0.074027 | 0.002446 | 7/36 |
-| E_total | 0.003189 | 0.200902 | 0/36 |
 
-**Conclusão sustentada neste domínio:** o contraste de atraso, omissões e
+**Descrição histórica pré-correção, retirada das conclusões atuais:** o contraste de atraso, omissões e
 exposição à dívida oculta manteve a direção nas 36 células. Isso não se estende
 automaticamente ao retrabalho pago: seu contraste muda de sinal em parte do
 desenho. E_total é um índice contábil, não eficiência; também possui mais

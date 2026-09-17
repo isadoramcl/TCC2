@@ -109,9 +109,9 @@ VERDADE = {"risco.F_ancora": 0.180, "retrabalho.f_retrabalho": 0.420,
            "agentes.tau_sat": 0.850, "agentes.k_heuristico": 0.135,
            "fuzzy.mu_minimo": 0.620}
 
-# `[DEC]` Observáveis: grandezas que um projeto de engenharia real registra —
-# fração de entregas que voltaram com defeito, atraso contra o cronograma,
-# esforço de retrabalho sobre o planejado e fração produtiva do esforço.
+# [DEC] Vetor do teste sintético histórico, não aprovado para calibração externa.
+# E_total depende da convenção TL; atraso usa CPM sem recursos, não prazo aprovado.
+# Contrato de medição e admissibilidade: projeto/22_OBSERVAVEIS_VOBS_VMOD.md.
 OBSERVAVEIS = ["taxa_omissao", "atraso_relativo", "retrabalho_sobre_plano", "E_total"]
 
 CENARIO = "adaptativa"      # um projeto real opera sob UM arranjo de governança

@@ -1,6 +1,25 @@
 # Correção estrutural do MVP — 16/09/2026
 
-> **Leitura revista em 17/09:** o [teste discriminante de TL](21_TESTE_DISCRIMINANTE_TL_2026-09-17.md) mostrou troca de sinal de E_total entre convenções. A inversão abaixo pertence ao TL unitário e não sustenta conclusão de governança. Os valores históricos permanecem preservados.
+## Regra de leitura vigente — 17/09/2026
+
+[DEC] `E_total` é exclusivamente uma **grandeza diagnóstica interna**. Foi retirada
+das conclusões de governança. Seu denominador soma termos em unidades distintas:
+TW em períodos de trabalho, TL em eventos de ajuda na convenção unitária
+(ou incrementos contábeis da Eq. 3), TU em períodos bloqueados e TR em esforço.
+Sem uma ponte de unidades, a razão não mede eficiência ou produtividade externa.
+O sinal do contraste depende da convenção de TL. `lei_tempo_aprendizado` permanece
+alternativa varrida; toda nova apresentação de `E_total` deve reportar conjuntamente
+`unitario` e `crowder_eq3`. Tabelas antigas de uma única convenção são arquivo
+histórico, não evidência de governança; os dados originais não são sobrescritos.
+
+A conclusão interna de governança se apoia em `atraso_relativo`, falhas não
+reportadas (`taxa_omissao`) e `divida_latente_sobre_plano`, com contrastes negativos
+em toda a família declarada. Nenhum deles contém TL no denominador nem muda com
+sua convenção. Evidência e limites: [verificação explícita](22_OBSERVAVEIS_VOBS_VMOD.md).
+Isso não transforma atraso contra CPM em crescimento de prazo observado externamente.
+
+
+> **Leitura revista em 17/09:** o [teste discriminante de TL](21_TESTE_DISCRIMINANTE_TL_2026-09-17.md) mostrou troca de sinal de E_total entre convenções. E_total foi retirada das tabelas de resultados de governança; sua apresentação diagnóstica conjunta está no relatório 21. Os valores históricos permanecem preservados.
 
 ## Estado
 
@@ -72,18 +91,12 @@ Diferença = adaptativa − centralizada; 16 instâncias, 12 sementes por cenár
 | Métrica | Centralizada | Adaptativa | Diferença | IC95 da diferença |
 |---|---:|---:|---:|---|
 | atraso_relativo | 3.060802 | 2.037381 | -1.023421 | [-1.113870; -0.932973] |
-| E_total | 0.706713 | 0.655868 | -0.050845 | [-0.059773; -0.041916] |
 | taxa_omissao | 0.312500 | 0.084288 | -0.228212 | [-0.242839; -0.213584] |
 | retrabalho_sobre_plano | 0.289204 | 0.234953 | -0.054251 | [-0.065545; -0.042957] |
 | divida_latente_sobre_plano | 0.103272 | 0.025458 | -0.077815 | [-0.086201; -0.069428] |
 
-Sob TL unitário, E_total mudou de sinal: legado +0,104631; corrigido −0,050845.
-O teste posterior da Eq3 altera esse sinal; essa inversão não é destacada como achado de governança.
-Não há preservação de todas as conclusões de governança. O detalhamento
-incremental mostra aumento da contagem TL após a mudança conjunta de escala/protocolo e
-reset C6; TL adaptativo passa de 10,854 (C4+C1) a 102,859 (com reset).
-Ao mesmo tempo TW cai de 500,922 para 433,016. Esses componentes explicam
-a mudança na razão contábil, sem autorizá-la como ganho/perda de produtividade empírica.
+`E_total` foi retirada da interpretação e da tabela de governança. A apresentação
+diagnóstica nas duas convenções está no relatório 21. Os componentes completos permanecem disponíveis para auditoria.
 
 O controle C4 de tempo apenas versus C4 completo isola o risco: TR centralizado
 passa de 64,020 para 95,911; adaptativo, de 49,057 para 64,604. O custo
@@ -93,9 +106,8 @@ de qualidade entrou sem forçar toda omissão a falhar e sem escolher rho pelo r
 
 129 configurações, 4.128 execuções, nenhuma censurada e nenhuma violação.
 Atraso, falhas não reportadas e dívida latente tiveram contraste negativo em
-129/129 configurações. TR teve 126 contrastes negativos e 3 positivos; E_total,
-124 negativos e 5 positivos. Os intervalos das células de sinal positivo
-em TR/E_total incluem zero; n=4 instâncias exige cautela. Nenhuma célula foi
+129/129 configurações. TR teve 126 contrastes negativos e 3 positivos. Os intervalos das células de
+sinal positivo em TR incluem zero; n=4 instâncias exige cautela. Nenhuma célula foi
 selecionada para substituir o nominal. Esses resultados cobrem a família declarada.
 
 ## Seleção da Porta 1 e amplificação de rho
@@ -139,9 +151,6 @@ confiança. Agregando termos e suas interações com B/C/D:
 
 As parcelas somam o contraste −1,023421. Percentuais são contribuições
 algébricas assinadas na referência centralizada, não importâncias independentes.
-Em E_total, os grupos G sem N e N sem G contribuem −0,021555 e −0,047562;
-as interações G/N contribuem +0,014194 e os demais termos +0,004079.
-Não se atribui a inversão a um único coeficiente de confiança.
 
 ## Verificação final e arquivos de comparação
 
