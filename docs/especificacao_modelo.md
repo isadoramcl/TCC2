@@ -508,3 +508,12 @@ Fórmulas, decisões de protocolo, unidades e testes estão no
 O relatório 11 e B1/B3/B7/B9 anteriores foram congelados. Resultados da
 alternativa devem ser identificados pela pasta e manifesto de reexecução;
 a formulação nova não substitui silenciosamente a evidência histórica.
+
+
+### Alternativa de contagem TL — 17/09/2026
+
+`lei_tempo_aprendizado=unitario` preserva o nominal. `crowder_eq3` conta
+0,5*dC_original por sucesso e0,05 por pedido não atendido; bloqueio não conta.
+Não muda ocupação/relógio. O [teste21](../projeto/21_TESTE_DISCRIMINANTE_TL_2026-09-17.md)
+mostra troca de sinal de E_total sem mudança física; a razão não sustenta
+conclusão de governança independente dessa convenção.

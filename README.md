@@ -237,8 +237,9 @@ confiança foram substituídas. Esses números não são resultados do MVP corri
 A [sequência de correção](research/PLANO_CORRECAO_ESTRUTURAL.md) registra
 compatibilidade bit a bit, risco da omissão, contrafactual com controle negativo,
 Crowder, reset de competência e instrumentação por tarefa. A [reexecução e análise corrigidas](projeto/19_CORRECAO_ESTRUTURAL_MVP_2026-09-16.md)
-terminaram: 21.440 execuções e 34 testes, sem violações. O contraste de E_total
-inverteu no nominal; as conclusões anteriores não foram simplesmente mantidas.
+terminaram: 21.440 execuções e 34 testes, sem violações. O [teste discriminante de TL](projeto/21_TESTE_DISCRIMINANTE_TL_2026-09-17.md)
+mostrou que o sinal de E_total depende da convenção de contagem; não sustenta
+conclusão de governança. Unitário permanece como default, Eq3 como alternativa.
 
 Os [comandos de reprodução](research/REPRODUCAO.md) recuperam evidências históricas
 por commit e hash, sem depender de arquivos da máquina da autora. As

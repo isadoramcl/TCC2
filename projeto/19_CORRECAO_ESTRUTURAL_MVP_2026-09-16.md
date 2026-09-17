@@ -1,5 +1,7 @@
 # Correção estrutural do MVP — 16/09/2026
 
+> **Leitura revista em 17/09:** o [teste discriminante de TL](21_TESTE_DISCRIMINANTE_TL_2026-09-17.md) mostrou troca de sinal de E_total entre convenções. A inversão abaixo pertence ao TL unitário e não sustenta conclusão de governança. Os valores históricos permanecem preservados.
+
 ## Estado
 
 Etapas 1–7 concluídas: 21.408 execuções de comparação/robustez/canais/B9 e
@@ -75,9 +77,10 @@ Diferença = adaptativa − centralizada; 16 instâncias, 12 sementes por cenár
 | retrabalho_sobre_plano | 0.289204 | 0.234953 | -0.054251 | [-0.065545; -0.042957] |
 | divida_latente_sobre_plano | 0.103272 | 0.025458 | -0.077815 | [-0.086201; -0.069428] |
 
-**E_total inverteu o sinal nominal**: legado +0,104631; corrigido −0,050845.
+Sob TL unitário, E_total mudou de sinal: legado +0,104631; corrigido −0,050845.
+O teste posterior da Eq3 altera esse sinal; essa inversão não é destacada como achado de governança.
 Não há preservação de todas as conclusões de governança. O detalhamento
-incremental mostra aumento do aprendizado após normalização/protocolo e
+incremental mostra aumento da contagem TL após a mudança conjunta de escala/protocolo e
 reset C6; TL adaptativo passa de 10,854 (C4+C1) a 102,859 (com reset).
 Ao mesmo tempo TW cai de 500,922 para 433,016. Esses componentes explicam
 a mudança na razão contábil, sem autorizá-la como ganho/perda de produtividade empírica.
@@ -175,3 +178,11 @@ As fragilidades de unidade/nível de agregação, Di/gradiente, fator temporal,
 P1 externa, protocolo de comunicação e reparos sem reincidência permanecem
 explícitas. Fechamento de software e robustez interna não equivalem a validação
 empírica nem a calibração do modelo.
+
+### Correção da leitura incremental — parecer 20
+
+O degrau C4_C1_comunicacao combina protocolo, escala do incremento e teto de
+competência. Não identifica isoladamente o efeito do protocolo. O legado
+permanece fora de escala por compatibilidade (+0,162 versus +0,042 no exemplo
+Cp0,8/Cr0,4). Componentes TW/TL/TU/TR dos dois cenários, em todos os degraus,
+estão publicados no relatório21 e em teste_TL_20260917/componentes_escada.csv.

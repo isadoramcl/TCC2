@@ -1210,3 +1210,11 @@ parecer 18 resolvida pela instrução direta da autora e pelo PDF p. 1431).
 Nenhum parâmetro foi escolhido por melhorar o contraste. O contraste de
 E_total inverteu no nominal corrigido e deve aparecer explicitamente nos
 resultados; a razão contábil não será renomeada produtividade calibrada.
+
+
+## 17/09/2026 — teste discriminante de TL
+
+A Eq3 entra como alternativa, sem substituir unitário. O contraste nominal
+de E_total troca de sinal mantendo estados físicos/RNG idênticos. Retirada a
+interpretação da inversão como conclusão de governança. C4_C1_comunicacao
+combina protocolo/escala/teto, conforme [resposta21](../projeto/21_TESTE_DISCRIMINANTE_TL_2026-09-17.md).
