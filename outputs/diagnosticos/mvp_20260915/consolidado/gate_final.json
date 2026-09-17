@@ -1,0 +1,31 @@
+{
+  "python": "3.9.6",
+  "numpy": "1.26.4",
+  "pandas": "2.2.3",
+  "scipy": "1.11.4",
+  "PyYAML": "6.0.2",
+  "execucoes": 17920,
+  "hashes_verificados": 38,
+  "nominais_mvp_comparados": 384,
+  "max_diferenca_mvp": 0.0,
+  "fontes_complementares": {
+    "data/processed/psplib/instancias_j60.csv": {
+      "sha256": "1f2d8b3a4bc9ccfe9bb635a90f5ab28742153674c16292372be269fc1fa79aec",
+      "commit_origem": "dc8721f61c45c42d6c027cb7f1013e87fcc86e0e"
+    },
+    "outputs/tables/modelo_10_fatorial_celulas.csv": {
+      "sha256": "b27e4a685e4b359a7d98a1212fe7ffa3cd3033bb3e5b04ff4b7705ecd5b19ea4",
+      "commit_origem": "dc8721f61c45c42d6c027cb7f1013e87fcc86e0e"
+    },
+    "outputs/tables/modelo_10_fatorial_decomposicao.csv": {
+      "sha256": "0661b79ce3e1f351b298dba222a0ba028a618714c409b11dcdf57bb2fdabecc1",
+      "commit_origem": "dc8721f61c45c42d6c027cb7f1013e87fcc86e0e"
+    }
+  },
+  "clone_limpo": {
+    "commit_verificado": "dd29e29",
+    "testes_aprovados": 19,
+    "evidencias_historicas_recuperadas": 90,
+    "tabelas_consolidadas_identicas": 9
+  }
+}

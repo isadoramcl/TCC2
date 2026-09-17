@@ -1,6 +1,7 @@
-# TCC2 — Calibração NASA MDP e dificuldade técnica no PSPLIB J60
+# TCC2 — Modelagem e simulação da gestão de equipes de engenharia
 
-Implementação do pipeline de dados do Trabalho de Conclusão de Curso II.
+Desenvolvimento computacional do Trabalho de Conclusão de Curso II: dados,
+modelo híbrido de agentes e dinâmica de sistemas, experimentos e análise.
 
 - **Autora:** Isadora Maria Carvalho Lopes
 - **Orientador:** Prof. André Costa Batista
@@ -10,14 +11,14 @@ Implementação do pipeline de dados do Trabalho de Conclusão de Curso II.
 
 ## Objetivo
 
-Reproduzir em Python, a partir dos dados brutos, o procedimento de limpeza
-**D''** proposto por Shepperd et al. para os conjuntos NASA MDP; validar o
-resultado contra os arquivos D'' publicados pelos autores; e, em etapa
-posterior, construir o proxy de dificuldade técnica sobre o PSPLIB J60.
+Investigar a gestão de equipes em projetos de engenharia por modelagem e
+simulação, dando continuidade ao modelo conceitual do TCC I.
 
-O objetivo **não** é construir o melhor classificador de defeitos de software,
-e sim obter uma relação interpretável e transferível ordinalmente entre
-complexidade e risco basal.
+A camada NASA MDP fornece um gradiente ordinal de risco, sem estabelecer efeito
+causal independente da complexidade. O PSPLIB J60 fornece redes de tarefas,
+durações e restrições de recursos. O simulador combina esses elementos com
+premissas sobre cognição, assistência e governança. A taxa basal absoluta de
+retrabalho em engenharia permanece aberta; não foi estimada pela NASA.
 
 ---
 
@@ -36,14 +37,16 @@ data/
 
 src/
 ├── nasa/                     scripts do pipeline NASA MDP
-└── psplib/                   scripts do pipeline PSPLIB
+├── psplib/                   scripts do pipeline PSPLIB
+└── modelo/                   simulador, verificações e experimentos
 
 outputs/
 ├── tables/                   tabelas de resultado
 ├── figures/                  figuras
 └── logs/                     logs de execução do pipeline
 
-docs/                         guia metodológico e registro de decisões
+docs/                         especificação, entrega e registro de decisões
+projeto/                      orientações, auditoria e backlog
 ```
 
 ---
@@ -188,16 +191,85 @@ vezes por artefato do tamanho dos estratos.
 
 ---
 
-## Estado atual
+## Estado atual e ponto de entrada
 
-Camada de dados concluída e verificada em ambas as bases. Nove scripts, todos com
-verificação automática aprovada, reproduzidos de forma idêntica em dois ambientes
-computacionais distintos.
+O simulador já está implementado. Há experimentos de cenários, calibração com
+gêmeo sintético, ablações de governança, análise fatorial, sensibilidades e
+reanálise por instância. O resultado preliminar não deve ser confundido com
+validação empírica do comportamento humano de equipes.
 
-Pendente: modelo de simulação (ABM + Dinâmica de Sistemas), parâmetros
-comportamentais, inferência difusa, e a fixação da âncora `F_ancora` por dado do
-domínio de engenharia.
+A [auditoria de 15/09/2026](projeto/08_AUDITORIA_AUTONOMA_2026-09-15.md) reúne
+arquitetura, inventário dos resultados, verificações existentes, divergências e
+backlog priorizado. O merge auditado foi concluído em `dc8721f`; a preservação
+da rodada 2 foi registrada antes do rebase e reconciliada depois dele.
+As seções históricas acima descrevem principalmente a camada de dados.
 
-Entrega 1 ao orientador em `docs/entrega1_metodologia_resultados_iniciais.docx`.
-Registro completo de decisões, achados e justificativas em
-`docs/registro_de_decisoes.md`.
+### Documento oficial
+
+Por indicação da autora, a análise preliminar oficial é a **cópia local** de
+`docs/entrega1_metodologia_resultados_iniciais.docx`. O snapshot versionado
+[`analise_preliminar_oficial_2026-09-15.docx`](docs/snapshots/analise_preliminar_oficial_2026-09-15.docx)
+é um ponteiro imutável para a cópia conferida, com SHA-256
+`d5a658f1cdf03d99e6bdc0b5d03cb4aaa9420853ec7ebc2bb3f55e85a728c57d`.
+Antes de qualquer regeneração, confira uma cópia viva explicitamente, sem editá-la:
+
+```sh
+python3 research/verificar_documento_oficial.py --vivo /caminho/para/analise_preliminar.docx
+```
+
+O documento local já ressalva a conclusão sobre identificabilidade e declara
+que o retrabalho contabilizado não ocupa agentes. Algumas afirmações antigas
+no registro e na especificação ainda divergem desse conteúdo; ver a auditoria.
+
+### Resposta à revisão independente
+
+A [resposta de 15/09/2026](projeto/10_RESPOSTA_REVISAO_2026-09-15.md) classifica
+cada crítica, preserva os resultados negativos e atualiza o backlog. O piloto
+com produto constante refutou a interpretação de que as saídas só observam
+`F_ancora × f_retrabalho`. A confiança atua no portão e no multiplicador de rede;
+o legado permanece preservado.
+
+O [relatório 11](projeto/11_MVP_RESULTADOS_2026-09-16.md) e suas 17.920
+execuções estão **congelados como pré-correção estrutural**. C4 estava sem o
+excesso de risco; o controle neutro revelou deriva do laço e as leis de
+confiança foram substituídas. Esses números não são resultados do MVP corrigido.
+
+A [sequência de correção](research/PLANO_CORRECAO_ESTRUTURAL.md) registra
+compatibilidade bit a bit, risco da omissão, contrafactual com controle negativo,
+Crowder, reset de competência e instrumentação por tarefa. A [reexecução e análise corrigidas](projeto/19_CORRECAO_ESTRUTURAL_MVP_2026-09-16.md)
+terminaram: 21.440 execuções e 34 testes, sem violações. O [teste discriminante de TL](projeto/21_TESTE_DISCRIMINANTE_TL_2026-09-17.md)
+mostrou que o sinal de E_total depende da convenção de contagem; não sustenta
+conclusão de governança. Unitário permanece como default, Eq3 como alternativa.
+
+Os [comandos de reprodução](research/REPRODUCAO.md) recuperam evidências históricas
+por commit e hash, sem depender de arquivos da máquina da autora. As
+[fontes verificadas](research/SOURCES.md) distinguem apoio bibliográfico e inferência.
+Há snapshots fiéis da [análise preliminar oficial](docs/snapshots/analise_preliminar_oficial_2026-09-15.docx)
+e do [TCC I](docs/snapshots/TCC_I_referencia_2026-09-15.pdf). Preservar as cópias locais;
+os snapshots não autorizam regenerá-las sobre edições da autora.
+
+### Prioridade vigente
+
+- MVP corrigido e robustez concluídos; consultar o relatório 19 e as tabelas incrementais.
+- B1/B3/B7/B9 e relatório 11 só podem ser usados como controles históricos até reexecução.
+- Depois do MVP: V_obs/V_mod, implausibilidade perfilada e fragilidades restantes.
+- Sem novas ondas de History Matching, substituição do método ou busca de melhor política.
+
+Os hashes das saídas congeladas estão no
+[manifesto de congelamento](research/CONGELAMENTO_PRE_CORRECAO.json).
+
+### Continuidade e execução
+
+Leia as [orientações atuais da autora](projeto/07_AUTONOMIA.md) e a [sequência de correção estrutural](research/PLANO_CORRECAO_ESTRUTURAL.md)
+antes de escolher a próxima tarefa. Não use o backlog histórico como prova de
+que um defeito continua presente: várias correções já existem no estado local.
+
+Diagnóstico pequeno, sem sobrescrever resultados publicados:
+
+```sh
+python3 src/modelo/15_diagnostico_hm.py --saida /tmp/tcc2_hm_diagnostico
+```
+
+A pasta de saída deve ainda não existir. Versões do ambiente, sementes, hashes,
+resultados por execução e controles são registrados pelo script. Isso não
+substitui a validação do ambiente completo definido em `requirements.txt`.

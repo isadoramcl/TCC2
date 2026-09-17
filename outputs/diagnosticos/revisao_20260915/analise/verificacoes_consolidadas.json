@@ -1,0 +1,50 @@
+{
+  "produto": {
+    "n_execucoes": 192,
+    "tarefas_incompletas": 0,
+    "execucoes_com_divida": 0,
+    "violacoes": 0,
+    "controles_nominais": {},
+    "segundos": 14.149857958,
+    "fontes_preservadas": true
+  },
+  "ruido": {
+    "n_execucoes": 512,
+    "tarefas_incompletas": 0,
+    "execucoes_com_divida": 0,
+    "violacoes": 0,
+    "controles_nominais": {},
+    "segundos": 41.701114708,
+    "fontes_preservadas": true
+  },
+  "cobertura": {
+    "n_execucoes": 560,
+    "tarefas_incompletas": 0,
+    "execucoes_com_divida": 0,
+    "violacoes": 0,
+    "controles_nominais": {},
+    "segundos": 42.054809042,
+    "fontes_preservadas": true
+  },
+  "confianca": {
+    "n_execucoes": 208,
+    "tarefas_incompletas": 0,
+    "execucoes_com_divida": 0,
+    "violacoes": 0,
+    "controles_nominais": {
+      "0.25": true,
+      "0.8": true
+    },
+    "segundos": 20.8493375,
+    "fontes_preservadas": true
+  },
+  "vertices": {
+    "n_execucoes": 128,
+    "tarefas_incompletas": 0,
+    "execucoes_com_divida": 0,
+    "violacoes": 0,
+    "controles_nominais": {},
+    "segundos": 10.403606125,
+    "fontes_preservadas": true
+  }
+}

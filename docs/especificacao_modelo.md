@@ -1,5 +1,27 @@
 # Especificação do modelo de simulação — versão 1.0
 
+> **MVP — atualização de 16/09/2026:** a alternativa está em
+> [`simulador_mvp.py`](../src/modelo/simulador_mvp.py), preservando o legado.
+> C4 reduz a duração da omissão; C1 põe reparos na fila com agente e recurso;
+> C3 oferece duas leis candidatas, sem eleger uma. Robustez entra no MVP;
+> calibração e fragilidades vêm depois, juntas. Nenhuma nova onda de HM.
+> As premissas e a sequência de controles estão em
+> [PLANO_MVP](../research/PLANO_MVP.md); números anteriores abaixo são históricos.
+
+> **Resposta à revisão científica:** a [reanálise e os pilotos](../projeto/10_RESPOSTA_REVISAO_2026-09-15.md)
+> refutaram a suficiência do produto F_ancora × f_retrabalho para todas as saídas.
+> A interpretação histórica abaixo foi superada; a crista empírica permanece,
+> mas não prova identificabilidade estrutural. Confiança afeta portão e rede.
+> Consulte a resposta para o alcance dos resultados e a prioridade atual.
+
+> **Nota de atualização — 15/09/2026:** este arquivo contém registros anteriores
+> à auditoria atual. Consulte o [estado auditado e as divergências](../projeto/08_AUDITORIA_AUTONOMA_2026-09-15.md)
+> antes de reutilizar conclusões. A análise preliminar oficial é o DOCX local
+> `docs/entrega1_metodologia_resultados_iniciais.docx`, por indicação da autora.
+> Em particular, convergência das ondas e identificabilidade estrutural ainda
+> não estão demonstradas; o simulador contabiliza TR sem ocupar agentes, embora
+> a especificação histórica descreva retorno do retrabalho à fila.
+
 Documento normativo. **Nenhuma linha do simulador deve ser escrita antes desta
 especificação estar revisada**, e nenhum valor numérico deve ser embutido no
 código: todos vêm de `config/parametros.yaml`.
@@ -466,7 +488,32 @@ produto `p_falha × f_retrabalho`. O produto tem redução de **74,7%**, contra
 por tarefa — e declarar a divisão entre frequência e severidade como não
 identificada.
 
-`[LIMITACAO]` O gêmeo idêntico tem `V_mod = 0`: o modelo é a verdade. O teste é
-otimista por construção. Falhar nele condenaria o procedimento; passar nele não
-garante desempenho com dados reais, onde a discrepância modelo-realidade precisa
-ser especificada. Registrar assim na entrega.
+`[CORREÇÃO — rodada 2]` `V_mod = 0` não torna o critério otimista: a
+observação sintética fixa contém erro amostral. Reduzir `V_sim` estreita o
+denominador e pode excluir o vetor gerador. Isso ocorreu no piloto K=64; o
+limite formal usa a média exata, ainda desconhecida. A incerteza de observação
+e a cobertura serão tratadas depois do MVP; não escolher discrepância para
+forçar aprovação.
+
+
+## Alternativa estrutural de 16/09/2026 — implementação separada
+
+O código legado deste documento permanece em `simulador.py`. A alternativa
+`simulador_mvp.py` incorpora C4 completo (tempo e excesso de risco dependente
+de sobrecarga), fila C1, Crowder normalizado, reset C6 e horizonte terminal.
+Fórmulas, decisões de protocolo, unidades e testes estão no
+[relatório 19](../projeto/19_CORRECAO_ESTRUTURAL_MVP_2026-09-16.md) e no
+[registro de execução](../research/PLANO_CORRECAO_ESTRUTURAL.md).
+
+O relatório 11 e B1/B3/B7/B9 anteriores foram congelados. Resultados da
+alternativa devem ser identificados pela pasta e manifesto de reexecução;
+a formulação nova não substitui silenciosamente a evidência histórica.
+
+
+### Alternativa de contagem TL — 17/09/2026
+
+`lei_tempo_aprendizado=unitario` preserva o nominal. `crowder_eq3` conta
+0,5*dC_original por sucesso e0,05 por pedido não atendido; bloqueio não conta.
+Não muda ocupação/relógio. O [teste21](../projeto/21_TESTE_DISCRIMINANTE_TL_2026-09-17.md)
+mostra troca de sinal de E_total sem mudança física; a razão não sustenta
+conclusão de governança independente dessa convenção.

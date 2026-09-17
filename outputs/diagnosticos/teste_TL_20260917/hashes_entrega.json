@@ -1,0 +1,19 @@
+{
+  "outputs/diagnosticos/teste_TL_20260917/mudanca_contraste_IC95.csv": "b77120692db2a4b1a3083415761ad5fef9e7a98947942c8bc7bacb53c3a3f1a0",
+  "outputs/diagnosticos/teste_TL_20260917/manifesto.json": "c140061374dbc43823bf70c2f530c974ed5b658a84567baf7c90a8183987141b",
+  "outputs/diagnosticos/teste_TL_20260917/componentes_nominais.csv": "2ef90c5475032d6c9bd6763dc267cebe08ae3bf22f6d8876a5b98a89a9cb63cb",
+  "outputs/diagnosticos/teste_TL_20260917/componentes_por_instancia.csv": "593317a2800cf47255f6340b0eebd05bf843df8e2c48d423f4f339f71f8cd341",
+  "outputs/diagnosticos/teste_TL_20260917/componentes_escada.csv": "be96a6a7a9d14c29c949daa785b4d3539549071980d5d31a94575df364d046e6",
+  "outputs/diagnosticos/teste_TL_20260917/verificacoes.json": "e2d54ac5c07dbe3a0d8d9d2a818b645efbc4f9e4a943236ba50cd61448a071ab",
+  "outputs/diagnosticos/teste_TL_20260917/bruto.csv": "5bd69bee352b4e137e7ccd44fc00d1584523476181eaf046d8e6f6ee92a616db",
+  "outputs/diagnosticos/teste_TL_20260917/E_total_IC95.csv": "6e0a47f408aeb59800824508ccc9413a9760a5cc96e158d397f636a9bf779ed2",
+  "README.md": "2928e4d73fbd2e45771b73f83e57bd8b043dacd1736b8f412f73695fed335c90",
+  "docs/especificacao_modelo.md": "28525bceefc42a63af039e3d11a39792d96ca3157989286d6523e5644e06a1b7",
+  "docs/registro_de_decisoes.md": "d80b645fb7cd9b5e65c95cc3d2b78668a15fb9834a281fa844ca4208629f601b",
+  "projeto/20_AUDITORIA_CORRECAO_1fd22ff.md": "8dccd6feef7c357f47f19acc8204688eb76e7084e961c6d228c06587aa1bd12e",
+  "projeto/21_TESTE_DISCRIMINANTE_TL_2026-09-17.md": "406f34d7620a3242cb5319606103f1974146599bd209a1e749fcad2c56b51876",
+  "research/PLANO_TESTE_TL.md": "3967757017b55f6d425b47de293cd13016c4ce95e6cb0e853783bd91cf9db2e9",
+  "research/test_compatibilidade.py": "6d321e8264a124e2faa699a43156740cf45403bc90cc4d2bffedbc3fe4dfe6e8",
+  "research/test_tempo_aprendizado.py": "76e12baae000002e4bace30a56f2d0120cbdf1f147e49d202942805bd94738c0",
+  "research/test_runner_tl.py": "08bec255301bbf6b502ce0b3928da936c866b5bb0ea4bf25fe5f4f0193761d94"
+}

@@ -1,0 +1,9 @@
+{
+  "n_execucoes": 128,
+  "tarefas_incompletas": 0,
+  "execucoes_com_divida": 0,
+  "violacoes": 0,
+  "controles_nominais": {},
+  "segundos": 10.403606125,
+  "fontes_preservadas": true
+}

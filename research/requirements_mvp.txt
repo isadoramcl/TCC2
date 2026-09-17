@@ -1,0 +1,6 @@
+# Ambiente efetivo dos pilotos/MVP desta branch (Python 3.9.6).
+# Não substitui requirements.txt do projeto; ver ressalva de p auto.
+numpy==1.26.4
+pandas==2.2.3
+scipy==1.11.4
+PyYAML==6.0.2

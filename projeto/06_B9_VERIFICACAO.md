@@ -1,10 +1,19 @@
 # B9 — verificação metodológica antes de usar qualquer número no texto
 
+> **PRÉ-CORREÇÃO ESTRUTURAL — congelado em 16/09/2026.** Números históricos preservados; não constituem resultado do MVP corrigido nem alimentam conclusão final sem reexecução. Ver `research/CONGELAMENTO_PRE_CORRECAO.json` e `research/PLANO_CORRECAO_ESTRUTURAL.md`.
+
+> **Atribuição revista no MVP:** A = τ_inicial move o portão de ajuda **e**
+> a entrada do multiplicador de rede. O fatorial 2⁵ separa G (portão), N (rede),
+> B (limiar), C (reporte) e D (detecção). N não é o multiplicador cognitivo
+> direto: este recebe fadiga e pressão. Há efeitos indiretos entre canais.
+> Percentuais abaixo descrevem o legado; não são participação da assistência.
+> As tabelas ANTES/DEPOIS ficam em `outputs/diagnosticos/mvp_20260915/`.
+
 Scripts: `src/modelo/09_sensibilidade_tau_min.py`, `src/modelo/10_decomposicao_fatorial.py`
 Tabelas: `modelo_09_sensibilidade_tau_min.csv`, `modelo_10_fatorial_celulas.csv`,
 `modelo_10_fatorial_decomposicao.csv`
 Execuções acrescentadas: 2.112 (sensibilidade) + 3.072 (fatorial) = 5.184.
-Nenhuma alteração no mecanismo nominal. Nenhum commit.
+Registro histórico da análise anterior ao MVP; o mecanismo legado foi preservado no Git.
 
 ---
 
@@ -53,11 +62,11 @@ dívida" está errada por construção. A interação dominante é `CD`
 parte o mesmo trabalho — converter dívida oculta em retrabalho visível — e
 juntos entregam muito menos que a soma dos isolados.
 
-### 1.3 Linguagem a usar daqui em diante
+### 1.3 Linguagem corrigida após separação dos canais
 
 | não escrever | escrever |
 |---|---|
-| "τ_inicial explica 99% da redução de ociosidade" | "ao neutralizar a assistência, o contraste de ociosidade entre as políticas desaparece e inverte de sinal" |
+| "τ_inicial explica 99% da redução de ociosidade" | "a ablação mede o contraste sob a intervenção na Porta 2; τ_inicial também atua na rede. Relatar TU e TL separadamente e usar a decomposição G/N para atribuição" |
 | "p_reporte explica 82% da dívida" | "no fatorial 2⁴, o efeito principal de p_reporte vale −0,0444 sobre um contraste de −0,0540; as interações valem +0,0334, das quais −45,5% do contraste vêm da interação com p_detecção" |
 | "X% do efeito vem de Y" | "substituir isoladamente Y reproduz Z% do contraste nominal (não é decomposição: ver interações)" |
 

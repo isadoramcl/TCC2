@@ -1,5 +1,7 @@
 # B9 — Ablação do experimento de governança
 
+> **PRÉ-CORREÇÃO ESTRUTURAL — congelado em 16/09/2026.** Números históricos preservados; não constituem resultado do MVP corrigido nem alimentam conclusão final sem reexecução. Ver `research/CONGELAMENTO_PRE_CORRECAO.json` e `research/PLANO_CORRECAO_ESTRUTURAL.md`.
+
 Execução: 07/09/2026 · 2.880 execuções · 16 instâncias × 12 sementes × 15 braços
 Unidade inferencial: **instância** (n = 16). Menor valor-p bilateral atingível no
 Wilcoxon pareado: 3,05e-05. Nenhum p abaixo disso é interpretável.

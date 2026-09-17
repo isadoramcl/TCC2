@@ -1,0 +1,3 @@
+cenario,n,n_P1,q_medio,q_condicional_P1,taxa_P1,nota
+adaptativa,2910,556,0.11314719838405109,0.5851762537534578,0.19106529209621992,seleção por p_heu; não comparar médias de duração/erro por porta como efeito causal
+centralizada,2749,647,0.165153812887387,0.6963158729487862,0.2353583121134958,seleção por p_heu; não comparar médias de duração/erro por porta como efeito causal

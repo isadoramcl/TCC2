@@ -1,5 +1,27 @@
 # Registro de decisões metodológicas, achados e problemas
 
+> **MVP — atualização de 16/09/2026:** a alternativa está em
+> [`simulador_mvp.py`](../src/modelo/simulador_mvp.py), preservando o legado.
+> C4 reduz a duração da omissão; C1 põe reparos na fila com agente e recurso;
+> C3 oferece duas leis candidatas, sem eleger uma. Robustez entra no MVP;
+> calibração e fragilidades vêm depois, juntas. Nenhuma nova onda de HM.
+> As premissas e a sequência de controles estão em
+> [PLANO_MVP](../research/PLANO_MVP.md); números anteriores abaixo são históricos.
+
+> **Resposta à revisão científica:** a [reanálise e os pilotos](../projeto/10_RESPOSTA_REVISAO_2026-09-15.md)
+> refutaram a suficiência do produto F_ancora × f_retrabalho para todas as saídas.
+> A interpretação histórica abaixo foi superada; a crista empírica permanece,
+> mas não prova identificabilidade estrutural. Confiança afeta portão e rede.
+> Consulte a resposta para o alcance dos resultados e a prioridade atual.
+
+> **Nota de atualização — 15/09/2026:** este arquivo contém registros anteriores
+> à auditoria atual. Consulte o [estado auditado e as divergências](../projeto/08_AUDITORIA_AUTONOMA_2026-09-15.md)
+> antes de reutilizar conclusões. A análise preliminar oficial é o DOCX local
+> `docs/entrega1_metodologia_resultados_iniciais.docx`, por indicação da autora.
+> Em particular, convergência das ondas e identificabilidade estrutural ainda
+> não estão demonstradas; o simulador contabiliza TR sem ocupar agentes, embora
+> a especificação histórica descreva retorno do retrabalho à fila.
+
 Documento vivo. Cada entrada indica a **origem**: `[LITERATURA]` para o que vem
 de fonte publicada, `[DECISÃO]` para escolha metodológica deste trabalho,
 `[ACHADO]` para resultado empírico obtido pelo pipeline, `[ABERTO]` para questão
@@ -1128,3 +1150,71 @@ problema — é o método informando corretamente onde está o teto.
 `fig10_nroy_identificabilidade.png` — painel A: a crista, com a hipérbole de
 produto constante passando pelo vetor verdadeiro; painel B: redução marginal por
 parâmetro, com os cortes de 25% e 50%.
+
+## 18. MVP: alternativas preservadas e decisões explícitas — 16/09/2026
+
+- **C4 [DEC]:** duração `ceil(duração × fator_omissão / (μ_cog μ_rede))`,
+  piso de um período. Família declarada {0,50; 0,75; 1,00}; 0,75 é candidato
+  central, não estimativa ou solução ótima. Severidade continua referida à
+  duração original; não compensamos risco para obter um resultado.
+- **C1 [DEC]:** falha reportada entra na fila após fim original; falha oculta
+  entra quando detectada, nunca antes do fim original. Reparo FIFO elegível
+  ocupa um agente e demanda os mesmos recursos da tarefa. Esforço fracionário
+  paga até uma unidade por período; a capacidade fica reservada durante
+  `ceil(esforço)`. Não gera reparos recursivos. Não desfaz trabalho sucessor já
+  iniciado nem apaga a contagem histórica de omissões. Generalizações são
+  alternativas futuras, não consequências implícitas desta correção.
+- **Contabilidade:** esforço gerado = TR pago + oculto + reparos pendentes.
+  `TW` na alternativa conta períodos realizados, inclusive em censura. O
+  legado continua disponível com seus números e sua contabilidade original.
+- **Ajuda:** ambos participantes ficam indisponíveis no período da interação;
+  TL conserva a unidade legada de serviço de ajuda, não duas pessoa-horas.
+  O controle de motor separa essa correção do fator de C4. `E_total` permanece
+  índice contábil; não deve ser interpretado como eficiência nem como fração
+  exaustiva do calendário de todos os agentes.
+- **C3 [DEC]:** por evento de ajuda, os dois participantes recebem sucesso;
+  por recusa com colega fisicamente elegível, só o solicitante recebe recusa.
+  Na lei `media_eventos`, τ ← τ + 0,05(y−τ), y ∈ {0,1}; na lei
+  `saldo_eventos`, τ ← clip(τ+0,02 em sucesso ou τ−0,01 em recusa).
+  Atualização no fim do período, limitada a [0,1]. Sem evento, τ não muda.
+  São leis candidatas distintas. O TCC I não escolhe nenhuma delas; a escolha
+  aguarda orientação, não o melhor resultado no experimento.
+- **A10/B6:** horizonte inicial dobra preservando estado e RNG; término somente
+  em estado absorvente sem tarefas, agentes ou dívida pendentes. Limite de
+  segurança 256×CPM, explicitamente censurado se atingido. Estabilidade não
+  significa uma janela de média aparentemente plana. Recursos impossíveis
+  falham antes da execução.
+- **A11:** os quatro esquemas de pesos declarados no YAML alimentam Di e novos
+  quartis globais. Controle 1/3 exato usa o arquivo histórico sem recalcular;
+  a diferença para 0,3333/0,3333/0,3334 fica medida em braço próprio.
+- **Governança:** família finita de políticas e pontos plausíveis, sem função
+  objetivo, busca adaptativa ou ranking. G e N separados no fatorial 2⁵;
+  interações permanecem explícitas. Rede não é o canal cognitivo direto.
+- **Regra de sequência:** robustez no MVP; depois, V_obs/V_mod, perfil de
+  implausibilidade e fragilidades. Não executar novas ondas de HM nesta fase.
+
+
+## 16/09/2026 — correção estrutural após pareceres 12–18
+
+Implementação anterior preservada em efd81b7 e no simulador legado. Ordem:
+compatibilidade; C4 qualidade; contrafactual negativo; Crowder/reset; registro
+por tarefa; congelamento; reexecução. Detalhes e evidências em
+[PLANO_CORRECAO_ESTRUTURAL](../research/PLANO_CORRECAO_ESTRUTURAL.md).
+
+[DEC] Crowder usa dC na escala original 0–5 no multiplicador de confiança,
+mas dC/5 no incremento de competência normalizada. Mantém-se destinatário
+único e TL legado; não se alega reprodução integral do protocolo do artigo.
+Reset é de competência por subtarefa, não de confiança (divergência D-01 do
+parecer 18 resolvida pela instrução direta da autora e pelo PDF p. 1431).
+
+Nenhum parâmetro foi escolhido por melhorar o contraste. O contraste de
+E_total inverteu no nominal corrigido e deve aparecer explicitamente nos
+resultados; a razão contábil não será renomeada produtividade calibrada.
+
+
+## 17/09/2026 — teste discriminante de TL
+
+A Eq3 entra como alternativa, sem substituir unitário. O contraste nominal
+de E_total troca de sinal mantendo estados físicos/RNG idênticos. Retirada a
+interpretação da inversão como conclusão de governança. C4_C1_comunicacao
+combina protocolo/escala/teto, conforme [resposta21](../projeto/21_TESTE_DISCRIMINANTE_TL_2026-09-17.md).

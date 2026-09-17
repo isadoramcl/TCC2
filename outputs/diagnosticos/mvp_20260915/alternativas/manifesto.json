@@ -1,0 +1,269 @@
+{
+  "criado": "2026-09-16T11:36:54.863233+00:00",
+  "etapa": "alternativas",
+  "config": {
+    "opcoes": {
+      "fator_omissao": 0.75,
+      "retrabalho_fila": true,
+      "lei_confianca": "constante",
+      "taxa_aprendizado": 0.05,
+      "incremento_sucesso": 0.02,
+      "decremento_recusa": 0.01,
+      "horizonte_automatico": true,
+      "limite_horizonte_fator": 256,
+      "politica_porta2": "nominal",
+      "tau_portao": null,
+      "tau_rede": null
+    },
+    "alternativas": {
+      "instancias": 16,
+      "sementes": 12
+    },
+    "robustez": {
+      "instancias": 4,
+      "sementes": 4,
+      "F_ancora": [
+        0.05,
+        0.25
+      ],
+      "f_retrabalho": [
+        0.3,
+        0.8
+      ],
+      "mu_minimo": [
+        0.4,
+        0.7
+      ],
+      "centro": [
+        0.15,
+        0.55,
+        0.55
+      ],
+      "politicas_porta2": [
+        "nominal",
+        "sem_assistencia",
+        "assistencia_universal",
+        "sem_filtro_competencia"
+      ],
+      "leis_confianca": [
+        "constante",
+        "media_eventos",
+        "saldo_eventos"
+      ],
+      "fatores_omissao": [
+        0.5,
+        0.75,
+        1.0
+      ],
+      "multiplicador_horizonte_verificacao": 2
+    },
+    "pesos_di_fonte": "config/parametros.yaml:dificuldade.pesos_Di",
+    "controle_di": "terco_exato",
+    "limitacoes": "[DEC] Desenho discreto sem otimização ou ranking. Bateria, risco adicional, confiança inicial e limiares mantidos nas configurações declaradas. Interior contínuo, interações dos complementos entre si e com vértices não explorados. Intervalos t usam instâncias; n=4 na robustez implica baixa precisão. Resultados censurados permanecem nas tabelas como observações até o limite, não sucesso."
+  },
+  "configuracoes": [
+    {
+      "nome": "legado",
+      "opcoes": null,
+      "pesos": {
+        "duracao": 0.3333333333333333,
+        "recursos": 0.3333333333333333,
+        "criticidade": 0.3333333333333333
+      },
+      "parametros": {},
+      "horizonte": 1
+    },
+    {
+      "nome": "controle_motor",
+      "opcoes": {
+        "fator_omissao": 1.0,
+        "retrabalho_fila": false,
+        "lei_confianca": "constante",
+        "taxa_aprendizado": 0.05,
+        "incremento_sucesso": 0.02,
+        "decremento_recusa": 0.01,
+        "horizonte_automatico": false,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null
+      },
+      "pesos": {
+        "duracao": 0.3333333333333333,
+        "recursos": 0.3333333333333333,
+        "criticidade": 0.3333333333333333
+      },
+      "parametros": {},
+      "horizonte": 1
+    },
+    {
+      "nome": "controle_motor_auto",
+      "opcoes": {
+        "fator_omissao": 1.0,
+        "retrabalho_fila": false,
+        "lei_confianca": "constante",
+        "taxa_aprendizado": 0.05,
+        "incremento_sucesso": 0.02,
+        "decremento_recusa": 0.01,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null
+      },
+      "pesos": {
+        "duracao": 0.3333333333333333,
+        "recursos": 0.3333333333333333,
+        "criticidade": 0.3333333333333333
+      },
+      "parametros": {},
+      "horizonte": 1
+    },
+    {
+      "nome": "C4",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": false,
+        "lei_confianca": "constante",
+        "taxa_aprendizado": 0.05,
+        "incremento_sucesso": 0.02,
+        "decremento_recusa": 0.01,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null
+      },
+      "pesos": {
+        "duracao": 0.3333333333333333,
+        "recursos": 0.3333333333333333,
+        "criticidade": 0.3333333333333333
+      },
+      "parametros": {},
+      "horizonte": 1
+    },
+    {
+      "nome": "C4_C1",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "constante",
+        "taxa_aprendizado": 0.05,
+        "incremento_sucesso": 0.02,
+        "decremento_recusa": 0.01,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null
+      },
+      "pesos": {
+        "duracao": 0.3333333333333333,
+        "recursos": 0.3333333333333333,
+        "criticidade": 0.3333333333333333
+      },
+      "parametros": {},
+      "horizonte": 1
+    },
+    {
+      "nome": "C4_C1_C3_media_eventos",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "media_eventos",
+        "taxa_aprendizado": 0.05,
+        "incremento_sucesso": 0.02,
+        "decremento_recusa": 0.01,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null
+      },
+      "pesos": {
+        "duracao": 0.3333333333333333,
+        "recursos": 0.3333333333333333,
+        "criticidade": 0.3333333333333333
+      },
+      "parametros": {},
+      "horizonte": 1
+    },
+    {
+      "nome": "C4_C1_C3_saldo_eventos",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "saldo_eventos",
+        "taxa_aprendizado": 0.05,
+        "incremento_sucesso": 0.02,
+        "decremento_recusa": 0.01,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null
+      },
+      "pesos": {
+        "duracao": 0.3333333333333333,
+        "recursos": 0.3333333333333333,
+        "criticidade": 0.3333333333333333
+      },
+      "parametros": {},
+      "horizonte": 1
+    },
+    {
+      "nome": "C4_C1_Di_yaml_arredondado",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "constante",
+        "taxa_aprendizado": 0.05,
+        "incremento_sucesso": 0.02,
+        "decremento_recusa": 0.01,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "nominal",
+        "tau_portao": null,
+        "tau_rede": null
+      },
+      "pesos": {
+        "duracao": 0.3333,
+        "recursos": 0.3333,
+        "criticidade": 0.3334
+      },
+      "parametros": {},
+      "horizonte": 1
+    }
+  ],
+  "instancias": [
+    "j6010_1.sm",
+    "j6013_1.sm",
+    "j6016_1.sm",
+    "j6019_1.sm",
+    "j6021_1.sm",
+    "j6024_1.sm",
+    "j6027_1.sm",
+    "j602_1.sm",
+    "j6032_1.sm",
+    "j6035_1.sm",
+    "j6038_1.sm",
+    "j6040_1.sm",
+    "j6043_1.sm",
+    "j6046_1.sm",
+    "j604_1.sm",
+    "j607_1.sm"
+  ],
+  "n_execucoes": 3072,
+  "sha256": {
+    "config/mvp.yaml": "a5f15a4a34d95e5465d967595603e4a5401313941037bab923ad35743153ca2a",
+    "config/parametros.yaml": "913023dccd573a7941748b3775f9714a01935d0302593cc13e7e75b6ecd2d7c6",
+    "config/parametros_derivados.yaml": "6c14269eb8809430412fa748f2539289a9764044a9308015585feceab32c01bd",
+    "src/modelo/simulador.py": "101b6cfa829a1d52dcd81776a5142a407a8b6f0fd7bc56bb6aa95b4ef881abf4",
+    "src/modelo/fuzzy.py": "98b7a050d66401ce718e69086ecc0961e82b2ec15ac398f32e9ba155ab427ad1",
+    "src/modelo/simulador_mvp.py": "9dc323badc4c8b5e7f715efa6cf964b87b43a75efdf455026de6dc2e21049152",
+    "src/modelo/20_experimento_mvp.py": "7f89ca2212be8fbc335df088158728dfd40e30bab8ff2301f7de65a374999c51",
+    "data/processed/psplib/tarefas_j60_com_di.csv": "0db739ad2fbad7af88bceab7ee4f6f10a5d5185f4705f7b0dfb7c9042b55bf1a",
+    "data/processed/psplib/instancias_j60.csv": "1f2d8b3a4bc9ccfe9bb635a90f5ab28742153674c16292372be269fc1fa79aec"
+  },
+  "limitacoes": "[DEC] Desenho discreto sem otimização ou ranking. Bateria, risco adicional, confiança inicial e limiares mantidos nas configurações declaradas. Interior contínuo, interações dos complementos entre si e com vértices não explorados. Intervalos t usam instâncias; n=4 na robustez implica baixa precisão. Resultados censurados permanecem nas tabelas como observações até o limite, não sucesso."
+}

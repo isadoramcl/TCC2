@@ -1,0 +1,33 @@
+{
+  "exec": 768,
+  "pares_estado_identico": 384,
+  "incompletas": 0,
+  "violacoes": 0,
+  "diferencas_nominal_unitario": {
+    "concluiu": 0.0,
+    "makespan": 0.0,
+    "makespan_cpm": 0.0,
+    "E_total": 5.551115123125783e-17,
+    "S_UR_final": 3.1554436208840472e-30,
+    "S_UR_maximo": 7.105427357601002e-15,
+    "S_PV_final": 0.0,
+    "TW": 0.0,
+    "TL": 0.0,
+    "TU": 0.0,
+    "TR": 2.842170943040401e-14,
+    "n_limpas": 0.0,
+    "n_com_erro": 0.0,
+    "n_reportadas": 0.0,
+    "n_adiamentos": 0.0,
+    "taxa_omissao": 8.326672684688674e-17,
+    "E_plano": 0.0,
+    "retrabalho_sobre_plano": 8.326672684688674e-17,
+    "divida_latente_sobre_plano": 9.8879238130678e-17,
+    "retrabalho_sobre_esforco_realizado": 9.71445146547012e-17,
+    "N_req": 0.0,
+    "N_success": 0.0,
+    "N_fail": 0.0,
+    "N_blocked": 0.0
+  },
+  "inverte_sinal": true
+}

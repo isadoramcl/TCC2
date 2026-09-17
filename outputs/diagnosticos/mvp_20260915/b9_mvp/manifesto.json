@@ -1,0 +1,117 @@
+{
+  "instancias": [
+    "j6010_1.sm",
+    "j6013_1.sm",
+    "j6016_1.sm",
+    "j6019_1.sm",
+    "j6021_1.sm",
+    "j6024_1.sm",
+    "j6027_1.sm",
+    "j602_1.sm",
+    "j6032_1.sm",
+    "j6035_1.sm",
+    "j6038_1.sm",
+    "j6040_1.sm",
+    "j6043_1.sm",
+    "j6046_1.sm",
+    "j604_1.sm",
+    "j607_1.sm"
+  ],
+  "sementes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "configuracoes": [
+    {
+      "nome": "sem_assistencia",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "constante",
+        "taxa_aprendizado": 0.05,
+        "incremento_sucesso": 0.02,
+        "decremento_recusa": 0.01,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "sem_assistencia",
+        "tau_portao": null,
+        "tau_rede": null
+      },
+      "pesos": {
+        "duracao": 0.3333333333333333,
+        "recursos": 0.3333333333333333,
+        "criticidade": 0.3333333333333333
+      },
+      "parametros": {},
+      "horizonte": 1
+    },
+    {
+      "nome": "assistencia_universal",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "constante",
+        "taxa_aprendizado": 0.05,
+        "incremento_sucesso": 0.02,
+        "decremento_recusa": 0.01,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "assistencia_universal",
+        "tau_portao": null,
+        "tau_rede": null
+      },
+      "pesos": {
+        "duracao": 0.3333333333333333,
+        "recursos": 0.3333333333333333,
+        "criticidade": 0.3333333333333333
+      },
+      "parametros": {},
+      "horizonte": 1
+    },
+    {
+      "nome": "sem_filtro_competencia",
+      "opcoes": {
+        "fator_omissao": 0.75,
+        "retrabalho_fila": true,
+        "lei_confianca": "constante",
+        "taxa_aprendizado": 0.05,
+        "incremento_sucesso": 0.02,
+        "decremento_recusa": 0.01,
+        "horizonte_automatico": true,
+        "limite_horizonte_fator": 256,
+        "politica_porta2": "sem_filtro_competencia",
+        "tau_portao": null,
+        "tau_rede": null
+      },
+      "pesos": {
+        "duracao": 0.3333333333333333,
+        "recursos": 0.3333333333333333,
+        "criticidade": 0.3333333333333333
+      },
+      "parametros": {},
+      "horizonte": 1
+    }
+  ],
+  "hashes": {
+    "config/mvp.yaml": "a5f15a4a34d95e5465d967595603e4a5401313941037bab923ad35743153ca2a",
+    "config/parametros.yaml": "913023dccd573a7941748b3775f9714a01935d0302593cc13e7e75b6ecd2d7c6",
+    "config/parametros_derivados.yaml": "6c14269eb8809430412fa748f2539289a9764044a9308015585feceab32c01bd",
+    "src/modelo/simulador.py": "101b6cfa829a1d52dcd81776a5142a407a8b6f0fd7bc56bb6aa95b4ef881abf4",
+    "src/modelo/simulador_mvp.py": "9dc323badc4c8b5e7f715efa6cf964b87b43a75efdf455026de6dc2e21049152",
+    "src/modelo/fuzzy.py": "98b7a050d66401ce718e69086ecc0961e82b2ec15ac398f32e9ba155ab427ad1",
+    "src/modelo/20_experimento_mvp.py": "7f89ca2212be8fbc335df088158728dfd40e30bab8ff2301f7de65a374999c51",
+    "src/modelo/22_consolidar_mvp.py": "7aaaccfac5b42c40000cd7c357847c1059400b01c68346b4831df21decbdae3d",
+    "data/processed/psplib/tarefas_j60_com_di.csv": "0db739ad2fbad7af88bceab7ee4f6f10a5d5185f4705f7b0dfb7c9042b55bf1a",
+    "data/processed/psplib/instancias_j60.csv": "1f2d8b3a4bc9ccfe9bb635a90f5ab28742153674c16292372be269fc1fa79aec"
+  }
+}

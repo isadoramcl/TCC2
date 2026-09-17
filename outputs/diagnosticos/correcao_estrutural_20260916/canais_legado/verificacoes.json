@@ -1,0 +1,9 @@
+{
+  "n_diagonais_comparadas": 3072,
+  "max_diferenca_diagonais": 1.4210854715202004e-14,
+  "exec": 6144,
+  "incompletas": 0,
+  "violacoes": 0,
+  "max_divida": 0,
+  "max_reparo": 0.0
+}
