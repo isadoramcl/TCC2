@@ -51,3 +51,6 @@ outputs/_to_delete/
 #     sustentam a Tabela 13 (Porta 2). Sem ele, a analise nao seria rastreavel,
 #     porque os parciais de origem estao em _b9_parciais/, que e ignorado.
 #   outputs/tables/partes_hm/  — mantida, pois e a origem da Tabela 15.
+
+# Saidas do Claude fora do lugar canonico; projeto/ e o canonico
+Claude outputs/
