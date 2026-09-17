@@ -1,5 +1,7 @@
 # Observáveis e início da especificação de V_obs/V_mod — 17/09/2026
 
+> **V_obs/V_mod PAUSADO por instrução da autora.** T1/T2/T3 devem ser concluídos antes de qualquer retomada. Este arquivo registra um contrato, não autorização para novas ondas.
+
 ## 1. Decisão de interpretação
 
 [DEC] Retirada a conclusão de governança baseada em `E_total`, inclusive a inversão
@@ -10,9 +12,11 @@ uma conversão comum dessas unidades. Toda nova apresentação do diagnóstico d
 mostrar as duas convenções de `lei_tempo_aprendizado`; nenhuma é eleita pelo sinal.
 Os números históricos permanecem nos artefatos originais, sem uso conclusivo.
 
-A conclusão de governança **dentro da família simulada declarada** se apoia em
+Os contrastes de governança **dentro da família simulada declarada** foram descritos por
 menor `atraso_relativo`, menor fração de falhas não reportadas e menor pico de dívida
-latente. Não é conclusão empírica sobre projetos externos.
+latente. Não é conclusão empírica sobre projetos externos. A interpretação agora deve
+considerar o [bloqueio de premissas de T2](24_TESTES_ARRANJO_T1_T2_T3.md): esses
+contrastes não isolam um efeito de governança independente das premissas de reporte.
 
 ## 2. Verificação reproduzível da independência de TL
 
@@ -21,6 +25,7 @@ publicados, sem novos experimentos ou mudanças de parâmetros:
 
 | Indicador | Pares TL idênticos | Contrastes negativos | IC95 inteiramente negativo |
 |---|---:|---:|---:|
+| retrabalho_sobre_esforco_realizado | TR / (TW+TL+TU+TR), denominador de unidades distintas | Mesma contabilidade interna de E_total; mudou entre convenções TL; ainda aparece como DIAGNOSTICO em 05_figuras_modelo.py | **Excluída**, pelo mesmo motivo de E_total |
 | atraso_relativo | 384/384 | 129/129 | 128/129 |
 | taxa_omissao | 384/384 | 129/129 | 129/129 |
 | divida_latente_sobre_plano | 384/384 | 129/129 | 129/129 |
@@ -71,6 +76,18 @@ de entrega/reparos. Deve entrar como alternativa explícita e preservada; não s
 rebatiza o quociente atual como crescimento de prazo. Invariância a TL é necessária
 neste diagnóstico, mas não suficiente para validade observacional.
 
+### Estatística de extremo e horizonte endógeno
+
+[LIMITACAO] `divida_latente_sobre_plano` usa um pico. Para uma sequência de
+observações ampliada por inclusão de amostras, o máximo é não decrescente e sua
+esperança pode aumentar com o número de oportunidades de amostragem, mesmo sem
+mudança de mecanismo. No modelo, o horizonte depende da própria dinâmica.
+Comparações externas exigem igualar também o número de amostras (e a janela,
+cadência, fronteira e mecanismo de observação), não apenas o intervalo entre elas.
+Essa propriedade não prova que diferenças de pico entre processos distintos sejam
+somente viés de duração. Quantificar essa parcela exige desenho com janela/número
+de amostras comparáveis, sem cortar silenciosamente as trajetórias históricas.
+
 ## 4. V_obs, V_sim e V_mod — especificação inicial, sem valores arbitrários
 
 [DEC] Para cada coordenada que vier a ser admitida, registrar antes de estimar:
@@ -113,3 +130,33 @@ insuficiência dos dados, sem preencher o vetor com proxies internos.
 Os relatórios 11, 19 e 21 tiveram a leitura corrigida a pedido da autora; números
 brutos e manifestos históricos permanecem intactos. Hashes de documentos nesses
 manifestos referem-se aos commits históricos, não ao texto revisado atual.
+
+## 6. Plano B metodológico — D-12, antes de avaliar padrões
+
+[DEC] Se nenhuma fonte satisfizer o contrato observacional, a rota será **modelagem
+orientada a padrões**, conforme a estratégia geral de
+[Grimm et al. (2005)](https://www.usgs.gov/publications/pattern-oriented-modeling-agent-based-complex-systems-lessons-ecology).
+O artigo oferece uma estratégia de desenho e avaliação de modelos baseados em
+agentes; não fornece padrões ou faixas quantitativas para este projeto. Os
+padrões abaixo são candidatos deste trabalho, não conclusões já confirmadas.
+Não se substitui History Matching por um algoritmo alternativo nem se produz
+calibração numérica sem observáveis compatíveis.
+
+| Padrão candidato a reproduzir | Medição e contraste que discriminam mecanismos | Critério de sucesso proposto antes da avaliação |
+|---|---|---|
+| Compromisso entre tempo de execução e falha sob pressão | Mesma unidade tarefa e estratos de dificuldade; duração e falhas efetivas, não falhas ocultas; evidência humana de pressão temporal deve ter transporte de construto declarado | Reproduzir conjuntamente a direção tempo–erro observada em dados independentes, com IC95 do contraste na direção registrada; usar faixa quantitativa somente se unidades e fronteiras forem compatíveis |
+| Descoberta tardia de defeitos e concentração posterior de retrabalho | Séries de eventos de descoberta e esforço de reparo; defasagem e distribuição temporal, com janela/número de amostras fixados | Reproduzir a ordenação temporal e a faixa de defasagem extraída de uma fonte independente antes da execução; não contar a própria regra de detecção/reparo do código como validação |
+| Assistência limitada pela disponibilidade e pela competência relativa | Pedidos enviados, atendidos e não atendidos separados de bloqueios; carga dos respondentes e ganhos do solicitante | Reproduzir a direção da relação entre carga/disponibilidade e atendimento e a relação entre hiato de competência e aprendizado, ambas aferidas externamente; discriminar nominal de alternativas sem restrição de disponibilidade ou sem filtro de competência |
+
+[DEC] Sucesso global exige que uma mesma configuração preservada reproduza
+simultaneamente os padrões externos admitidos, em instâncias/sementes reservadas
+para avaliação, sem escolher uma configuração diferente para cada padrão. Antes
+de avaliar, registrar fonte, estimando, sinal/faixa, nível de agregação, incerteza,
+janelas e casos de exclusão. Critérios e tolerâncias não serão relaxados após ver
+os resultados. Ausência de evidência externa para um padrão impede marcá-lo como
+validado; padrão contradito ou teste inconclusivo será reportado como tal.
+
+Controles de identidade, conservação, contrafactuais de porta e invariância a TL
+continuam necessários, mas são verificações internas, não padrões externos.
+Não exigir vantagem de um arranjo como critério de sucesso: isso imporia a conclusão.
+A seleção definitiva das fontes/padrões aguarda T1/T2 e o encerramento da pausa.

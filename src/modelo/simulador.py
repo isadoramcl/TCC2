@@ -215,6 +215,7 @@ class Resultado:
     n_reportadas: int
     n_adiamentos: int
     taxa_omissao: float
+    taxa_falha_efetiva: float
     E_plano: float
     retrabalho_sobre_plano: float
     divida_latente_sobre_plano: float
@@ -603,6 +604,7 @@ class Simulacao:
             n_limpas=limpas, n_com_erro=erros, n_reportadas=self.n_reportadas,
             n_adiamentos=self.n_adiamentos,
             taxa_omissao=float(erros / max(1, len(self.tarefas))),
+            taxa_falha_efetiva=float((erros + self.n_reportadas) / max(1, len(self.tarefas))),
             E_plano=self.E_plano,
             retrabalho_sobre_plano=float(self.TR / self.E_plano) if self.E_plano > 0 else 0.0,
             divida_latente_sobre_plano=(

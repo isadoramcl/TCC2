@@ -1,0 +1,2458 @@
+{
+  "configuracoes": [
+    {
+      "etapa": "T1",
+      "nome": "tm0.6_repcentralizada_tau0.0",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.0,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.6,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.15,
+          "condicao": "premissa",
+          "fonte": "oculta\u00e7\u00e3o/adiamento (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.03,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica restrita"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.6_repcentralizada_tau0.1",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.1,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.6,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.15,
+          "condicao": "premissa",
+          "fonte": "oculta\u00e7\u00e3o/adiamento (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.03,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica restrita"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.6_repcentralizada_tau0.2",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.2,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.6,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.15,
+          "condicao": "premissa",
+          "fonte": "oculta\u00e7\u00e3o/adiamento (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.03,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica restrita"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.6_repcentralizada_tau0.25",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.6,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.15,
+          "condicao": "premissa",
+          "fonte": "oculta\u00e7\u00e3o/adiamento (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.03,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica restrita"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.6_repcentralizada_tau0.3",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.3,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.6,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.15,
+          "condicao": "premissa",
+          "fonte": "oculta\u00e7\u00e3o/adiamento (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.03,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica restrita"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.6_repcentralizada_tau0.4",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.4,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.6,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.15,
+          "condicao": "premissa",
+          "fonte": "oculta\u00e7\u00e3o/adiamento (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.03,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica restrita"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.6_repcentralizada_tau0.5",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.5,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.6,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.15,
+          "condicao": "premissa",
+          "fonte": "oculta\u00e7\u00e3o/adiamento (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.03,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica restrita"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.6_repcentralizada_tau0.55",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.55,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.6,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.15,
+          "condicao": "premissa",
+          "fonte": "oculta\u00e7\u00e3o/adiamento (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.03,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica restrita"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.6_repcentralizada_tau0.58",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.58,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.6,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.15,
+          "condicao": "premissa",
+          "fonte": "oculta\u00e7\u00e3o/adiamento (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.03,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica restrita"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.6_repcentralizada_tau0.59",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.59,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.6,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.15,
+          "condicao": "premissa",
+          "fonte": "oculta\u00e7\u00e3o/adiamento (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.03,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica restrita"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.6_repcentralizada_tau0.599",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.599,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.6,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.15,
+          "condicao": "premissa",
+          "fonte": "oculta\u00e7\u00e3o/adiamento (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.03,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica restrita"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.6_repcentralizada_tau0.599999",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.599999,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.6,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.15,
+          "condicao": "premissa",
+          "fonte": "oculta\u00e7\u00e3o/adiamento (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.03,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica restrita"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.6_repcentralizada_tau0.6",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.6,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.6,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.15,
+          "condicao": "premissa",
+          "fonte": "oculta\u00e7\u00e3o/adiamento (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.03,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica restrita"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.6_repcentralizada_tau0.600001",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.600001,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.6,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.15,
+          "condicao": "premissa",
+          "fonte": "oculta\u00e7\u00e3o/adiamento (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.03,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica restrita"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.6_repcentralizada_tau0.601",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.601,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.6,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.15,
+          "condicao": "premissa",
+          "fonte": "oculta\u00e7\u00e3o/adiamento (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.03,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica restrita"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.6_repcentralizada_tau0.61",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.61,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.6,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.15,
+          "condicao": "premissa",
+          "fonte": "oculta\u00e7\u00e3o/adiamento (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.03,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica restrita"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.6_repcentralizada_tau0.62",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.62,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.6,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.15,
+          "condicao": "premissa",
+          "fonte": "oculta\u00e7\u00e3o/adiamento (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.03,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica restrita"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.6_repcentralizada_tau0.65",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.65,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.6,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.15,
+          "condicao": "premissa",
+          "fonte": "oculta\u00e7\u00e3o/adiamento (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.03,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica restrita"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.6_repcentralizada_tau0.7",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.7,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.6,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.15,
+          "condicao": "premissa",
+          "fonte": "oculta\u00e7\u00e3o/adiamento (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.03,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica restrita"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.6_repcentralizada_tau0.8",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.8,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.6,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.15,
+          "condicao": "premissa",
+          "fonte": "oculta\u00e7\u00e3o/adiamento (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.03,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica restrita"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.6_repcentralizada_tau0.9",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.9,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.6,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.15,
+          "condicao": "premissa",
+          "fonte": "oculta\u00e7\u00e3o/adiamento (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.03,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica restrita"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.6_repcentralizada_tau1.0",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 1.0,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.6,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.15,
+          "condicao": "premissa",
+          "fonte": "oculta\u00e7\u00e3o/adiamento (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.03,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica restrita"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.6_repadaptativa_tau0.0",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.0,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.6,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.75,
+          "condicao": "premissa",
+          "fonte": "reporte imediato (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.12,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica elevada"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.6_repadaptativa_tau0.1",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.1,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.6,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.75,
+          "condicao": "premissa",
+          "fonte": "reporte imediato (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.12,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica elevada"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.6_repadaptativa_tau0.2",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.2,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.6,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.75,
+          "condicao": "premissa",
+          "fonte": "reporte imediato (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.12,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica elevada"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.6_repadaptativa_tau0.25",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.6,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.75,
+          "condicao": "premissa",
+          "fonte": "reporte imediato (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.12,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica elevada"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.6_repadaptativa_tau0.3",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.3,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.6,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.75,
+          "condicao": "premissa",
+          "fonte": "reporte imediato (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.12,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica elevada"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.6_repadaptativa_tau0.4",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.4,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.6,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.75,
+          "condicao": "premissa",
+          "fonte": "reporte imediato (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.12,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica elevada"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.6_repadaptativa_tau0.5",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.5,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.6,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.75,
+          "condicao": "premissa",
+          "fonte": "reporte imediato (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.12,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica elevada"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.6_repadaptativa_tau0.55",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.55,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.6,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.75,
+          "condicao": "premissa",
+          "fonte": "reporte imediato (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.12,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica elevada"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.6_repadaptativa_tau0.58",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.58,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.6,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.75,
+          "condicao": "premissa",
+          "fonte": "reporte imediato (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.12,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica elevada"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.6_repadaptativa_tau0.59",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.59,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.6,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.75,
+          "condicao": "premissa",
+          "fonte": "reporte imediato (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.12,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica elevada"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.6_repadaptativa_tau0.599",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.599,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.6,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.75,
+          "condicao": "premissa",
+          "fonte": "reporte imediato (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.12,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica elevada"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.6_repadaptativa_tau0.599999",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.599999,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.6,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.75,
+          "condicao": "premissa",
+          "fonte": "reporte imediato (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.12,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica elevada"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.6_repadaptativa_tau0.6",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.6,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.6,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.75,
+          "condicao": "premissa",
+          "fonte": "reporte imediato (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.12,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica elevada"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.6_repadaptativa_tau0.600001",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.600001,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.6,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.75,
+          "condicao": "premissa",
+          "fonte": "reporte imediato (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.12,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica elevada"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.6_repadaptativa_tau0.601",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.601,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.6,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.75,
+          "condicao": "premissa",
+          "fonte": "reporte imediato (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.12,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica elevada"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.6_repadaptativa_tau0.61",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.61,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.6,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.75,
+          "condicao": "premissa",
+          "fonte": "reporte imediato (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.12,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica elevada"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.6_repadaptativa_tau0.62",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.62,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.6,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.75,
+          "condicao": "premissa",
+          "fonte": "reporte imediato (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.12,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica elevada"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.6_repadaptativa_tau0.65",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.65,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.6,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.75,
+          "condicao": "premissa",
+          "fonte": "reporte imediato (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.12,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica elevada"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.6_repadaptativa_tau0.7",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.7,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.6,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.75,
+          "condicao": "premissa",
+          "fonte": "reporte imediato (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.12,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica elevada"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.6_repadaptativa_tau0.8",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.8,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.6,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.75,
+          "condicao": "premissa",
+          "fonte": "reporte imediato (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.12,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica elevada"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.6_repadaptativa_tau0.9",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.9,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.6,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.75,
+          "condicao": "premissa",
+          "fonte": "reporte imediato (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.12,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica elevada"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.6_repadaptativa_tau1.0",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 1.0,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.6,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.75,
+          "condicao": "premissa",
+          "fonte": "reporte imediato (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.12,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica elevada"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.25_repcentralizada_tau0.0",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.0,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.15,
+          "condicao": "premissa",
+          "fonte": "oculta\u00e7\u00e3o/adiamento (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.03,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica restrita"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.25_repcentralizada_tau0.1",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.1,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.15,
+          "condicao": "premissa",
+          "fonte": "oculta\u00e7\u00e3o/adiamento (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.03,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica restrita"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.25_repcentralizada_tau0.15",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.15,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.15,
+          "condicao": "premissa",
+          "fonte": "oculta\u00e7\u00e3o/adiamento (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.03,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica restrita"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.25_repcentralizada_tau0.2",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.2,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.15,
+          "condicao": "premissa",
+          "fonte": "oculta\u00e7\u00e3o/adiamento (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.03,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica restrita"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.25_repcentralizada_tau0.23",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.23,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.15,
+          "condicao": "premissa",
+          "fonte": "oculta\u00e7\u00e3o/adiamento (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.03,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica restrita"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.25_repcentralizada_tau0.24",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.24,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.15,
+          "condicao": "premissa",
+          "fonte": "oculta\u00e7\u00e3o/adiamento (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.03,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica restrita"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.25_repcentralizada_tau0.249",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.249,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.15,
+          "condicao": "premissa",
+          "fonte": "oculta\u00e7\u00e3o/adiamento (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.03,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica restrita"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.25_repcentralizada_tau0.249999",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.249999,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.15,
+          "condicao": "premissa",
+          "fonte": "oculta\u00e7\u00e3o/adiamento (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.03,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica restrita"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.25_repcentralizada_tau0.25",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.15,
+          "condicao": "premissa",
+          "fonte": "oculta\u00e7\u00e3o/adiamento (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.03,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica restrita"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.25_repcentralizada_tau0.250001",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.250001,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.15,
+          "condicao": "premissa",
+          "fonte": "oculta\u00e7\u00e3o/adiamento (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.03,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica restrita"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.25_repcentralizada_tau0.251",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.251,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.15,
+          "condicao": "premissa",
+          "fonte": "oculta\u00e7\u00e3o/adiamento (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.03,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica restrita"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.25_repcentralizada_tau0.26",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.26,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.15,
+          "condicao": "premissa",
+          "fonte": "oculta\u00e7\u00e3o/adiamento (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.03,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica restrita"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.25_repcentralizada_tau0.27",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.27,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.15,
+          "condicao": "premissa",
+          "fonte": "oculta\u00e7\u00e3o/adiamento (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.03,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica restrita"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.25_repcentralizada_tau0.3",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.3,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.15,
+          "condicao": "premissa",
+          "fonte": "oculta\u00e7\u00e3o/adiamento (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.03,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica restrita"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.25_repcentralizada_tau0.35",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.35,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.15,
+          "condicao": "premissa",
+          "fonte": "oculta\u00e7\u00e3o/adiamento (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.03,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica restrita"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.25_repcentralizada_tau0.4",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.4,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.15,
+          "condicao": "premissa",
+          "fonte": "oculta\u00e7\u00e3o/adiamento (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.03,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica restrita"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.25_repcentralizada_tau0.5",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.5,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.15,
+          "condicao": "premissa",
+          "fonte": "oculta\u00e7\u00e3o/adiamento (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.03,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica restrita"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.25_repcentralizada_tau0.6",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.6,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.15,
+          "condicao": "premissa",
+          "fonte": "oculta\u00e7\u00e3o/adiamento (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.03,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica restrita"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.25_repcentralizada_tau0.7",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.7,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.15,
+          "condicao": "premissa",
+          "fonte": "oculta\u00e7\u00e3o/adiamento (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.03,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica restrita"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.25_repcentralizada_tau0.8",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.8,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.15,
+          "condicao": "premissa",
+          "fonte": "oculta\u00e7\u00e3o/adiamento (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.03,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica restrita"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.25_repcentralizada_tau0.9",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.9,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.15,
+          "condicao": "premissa",
+          "fonte": "oculta\u00e7\u00e3o/adiamento (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.03,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica restrita"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.25_repcentralizada_tau1.0",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 1.0,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.15,
+          "condicao": "premissa",
+          "fonte": "oculta\u00e7\u00e3o/adiamento (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.03,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica restrita"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.25_repadaptativa_tau0.0",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.0,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.75,
+          "condicao": "premissa",
+          "fonte": "reporte imediato (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.12,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica elevada"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.25_repadaptativa_tau0.1",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.1,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.75,
+          "condicao": "premissa",
+          "fonte": "reporte imediato (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.12,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica elevada"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.25_repadaptativa_tau0.15",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.15,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.75,
+          "condicao": "premissa",
+          "fonte": "reporte imediato (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.12,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica elevada"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.25_repadaptativa_tau0.2",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.2,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.75,
+          "condicao": "premissa",
+          "fonte": "reporte imediato (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.12,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica elevada"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.25_repadaptativa_tau0.23",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.23,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.75,
+          "condicao": "premissa",
+          "fonte": "reporte imediato (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.12,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica elevada"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.25_repadaptativa_tau0.24",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.24,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.75,
+          "condicao": "premissa",
+          "fonte": "reporte imediato (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.12,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica elevada"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.25_repadaptativa_tau0.249",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.249,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.75,
+          "condicao": "premissa",
+          "fonte": "reporte imediato (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.12,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica elevada"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.25_repadaptativa_tau0.249999",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.249999,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.75,
+          "condicao": "premissa",
+          "fonte": "reporte imediato (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.12,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica elevada"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.25_repadaptativa_tau0.25",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.75,
+          "condicao": "premissa",
+          "fonte": "reporte imediato (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.12,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica elevada"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.25_repadaptativa_tau0.250001",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.250001,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.75,
+          "condicao": "premissa",
+          "fonte": "reporte imediato (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.12,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica elevada"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.25_repadaptativa_tau0.251",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.251,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.75,
+          "condicao": "premissa",
+          "fonte": "reporte imediato (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.12,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica elevada"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.25_repadaptativa_tau0.26",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.26,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.75,
+          "condicao": "premissa",
+          "fonte": "reporte imediato (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.12,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica elevada"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.25_repadaptativa_tau0.27",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.27,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.75,
+          "condicao": "premissa",
+          "fonte": "reporte imediato (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.12,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica elevada"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.25_repadaptativa_tau0.3",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.3,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.75,
+          "condicao": "premissa",
+          "fonte": "reporte imediato (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.12,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica elevada"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.25_repadaptativa_tau0.35",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.35,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.75,
+          "condicao": "premissa",
+          "fonte": "reporte imediato (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.12,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica elevada"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.25_repadaptativa_tau0.4",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.4,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.75,
+          "condicao": "premissa",
+          "fonte": "reporte imediato (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.12,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica elevada"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.25_repadaptativa_tau0.5",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.5,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.75,
+          "condicao": "premissa",
+          "fonte": "reporte imediato (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.12,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica elevada"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.25_repadaptativa_tau0.6",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.6,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.75,
+          "condicao": "premissa",
+          "fonte": "reporte imediato (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.12,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica elevada"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.25_repadaptativa_tau0.7",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.7,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.75,
+          "condicao": "premissa",
+          "fonte": "reporte imediato (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.12,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica elevada"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.25_repadaptativa_tau0.8",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.8,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.75,
+          "condicao": "premissa",
+          "fonte": "reporte imediato (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.12,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica elevada"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.25_repadaptativa_tau0.9",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.9,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.75,
+          "condicao": "premissa",
+          "fonte": "reporte imediato (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.12,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica elevada"
+        }
+      }
+    },
+    {
+      "etapa": "T1",
+      "nome": "tm0.25_repadaptativa_tau1.0",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 1.0,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.75,
+          "condicao": "premissa",
+          "fonte": "reporte imediato (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.12,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica elevada"
+        }
+      }
+    },
+    {
+      "etapa": "T2",
+      "nome": "referencia",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.6,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.15,
+          "condicao": "premissa",
+          "fonte": "oculta\u00e7\u00e3o/adiamento (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.03,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica restrita"
+        }
+      }
+    },
+    {
+      "etapa": "T2",
+      "nome": "confianca",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.8,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua alta"
+        },
+        "tau_min": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "limiar baixo para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.15,
+          "condicao": "premissa",
+          "fonte": "oculta\u00e7\u00e3o/adiamento (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.03,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica restrita"
+        }
+      }
+    },
+    {
+      "etapa": "T2",
+      "nome": "reporte",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.6,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.75,
+          "condicao": "premissa",
+          "fonte": "reporte imediato (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.12,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica elevada"
+        }
+      }
+    },
+    {
+      "etapa": "T2",
+      "nome": "ambos",
+      "cenario": {
+        "tau_inicial": {
+          "valor": 0.8,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua alta"
+        },
+        "tau_min": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "limiar baixo para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.75,
+          "condicao": "premissa",
+          "fonte": "reporte imediato (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.12,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica elevada"
+        }
+      }
+    }
+  ],
+  "T1_instancias": [
+    "j6010_1.sm",
+    "j6021_1.sm",
+    "j6032_1.sm",
+    "j6043_1.sm"
+  ],
+  "T2_instancias": [
+    "j6010_1.sm",
+    "j6013_1.sm",
+    "j6016_1.sm",
+    "j6019_1.sm",
+    "j6021_1.sm",
+    "j6024_1.sm",
+    "j6027_1.sm",
+    "j602_1.sm",
+    "j6032_1.sm",
+    "j6035_1.sm",
+    "j6038_1.sm",
+    "j6040_1.sm",
+    "j6043_1.sm",
+    "j6046_1.sm",
+    "j604_1.sm",
+    "j607_1.sm"
+  ],
+  "T1_sementes": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "T2_sementes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "n_exec": 2176,
+  "hashes": {
+    "src/modelo/26_testes_arranjo.py": "b0383c1454ff08bf68e8143f8ee735c271062c003722c85817fa5b6dcad17ebd",
+    "src/modelo/simulador.py": "70773c9e2e329dea079c837dfb37dcf90d0066124429c6db9bb39de226f78635",
+    "src/modelo/simulador_mvp.py": "da83c8d20e74798523d22a98e956a51f8e2c81570debe4681696b6045696e6bf",
+    "src/modelo/fuzzy.py": "98b7a050d66401ce718e69086ecc0961e82b2ec15ac398f32e9ba155ab427ad1",
+    "research/PLANO_T1_T2_T3.md": "4bc5f6349d3a309071a783032a1c41ad17ea994116f66fbc892ba020ad29c50b",
+    "config/mvp.yaml": "1d9f29c9683661887c79111a4fcec675fcdab62d9ce760b7ab7bfb2e7ea9d2f5",
+    "config/parametros.yaml": "8b10258054afc20969ee0fa62ccc0b27d4530ea304f658717ca6e2c6babbc7a6",
+    "config/parametros_derivados.yaml": "6c14269eb8809430412fa748f2539289a9764044a9308015585feceab32c01bd",
+    "data/processed/psplib/tarefas_j60_com_di.csv": "0db739ad2fbad7af88bceab7ee4f6f10a5d5185f4705f7b0dfb7c9042b55bf1a",
+    "data/processed/psplib/tarefas_j60.csv": "f13247b555019dbaf89865705a6a3b0d3cfc992905e6dcb2d823784d9be83c7f",
+    "data/processed/psplib/instancias_j60.csv": "1f2d8b3a4bc9ccfe9bb635a90f5ab28742153674c16292372be269fc1fa79aec",
+    "data/processed/psplib/tarefas_j60_com_risco.csv": "2dcd6d9497119b7a4599a9ab770562fe53399564bca49775faac63bf165a5fa0"
+  },
+  "IC": "t sobre m\u00e9dias por inst\u00e2ncia",
+  "RNG": "sementes e sequ\u00eancia comum; eventos podem desalinharem-se ap\u00f3s diverg\u00eancia",
+  "piloto": false
+}

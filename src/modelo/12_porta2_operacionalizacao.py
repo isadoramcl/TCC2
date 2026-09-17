@@ -42,7 +42,7 @@ DIR = RAIZ / "outputs" / "tables" / "_b9_parciais"
 DIR_TABELAS = RAIZ / "outputs" / "tables"
 DIR_LOGS = RAIZ / "outputs" / "logs"
 
-METRICAS = ["atraso_relativo", "E_total", "TL", "TU", "TR", "TW", "n_com_erro",
+METRICAS = ["taxa_falha_efetiva", "atraso_relativo", "E_total", "TL", "TU", "TR", "TW", "n_com_erro",
             "taxa_omissao", "retrabalho_sobre_plano",
             "divida_latente_sobre_plano", "S_UR_maximo"]
 CONTADORES = ["p2_ajuda", "p2_bloqueio", "hiato_encontrado",

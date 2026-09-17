@@ -22,7 +22,7 @@ from simulador_mvp import SimulacaoMVP, OpcoesMVP
 ROOT=Path(__file__).resolve().parents[2]
 FATORES='GNBCD'
 CELULAS=[''.join(map(str,c)) for c in itertools.product([0,1],repeat=5)]
-METRICAS=['atraso_relativo','E_total','TW','TL','TU','TR','taxa_omissao','retrabalho_sobre_plano','divida_latente_sobre_plano','S_UR_maximo','n_com_erro']
+METRICAS=['taxa_falha_efetiva','atraso_relativo','E_total','TW','TL','TU','TR','taxa_omissao','retrabalho_sobre_plano','divida_latente_sobre_plano','S_UR_maximo','n_com_erro']
 
 class RedeSeparada(S.Simulacao):
     def __init__(self,*args,tau_rede,**kwargs):
@@ -110,7 +110,8 @@ def analisar(d,out):
         old['celula']=old.celula.str.zfill(4)
         join=legacy.merge(old,on=['arquivo','semente','celula'],suffixes=('_novo','_antigo'),validate='one_to_one')
         checks['n_diagonais_comparadas']=len(join)
-        checks['max_diferenca_diagonais']=max(float((join[m+'_novo']-join[m+'_antigo']).abs().max()) for m in METRICAS)
+        checks['max_diferenca_diagonais']=max(float((join[m+'_novo']-join[m+'_antigo']).abs().max()) for m in METRICAS if m in old.columns)
+        checks['metricas_sem_baseline_historico']=[m for m in METRICAS if m not in old.columns]
         if checks['max_diferenca_diagonais']>1e-8: raise AssertionError(checks)
     checks.update(exec=len(d),incompletas=int((~d.concluiu).sum()),violacoes=int(d.violacoes.sum()),max_divida=int(d.divida_pendente.max()),max_reparo=float(d.reparo_pendente.max()))
     (out/'verificacoes.json').write_text(json.dumps(checks,indent=2)+'\n')

@@ -282,3 +282,12 @@ de governança interna e a especificação inicial de V_obs/V_mod estão no
 [contrato de medição](projeto/22_OBSERVAVEIS_VOBS_VMOD.md).
 `atraso_relativo` usa CPM sem recursos e não equivale a crescimento de prazo externo.
 Nenhuma nova onda de History Matching foi iniciada.
+
+### Prioridade vigente: arranjo e portão — V_obs/V_mod pausado
+
+[T1/T2/T3 concluídos](projeto/24_TESTES_ARRANJO_T1_T2_T3.md): a resposta não se
+reduz a degrau puro; portão e canal fuzzy devem ser distinguidos. O bloco de
+reporte/detecção explica grande parte da redução das falhas não reportadas,
+sem evidência conclusiva de redução da taxa de falha efetiva por esse bloco.
+A nova taxa efetiva é desfecho explícito. Nominal preservado; alternativa próxima
+ao limiar apenas proposta. V_obs/V_mod continua pausado por instrução da autora.

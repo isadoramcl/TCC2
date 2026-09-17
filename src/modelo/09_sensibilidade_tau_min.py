@@ -55,7 +55,7 @@ N_INSTANCIAS = 16
 N_SEMENTES = 12
 GRADE = [0.20, 0.225, 0.24, 0.249, 0.2499, 0.25, 0.2501, 0.251, 0.26, 0.275, 0.30]
 
-SAIDAS = ["p2_ajuda", "p2_bloqueio", "atraso_relativo", "TU", "TL", "TR",
+SAIDAS = ["taxa_falha_efetiva", "p2_ajuda", "p2_bloqueio", "atraso_relativo", "TU", "TL", "TR",
           "E_total", "TW", "n_com_erro", "S_UR_maximo", "p1_omissao",
           "p3_analitica"]
 
@@ -89,6 +89,7 @@ def rodar(tm: float) -> None:
                 "valores_distintos_de_confianca": distintas,
                 "arquivo": arq, "semente": sem,
                 "atraso_relativo": r.makespan / r.makespan_cpm,
+                "taxa_falha_efetiva": r.taxa_falha_efetiva,
                 "E_total": r.E_total, "TW": r.TW, "TL": r.TL, "TU": r.TU,
                 "TR": r.TR, "n_com_erro": r.n_com_erro,
                 "S_UR_maximo": r.S_UR_maximo,

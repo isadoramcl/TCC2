@@ -42,6 +42,7 @@ DIR_LOGS = RAIZ / "outputs" / "logs"
 _log = []
 
 METRICAS = [
+    ("taxa_falha_efetiva", "Taxa de falha efetiva", "menor", 4),
     ("n_com_erro", "Tarefas concluídas com defeito oculto", "menor", 2),
     ("taxa_omissao", "Taxa de omissão", "menor", 4),
     ("divida_latente_sobre_plano", "Dívida latente de pico sobre o plano", "menor", 4),
@@ -81,6 +82,11 @@ def estat(c, a, sentido):
 
 def main():
     d = pd.read_csv(T / "modelo_03_experimento_bruto.csv")
+    if 'taxa_falha_efetiva' not in d:
+        tarefas=pd.read_csv(RAIZ/'data/processed/psplib/tarefas_j60_com_di.csv')
+        n=d.arquivo.map(tarefas.groupby('arquivo').tarefa.nunique())
+        if n.isna().any() or (n<=0).any(): raise ValueError('denominador de tarefas ausente')
+        d['taxa_falha_efetiva']=(d.n_com_erro+d.n_reportadas)/n
     log("=" * 78)
     log("EXPERIMENTO — INFERÊNCIA COM A INSTÂNCIA COMO UNIDADE  [B7]")
     log(f"Execucao: {datetime.now().isoformat(timespec='seconds')}")

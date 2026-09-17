@@ -68,6 +68,11 @@ def main() -> None:
             r = sim.executar()
             resultados.append((arq, cen, sim, r))
 
+    pd.DataFrame([dict(arquivo=arq,cenario=cen,taxa_falha_efetiva=r.taxa_falha_efetiva,
+                       n_com_erro=r.n_com_erro,n_reportadas=r.n_reportadas,
+                       n_tarefas=len(sim.tarefas),concluiu=r.concluiu)
+                  for arq,cen,sim,r in resultados]).to_csv(
+                      DIR_TABELAS / "modelo_02_desfechos.csv", index=False)
     checagens = []
 
     def registrar(nome, ok, detalhe=""):
@@ -466,13 +471,14 @@ def main() -> None:
     for fa in (0.05, 0.10, 0.15, 0.20, 0.25):
         p3 = copy.deepcopy(par)
         p3["risco"]["F_ancora"]["valor"] = fa
-        tx = [S.Simulacao(g3, disp3, cpm3, p3, c, semente=sm).executar()
-              .retrabalho_sobre_plano
+        resultados_b3 = [S.Simulacao(g3, disp3, cpm3, p3, c, semente=sm).executar()
               for c in ("centralizada", "adaptativa") for sm in range(8)]
+        tx = [r.retrabalho_sobre_plano for r in resultados_b3]
         med3 = float(np.median(tx))
         aprova = bool(0.01 <= med3 <= 0.50)
         linhas_b3.append({"F_ancora": fa, "mediana_retrabalho_sobre_plano": med3,
-                          "criterio_9a_aprova": aprova, "n_execucoes": len(tx)})
+                          "criterio_9a_aprova": aprova, "n_execucoes": len(tx),
+                          "taxa_falha_efetiva": float(np.mean([r.taxa_falha_efetiva for r in resultados_b3]))})
         log(f"    {fa:>9.2f} {med3:>22.4f} {'sim' if aprova else 'NAO':>12}")
     d_b3 = pd.DataFrame(linhas_b3)
     d_b3.to_csv(DIR_TABELAS / "modelo_02_b3_poder_do_criterio_9a.csv", index=False,

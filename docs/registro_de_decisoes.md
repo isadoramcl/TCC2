@@ -1228,3 +1228,15 @@ independentes de TL, com evidência e limites no
 [contrato de medição](../projeto/22_OBSERVAVEIS_VOBS_VMOD.md).
 Atraso relativo ao CPM não é crescimento de prazo; ainda não admitido em z externo.
 V_obs/V_mod iniciados pela especificação, sem atribuir variâncias nem executar HM.
+
+## 23. Bloqueio de premissas e portão — 17/09/2026
+
+[DEC] V_obs/V_mod pausado. Protocolo anterior às execuções em
+`research/PLANO_T1_T2_T3.md`; resultados, IC95, limites e controles no
+[relatório 24](../projeto/24_TESTES_ARRANJO_T1_T2_T3.md).
+Confiança em T2 é o bloco tau_inicial e tau_min; reporte inclui p_reporte e
+p_deteccao. Interações impedem atribuição percentual causal única.
+Taxa_falha_efetiva adicionada como campo puramente observacional; nominal e
+artefatos históricos preservados. Razão de retrabalho com TL excluída de z.
+Pico de dívida exige controlar número de amostras e horizonte, além da cadência.
+Plano B orientado a padrões registrado no parecer 22, ainda sem avaliação externa.

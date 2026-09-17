@@ -160,3 +160,17 @@ Estão na monografia e ainda não foram auditadas uma a uma:
 Nada entra aqui sem: (1) link que abre; (2) o trecho que sustenta a afirmação;
 (3) uma linha dizendo o que a fonte **não** sustenta. A terceira é a que evita
 que a citação seja esticada depois.
+
+## Plano B metodológico — D-12
+
+**✓ GRIMM, V. et al.** Pattern-oriented modeling of agent-based complex systems:
+lessons from ecology. *Science*, 310(5750), 987–991, 2005.
+[Registro e resumo primário USGS](https://www.usgs.gov/publications/pattern-oriented-modeling-agent-based-complex-systems-lessons-ecology),
+[DOI](https://doi.org/10.1126/science.1116681). Conferido em 17/09/2026.
+→ Sustenta: modelagem orientada a padrões como estratégia para desenhar, testar
+e analisar modelos de agentes e sua organização interna.
+→ Não sustenta: os padrões específicos de engenharia, limiares de aceitação ou
+a validação empírica deste simulador. O plano B do parecer 22 é [DEC].
+Nota de proveniência: a referência D-12 mencionada pela autora não constava na
+versão de 04_FONTES disponível em origin/main ddc7c94; esta entrada registra a
+fonte primária conferida, sem inventar um registro anterior.

@@ -57,16 +57,17 @@ N_BOOT = 4000
 SEMENTE = 20260905
 
 ROTULOS = {
-    "E_total": "eficiência alocativa\n$E_{total}$",
+    "E_total": "diagnóstico interno\n$E_{total}$",
     "atraso_relativo": "atraso relativo\n(makespan / CPM)",
     "n_com_erro": "tarefas concluídas\ncom defeito",
     "taxa_omissao": "taxa de omissão",
+    "taxa_falha_efetiva": "taxa de falha efetiva",
     "divida_latente_sobre_plano": "dívida latente de pico\n(/ esforço planejado)",
     "retrabalho_sobre_plano": "retrabalho pago\n(/ esforço planejado)",
     "retrabalho_sobre_esforco_realizado":
-        "retrabalho / esforço realizado\n(diagnóstico — ver ACHADO 6)",
+        "retrabalho / esforço realizado\n(diagnóstico; excluído de z — parecer 22)",
 }
-ORDEM = ["n_com_erro", "taxa_omissao", "divida_latente_sobre_plano",
+ORDEM = ["taxa_falha_efetiva", "n_com_erro", "taxa_omissao", "divida_latente_sobre_plano",
          "atraso_relativo", "E_total", "retrabalho_sobre_plano",
          "retrabalho_sobre_esforco_realizado"]
 DIAGNOSTICO = "retrabalho_sobre_esforco_realizado"
@@ -74,6 +75,12 @@ DIAGNOSTICO = "retrabalho_sobre_esforco_realizado"
 
 def carregar():
     d = pd.read_csv(TAB / "modelo_03_experimento_bruto.csv")
+    if 'taxa_falha_efetiva' not in d:
+        # Derivação em memória de artefato histórico; nunca sobrescrever o bruto.
+        tarefas = pd.read_csv(RAIZ/'data/processed/psplib/tarefas_j60_com_di.csv')
+        n = d.arquivo.map(tarefas.groupby('arquivo').tarefa.nunique())
+        if n.isna().any() or (n<=0).any(): raise ValueError('denominador de tarefas ausente')
+        d['taxa_falha_efetiva'] = (d.n_com_erro+d.n_reportadas)/n
     piv = d.pivot_table(index=["arquivo", "semente"], columns="cenario",
                         values=ORDEM)
     return d, piv
@@ -264,6 +271,7 @@ def figura_9():
                                "tarefas_j60_com_di.csv")["arquivo"].unique())
     inst = todas[::len(todas) // 8][:8]
 
+    desfechos = []
     series = {c: {k: [] for k in ("S_UR", "bateria_media", "P", "S_PV")}
               for c in ("centralizada", "adaptativa")}
     for arq in inst:
@@ -271,6 +279,8 @@ def figura_9():
         for sem in range(6):
             for cen in ("centralizada", "adaptativa"):
                 r = S.Simulacao(g, disp, cpm, par, cen, semente=sem).executar()
+                desfechos.append(dict(arquivo=arq,semente=sem,cenario=cen,
+                    taxa_falha_efetiva=r.taxa_falha_efetiva,concluiu=r.concluiu))
                 plano = float(r.E_plano)
                 tn = np.array(r.trajetorias["t"]) / r.makespan_cpm
                 for k in series[cen]:
@@ -278,6 +288,8 @@ def figura_9():
                     if k in ("S_UR", "S_PV"):
                         v = v / plano
                     series[cen][k].append((tn, v))
+
+    pd.DataFrame(desfechos).to_csv(TAB/'modelo_05_desfechos.csv',index=False)
 
     def media_em_malha(pares, malha):
         acc = []

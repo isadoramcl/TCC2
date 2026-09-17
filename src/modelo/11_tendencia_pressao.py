@@ -161,6 +161,7 @@ def rodar(arq: str, cen: str, sementes, etapa: str) -> None:
                 "P_realizada_media": float(np.mean(sim.traj["P"])),
                 "mu_cog_medio": float(np.mean(sim.traj["mu_cog"])),
                 "defeitos_gerados": r.n_com_erro + r.n_reportadas,
+                "taxa_falha_efetiva": r.taxa_falha_efetiva,
                 "S_UR_maximo": r.S_UR_maximo,
                 "fracao_heuristica": sum(a.periodos_heuristicos
                                          for a in sim.agentes) / max(1, tot),

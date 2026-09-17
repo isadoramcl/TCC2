@@ -67,7 +67,7 @@ FATORES = ["tau_inicial", "tau_min", "p_reporte", "p_deteccao"]
 SIGLA = {"tau_inicial": "A", "tau_min": "B", "p_reporte": "C", "p_deteccao": "D"}
 CELULAS = ["".join(str(b) for b in c)
            for c in itertools.product([0, 1], repeat=len(FATORES))]
-METRICAS = ["atraso_relativo", "E_total", "TL", "TU", "TR", "TW", "n_com_erro",
+METRICAS = ["taxa_falha_efetiva", "atraso_relativo", "E_total", "TL", "TU", "TR", "TW", "n_com_erro",
             "taxa_omissao", "retrabalho_sobre_plano",
             "divida_latente_sobre_plano", "S_UR_maximo"]
 
@@ -95,6 +95,7 @@ def rodar(celula: str) -> None:
                 "celula": celula, "arquivo": arq, "semente": sem,
                 **{SIGLA[f]: int(b) for b, f in zip(celula, FATORES)},
                 "atraso_relativo": r.makespan / r.makespan_cpm,
+                "taxa_falha_efetiva": r.taxa_falha_efetiva,
                 "E_total": r.E_total, "TW": r.TW, "TL": r.TL, "TU": r.TU,
                 "TR": r.TR, "n_com_erro": r.n_com_erro,
                 "taxa_omissao": r.taxa_omissao, "S_UR_maximo": r.S_UR_maximo,
