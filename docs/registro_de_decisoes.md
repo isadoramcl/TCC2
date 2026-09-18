@@ -1248,3 +1248,12 @@ frequências e nos três chi²; causa não estabelecida. Nenhuma integração ao
 simulador nem avanço aos demais itens. Algoritmos e identidade bit a bit passam,
 mas não substituem o controle científico. Evidências e comando de reprodução no
 [relatório 38](../projeto/38_CONTROLE_C3_BLOQUEADO.md).
+
+## 40. Reconciliação C3 com a regra 39 — 18/09/2026
+
+[DEC] Regra vigente é propagação da precisão impressa, alpha/beta canônicos;
+BB8 registrada como exceção autorizada. Preservadas todas as saídas. A frequência
+BB0 publicada continua fora do intervalo exato [67,481624506;67,484608392], mesmo
+considerando arredondamento da saída. A incerteza de mu/CV não foi usada no lugar
+da incerteza dos parâmetros canônicos. B1 não iniciado; detalhes no
+[relatório 40](../projeto/40_RECONCILIACAO_C3_REGRA39.md).

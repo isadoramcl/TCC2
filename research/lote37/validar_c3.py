@@ -14,7 +14,12 @@ PUBLICADO={
 CHI={'binomial':10.174,'beta_binomial':.162,'p_dependente':.583}
 
 def main():
-    ap=argparse.ArgumentParser();ap.add_argument('--saida',type=Path,required=True);args=ap.parse_args()
+    ap=argparse.ArgumentParser();ap.add_argument('--saida',type=Path,required=True)
+    ap.add_argument('--regra',choices=['parecer39','historica'],default='parecer39')
+    args=ap.parse_args()
+    if args.regra=='parecer39':
+        from validar_c3_39 import executar
+        return executar(args.saida)
     o=args.saida;o.mkdir(parents=True,exist_ok=False)
     a,b=beta_parametros(.0163,1.13)
     dist={'binomial':binomial(25,.0163),'beta_binomial':beta_binomial(25,a,b),'p_dependente':p_dependente(25,.0163,.845)}

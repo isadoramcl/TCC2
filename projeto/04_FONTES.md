@@ -174,3 +174,15 @@ a validação empírica deste simulador. O plano B do parecer 22 é [DEC].
 Nota de proveniência: a referência D-12 mencionada pela autora não constava na
 versão de 04_FONTES disponível em origin/main ddc7c94; esta entrada registra a
 fonte primária conferida, sem inventar um registro anterior.
+
+
+### Stewart (1992) — discrepância conhecida da Tabela 2, oito erros
+
+Parecer 39: parâmetros canônicos alpha=0,7546 e beta=45,4563. A frequência
+beta-binomial para oito erros é **0,004018884** respondente em N=94; o PDF
+imprime **0,000**. Com mu/CV literais a conta anterior era 0,003989000.
+Discrepância conhecida, dispensada de bloqueio explicitamente pelo parecer 39.
+Truncamento editorial é hipótese, não causa demonstrada; uma linha ≥8 também
+não explicaria massa menor que a de exatamente oito erros.
+A aplicação da regra de precisão aos parâmetros canônicos está no
+[relatório 40](40_RECONCILIACAO_C3_REGRA39.md); outras células continuam abertas.
