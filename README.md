@@ -9,6 +9,13 @@ modelo híbrido de agentes e dinâmica de sistemas, experimentos e análise.
 
 ---
 
+## Estado do lote 37 — 17/09/2026
+
+C3 foi executado primeiro e **reprovou o controle publicado de Stewart (1992)**.
+O lote está bloqueado; nenhuma distribuição foi integrada ao simulador.
+Identidade bit a bit preservada. Números, hipóteses e próximos passos no
+[relatório 38](projeto/38_CONTROLE_C3_BLOQUEADO.md).
+
 ## Objetivo
 
 Investigar a gestão de equipes em projetos de engenharia por modelagem e

@@ -1240,3 +1240,11 @@ Taxa_falha_efetiva adicionada como campo puramente observacional; nominal e
 artefatos históricos preservados. Razão de retrabalho com TL excluída de z.
 Pico de dívida exige controlar número de amostras e horizonte, além da cadência.
 Plano B orientado a padrões registrado no parecer 22, ainda sem avaliação externa.
+
+## 38. Controle C3 da ordem 37 — 17/09/2026
+
+[DEC] Preservar parâmetros e alvos publicados. Controle reprovado em 13/27
+frequências e nos três chi²; causa não estabelecida. Nenhuma integração ao
+simulador nem avanço aos demais itens. Algoritmos e identidade bit a bit passam,
+mas não substituem o controle científico. Evidências e comando de reprodução no
+[relatório 38](../projeto/38_CONTROLE_C3_BLOQUEADO.md).
