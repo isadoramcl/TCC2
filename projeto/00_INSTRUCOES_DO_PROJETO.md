@@ -50,6 +50,20 @@ Estas não são preferências. São o que sustenta a defesa do trabalho na banca
    sem que ela entenda o porquê. Se um trecho não puder ser defendido oralmente,
    ele não serve, por mais correto que seja.
 
+9. **Antes de publicar um veredito, rode o teste que o derrubaria** — não o que o
+   confirma. Se o veredito depende de uma regra, aplique a regra a ela mesma
+   antes de publicá-la. Confirmação parcial não é verificação.
+
+10. **Achado e regra vão em documentos separados.** Um número verificado e uma
+    política escrita para acomodá-lo têm credibilidades diferentes e precisam ser
+    escrutinados separadamente. Política não pega carona na credibilidade do
+    número que ela acompanha.
+
+11. **Todo controle publicado nasce com critério de aceitação escrito antes da
+    execução**, e o critério é testado contra implementações deliberadamente
+    erradas, para provar que separa certo de errado. Controle sem critério
+    escrito é critério inventado sob pressão.
+
 ## Lições pagas caro — não repetir
 
 Cada uma destas custou retrabalho real. Estão aqui porque são erros que se
@@ -88,6 +102,19 @@ que nenhum script lê. `src/modelo/06_exportar_parametros.py` os detecta e tamb�
 sinaliza nomes declarados em mais de uma seção, que é a armadilha pior: a busca
 textual encontra o nome e conclui que é lido, mas quem é lido é o homônimo.
 
+**Critério de aceitação não escrito vira critério inventado sob pressão.** A
+ordem de serviço 37 mandou reproduzir uma tabela publicada e não disse com que
+precisão. O executor adotou tolerância absoluta na terceira casa, aplicada
+igualmente a valores de 67,475 e de 0,002, e o lote travou. O parecer 39 então
+escreveu uma regra cujas duas cláusulas apontavam para intervalos diferentes —
+uma continha o alvo, a outra não — e o revisor demonstrou a conclusão com a
+cláusula conveniente, sem testar a outra. Duas rodadas perdidas, com o
+congelamento a nove dias. O que fechou a questão foi a pergunta que faltava:
+**existe um único ponto de parâmetro que satisfaça tudo o que a fonte imprime?**
+Não existia — a fonte é internamente inconsistente na quarta casa significativa
+(achado A-16, parecer 41). O desfecho correto não era "reproduz" nem
+"bloqueado", e sim: a implementação está validada, a fonte é inconsistente.
+
 ## Como trabalhar
 
 - **Branch.** Trabalhe em branch (`revisao-auditoria` ou similar). Não commite
@@ -97,6 +124,11 @@ textual encontra o nome e conclui que é lido, mas quem é lido é o homônimo.
 - **Toda mudança de número publicado vem com tabela ANTES/DEPOIS.** Nenhum
   número muda em silêncio.
 - **Entregue diff/patch**, não arquivos soltos.
+- **Conta do revisor e regra do revisor têm pesos diferentes.** Recálculo feito
+  com dado em mãos é confiável e, até aqui, nenhum foi retratado. Critério,
+  política e regra que o revisor escreve são **rascunho** até serem alimentados
+  com um caso que deveriam reprovar — a mesma exigência que vale para
+  verificador, na lição acima.
 - **Se discordar, pare e relate.** Não decida sozinho o que muda o que o modelo
   afirma — esses itens estão marcados no `02_ORDEM_DE_SERVICO.md`.
 
