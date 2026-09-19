@@ -1,0 +1,41 @@
+{
+  "N": 320,
+  "config": {
+    "regras_fuga": [
+      "constante",
+      "dependente_estado"
+    ],
+    "limite_aversao_perda": [
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.6
+    ],
+    "instancias": 4,
+    "sementes": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "limite_horizonte_fator": 256
+  },
+  "instancias": [
+    "j6010_1.sm",
+    "j6021_1.sm",
+    "j6032_1.sm",
+    "j6043_1.sm"
+  ],
+  "hashes": {
+    "research/lote_noturno/a1.py": "85aa79cc94eb7f2995a6eabe8391a37ac2e1f88abfd45481ce39cf97f279ade6",
+    "research/lote_noturno/PROTOCOLO_A1.md": "f8fb9640c09e7ce05ad382a010b8c90d78b3a60889fc22852852b375d0a44c4b",
+    "src/modelo/simulador.py": "9107ee735493ded47d562db7b119a49f951d2519b0dc4217a1d8f80ac6c7e4d9",
+    "src/modelo/simulador_mvp.py": "15cbb3d696d3a57bf034c189be07c2ccb0e7263b78e0ff42f9f2801e936c073a",
+    "src/modelo/fuzzy.py": "98b7a050d66401ce718e69086ecc0961e82b2ec15ac398f32e9ba155ab427ad1",
+    "config/robustez_a1.yaml": "a259dbb8afb565f0a7c08dd9ede1873a291883a0eb3ca72f5ddf3fdf6902ab7f",
+    "config/mvp.yaml": "1d9f29c9683661887c79111a4fcec675fcdab62d9ce760b7ab7bfb2e7ea9d2f5",
+    "config/parametros.yaml": "8b10258054afc20969ee0fa62ccc0b27d4530ea304f658717ca6e2c6babbc7a6",
+    "config/parametros_derivados.yaml": "6c14269eb8809430412fa748f2539289a9764044a9308015585feceab32c01bd"
+  }
+}

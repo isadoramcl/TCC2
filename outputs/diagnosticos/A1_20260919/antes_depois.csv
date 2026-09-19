@@ -1,0 +1,261 @@
+regra,limite,cenario,metrica,antes,depois,delta,N,incompletas,estatuto
+constante,0.1,adaptativa,atraso_relativo,1.9582766392216686,177.32764694041867,175.369370301197,16,11,"CENSURADO: media ao teto, nao terminal"
+constante,0.1,adaptativa,taxa_omissao,0.061458333333333295,0.038541666666666634,-0.022916666666666658,16,11,"CENSURADO: media ao teto, nao terminal"
+constante,0.1,adaptativa,divida_latente_sobre_plano,0.02330482563352512,0.011673303203206718,-0.0116315224303184,16,11,"CENSURADO: media ao teto, nao terminal"
+constante,0.1,adaptativa,taxa_falha_efetiva,0.25937499999999997,0.1520833333333333,-0.1072916666666667,16,11,"CENSURADO: media ao teto, nao terminal"
+constante,0.1,adaptativa,fracao_porta1,0.4302083333333333,0.0,-0.4302083333333333,16,11,"CENSURADO: media ao teto, nao terminal"
+constante,0.1,adaptativa,p1_fuga,0.0,84717.6875,84717.6875,16,11,"CENSURADO: media ao teto, nao terminal"
+constante,0.1,adaptativa,fracao_fuga_p1,0.0,1.0,1.0,16,11,"CENSURADO: media ao teto, nao terminal"
+constante,0.1,adaptativa,N_req,140.9375,348.625,207.6875,16,11,"CENSURADO: media ao teto, nao terminal"
+constante,0.1,adaptativa,TW,410.0625,335.4375,-74.625,16,11,"CENSURADO: media ao teto, nao terminal"
+constante,0.1,adaptativa,TL,102.125,314.5625,212.4375,16,11,"CENSURADO: media ao teto, nao terminal"
+constante,0.1,adaptativa,TU,47.0625,88990.625,88943.5625,16,11,"CENSURADO: media ao teto, nao terminal"
+constante,0.1,adaptativa,TR,58.320586158168034,29.06530969837823,-29.255276459789805,16,11,"CENSURADO: media ao teto, nao terminal"
+constante,0.1,adaptativa,retrabalho_sobre_esforco_total,0.14799177891965892,0.07969023119290573,-0.06830154772675319,16,11,"CENSURADO: media ao teto, nao terminal"
+constante,0.1,centralizada,atraso_relativo,3.0090263756150817,256.0,252.9909736243849,16,16,"CENSURADO: media ao teto, nao terminal"
+constante,0.1,centralizada,taxa_omissao,0.26875,0.024999999999999974,-0.24375000000000002,16,16,"CENSURADO: media ao teto, nao terminal"
+constante,0.1,centralizada,divida_latente_sobre_plano,0.09128964386347407,0.011479257507829414,-0.07981038635564466,16,16,"CENSURADO: media ao teto, nao terminal"
+constante,0.1,centralizada,taxa_falha_efetiva,0.30729166666666663,0.028124999999999983,-0.2791666666666667,16,16,"CENSURADO: media ao teto, nao terminal"
+constante,0.1,centralizada,fracao_porta1,0.5385416666666667,0.0,-0.54375,16,16,"CENSURADO: media ao teto, nao terminal"
+constante,0.1,centralizada,p1_fuga,0.0,71356.5625,71356.5625,16,16,"CENSURADO: media ao teto, nao terminal"
+constante,0.1,centralizada,fracao_fuga_p1,0.0,1.0,1.0,16,16,"CENSURADO: media ao teto, nao terminal"
+constante,0.1,centralizada,N_req,0.0,0.0,0.0,16,16,"CENSURADO: media ao teto, nao terminal"
+constante,0.1,centralizada,TW,536.5625,42.5625,-494.0,16,16,"CENSURADO: media ao teto, nao terminal"
+constante,0.1,centralizada,TL,0.0,0.0,0.0,16,16,"CENSURADO: media ao teto, nao terminal"
+constante,0.1,centralizada,TU,126.9375,129726.25,129599.3125,16,16,"CENSURADO: media ao teto, nao terminal"
+constante,0.1,centralizada,TR,78.79686515338976,5.96875,-72.82811515338976,16,16,"CENSURADO: media ao teto, nao terminal"
+constante,0.1,centralizada,retrabalho_sobre_esforco_total,0.1908140677734686,0.017008424315591627,-0.17380564345787697,16,16,"CENSURADO: media ao teto, nao terminal"
+constante,0.2,adaptativa,atraso_relativo,1.9582766392216686,177.32764694041867,175.369370301197,16,11,"CENSURADO: media ao teto, nao terminal"
+constante,0.2,adaptativa,taxa_omissao,0.061458333333333295,0.038541666666666634,-0.022916666666666658,16,11,"CENSURADO: media ao teto, nao terminal"
+constante,0.2,adaptativa,divida_latente_sobre_plano,0.02330482563352512,0.011673303203206718,-0.0116315224303184,16,11,"CENSURADO: media ao teto, nao terminal"
+constante,0.2,adaptativa,taxa_falha_efetiva,0.25937499999999997,0.1520833333333333,-0.1072916666666667,16,11,"CENSURADO: media ao teto, nao terminal"
+constante,0.2,adaptativa,fracao_porta1,0.4302083333333333,0.0,-0.4302083333333333,16,11,"CENSURADO: media ao teto, nao terminal"
+constante,0.2,adaptativa,p1_fuga,0.0,84717.6875,84717.6875,16,11,"CENSURADO: media ao teto, nao terminal"
+constante,0.2,adaptativa,fracao_fuga_p1,0.0,1.0,1.0,16,11,"CENSURADO: media ao teto, nao terminal"
+constante,0.2,adaptativa,N_req,140.9375,348.625,207.6875,16,11,"CENSURADO: media ao teto, nao terminal"
+constante,0.2,adaptativa,TW,410.0625,335.4375,-74.625,16,11,"CENSURADO: media ao teto, nao terminal"
+constante,0.2,adaptativa,TL,102.125,314.5625,212.4375,16,11,"CENSURADO: media ao teto, nao terminal"
+constante,0.2,adaptativa,TU,47.0625,88990.625,88943.5625,16,11,"CENSURADO: media ao teto, nao terminal"
+constante,0.2,adaptativa,TR,58.320586158168034,29.06530969837823,-29.255276459789805,16,11,"CENSURADO: media ao teto, nao terminal"
+constante,0.2,adaptativa,retrabalho_sobre_esforco_total,0.14799177891965892,0.07969023119290573,-0.06830154772675319,16,11,"CENSURADO: media ao teto, nao terminal"
+constante,0.2,centralizada,atraso_relativo,3.0090263756150817,256.0,252.9909736243849,16,16,"CENSURADO: media ao teto, nao terminal"
+constante,0.2,centralizada,taxa_omissao,0.26875,0.024999999999999974,-0.24375000000000002,16,16,"CENSURADO: media ao teto, nao terminal"
+constante,0.2,centralizada,divida_latente_sobre_plano,0.09128964386347407,0.011479257507829414,-0.07981038635564466,16,16,"CENSURADO: media ao teto, nao terminal"
+constante,0.2,centralizada,taxa_falha_efetiva,0.30729166666666663,0.028124999999999983,-0.2791666666666667,16,16,"CENSURADO: media ao teto, nao terminal"
+constante,0.2,centralizada,fracao_porta1,0.5385416666666667,0.0,-0.54375,16,16,"CENSURADO: media ao teto, nao terminal"
+constante,0.2,centralizada,p1_fuga,0.0,71356.5625,71356.5625,16,16,"CENSURADO: media ao teto, nao terminal"
+constante,0.2,centralizada,fracao_fuga_p1,0.0,1.0,1.0,16,16,"CENSURADO: media ao teto, nao terminal"
+constante,0.2,centralizada,N_req,0.0,0.0,0.0,16,16,"CENSURADO: media ao teto, nao terminal"
+constante,0.2,centralizada,TW,536.5625,42.5625,-494.0,16,16,"CENSURADO: media ao teto, nao terminal"
+constante,0.2,centralizada,TL,0.0,0.0,0.0,16,16,"CENSURADO: media ao teto, nao terminal"
+constante,0.2,centralizada,TU,126.9375,129726.25,129599.3125,16,16,"CENSURADO: media ao teto, nao terminal"
+constante,0.2,centralizada,TR,78.79686515338976,5.96875,-72.82811515338976,16,16,"CENSURADO: media ao teto, nao terminal"
+constante,0.2,centralizada,retrabalho_sobre_esforco_total,0.1908140677734686,0.017008424315591627,-0.17380564345787697,16,16,"CENSURADO: media ao teto, nao terminal"
+constante,0.3,adaptativa,atraso_relativo,1.9582766392216686,177.32764694041867,175.369370301197,16,11,"CENSURADO: media ao teto, nao terminal"
+constante,0.3,adaptativa,taxa_omissao,0.061458333333333295,0.038541666666666634,-0.022916666666666658,16,11,"CENSURADO: media ao teto, nao terminal"
+constante,0.3,adaptativa,divida_latente_sobre_plano,0.02330482563352512,0.011673303203206718,-0.0116315224303184,16,11,"CENSURADO: media ao teto, nao terminal"
+constante,0.3,adaptativa,taxa_falha_efetiva,0.25937499999999997,0.1520833333333333,-0.1072916666666667,16,11,"CENSURADO: media ao teto, nao terminal"
+constante,0.3,adaptativa,fracao_porta1,0.4302083333333333,0.0,-0.4302083333333333,16,11,"CENSURADO: media ao teto, nao terminal"
+constante,0.3,adaptativa,p1_fuga,0.0,84717.6875,84717.6875,16,11,"CENSURADO: media ao teto, nao terminal"
+constante,0.3,adaptativa,fracao_fuga_p1,0.0,1.0,1.0,16,11,"CENSURADO: media ao teto, nao terminal"
+constante,0.3,adaptativa,N_req,140.9375,348.625,207.6875,16,11,"CENSURADO: media ao teto, nao terminal"
+constante,0.3,adaptativa,TW,410.0625,335.4375,-74.625,16,11,"CENSURADO: media ao teto, nao terminal"
+constante,0.3,adaptativa,TL,102.125,314.5625,212.4375,16,11,"CENSURADO: media ao teto, nao terminal"
+constante,0.3,adaptativa,TU,47.0625,88990.625,88943.5625,16,11,"CENSURADO: media ao teto, nao terminal"
+constante,0.3,adaptativa,TR,58.320586158168034,29.06530969837823,-29.255276459789805,16,11,"CENSURADO: media ao teto, nao terminal"
+constante,0.3,adaptativa,retrabalho_sobre_esforco_total,0.14799177891965892,0.07969023119290573,-0.06830154772675319,16,11,"CENSURADO: media ao teto, nao terminal"
+constante,0.3,centralizada,atraso_relativo,3.0090263756150817,256.0,252.9909736243849,16,16,"CENSURADO: media ao teto, nao terminal"
+constante,0.3,centralizada,taxa_omissao,0.26875,0.024999999999999974,-0.24375000000000002,16,16,"CENSURADO: media ao teto, nao terminal"
+constante,0.3,centralizada,divida_latente_sobre_plano,0.09128964386347407,0.011479257507829414,-0.07981038635564466,16,16,"CENSURADO: media ao teto, nao terminal"
+constante,0.3,centralizada,taxa_falha_efetiva,0.30729166666666663,0.028124999999999983,-0.2791666666666667,16,16,"CENSURADO: media ao teto, nao terminal"
+constante,0.3,centralizada,fracao_porta1,0.5385416666666667,0.0,-0.54375,16,16,"CENSURADO: media ao teto, nao terminal"
+constante,0.3,centralizada,p1_fuga,0.0,71356.5625,71356.5625,16,16,"CENSURADO: media ao teto, nao terminal"
+constante,0.3,centralizada,fracao_fuga_p1,0.0,1.0,1.0,16,16,"CENSURADO: media ao teto, nao terminal"
+constante,0.3,centralizada,N_req,0.0,0.0,0.0,16,16,"CENSURADO: media ao teto, nao terminal"
+constante,0.3,centralizada,TW,536.5625,42.5625,-494.0,16,16,"CENSURADO: media ao teto, nao terminal"
+constante,0.3,centralizada,TL,0.0,0.0,0.0,16,16,"CENSURADO: media ao teto, nao terminal"
+constante,0.3,centralizada,TU,126.9375,129726.25,129599.3125,16,16,"CENSURADO: media ao teto, nao terminal"
+constante,0.3,centralizada,TR,78.79686515338976,5.96875,-72.82811515338976,16,16,"CENSURADO: media ao teto, nao terminal"
+constante,0.3,centralizada,retrabalho_sobre_esforco_total,0.1908140677734686,0.017008424315591627,-0.17380564345787697,16,16,"CENSURADO: media ao teto, nao terminal"
+constante,0.4,adaptativa,atraso_relativo,1.9582766392216686,177.32764694041867,175.369370301197,16,11,"CENSURADO: media ao teto, nao terminal"
+constante,0.4,adaptativa,taxa_omissao,0.061458333333333295,0.038541666666666634,-0.022916666666666658,16,11,"CENSURADO: media ao teto, nao terminal"
+constante,0.4,adaptativa,divida_latente_sobre_plano,0.02330482563352512,0.011673303203206718,-0.0116315224303184,16,11,"CENSURADO: media ao teto, nao terminal"
+constante,0.4,adaptativa,taxa_falha_efetiva,0.25937499999999997,0.1520833333333333,-0.1072916666666667,16,11,"CENSURADO: media ao teto, nao terminal"
+constante,0.4,adaptativa,fracao_porta1,0.4302083333333333,0.0,-0.4302083333333333,16,11,"CENSURADO: media ao teto, nao terminal"
+constante,0.4,adaptativa,p1_fuga,0.0,84717.6875,84717.6875,16,11,"CENSURADO: media ao teto, nao terminal"
+constante,0.4,adaptativa,fracao_fuga_p1,0.0,1.0,1.0,16,11,"CENSURADO: media ao teto, nao terminal"
+constante,0.4,adaptativa,N_req,140.9375,348.625,207.6875,16,11,"CENSURADO: media ao teto, nao terminal"
+constante,0.4,adaptativa,TW,410.0625,335.4375,-74.625,16,11,"CENSURADO: media ao teto, nao terminal"
+constante,0.4,adaptativa,TL,102.125,314.5625,212.4375,16,11,"CENSURADO: media ao teto, nao terminal"
+constante,0.4,adaptativa,TU,47.0625,88990.625,88943.5625,16,11,"CENSURADO: media ao teto, nao terminal"
+constante,0.4,adaptativa,TR,58.320586158168034,29.06530969837823,-29.255276459789805,16,11,"CENSURADO: media ao teto, nao terminal"
+constante,0.4,adaptativa,retrabalho_sobre_esforco_total,0.14799177891965892,0.07969023119290573,-0.06830154772675319,16,11,"CENSURADO: media ao teto, nao terminal"
+constante,0.4,centralizada,atraso_relativo,3.0090263756150817,256.0,252.9909736243849,16,16,"CENSURADO: media ao teto, nao terminal"
+constante,0.4,centralizada,taxa_omissao,0.26875,0.024999999999999974,-0.24375000000000002,16,16,"CENSURADO: media ao teto, nao terminal"
+constante,0.4,centralizada,divida_latente_sobre_plano,0.09128964386347407,0.011479257507829414,-0.07981038635564466,16,16,"CENSURADO: media ao teto, nao terminal"
+constante,0.4,centralizada,taxa_falha_efetiva,0.30729166666666663,0.028124999999999983,-0.2791666666666667,16,16,"CENSURADO: media ao teto, nao terminal"
+constante,0.4,centralizada,fracao_porta1,0.5385416666666667,0.0,-0.54375,16,16,"CENSURADO: media ao teto, nao terminal"
+constante,0.4,centralizada,p1_fuga,0.0,71356.5625,71356.5625,16,16,"CENSURADO: media ao teto, nao terminal"
+constante,0.4,centralizada,fracao_fuga_p1,0.0,1.0,1.0,16,16,"CENSURADO: media ao teto, nao terminal"
+constante,0.4,centralizada,N_req,0.0,0.0,0.0,16,16,"CENSURADO: media ao teto, nao terminal"
+constante,0.4,centralizada,TW,536.5625,42.5625,-494.0,16,16,"CENSURADO: media ao teto, nao terminal"
+constante,0.4,centralizada,TL,0.0,0.0,0.0,16,16,"CENSURADO: media ao teto, nao terminal"
+constante,0.4,centralizada,TU,126.9375,129726.25,129599.3125,16,16,"CENSURADO: media ao teto, nao terminal"
+constante,0.4,centralizada,TR,78.79686515338976,5.96875,-72.82811515338976,16,16,"CENSURADO: media ao teto, nao terminal"
+constante,0.4,centralizada,retrabalho_sobre_esforco_total,0.1908140677734686,0.017008424315591627,-0.17380564345787697,16,16,"CENSURADO: media ao teto, nao terminal"
+constante,0.6,adaptativa,atraso_relativo,1.9582766392216686,1.9582766392216686,0.0,16,0,COMPLETO
+constante,0.6,adaptativa,taxa_omissao,0.061458333333333295,0.061458333333333295,0.0,16,0,COMPLETO
+constante,0.6,adaptativa,divida_latente_sobre_plano,0.02330482563352512,0.02330482563352512,0.0,16,0,COMPLETO
+constante,0.6,adaptativa,taxa_falha_efetiva,0.25937499999999997,0.25937499999999997,0.0,16,0,COMPLETO
+constante,0.6,adaptativa,fracao_porta1,0.4302083333333333,0.4302083333333333,0.0,16,0,COMPLETO
+constante,0.6,adaptativa,p1_fuga,0.0,0.0,0.0,16,0,COMPLETO
+constante,0.6,adaptativa,fracao_fuga_p1,0.0,0.0,0.0,16,0,COMPLETO
+constante,0.6,adaptativa,N_req,140.9375,140.9375,0.0,16,0,COMPLETO
+constante,0.6,adaptativa,TW,410.0625,410.0625,0.0,16,0,COMPLETO
+constante,0.6,adaptativa,TL,102.125,102.125,0.0,16,0,COMPLETO
+constante,0.6,adaptativa,TU,47.0625,47.0625,0.0,16,0,COMPLETO
+constante,0.6,adaptativa,TR,58.320586158168034,58.320586158168034,0.0,16,0,COMPLETO
+constante,0.6,adaptativa,retrabalho_sobre_esforco_total,0.14799177891965892,0.14799177891965892,0.0,16,0,COMPLETO
+constante,0.6,centralizada,atraso_relativo,3.0090263756150817,3.0090263756150817,0.0,16,0,COMPLETO
+constante,0.6,centralizada,taxa_omissao,0.26875,0.26875,0.0,16,0,COMPLETO
+constante,0.6,centralizada,divida_latente_sobre_plano,0.09128964386347407,0.09128964386347407,0.0,16,0,COMPLETO
+constante,0.6,centralizada,taxa_falha_efetiva,0.30729166666666663,0.30729166666666663,0.0,16,0,COMPLETO
+constante,0.6,centralizada,fracao_porta1,0.5385416666666667,0.5385416666666667,0.0,16,0,COMPLETO
+constante,0.6,centralizada,p1_fuga,0.0,0.0,0.0,16,0,COMPLETO
+constante,0.6,centralizada,fracao_fuga_p1,0.0,0.0,0.0,16,0,COMPLETO
+constante,0.6,centralizada,N_req,0.0,0.0,0.0,16,0,COMPLETO
+constante,0.6,centralizada,TW,536.5625,536.5625,0.0,16,0,COMPLETO
+constante,0.6,centralizada,TL,0.0,0.0,0.0,16,0,COMPLETO
+constante,0.6,centralizada,TU,126.9375,126.9375,0.0,16,0,COMPLETO
+constante,0.6,centralizada,TR,78.79686515338976,78.79686515338976,0.0,16,0,COMPLETO
+constante,0.6,centralizada,retrabalho_sobre_esforco_total,0.1908140677734686,0.1908140677734686,0.0,16,0,COMPLETO
+dependente_estado,0.1,adaptativa,atraso_relativo,1.9582766392216686,128.88209315158812,126.92381651236646,16,8,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.1,adaptativa,taxa_omissao,0.061458333333333295,0.042708333333333307,-0.018749999999999992,16,8,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.1,adaptativa,divida_latente_sobre_plano,0.02330482563352512,0.012791354571719302,-0.010513471061805817,16,8,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.1,adaptativa,taxa_falha_efetiva,0.25937499999999997,0.20312499999999997,-0.056249999999999994,16,8,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.1,adaptativa,fracao_porta1,0.4302083333333333,0.3303694151632446,-0.09983891817008879,16,8,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.1,adaptativa,p1_fuga,0.0,57160.4375,57160.4375,16,8,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.1,adaptativa,fracao_fuga_p1,0.0,0.7956235666970328,0.7956235666970328,16,8,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.1,adaptativa,N_req,140.9375,157.625,16.6875,16,8,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.1,adaptativa,TW,410.0625,333.9375,-76.125,16,8,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.1,adaptativa,TL,102.125,128.125,26.0,16,8,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.1,adaptativa,TU,47.0625,57200.8125,57153.75,16,8,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.1,adaptativa,TR,58.320586158168034,36.73959847325116,-21.580987684916877,16,8,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.1,adaptativa,retrabalho_sobre_esforco_total,0.14799177891965892,0.09844276805713714,-0.04954901086252178,16,8,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.1,centralizada,atraso_relativo,3.0090263756150817,256.0,252.9909736243849,16,16,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.1,centralizada,taxa_omissao,0.26875,0.10833333333333331,-0.16041666666666665,16,16,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.1,centralizada,divida_latente_sobre_plano,0.09128964386347407,0.029742397588631186,-0.061547246274842884,16,16,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.1,centralizada,taxa_falha_efetiva,0.30729166666666663,0.12812499999999996,-0.17916666666666664,16,16,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.1,centralizada,fracao_porta1,0.5385416666666667,0.40765535242846407,-0.1308863142382026,16,16,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.1,centralizada,p1_fuga,0.0,129243.375,129243.375,16,16,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.1,centralizada,fracao_fuga_p1,0.0,0.9998874480792844,0.9998874480792844,16,16,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.1,centralizada,N_req,0.0,0.0,0.0,16,16,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.1,centralizada,TW,536.5625,293.6875,-242.875,16,16,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.1,centralizada,TL,0.0,0.0,0.0,16,16,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.1,centralizada,TU,126.9375,129396.1875,129269.25,16,16,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.1,centralizada,TR,78.79686515338976,24.500501937717914,-54.296363215671846,16,16,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.1,centralizada,retrabalho_sobre_esforco_total,0.1908140677734686,0.06812563096294878,-0.12268843681051979,16,16,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.2,adaptativa,atraso_relativo,1.9582766392216686,128.88291552000916,126.92463888078751,16,8,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.2,adaptativa,taxa_omissao,0.061458333333333295,0.043749999999999976,-0.01770833333333332,16,8,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.2,adaptativa,divida_latente_sobre_plano,0.02330482563352512,0.011847834984387937,-0.01145699064913718,16,8,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.2,adaptativa,taxa_falha_efetiva,0.25937499999999997,0.19791666666666663,-0.06145833333333334,16,8,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.2,adaptativa,fracao_porta1,0.4302083333333333,0.3339651186957529,-0.09624321463758041,16,8,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.2,adaptativa,p1_fuga,0.0,57163.375,57163.375,16,8,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.2,adaptativa,fracao_fuga_p1,0.0,0.7924287960401075,0.7924287960401075,16,8,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.2,adaptativa,N_req,140.9375,157.0,16.0625,16,8,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.2,adaptativa,TW,410.0625,333.625,-76.4375,16,8,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.2,adaptativa,TL,102.125,127.3125,25.1875,16,8,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.2,adaptativa,TU,47.0625,57203.6875,57156.625,16,8,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.2,adaptativa,TR,58.320586158168034,36.64161767047517,-21.678968487692863,16,8,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.2,adaptativa,retrabalho_sobre_esforco_total,0.14799177891965892,0.09822278459520262,-0.04976899432445632,16,8,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.2,centralizada,atraso_relativo,3.0090263756150817,256.0,252.9909736243849,16,16,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.2,centralizada,taxa_omissao,0.26875,0.10312499999999998,-0.165625,16,16,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.2,centralizada,divida_latente_sobre_plano,0.09128964386347407,0.030238010905837418,-0.06105163295763666,16,16,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.2,centralizada,taxa_falha_efetiva,0.30729166666666663,0.12291666666666665,-0.184375,16,16,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.2,centralizada,fracao_porta1,0.5385416666666667,0.41241402193980914,-0.12612764472685753,16,16,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.2,centralizada,p1_fuga,0.0,129245.0,129245.0,16,16,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.2,centralizada,fracao_fuga_p1,0.0,0.9998849278003508,0.9998849278003508,16,16,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.2,centralizada,N_req,0.0,0.0,0.0,16,16,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.2,centralizada,TW,536.5625,296.5,-240.0625,16,16,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.2,centralizada,TL,0.0,0.0,0.0,16,16,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.2,centralizada,TU,126.9375,129393.5,129266.5625,16,16,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.2,centralizada,TR,78.79686515338976,24.106147408398073,-54.69071774499169,16,16,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.2,centralizada,retrabalho_sobre_esforco_total,0.1908140677734686,0.06708490176640204,-0.12372916600706653,16,16,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.3,adaptativa,atraso_relativo,1.9582766392216686,128.8800173431946,126.92174070397292,16,8,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.3,adaptativa,taxa_omissao,0.061458333333333295,0.04062499999999997,-0.020833333333333325,16,8,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.3,adaptativa,divida_latente_sobre_plano,0.02330482563352512,0.011392133111078487,-0.01191269252244663,16,8,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.3,adaptativa,taxa_falha_efetiva,0.25937499999999997,0.19374999999999998,-0.06562500000000002,16,8,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.3,adaptativa,fracao_porta1,0.4302083333333333,0.3343247695712126,-0.09588356376212076,16,8,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.3,adaptativa,p1_fuga,0.0,57158.0625,57158.0625,16,8,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.3,adaptativa,fracao_fuga_p1,0.0,0.7649381925879404,0.7649381925879404,16,8,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.3,adaptativa,N_req,140.9375,155.0,14.0625,16,8,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.3,adaptativa,TW,410.0625,337.125,-72.9375,16,8,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.3,adaptativa,TL,102.125,124.75,22.625,16,8,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.3,adaptativa,TU,47.0625,57198.8125,57151.75,16,8,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.3,adaptativa,TR,58.320586158168034,36.00664073336505,-22.313945424802984,16,8,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.3,adaptativa,retrabalho_sobre_esforco_total,0.14799177891965892,0.09696157319805944,-0.05103020572159948,16,8,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.3,centralizada,atraso_relativo,3.0090263756150817,256.0,252.9909736243849,16,16,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.3,centralizada,taxa_omissao,0.26875,0.10312499999999997,-0.165625,16,16,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.3,centralizada,divida_latente_sobre_plano,0.09128964386347407,0.029075920120590723,-0.06221372374288335,16,16,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.3,centralizada,taxa_falha_efetiva,0.30729166666666663,0.12604166666666664,-0.18125,16,16,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.3,centralizada,fracao_porta1,0.5385416666666667,0.40892734377922746,-0.12961432288743924,16,16,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.3,centralizada,p1_fuga,0.0,129240.0625,129240.0625,16,16,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.3,centralizada,fracao_fuga_p1,0.0,0.9998842713067009,0.9998842713067009,16,16,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.3,centralizada,N_req,0.0,0.0,0.0,16,16,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.3,centralizada,TW,536.5625,301.8125,-234.75,16,16,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.3,centralizada,TL,0.0,0.0,0.0,16,16,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.3,centralizada,TU,126.9375,129387.4375,129260.5,16,16,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.3,centralizada,TR,78.79686515338976,25.225042323342016,-53.57182283004774,16,16,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.3,centralizada,retrabalho_sobre_esforco_total,0.1908140677734686,0.0700728666774636,-0.12074120109600499,16,16,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.4,adaptativa,atraso_relativo,1.9582766392216686,113.03301298589611,111.07473634667446,16,7,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.4,adaptativa,taxa_omissao,0.061458333333333295,0.047916666666666635,-0.013541666666666664,16,7,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.4,adaptativa,divida_latente_sobre_plano,0.02330482563352512,0.011304450349981681,-0.012000375283543436,16,7,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.4,adaptativa,taxa_falha_efetiva,0.25937499999999997,0.1958333333333333,-0.06354166666666666,16,7,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.4,adaptativa,fracao_porta1,0.4302083333333333,0.332373210032256,-0.09783512330107737,16,7,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.4,adaptativa,p1_fuga,0.0,49893.625,49893.625,16,7,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.4,adaptativa,fracao_fuga_p1,0.0,0.728281240787912,0.728281240787912,16,7,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.4,adaptativa,N_req,140.9375,155.4375,14.5,16,7,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.4,adaptativa,TW,410.0625,348.25,-61.8125,16,7,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.4,adaptativa,TL,102.125,125.4375,23.3125,16,7,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.4,adaptativa,TU,47.0625,49933.8125,49886.75,16,7,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.4,adaptativa,TR,58.320586158168034,37.01550737521207,-21.305078782955967,16,7,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.4,adaptativa,retrabalho_sobre_esforco_total,0.14799177891965892,0.09914279362642116,-0.04884898529323775,16,7,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.4,centralizada,atraso_relativo,3.0090263756150817,256.0,252.9909736243849,16,16,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.4,centralizada,taxa_omissao,0.26875,0.11145833333333331,-0.15729166666666666,16,16,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.4,centralizada,divida_latente_sobre_plano,0.09128964386347407,0.030208367012912296,-0.06108127685056178,16,16,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.4,centralizada,taxa_falha_efetiva,0.30729166666666663,0.13541666666666663,-0.171875,16,16,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.4,centralizada,fracao_porta1,0.5385416666666667,0.4241531329545524,-0.11438853371211427,16,16,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.4,centralizada,p1_fuga,0.0,129225.625,129225.625,16,16,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.4,centralizada,fracao_fuga_p1,0.0,0.9998754281536741,0.9998754281536741,16,16,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.4,centralizada,N_req,0.0,0.0,0.0,16,16,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.4,centralizada,TW,536.5625,314.125,-222.4375,16,16,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.4,centralizada,TL,0.0,0.0,0.0,16,16,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.4,centralizada,TU,126.9375,129370.5,129243.5625,16,16,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.4,centralizada,TR,78.79686515338976,27.152327003778503,-51.644538149611265,16,16,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.4,centralizada,retrabalho_sobre_esforco_total,0.1908140677734686,0.07503363409884249,-0.11578043367462611,16,16,"CENSURADO: media ao teto, nao terminal"
+dependente_estado,0.6,adaptativa,atraso_relativo,1.9582766392216686,1.9582766392216686,0.0,16,0,COMPLETO
+dependente_estado,0.6,adaptativa,taxa_omissao,0.061458333333333295,0.061458333333333295,0.0,16,0,COMPLETO
+dependente_estado,0.6,adaptativa,divida_latente_sobre_plano,0.02330482563352512,0.02330482563352512,0.0,16,0,COMPLETO
+dependente_estado,0.6,adaptativa,taxa_falha_efetiva,0.25937499999999997,0.25937499999999997,0.0,16,0,COMPLETO
+dependente_estado,0.6,adaptativa,fracao_porta1,0.4302083333333333,0.4302083333333333,0.0,16,0,COMPLETO
+dependente_estado,0.6,adaptativa,p1_fuga,0.0,0.0,0.0,16,0,COMPLETO
+dependente_estado,0.6,adaptativa,fracao_fuga_p1,0.0,0.0,0.0,16,0,COMPLETO
+dependente_estado,0.6,adaptativa,N_req,140.9375,140.9375,0.0,16,0,COMPLETO
+dependente_estado,0.6,adaptativa,TW,410.0625,410.0625,0.0,16,0,COMPLETO
+dependente_estado,0.6,adaptativa,TL,102.125,102.125,0.0,16,0,COMPLETO
+dependente_estado,0.6,adaptativa,TU,47.0625,47.0625,0.0,16,0,COMPLETO
+dependente_estado,0.6,adaptativa,TR,58.320586158168034,58.320586158168034,0.0,16,0,COMPLETO
+dependente_estado,0.6,adaptativa,retrabalho_sobre_esforco_total,0.14799177891965892,0.14799177891965892,0.0,16,0,COMPLETO
+dependente_estado,0.6,centralizada,atraso_relativo,3.0090263756150817,3.0090263756150817,0.0,16,0,COMPLETO
+dependente_estado,0.6,centralizada,taxa_omissao,0.26875,0.26875,0.0,16,0,COMPLETO
+dependente_estado,0.6,centralizada,divida_latente_sobre_plano,0.09128964386347407,0.09128964386347407,0.0,16,0,COMPLETO
+dependente_estado,0.6,centralizada,taxa_falha_efetiva,0.30729166666666663,0.30729166666666663,0.0,16,0,COMPLETO
+dependente_estado,0.6,centralizada,fracao_porta1,0.5385416666666667,0.5385416666666667,0.0,16,0,COMPLETO
+dependente_estado,0.6,centralizada,p1_fuga,0.0,0.0,0.0,16,0,COMPLETO
+dependente_estado,0.6,centralizada,fracao_fuga_p1,0.0,0.0,0.0,16,0,COMPLETO
+dependente_estado,0.6,centralizada,N_req,0.0,0.0,0.0,16,0,COMPLETO
+dependente_estado,0.6,centralizada,TW,536.5625,536.5625,0.0,16,0,COMPLETO
+dependente_estado,0.6,centralizada,TL,0.0,0.0,0.0,16,0,COMPLETO
+dependente_estado,0.6,centralizada,TU,126.9375,126.9375,0.0,16,0,COMPLETO
+dependente_estado,0.6,centralizada,TR,78.79686515338976,78.79686515338976,0.0,16,0,COMPLETO
+dependente_estado,0.6,centralizada,retrabalho_sobre_esforco_total,0.1908140677734686,0.1908140677734686,0.0,16,0,COMPLETO

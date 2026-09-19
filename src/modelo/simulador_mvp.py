@@ -26,6 +26,7 @@ class OpcoesMVP:
     rho_omissao: float | None = None
     retrabalho_fila: bool = True
     canal_erro_direto: str = 'ativo'
+    regra_fuga: str = 'constante'
     lei_confianca: str = 'constante'
     lei_tempo_aprendizado: str = 'unitario'
     comunicacao_crowder: bool = False
@@ -38,6 +39,8 @@ class OpcoesMVP:
     tau_rede: float | None = None
 
     def __post_init__(self):
+        if self.regra_fuga not in {'constante','dependente_estado'}:
+            raise ValueError('regra de fuga desconhecida')
         if self.canal_erro_direto not in {'ativo','desligado'}:
             raise ValueError('canal de erro direto desconhecido')
         if self.rho_omissao is not None and not 0<=self.rho_omissao<=1:
@@ -92,6 +95,12 @@ class SimulacaoMVP(Simulacao):
             return super().multiplicadores(agente,P)
         finally:
             agente.confianca=anterior
+
+    def deve_fugir(self,p_heu,omega,limite):
+        """[DEC] A1: limiar por estado como alternativa, sem sorteio adicional."""
+        if self.opcoes.regra_fuga=='constante':
+            return omega>limite
+        return omega*max(0.,2*p_heu-1.)>limite
 
     def decidir_porta(self,p_heu,sorteio):
         """Ponto de intervenção contrafactual; nominal mantém o mesmo sorteio."""
@@ -251,7 +260,7 @@ class SimulacaoMVP(Simulacao):
                     sorteio_porta=sorteio_porta,sorteio_falha=None,falhou=None,
                     executada=False,selecionou_p1=bool(heu),competencia=a.competencia)
                 if o.instrumentar_tarefas:self.registros_tarefas.append(registro)
-                if heu and omega>limite:
+                if heu and self.deve_fugir(p_heu,omega,limite):
                     registro['porta']='P1_fuga'
                     self.cnt['p1_fuga']+=1; self.TU+=1.; self.n_adiamentos+=1
                     a.bateria=max(0.,a.bateria-kh*E)

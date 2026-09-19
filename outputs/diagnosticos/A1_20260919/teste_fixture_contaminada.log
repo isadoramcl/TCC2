@@ -1,0 +1,17 @@
+test_acao_e_controle_negativo (test_a1.Fuga) ... FAIL
+test_condicao_depende_do_estado_e_estrita (test_a1.Fuga) ... ok
+test_constante_explicita_identica_default (test_a1.Fuga) ... ok
+test_opcao_invalida (test_a1.Fuga) ... ok
+
+======================================================================
+FAIL: test_acao_e_controle_negativo (test_a1.Fuga)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/isadoracarvalho/TCC2/.worktrees/integracao-main-tl/research/test_a1.py", line 16, in test_acao_e_controle_negativo
+    self.assertEqual(b.contadores['p1_fuga'],0);self.assertTrue(b.concluiu)
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.070s
+
+FAILED (failures=1)
