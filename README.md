@@ -30,9 +30,16 @@ C4 e o N da base de F permanecem **parciais**.
 [Resultados e regiões de inversão](projeto/TSAT_TGOV_REGIMES_20260919.md):
 T-SAT.1 não atingiu o critério de saturação de p_heu, embora q seja quase
 binário. No limite nominal, a fuga é impossível para qualquer s_transicao.
-T-GOV.1: 2.592/2.592 completas; há inversões dos cinco indicadores inclusive
-mantendo a ordenação histórica das premissas. O sinal de governança não é
-universal na malha; nominal e dinâmica permanecem inalterados.
+T-GOV.1: 2.592/2.592 completas. [T-GOV.2 localiza as exceções](projeto/TGOV2_LOCALIZACAO_INVERSOES_20260919.md):
+predominam contrastes negativos na ordenação histórica; as três inversões de
+atraso se concentram no mesmo perfil A, e dívida tem um caso isolado. ICs
+exploratórios e dependência entre contrastes impedem concluir só pela contagem
+se são multiplicidade ou mecanismos confirmados.
+
+[T-CROWDER.1](projeto/TCROWDER1_SENSIBILIDADE_20260919.md): escalares nomeados no
+YAML, nominal (15,3) preservado bit a bit. 3.456/3.456 completas; cinco
+contrastes com IC95 negativo em todas as nove combinações. Centralizada
+inerte; dívida muda em magnitude, sem inversão nominal nessa sensibilidade.
 
 ## Objetivo
 

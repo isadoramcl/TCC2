@@ -1299,3 +1299,21 @@ Recalculados pares completos: 9/16 (tau=1) ou 5/16 (tau=1.4), com 4 ou 3
 instâncias. IC de falha efetiva inclui zero nas quatro células afetadas; leitura
 condicional, não efeito incondicional. Nominal N=768 completo, sem exclusão.
 Nenhuma política alterada; lote aberto. [Relatório](../projeto/TB2_HORIZONTE_E_SELECAO.md).
+
+## 19/09/2026 — T-GOV.2 / T-CROWDER.1
+
+- [TCC1] Escalares 15 e 3 da equação (4.2) nomeados no YAML como
+  incremento_base/fator_transferencia, sem alterar os valores nominais.
+- [DEC] Sensibilidade solicitada 3x3, mesmos 16 arquivos e 12 sementes do
+  nominal; IC95 por instância e censura preservada. Lista explícita
+  [7,5;15;22,5] prevalece sobre a descrição “metade, nominal, dobro”.
+- Sem alteração da confusão de escala legada, dos tetos ou da lei Crowder.
+  Identidade em (15,3) é porta da execução contra dfc0d78.
+- T-GOV.2 corrige a leitura: as 3 inversões de atraso são 3/1.215 pares
+  ordenados, concentradas no perfil A=71 (3/53), não 3/6.561.
+  Localização é exploratória; multiplicidade não pode ser decidida por
+  comparação com expectativa de uma família de hipóteses todas nulas.
+- Ver [T-GOV.2](../projeto/TGOV2_LOCALIZACAO_INVERSOES_20260919.md) e
+  [T-CROWDER.1](../projeto/TCROWDER1_SENSIBILIDADE_20260919.md). Não eleger
+  parâmetros convenientes nem atribuir as inversões a Crowder sem contraste
+  específico dos perfis onde ocorreram.

@@ -1,0 +1,6 @@
+metrica,N_total,IC_oposto_total,N_ordenacao_historica,IC_oposto_ordenado,vetores_distintos,perfis_A,perfis_C
+atraso_relativo,6561,1602,1215,3,3,1,3
+divida_latente_sobre_plano,6561,1628,1215,1,1,1,1
+fracao_porta1,6561,1701,1215,11,6,8,7
+taxa_falha_efetiva,6561,379,1215,4,4,4,2
+taxa_omissao,6561,2226,1215,3,3,3,2

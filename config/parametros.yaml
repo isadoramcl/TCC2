@@ -205,3 +205,16 @@ cenarios:
     tau_min:      { valor: 0.25, condicao: premissa, fonte: "limiar baixo para conceder ajuda" }
     p_reporte:    { valor: 0.75, condicao: premissa, fonte: "reporte imediato (matriz de cenários)" }
     p_deteccao:   { valor: 0.12, condicao: premissa, fonte: "segurança psicológica elevada" }
+
+# [TCC1] Equação (4.2); sensibilidade sem alvo externo.
+aprendizado:
+  incremento_base:
+    valor: 15
+    varredura: [7.5, 15, 22.5]
+    condicao: tcc1
+    fonte: "TCC I, equação (4.2), escalar aditivo de transferência de competência"
+  fator_transferencia:
+    valor: 3
+    varredura: [1.5, 3, 6]
+    condicao: tcc1
+    fonte: "TCC I, equação (4.2), escalar da diferença de competências"

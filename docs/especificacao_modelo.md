@@ -535,3 +535,16 @@ implementação C2 validada; fonte internamente inconsistente em 0,012% (A-16),
 com resíduos publicados e fórmula inalterada. Ver [C2 de fechamento](../projeto/C2_HETEROGENEIDADE_FECHAMENTO.md).
 
 Estado e controles: [atualização de 19/09](../projeto/ATUALIZACAO_B2_A1_C1_C2_20260919.md).
+
+## Escalares de aprendizagem — T-CROWDER.1 (19/09/2026)
+
+A equação (4.2) usa agora `aprendizado.incremento_base` e
+`aprendizado.fator_transferencia` do YAML, valores nominais 15 e 3, condição
+`tcc1` ([TCC1]). Os dois caminhos MVP e o legado leem os mesmos parâmetros,
+preservando suas conversões, tetos e ordem aritmética. O caminho legado
+continua com a escala histórica deliberadamente preservada.
+
+Sensibilidade pré-declarada: base [7,5;15;22,5] e fator [1,5;3;6],
+produto cartesiano, sem alvo externo. 22,5 equivale a 1,5x o nominal.
+Nominal e regras de confiança não foram reposicionados. Evidências e IC95:
+[relatório T-CROWDER.1](../projeto/TCROWDER1_SENSIBILIDADE_20260919.md).

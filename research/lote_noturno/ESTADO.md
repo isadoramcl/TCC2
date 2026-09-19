@@ -32,3 +32,24 @@ afirmação de sinal universal de governança. Três testes bit a bit aprovados,
 nominal arquivado e perfis iguais com resíduo zero; dinâmica intacta. Próxima
 questão científica: interpretar as regiões invertidas, sem eleger parâmetros
 favoráveis nem inferir autorização para recalibração ou novas ondas HM.
+
+## T-GOV.2 e T-CROWDER.1 — concluídos
+
+T-GOV.2: listados todos os ICs opostos, inclusive oito parâmetros por par.
+Na ordenação histórica são 22: atraso3, omissão3, dívida1, falha4, fraçãoP1=11.
+Atraso concentrado em A71 (3/53, zero/1162 restantes); dívida isolada; seis
+P1 são duplicatas do mesmo vetor. Não usar 3/6561 nem tratar localização
+como teste confirmatório. Leitura corrente: predominância negativa e
+exceções regionais exploratórias, não instabilidade generalizada.
+
+Crowder: YAML aprendizado.incremento_base=15/fator_transferencia=3 [TCC1];
+grade [7.5,15,22.5]x[1.5,3,6], 16 instâncias x12 sementes x2 braços.
+3456 completas, zero violações; cinco indicadores com IC95 negativo nas
+9 células. Dívida contraste -0.080016..-0.076383. N_req/TL centralizada zero
+e resultados invariantes. Ganho realizado adaptativo responde aos escalares.
+23 testes passaram; identidade contra dfc0d78 em 24 comparações completas
+e nominal arquivado384 x45 campos por float.hex. Relatórios canônicos:
+projeto/TGOV2_LOCALIZACAO_INVERSOES_20260919.md e
+projeto/TCROWDER1_SENSIBILIDADE_20260919.md. Sem recalibração/eleição.
+Próxima questão, se solicitada: confirmar as exceções regionais em desenho
+independente; a grade nominal Crowder não identifica a causa delas.

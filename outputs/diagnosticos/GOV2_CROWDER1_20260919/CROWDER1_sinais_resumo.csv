@@ -1,0 +1,6 @@
+metrica,N,medias_negativas,IC_negativos,IC_positivos,media_min,media_max
+atraso_relativo,9,9,9,0,-1.0868097024136862,-0.996298613145168
+divida_latente_sobre_plano,9,9,9,0,-0.0800163361280999,-0.0763830311516612
+fracao_porta1,9,9,9,0,-0.1547743055555555,-0.0856770833333333
+taxa_falha_efetiva,9,9,9,0,-0.0588541666666666,-0.0420138888888888
+taxa_omissao,9,9,9,0,-0.23203125,-0.2255208333333333
