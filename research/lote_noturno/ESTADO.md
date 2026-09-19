@@ -1,23 +1,19 @@
-# Continuidade — 19/09, após A1/C1 e controle C2
+# Continuidade — fechamento obrigatório de 19/09
 
-Árvore permanente TCC2/.worktrees/integracao-main-tl, branch codex/integracao-main-tl.
-Publicação por item em origin/main. Não alterar checkout principal da autora.
+Árvore permanente TCC2/.worktrees/integracao-main-tl; publicação em origin/main.
+Não alterar checkout principal da autora. Ler projeto/FECHAMENTO_LOTE_20260919.md.
 
-Ler projeto/ATUALIZACAO_B2_A1_C1_C2_20260919.md e os relatórios nele ligados.
-B2: bloqueio de três vias, restrito ao canto da grade; duas saídas verificadas.
-P1: s=0,01 preservado como limitação/degeneração; não chamar representável de
-subfluxo a zero. P2: tabela final com rótulo colado ao valor, inclusive NaN.
-A1 implementado: constante default, estado alternativa. Grade320,117 completas.
-Continuidade não aprovada: interruptor por estado, saturação e censura. Não escolher
-limiar conveniente nem declarar mecanismo validado. Nominal bit a bit preservado.
-C1 implementado/testado: seis pontos, dois mapas sintéticos,96/96 completas;
-risco de passos substitui NASA só na alternativa. Nenhum mapa eleito.
-C2 parado ANTES da implantação: mu/CV arredondados não reproduzem alpha/beta
-na terceira casa exigida. Fórmula correta; parâmetro não ajustado. Reconciliar
-critério antes de sortear agentes. Domínio e resíduos publicados. A-16 de C3
-não é licença automática para trocar o critério C2. Não alterar os parâmetros
-canônicos operacionais de C3.
+A1 executado320:117 completas; fuga por estado não é contínua validada, saturação
+centralizada e censura publicadas. Default constante intacto.
+C1 executado96/96: seis pontos, mapas curto/longo sintéticos, nenhum eleito.
+C2 implementado sob a nova ordem APROXIMADA: fórmula literal, resíduos publicados,
+controle de momentos com arredondamento da fonte. Não retomar a reprovação estrita
+antiga como bloqueio vigente. 352/352 execuções completas;96 células recusadas
+por domínio da Beta (sem ajuste de CV), de448 planejadas. Default nenhuma intacto.
+P1 declarado limitação no canto degenerado, não subfluxo aritmético a zero.
+P2 rótulo acompanha valor final, NaN preservado; dois caminhos de desbloqueio
+B2 verificados. C4 e N de F parciais autorizados. Itens obrigatórios entregues;
+fechamento de entregas não é validação externa ou eleição de alternativa.
 
-C4/F parciais autorizados. V_obs/V_mod externo permanece suspenso. Lote não
-fechado. Proibidos: ajustar V_mod para passar ou tau_sat/s para Rieskamp.
-Identidade por item, commit e push por item, brutos preservados em outputs/.
+Próximo passo: revisão científica do pacote, sem novas ondas HM/V_mod ou otimização
+inferidas. Continuar respeitando protocolo observacional e controles por item.

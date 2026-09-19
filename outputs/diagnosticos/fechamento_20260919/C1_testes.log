@@ -1,0 +1,10 @@
+test_historica_explicita_default (test_ancoragem_mvp.IntegracaoAncora) ... ok
+test_mapas_modificam_risco_basal_efetivo (test_ancoragem_mvp.IntegracaoAncora) ... ok
+test_opcoes_invalidas (test_ancoragem_mvp.IntegracaoAncora) ... ok
+test_dominio_nao_extrapola_silencioso (test_stewart_ancora.Ancora) ... ok
+test_seis_pontos_publicados (test_stewart_ancora.Ancora) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.054s
+
+OK

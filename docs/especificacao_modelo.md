@@ -528,7 +528,9 @@ saturação/censura; não tratar como mecanismo contínuo validado.
 [DEC] `ancoragem_erro='historica'` continua padrão, com F_ancora×razão NASA.
 `stewart_linear` usa F_base=k×0,0128 e `mapa_passos=curto|longo`, sintéticos.
 O gradiente de passos substitui NASA somente nessa alternativa, não os empilha.
-C2 ainda não integra o modelo: controle de precisão dos momentos reprovado,
-sem alteração de CV ou parâmetros para fazê-lo passar.
+C2: `heterogeneidade_erro='nenhuma'` default; `beta_cv113` sorteia taxa fixa
+por agente/nível, média F_base e CV=1,13, validando domínio antes de RNG.
+A nova ordem aceita controle aproximado dos momentos impressos, com resíduos
+publicados e fórmula inalterada. Ver [C2 de fechamento](../projeto/C2_HETEROGENEIDADE_FECHAMENTO.md).
 
 Estado e controles: [atualização de 19/09](../projeto/ATUALIZACAO_B2_A1_C1_C2_20260919.md).

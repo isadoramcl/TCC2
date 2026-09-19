@@ -307,5 +307,6 @@ ao limiar apenas proposta. V_obs/V_mod continua pausado por instrução da autor
 ## Lote noturno 19–20: resultado e pendências
 
 [Atualização e números completos](projeto/ATUALIZACAO_B2_A1_C1_C2_20260919.md):
-B2 com bloqueio conjunto e censura rotulada; A1 testado (continuidade não aprovada),
-C1 testado e C2 interrompido no controle de precisão. C4/F parciais. **Lote não fechado.**
+B2 com bloqueio conjunto e censura rotulada; A1 testado (interruptor por estado),
+C1 e C2 implementados e comparados. [Fechamento obrigatório](projeto/FECHAMENTO_LOTE_20260919.md).
+C4 e o N de F permanecem parciais, conforme autorizado.

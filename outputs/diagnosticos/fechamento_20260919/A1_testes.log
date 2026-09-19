@@ -1,0 +1,10 @@
+test_acao_e_controle_negativo (test_a1.Fuga) ... ok
+test_condicao_depende_do_estado_e_estrita (test_a1.Fuga) ... ok
+test_constante_explicita_identica_default (test_a1.Fuga) ... ok
+test_contrafactual_mesmo_estado_e_sorteio (test_a1.Fuga) ... ok
+test_opcao_invalida (test_a1.Fuga) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.156s
+
+OK
