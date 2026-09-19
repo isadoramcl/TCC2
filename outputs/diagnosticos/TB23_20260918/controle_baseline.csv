@@ -1,0 +1,12 @@
+metrica,diferenca_maxima
+n_executadas,0.0
+N_req,0.0
+N_blocked,0.0
+TW,0.0
+TL,0.0
+TU,0.0
+TR,0.0
+atraso_relativo,0.0
+taxa_omissao,6.591949208711867e-17
+taxa_falha_efetiva,6.591949208711867e-17
+divida_latente_sobre_plano,3.8163916471489756e-17

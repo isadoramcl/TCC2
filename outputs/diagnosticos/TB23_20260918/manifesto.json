@@ -1,0 +1,70 @@
+{
+  "N_casos": 36,
+  "N_exec": 468,
+  "configuracoes": [
+    [
+      "principal",
+      0.25
+    ],
+    [
+      "principal",
+      0.59
+    ],
+    [
+      "principal",
+      0.6
+    ],
+    [
+      "principal",
+      0.600001
+    ],
+    [
+      "principal",
+      0.61
+    ],
+    [
+      "principal",
+      0.65
+    ],
+    [
+      "principal",
+      0.8
+    ],
+    [
+      "principal",
+      1.0
+    ],
+    [
+      "portao",
+      0.600001
+    ],
+    [
+      "portao",
+      0.8
+    ],
+    [
+      "portao",
+      1.0
+    ],
+    [
+      "rede",
+      0.8
+    ],
+    [
+      "rede",
+      1.0
+    ]
+  ],
+  "limite_horizonte_fator": 256,
+  "hashes": {
+    "research/tb2/varredura_confianca.py": "bb1d489d3caa93f2b779136926d612554b257e14e0b881ffa75192d9c536d982",
+    "research/tb2/PROTOCOLO_TB23.md": "28e070fb8d35898bc204370970a11d56ebb2edd188c67ca133598936cb9c003c",
+    "outputs/diagnosticos/lote41_B2_censura_20260918/bruto.csv": "d711b684183c765c9d4875b0dc946568c1f212843f0fb58ae61356bc648cb2b2",
+    "src/modelo/simulador.py": "70773c9e2e329dea079c837dfb37dcf90d0066124429c6db9bb39de226f78635",
+    "src/modelo/simulador_mvp.py": "dd729fba7e5d5cff8e914ca79d9c9c759499e785971c201514a5bea85cd35b24",
+    "src/modelo/fuzzy.py": "98b7a050d66401ce718e69086ecc0961e82b2ec15ac398f32e9ba155ab427ad1",
+    "config/mvp.yaml": "1d9f29c9683661887c79111a4fcec675fcdab62d9ce760b7ab7bfb2e7ea9d2f5",
+    "config/parametros.yaml": "8b10258054afc20969ee0fa62ccc0b27d4530ea304f658717ca6e2c6babbc7a6",
+    "config/parametros_derivados.yaml": "6c14269eb8809430412fa748f2539289a9764044a9308015585feceab32c01bd"
+  }
+}

@@ -1,0 +1,9 @@
+test_controles_separam_estados_iniciais (test_tb23_configuracao.ConfiguracaoConfianca) ... ok
+test_malha_cruza_limiar_estrito (test_tb23_configuracao.ConfiguracaoConfianca) ... ok
+test_override_nominal_exato (test_tb23_configuracao.ConfiguracaoConfianca) ... ok
+test_principal_so_muda_tau_inicial (test_tb23_configuracao.ConfiguracaoConfianca) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.718s
+
+OK

@@ -1,5 +1,10 @@
 # B2 — desligamento do canal direto e limites de robustez
 
+> Leitura causal atualizada por [T-B2.3](TB23_PORTAO_E_INCOMPLETUDE.md):
+> abrir só o portão completa 36/36; a rede sozinha completa 0/36.
+> As incompletas são desfecho de A-13 neste desenho, não limitação da família.
+
+
 > Atualização: resultados iniciais publicados em `d54283b`. A classificação da
 > incompletude e os contrastes das células afetadas são reavaliados em
 > [T-B2.1/T-B2.2](TB2_HORIZONTE_E_SELECAO.md). As tabelas abaixo preservam o

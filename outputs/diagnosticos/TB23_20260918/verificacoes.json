@@ -1,0 +1,7 @@
+{
+  "exec": 468,
+  "violacoes": 0,
+  "primeiro_tau_testado_sem_incompletas": 0.600001,
+  "sem_incompletas_em_todos_superiores_testados": true,
+  "controle_baseline": "passou"
+}

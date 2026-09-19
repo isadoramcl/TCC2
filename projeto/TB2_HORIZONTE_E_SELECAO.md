@@ -1,5 +1,10 @@
 # T-B2.1 e T-B2.2 — horizonte dobrado e seleção por conclusão
 
+> Leitura causal atualizada por [T-B2.3](TB23_PORTAO_E_INCOMPLETUDE.md):
+> abrir só o portão completa 36/36; a rede sozinha completa 0/36.
+> As incompletas são desfecho de A-13 neste desenho, não limitação da família.
+
+
 18/09/2026. Pedido executado antes de avançar ao bloco C. Código e resultados
 anteriores publicados em `d54283b`; árvore movida de `/private/tmp` para
 `TCC2/.worktrees/integracao-main-tl`, dentro do repositório permanente.
