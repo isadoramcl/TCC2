@@ -1,0 +1,21 @@
+{
+  "testes": 59,
+  "resultado": "OK",
+  "identidade_apos_C3": "3 passaram",
+  "identidade_apos_B1": "3 passaram",
+  "identidade_apos_B2": "3 passaram; repetida na suíte final",
+  "diagonais_T4_exatas": 768,
+  "verificacao_wrapper_C3": "bateria e resíduos idênticos byte a byte",
+  "git_publicado": false,
+  "hashes": {
+    "src/modelo/simulador_mvp.py": "dd729fba7e5d5cff8e914ca79d9c9c759499e785971c201514a5bea85cd35b24",
+    "research/lote37/validar_c3.py": "7ebc4e396fe3c159159b895d3647c6a437e382d4fd95551ef122b32e88f295df",
+    "research/lote41/t4.py": "95e826d87d0052805955ea32f5edd1d981d54e14a9d51907418db9a61018742d",
+    "research/lote41/b2.py": "67301143ced2c96c0e5173c9e1ef3bfd397e450061b3c46550e852f1cf1ac979",
+    "research/lote41/c3.py": "999e0eb5c460a6a9750b4bc2346330d2fe2bcd3b163412d3444dfee046f4c32b",
+    "research/lote41/PROTOCOLO_B2.md": "e0913b45e8519a568fc7d879cc247b6c940f276b51c3348869e3a3ec17d815f3",
+    "research/lote41/PROTOCOLO.md": "2a14cb54f0f89b77c9d0dbb2104927c055fa8023e6c401338ccbb9648d6dee15",
+    "projeto/RESPOSTA_41_C3_T4.md": "a01a3a8f215c2e0227888f022c219d3387a0581a38a1cb3c0665815db1e3dab1",
+    "projeto/RESPOSTA_41_B2_ROBUSTEZ.md": "6bc4c18f15b9e13e908ab36f24a6be188b51703518f807d3628cfe25666294e7"
+  }
+}

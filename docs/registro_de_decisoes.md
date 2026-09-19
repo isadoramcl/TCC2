@@ -1257,3 +1257,29 @@ BB0 publicada continua fora do intervalo exato [67,481624506;67,484608392], mesm
 considerando arredondamento da saída. A incerteza de mu/CV não foi usada no lugar
 da incerteza dos parâmetros canônicos. B1 não iniciado; detalhes no
 [relatório 40](../projeto/40_RECONCILIACAO_C3_REGRA39.md).
+
+## Especificação 41 — C3 e retomada T4 — 18/09/2026
+
+[DEC] Substituído o critério retratado por teste discriminante em k=0..4.
+Cinco negativos separam ≥10×; candidato desvio máximo 0,104318%, amplitude
+0,116347%, não monotônico. A-16 confirmado em 5.329 pontos; alpha/beta
+operacionais impressos preservados. Inversos não calibram o simulador.
+C3 validado; fonte internamente inconsistente. Saídas antigas preservadas.
+
+B1/T4: 1.536 execuções, 768 controles de diagonal exatos, T2 arquivado
+reproduzido. Portão e rede contribuem para falha efetiva; interação separada.
+P0 depende de mu_cog, não de mu_rede; rede tem caminho indireto por duração,
+pressão e bateria. Crowder mantém realimentação entre os canais após o início;
+T4 não congela mediadores. Identidade neutra passou após C3 e B1.
+[Resultados e controles](../projeto/RESPOSTA_41_C3_T4.md).
+
+### B2 — canal direto desligado e censura estrutural
+
+Alternativa preservada `canal_erro_direto`, ativo default; desligado=R_error zero.
+1.344 execuções; contrastes negativos sobrevivem no nominal com canal desligado.
+Grade: 36 incompletas, 24 sem tarefas; seleção da tarefa pronta mais difícil pode
+bloquear tarefas executáveis quando assistência está fechada e P1 é rara.
+Não alterar parâmetros para eliminar a censura. Runner corrigido para fração
+indefinida e gravação incremental; dinâmica dessa política preservada. Investigar
+alternativa de seleção antes de afirmar robustez da grade. Lote não fechado.
+[Relatório B2](../projeto/RESPOSTA_41_B2_ROBUSTEZ.md). Suíte final: 59 testes passaram.

@@ -25,6 +25,7 @@ class OpcoesMVP:
     fator_omissao: float = .75
     rho_omissao: float | None = None
     retrabalho_fila: bool = True
+    canal_erro_direto: str = 'ativo'
     lei_confianca: str = 'constante'
     lei_tempo_aprendizado: str = 'unitario'
     comunicacao_crowder: bool = False
@@ -37,6 +38,8 @@ class OpcoesMVP:
     tau_rede: float | None = None
 
     def __post_init__(self):
+        if self.canal_erro_direto not in {'ativo','desligado'}:
+            raise ValueError('canal de erro direto desconhecido')
         if self.rho_omissao is not None and not 0<=self.rho_omissao<=1:
             raise ValueError('rho_omissao fora de [0,1]')
         if self.lei_tempo_aprendizado not in {'unitario','crowder_eq3'}:
@@ -176,7 +179,7 @@ class SimulacaoMVP(Simulacao):
         rec=float(v(ag['r_recuperacao']))
         omega=float(v(p['gestor']['omega'])); limite=float(v(p['gestor']['limite_aversao_perda']))
         fc=float(v(ret['f_corrup'])); fr=float(v(ret['f_retrabalho']))
-        re=float(v(p['risco']['R_error']))
+        re=float(v(p['risco']['R_error'])) if o.canal_erro_direto=='ativo' else 0.
         pr=float(v(c['p_reporte'])); pd=float(v(c['p_deteccao'])); tm=float(v(c['tau_min']))
         horizonte=int(v(p['execucao']['horizonte_maximo_fator']))*self.makespan_cpm
         if o.horizonte_automatico:

@@ -1,0 +1,23 @@
+{
+  "C1": true,
+  "C2": true,
+  "C3": true,
+  "C4": true,
+  "validada": true,
+  "veredito": "implementação validada; fonte internamente inconsistente na quarta casa significativa",
+  "alpha_operacional": 0.7546,
+  "beta_operacional": 45.4563,
+  "pontos": 5329,
+  "construtos_compativeis": 5329,
+  "frequencias_compativeis": 0,
+  "E0_min": 67.48162450582613,
+  "E0_max": 67.48460839162821,
+  "alpha_inverso": 0.7548757150498341,
+  "beta_inverso": 45.435977462104496,
+  "desvio_E0_pct": 0.0120288001560942,
+  "finalidade": "inversos diagnósticos; não usados na implementação operacional",
+  "fontes": {
+    "research/lote41/c3.py": "999e0eb5c460a6a9750b4bc2346330d2fe2bcd3b163412d3444dfee046f4c32b",
+    "research/lote41/PROTOCOLO.md": "2a14cb54f0f89b77c9d0dbb2104927c055fa8023e6c401338ccbb9648d6dee15"
+  }
+}

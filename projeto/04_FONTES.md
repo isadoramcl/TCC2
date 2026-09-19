@@ -186,3 +186,29 @@ Truncamento editorial é hipótese, não causa demonstrada; uma linha ≥8 tamb�
 não explicaria massa menor que a de exatamente oito erros.
 A aplicação da regra de precisão aos parâmetros canônicos está no
 [relatório 40](40_RECONCILIACAO_C3_REGRA39.md); outras células continuam abertas.
+
+
+### A-16 — Stewart (1992), inconsistência interna quantificada
+
+18/09/2026. Regra corrigida fornecida integralmente pela autora nesta sessão;
+substitui o parecer 39. A implementação é validada como teste discriminante,
+e a fonte é internamente inconsistente na quarta casa significativa. Não se
+alega reprodução das frequências à precisão impressa.
+
+Busca reproduzida em **5.329 pontos (73×73)** da caixa de arredondamento
+alpha∈[0,75455;0,75465], beta∈[45,45625;45,45635]. Todos os pontos satisfazem
+mu arredondado a 0,0163 e CV a 1,13; **nenhum** produz E0 que arredonde a 67,475.
+Faixa E0=[67,481624506;67,484608392]. Inversos diagnósticos:
+alpha*=0,754875715 com beta fixo (arredonda a 0,7549), e beta*=45,435977462
+com alpha fixo. Não são usados como parâmetros operacionais.
+
+**Operacional: alpha=0,7546; beta=45,4563**, os impressos. E0=67,483116433,
+discrepância de **0,0120288%** na maior célula. Célula de oito erros continua
+registrada como discrepância conhecida. A aprovação discriminante usa apenas
+k=0..4, especificados previamente pela autora.
+
+Maior resíduo candidato 0,104318%, amplitude 0,116347%; cinco negativos dão
+2,250601%, 9,992419%, 89,172890%, 100% e 89,155747%, todos acima de 1% e
+mais de dez vezes o candidato. N5 segue literalmente sigma=CV*mu²; o resultado
+não coincide com os 99,93% orientativos, e não foi ajustado.
+Evidências: [bateria, resíduos e busca completa](../outputs/diagnosticos/lote41_C3_20260918/).

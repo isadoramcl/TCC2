@@ -1,0 +1,68 @@
+{
+  "exec": 1344,
+  "nominal_instancias": [
+    "j6010_1.sm",
+    "j6013_1.sm",
+    "j6016_1.sm",
+    "j6019_1.sm",
+    "j6021_1.sm",
+    "j6024_1.sm",
+    "j6027_1.sm",
+    "j602_1.sm",
+    "j6032_1.sm",
+    "j6035_1.sm",
+    "j6038_1.sm",
+    "j6040_1.sm",
+    "j6043_1.sm",
+    "j6046_1.sm",
+    "j604_1.sm",
+    "j607_1.sm"
+  ],
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "grade_instancias": [
+    "j6010_1.sm",
+    "j6021_1.sm",
+    "j6032_1.sm",
+    "j6043_1.sm"
+  ],
+  "grade_seeds": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "tau_sat": [
+    0.7,
+    1.0,
+    1.4
+  ],
+  "s_transicao": [
+    0.01,
+    0.25,
+    0.6
+  ],
+  "hashes": {
+    "research/lote41/b2.py": "8bc7dbedba567e3cc81de5df4c846dd931ebe8f77fb8e5e0e44d2ea33b6ffe6d",
+    "research/lote41/PROTOCOLO_B2.md": "4669dc80186ba83132e58bfe40878bb1fa108f5a4f0c182e01db18ba1660bc30",
+    "research/lote41/t4.py": "95e826d87d0052805955ea32f5edd1d981d54e14a9d51907418db9a61018742d",
+    "src/modelo/simulador_mvp.py": "dd729fba7e5d5cff8e914ca79d9c9c759499e785971c201514a5bea85cd35b24",
+    "src/modelo/simulador.py": "70773c9e2e329dea079c837dfb37dcf90d0066124429c6db9bb39de226f78635",
+    "src/modelo/fuzzy.py": "98b7a050d66401ce718e69086ecc0961e82b2ec15ac398f32e9ba155ab427ad1",
+    "config/mvp.yaml": "1d9f29c9683661887c79111a4fcec675fcdab62d9ce760b7ab7bfb2e7ea9d2f5",
+    "config/parametros.yaml": "8b10258054afc20969ee0fa62ccc0b27d4530ea304f658717ca6e2c6babbc7a6",
+    "config/parametros_derivados.yaml": "6c14269eb8809430412fa748f2539289a9764044a9308015585feceab32c01bd"
+  }
+}

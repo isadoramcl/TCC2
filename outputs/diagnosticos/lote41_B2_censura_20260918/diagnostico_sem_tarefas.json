@@ -1,0 +1,39 @@
+{
+  "arquivo": "j6021_1.sm",
+  "semente": 0,
+  "CPM": 76,
+  "P_max": 1.0,
+  "prontas": [
+    {
+      "tarefa": 2,
+      "Di": 0.3433288753205754,
+      "competencia_max": 0.6268507180531939,
+      "E_max_bateria_1": 0.3433288753205754,
+      "p_heu_pressao_max": 3.027857364301234e-29
+    },
+    {
+      "tarefa": 3,
+      "Di": 0.6894169161153751,
+      "competencia_max": 0.6268507180531939,
+      "E_max_bateria_1": 0.6894169161153751,
+      "p_heu_pressao_max": 3.247491699048269e-14
+    },
+    {
+      "tarefa": 4,
+      "Di": 0.4403398806348315,
+      "competencia_max": 0.6268507180531939,
+      "E_max_bateria_1": 0.4403398806348315,
+      "p_heu_pressao_max": 4.946179143580883e-25
+    }
+  ],
+  "tau_inicial": 0.25,
+  "tau_min": 0.6,
+  "agentes": 6,
+  "selecao": "max(prontas, key=dificuldade), antes do teste de compet\u00eancia",
+  "tarefa_escolhida": 3,
+  "prontas_mais_faceis_compativeis": [
+    2,
+    4
+  ],
+  "limite_superior_uniao_ao_menos_uma_P1": 3.790991909800987e-09
+}

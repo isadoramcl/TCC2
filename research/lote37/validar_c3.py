@@ -15,8 +15,11 @@ CHI={'binomial':10.174,'beta_binomial':.162,'p_dependente':.583}
 
 def main():
     ap=argparse.ArgumentParser();ap.add_argument('--saida',type=Path,required=True)
-    ap.add_argument('--regra',choices=['parecer39','historica'],default='parecer39')
+    ap.add_argument('--regra',choices=['parecer41','parecer39','historica'],default='parecer41')
     args=ap.parse_args()
+    if args.regra=='parecer41':
+        import subprocess,sys
+        return subprocess.call([sys.executable,str(R/'research/lote41/c3.py'),'--saida',str(args.saida)])
     if args.regra=='parecer39':
         from validar_c3_39 import executar
         return executar(args.saida)

@@ -11,10 +11,14 @@ modelo híbrido de agentes e dinâmica de sistemas, experimentos e análise.
 
 ## Estado do lote 37 — 18/09/2026
 
-Parecer 39 aplicado: parâmetros alpha/beta canônicos e saídas antigas preservadas.
-C3 ainda reprova a propagação da precisão desses parâmetros, inclusive ao
-considerar o arredondamento da saída. B1 aguarda reconciliação; identidade bit a
-bit preservada. Evidências no [relatório 40](projeto/40_RECONCILIACAO_C3_REGRA39.md).
+C3 **validado pelo teste discriminante** da especificação 41; a inconsistência
+interna da fonte está quantificada como A-16. B1/T4 concluído: os dois canais
+contribuem ao contraste de falha efetiva, com interação explícita. Nominal e
+saídas históricas preservados. B2 mantém os contrastes nominais sem erro direto,
+mas a grade revelou bloqueio de tarefas (36 execuções incompletas);
+[diagnóstico e próxima prioridade](projeto/RESPOSTA_41_B2_ROBUSTEZ.md).
+O lote inteiro ainda não está fechado. Evidências de C3/T4 na
+[resposta 41](projeto/RESPOSTA_41_C3_T4.md).
 
 ## Objetivo
 
