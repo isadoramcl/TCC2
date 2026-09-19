@@ -1,0 +1,6 @@
+esquema,cortes,monotonica,F_base_baixa,n_baixa,F_base_media,n_media,F_base_alta,n_alta,F_base_muito_alta,n_muito_alta
+SWE-220 adaptado (referencia),"[10, 15, 20]",True,0.147,14986,0.28452,1079,0.34791,503,0.43881,809
+mais permissivo,"[12, 18, 25]",True,0.15117,15545,0.33175,844,0.35629,421,0.45855,567
+mais restritivo,"[8, 12, 16]",True,0.14248,14227,0.24507,1318,0.31889,646,0.40809,1186
+usado no TCC1 (exploratorio),"[3, 7, 15]",True,0.12019,9127,0.17766,4593,0.25458,2345,0.40396,1312
+quartis da base,"[2.0, 3.0, 7.0]",True,0.11103,6665,0.145,2462,0.17766,4593,0.30818,3657

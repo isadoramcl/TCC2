@@ -1,0 +1,11 @@
+parametro,valor,N_grade,N_grupo,incompletas,fracao_incompleta
+cenario,adaptativa,576,288,0,0.0
+cenario,centralizada,576,288,36,0.125
+canal,ativo,576,288,18,0.0625
+canal,desligado,576,288,18,0.0625
+tau_sat,0.7,576,192,0,0.0
+tau_sat,1.0,576,192,14,0.07291666666666667
+tau_sat,1.4,576,192,22,0.11458333333333333
+s_transicao,0.01,576,192,36,0.1875
+s_transicao,0.25,576,192,0,0.0
+s_transicao,0.6,576,192,0,0.0

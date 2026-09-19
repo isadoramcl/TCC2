@@ -70,7 +70,7 @@ def job(args):
     return dict(etapa=conf['etapa'],configuracao=conf['nome'],arquivo=arquivo,semente=seed,
         **{k:float(S.v(v)) for k,v in conf['cenario'].items()},
         atraso_relativo=r.makespan/r.makespan_cpm,taxa_omissao=r.taxa_omissao,
-        divida_latente_sobre_plano=r.divida_latente_sobre_plano,taxa_falha_efetiva=r.taxa_falha_efetiva,
+        divida_latente_sobre_plano=r.divida_latente_sobre_plano,retrabalho_sobre_esforco_total=r.retrabalho_sobre_esforco_total,taxa_falha_efetiva=r.taxa_falha_efetiva,
         fracao_porta1=r.contadores['p1_omissao']/max(1,n),
         n_com_erro=r.n_com_erro,n_reportadas=r.n_reportadas,n_tarefas=len(s.tarefas),
         makespan=r.makespan,makespan_cpm=r.makespan_cpm,TW=r.TW,TL=r.TL,TU=r.TU,TR=r.TR,

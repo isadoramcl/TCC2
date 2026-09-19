@@ -1,0 +1,18 @@
+{
+  "N_grade": 576,
+  "N_nominal": 768,
+  "N_reexecutar": 36,
+  "horizonte_antes": 256,
+  "horizonte_depois": 512,
+  "hashes": {
+    "research/tb2/diagnostico.py": "d220e65015e895c87448ec49b93042513b53777b6d082637f168cf30f688f928",
+    "research/tb2/PROTOCOLO.md": "4a0ed876b3911e3018a9f015068041f69bfc1d82f6f39ba55490a9eac1e6f37c",
+    "outputs/diagnosticos/lote41_B2_censura_20260918/bruto.csv": "d711b684183c765c9d4875b0dc946568c1f212843f0fb58ae61356bc648cb2b2",
+    "src/modelo/simulador_mvp.py": "dd729fba7e5d5cff8e914ca79d9c9c759499e785971c201514a5bea85cd35b24",
+    "src/modelo/simulador.py": "70773c9e2e329dea079c837dfb37dcf90d0066124429c6db9bb39de226f78635",
+    "src/modelo/fuzzy.py": "98b7a050d66401ce718e69086ecc0961e82b2ec15ac398f32e9ba155ab427ad1",
+    "config/mvp.yaml": "1d9f29c9683661887c79111a4fcec675fcdab62d9ce760b7ab7bfb2e7ea9d2f5",
+    "config/parametros.yaml": "8b10258054afc20969ee0fa62ccc0b27d4530ea304f658717ca6e2c6babbc7a6",
+    "config/parametros_derivados.yaml": "6c14269eb8809430412fa748f2539289a9764044a9308015585feceab32c01bd"
+  }
+}

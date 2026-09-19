@@ -32,7 +32,7 @@ def main():
                 r=sim.executar()
                 rows.extend(dict(arquivo=arquivo,semente=seed,cenario=cen,**e) for e in sim.registros_tarefas)
                 execs.append(dict(arquivo=arquivo,semente=seed,cenario=cen,concluiu=r.concluiu,
-                    taxa_falha_efetiva=r.taxa_falha_efetiva,violacoes=len(r.violacoes),**{k:r.contadores[k] for k in ['N_req','N_fail','N_blocked','N_success']}))
+                    retrabalho_sobre_esforco_total=r.retrabalho_sobre_esforco_total,taxa_falha_efetiva=r.taxa_falha_efetiva,violacoes=len(r.violacoes),**{k:r.contadores[k] for k in ['N_req','N_fail','N_blocked','N_success']}))
     d=pd.DataFrame(rows)
     d.to_csv(args.saida/'tarefas.csv.gz',index=False,compression={'method':'gzip','mtime':0})
     pd.DataFrame(execs).to_csv(args.saida/'execucoes.csv',index=False)

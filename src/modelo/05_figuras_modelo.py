@@ -75,6 +75,8 @@ DIAGNOSTICO = "retrabalho_sobre_esforco_realizado"
 
 def carregar():
     d = pd.read_csv(TAB / "modelo_03_experimento_bruto.csv")
+    if 'retrabalho_sobre_esforco_total' not in d and 'E_plano' in d:
+        d['retrabalho_sobre_esforco_total']=d.TR/(d.E_plano+d.TR)
     if 'taxa_falha_efetiva' not in d:
         # Derivação em memória de artefato histórico; nunca sobrescrever o bruto.
         tarefas = pd.read_csv(RAIZ/'data/processed/psplib/tarefas_j60_com_di.csv')
@@ -280,7 +282,7 @@ def figura_9():
             for cen in ("centralizada", "adaptativa"):
                 r = S.Simulacao(g, disp, cpm, par, cen, semente=sem).executar()
                 desfechos.append(dict(arquivo=arq,semente=sem,cenario=cen,
-                    taxa_falha_efetiva=r.taxa_falha_efetiva,concluiu=r.concluiu))
+                    retrabalho_sobre_esforco_total=r.retrabalho_sobre_esforco_total,taxa_falha_efetiva=r.taxa_falha_efetiva,concluiu=r.concluiu))
                 plano = float(r.E_plano)
                 tn = np.array(r.trajetorias["t"]) / r.makespan_cpm
                 for k in series[cen]:

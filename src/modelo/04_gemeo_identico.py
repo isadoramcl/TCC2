@@ -1,19 +1,20 @@
 """
-04_gemeo_identico.py — Calibração por History Matching e teste do gêmeo idêntico
+04_gemeo_identico.py — Verificação interna do procedimento (histórico)
 =================================================================================
 
-Responde a duas perguntas que a banca fará sobre qualquer modelo com parâmetros
-não observados:
+Este script preserva o experimento histórico de pseudo-observação única e ondas.
+Não estima cobertura, identificabilidade ou V_obs externo. Não executar novas
+ondas antes do contrato observacional. O desenho atual de cobertura repetida
+está em research/lote_noturno/cobertura.py; protocolo D2/D3 e relatório
+projeto/NOTURNO_D2_COBERTURA.md. Arquivo/output históricos mantêm nomes para
+rastreabilidade, sem promover resultados antigos a validação externa.
 
-  1. **Existe procedimento de calibração?** Sim: History Matching, com medida de
-     implausibilidade e corte declarado.
-  2. **Esse procedimento funciona?** Testado pelo método do **gêmeo idêntico**:
-     geram-se observações sintéticas a partir de um vetor de parâmetros
-     CONHECIDO, roda-se a calibração às cegas e verifica-se se ela recupera o
-     vetor verdadeiro.
-
-Sem (2), (1) é só um algoritmo rodando — não há evidência de que ele identifique
-coisa alguma.
+Estimando atual: média esperada de duas instâncias FIXAS com peso igual sobre
+aleatoriedade dos agentes. Unidade amostral: média de um bloco com uma semente
+independente por instância. z usa 10 blocos; previsão usa 4 novos blocos;
+V_obs sintético = var(médias de bloco, ddof=1)/10. A variância pooled histórica
+abaixo é preservada para reprodução e NÃO é o estimador atual de D2.
+E_total é diagnóstico interno de convenção fixa; não observável externo.
 
 METODO
 ------
@@ -155,7 +156,7 @@ def rodar(par: dict, x: dict, sementes, insts, cache={}) -> dict:
             # experimento (03_experimento_cenarios.py).
             vals = {"atraso_relativo": r.makespan / r.makespan_cpm}
             linhas.append({o: float(vals[o] if o in vals else getattr(r, o))
-                           for o in OBSERVAVEIS} | {"taxa_falha_efetiva": r.taxa_falha_efetiva})
+                           for o in OBSERVAVEIS} | {"retrabalho_sobre_esforco_total": r.retrabalho_sobre_esforco_total, "taxa_falha_efetiva": r.taxa_falha_efetiva})
     d = pd.DataFrame(linhas)
     n = len(d)
     saida = {}
@@ -163,6 +164,7 @@ def rodar(par: dict, x: dict, sementes, insts, cache={}) -> dict:
         saida[f"media_{o}"] = float(d[o].mean())
         saida[f"var_media_{o}"] = float(d[o].var(ddof=1) / n)
     # Diagnóstico adicional; não entra em z nem na implausibilidade histórica.
+    saida["media_retrabalho_sobre_esforco_total"] = float(d.retrabalho_sobre_esforco_total.mean())
     saida["media_taxa_falha_efetiva"] = float(d.taxa_falha_efetiva.mean())
     return saida
 

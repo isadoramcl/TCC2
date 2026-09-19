@@ -35,7 +35,7 @@ def main():
         for arq,(g,disp,cpm) in cache.items():
             for seed in range(32):
                 sim=hm.S.Simulacao(g,disp,cpm,params,hm.CENARIO,semente=seed); r=sim.executar()
-                row=dict(taxa_falha_efetiva=r.taxa_falha_efetiva,ponto=point,instancia=arq,semente=seed,**x,concluiu=r.concluiu,
+                row=dict(retrabalho_sobre_esforco_total=r.retrabalho_sobre_esforco_total,taxa_falha_efetiva=r.taxa_falha_efetiva,ponto=point,instancia=arq,semente=seed,**x,concluiu=r.concluiu,
                          divida_pendente=len(sim.divida_pendente),violacoes=len(r.violacoes),
                          **{o:float(r.makespan/r.makespan_cpm if o=='atraso_relativo' else getattr(r,o)) for o in hm.OBSERVAVEIS})
                 raw.append(row);rows.append(row)

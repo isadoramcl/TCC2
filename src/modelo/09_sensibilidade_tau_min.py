@@ -89,7 +89,7 @@ def rodar(tm: float) -> None:
                 "valores_distintos_de_confianca": distintas,
                 "arquivo": arq, "semente": sem,
                 "atraso_relativo": r.makespan / r.makespan_cpm,
-                "taxa_falha_efetiva": r.taxa_falha_efetiva,
+                "retrabalho_sobre_esforco_total": r.retrabalho_sobre_esforco_total, "taxa_falha_efetiva": r.taxa_falha_efetiva,
                 "E_total": r.E_total, "TW": r.TW, "TL": r.TL, "TU": r.TU,
                 "TR": r.TR, "n_com_erro": r.n_com_erro,
                 "S_UR_maximo": r.S_UR_maximo,

@@ -68,7 +68,7 @@ def main() -> None:
             r = sim.executar()
             resultados.append((arq, cen, sim, r))
 
-    pd.DataFrame([dict(arquivo=arq,cenario=cen,taxa_falha_efetiva=r.taxa_falha_efetiva,
+    pd.DataFrame([dict(arquivo=arq,cenario=cen,retrabalho_sobre_esforco_total=r.retrabalho_sobre_esforco_total,taxa_falha_efetiva=r.taxa_falha_efetiva,
                        n_com_erro=r.n_com_erro,n_reportadas=r.n_reportadas,
                        n_tarefas=len(sim.tarefas),concluiu=r.concluiu)
                   for arq,cen,sim,r in resultados]).to_csv(

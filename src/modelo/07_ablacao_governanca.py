@@ -156,7 +156,7 @@ def executar(par, instancias, cenario, ablacoes=frozenset(), rotulo=None):
                 "arquivo": arq, "semente": sem,
                 "concluiu": r.concluiu, "makespan": r.makespan,
                 "atraso_relativo": r.makespan / r.makespan_cpm,
-                "taxa_falha_efetiva": r.taxa_falha_efetiva,
+                "retrabalho_sobre_esforco_total": r.retrabalho_sobre_esforco_total, "taxa_falha_efetiva": r.taxa_falha_efetiva,
                 "E_total": r.E_total, "TW": r.TW, "TL": r.TL,
                 "TU": r.TU, "TR": r.TR,
                 "n_com_erro": r.n_com_erro, "n_reportadas": r.n_reportadas,

@@ -1,0 +1,20 @@
+{
+  "versao": "NASA D double-prime (Dpp) de Shepperd; arquivos offline do reposit\u00f3rio",
+  "hashes": {
+    "src/nasa/05_faixas_complexidade.py": "8b72626e72f69a1ceb6cce3245865768043e832eb45c44b2ddbfb343b2548db9",
+    "data/processed/nasa/base_dpp_consolidada.csv": "664a8ec03eb18c6b5b0095cc728966e5d2b53a0f74ff49cce98e8add95e4cd8f",
+    "data/raw/nasa_dpp_reference/CM1.arff": "e5895daab40c79b861c9217f0256e8d9d9032ab1d5c43e4d9493332ffbf67d7b",
+    "data/raw/nasa_dpp_reference/JM1.arff": "d3afc565c5157d4f43249dc4e23d1e79ba77e11008c7ebe55c3846ea0ee890e0",
+    "data/raw/nasa_dpp_reference/KC1.arff": "74cb1451e916764a26251f744d31cbdf2aff53973345abb3f786a28428408f92",
+    "data/raw/nasa_dpp_reference/KC3.arff": "03dbaef8715efc7a3cbc6c1e6319e091db00b889af30edbda63e309bba271782",
+    "data/raw/nasa_dpp_reference/KC4.arff": "87ede1924377df78fdd5a71138b8d7adf8bba6a36d8492bddbdf48eaababbe4a",
+    "data/raw/nasa_dpp_reference/MC1.arff": "e4d6643699afe30ae9428bbd6111cc0f01d80784bc194432aba3df38362b46e6",
+    "data/raw/nasa_dpp_reference/MC2.arff": "582784f798f2aa94e70bc162932713b6a05e68a5eb90bef72b01c6cac2f5234a",
+    "data/raw/nasa_dpp_reference/MW1.arff": "d58064066605ac42a87dfe43ee41eff2f9887c09316700212144f0186c8a912a",
+    "data/raw/nasa_dpp_reference/PC1.arff": "e0f49be1a968f024eaac8ea7fe39da1a3134ba564f9bf28951ff7a8320648484",
+    "data/raw/nasa_dpp_reference/PC2.arff": "4fb5dbf367395ef5d6b891eca81089b6108a3f0905987a4789117109808402b6",
+    "data/raw/nasa_dpp_reference/PC3.arff": "34b9930c423a2598ef5eca1cf55e74d520a11c61a0f11d42e401a56069b06ea0",
+    "data/raw/nasa_dpp_reference/PC4.arff": "0bf3231530e2c166aec23d1f560ba45e5fc545181941c0e494cb08116258bbd3",
+    "data/raw/nasa_dpp_reference/PC5.arff": "cd2b973663eeffea09eb26e7e2179eda2d648aeccc075c33be7f27d36a5fc164"
+  }
+}

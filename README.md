@@ -9,12 +9,17 @@ modelo híbrido de agentes e dinâmica de sistemas, experimentos e análise.
 
 ---
 
-## Estado do lote 37 — 17/09/2026
+## Estado do lote 37 — 18/09/2026
 
-C3 foi executado primeiro e **reprovou o controle publicado de Stewart (1992)**.
-O lote está bloqueado; nenhuma distribuição foi integrada ao simulador.
-Identidade bit a bit preservada. Números, hipóteses e próximos passos no
-[relatório 38](projeto/38_CONTROLE_C3_BLOQUEADO.md).
+C3 **validado pelo teste discriminante** da especificação 41; a inconsistência
+interna da fonte está quantificada como A-16. B1/T4 concluído: os dois canais
+contribuem ao contraste de falha efetiva, com interação explícita. Nominal e
+saídas históricas preservados. B2 mantém os contrastes nominais sem erro direto,
+mas a grade revelou bloqueio estrutural: **0/36 incompletas concluíram com
+horizonte dobrado**. Contrastes das células afetadas recalculados apenas nos
+pares completos, condicionais à conclusão. [T-B2.1/T-B2.2](projeto/TB2_HORIZONTE_E_SELECAO.md).
+O lote inteiro ainda não está fechado. Evidências de C3/T4 na
+[resposta 41](projeto/RESPOSTA_41_C3_T4.md).
 
 ## Objetivo
 
@@ -267,7 +272,7 @@ Os hashes das saídas congeladas estão no
 
 ### Continuidade e execução
 
-Leia as [orientações atuais da autora](projeto/07_AUTONOMIA.md) e a [sequência de correção estrutural](research/PLANO_CORRECAO_ESTRUTURAL.md)
+Leia as [orientações atuais da autora](projeto/00_AUTONOMIA.md) e a [sequência de correção estrutural](research/PLANO_CORRECAO_ESTRUTURAL.md)
 antes de escolher a próxima tarefa. Não use o backlog histórico como prova de
 que um defeito continua presente: várias correções já existem no estado local.
 
@@ -298,3 +303,8 @@ reporte/detecção explica grande parte da redução das falhas não reportadas,
 sem evidência conclusiva de redução da taxa de falha efetiva por esse bloco.
 A nova taxa efetiva é desfecho explícito. Nominal preservado; alternativa próxima
 ao limiar apenas proposta. V_obs/V_mod continua pausado por instrução da autora.
+
+## Lote noturno 19–20: resultado e pendências
+
+[Relatório consolidado](projeto/RELATORIO_LOTE_NOTURNO_19_20.md): T-B2.3, D1/D2/D3,
+E1/E2/E3 publicados; C1/C2/A1 pendentes; C4/F parciais. **Lote não fechado.**

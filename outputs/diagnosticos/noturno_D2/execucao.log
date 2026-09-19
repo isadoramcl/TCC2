@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/Users/isadoracarvalho/TCC2/.worktrees/integracao-main-tl/research/lote_noturno/cobertura.py", line 66, in <module>
+    if __name__=='__main__':main()
+  File "/Users/isadoracarvalho/TCC2/.worktrees/integracao-main-tl/research/lote_noturno/cobertura.py", line 55, in main
+    (out/'manifesto.json').write_text(json.dumps(dict(B=500,hashes={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sources}),indent=2)+'\n')
+  File "/Users/isadoracarvalho/TCC2/.worktrees/integracao-main-tl/research/lote_noturno/cobertura.py", line 55, in <dictcomp>
+    (out/'manifesto.json').write_text(json.dumps(dict(B=500,hashes={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in sources}),indent=2)+'\n')
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/pathlib.py", line 929, in relative_to
+    raise ValueError("{!r} is not in the subpath of {!r}"
+ValueError: 'outputs/diagnosticos/noturno_D2/snapshot/simulador.py' is not in the subpath of '/Users/isadoracarvalho/TCC2/.worktrees/integracao-main-tl' OR one path is relative and the other is absolute.

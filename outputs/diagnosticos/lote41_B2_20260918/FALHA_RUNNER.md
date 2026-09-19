@@ -1,0 +1,1 @@
+Primeira tentativa: ZeroDivisionError em fracao_porta1, denominador p1_omissao+p3_analitica=0. Manifesto preservado; não houve bruto salvo. Runner corrigido para NaN e gravação incremental; nova execução em pasta separada. Não é resultado de robustez concluído.

@@ -99,9 +99,13 @@ simulation. *Journal of Simulation*, v. 4, n. 3, p. 151-162, 2010.
 **✓ RODRIGUES, A. G.** The application of system dynamics to project management
 (SYDPIM). Tese — University of Strathclyde, 2000.
 
-**? PESSOA et al.** Framework ABM+SD para execução de projetos de P&D com ciclos
-de retrabalho. → É o precedente mais próximo do que foi construído e **ainda não
-é citado em lugar nenhum**. O PDF está na pasta de referências. Incluir.
+**✓ PESSOA, R. W. S. et al.** An Agent-Based Modeling Dynamic Hybrid Model for
+Project Management in Research and Development. *Industrial & Engineering
+Chemistry Research*, 2026. [DOI e fonte primária](https://pubs.acs.org/doi/10.1021/acs.iecr.5c04351).
+Conferido em 18/09/2026 por texto indexado da editora: não conclusão persistiu
+com 600 semanas, associada à alocação/dependências e disponibilidade de agentes.
+É precedente de limitação estrutural; não demonstra mecanismo idêntico neste
+TCC, nem propriedade necessária de todo modelo ABM+SD. Ver diagnóstico T-B2.
 
 ## Calibração de modelos e identificabilidade
 
@@ -174,3 +178,41 @@ a validação empírica deste simulador. O plano B do parecer 22 é [DEC].
 Nota de proveniência: a referência D-12 mencionada pela autora não constava na
 versão de 04_FONTES disponível em origin/main ddc7c94; esta entrada registra a
 fonte primária conferida, sem inventar um registro anterior.
+
+
+### Stewart (1992) — discrepância conhecida da Tabela 2, oito erros
+
+Parecer 39: parâmetros canônicos alpha=0,7546 e beta=45,4563. A frequência
+beta-binomial para oito erros é **0,004018884** respondente em N=94; o PDF
+imprime **0,000**. Com mu/CV literais a conta anterior era 0,003989000.
+Discrepância conhecida, dispensada de bloqueio explicitamente pelo parecer 39.
+Truncamento editorial é hipótese, não causa demonstrada; uma linha ≥8 também
+não explicaria massa menor que a de exatamente oito erros.
+A aplicação da regra de precisão aos parâmetros canônicos está no
+[relatório 40](40_RECONCILIACAO_C3_REGRA39.md); outras células continuam abertas.
+
+
+### A-16 — Stewart (1992), inconsistência interna quantificada
+
+18/09/2026. Regra corrigida fornecida integralmente pela autora nesta sessão;
+substitui o parecer 39. A implementação é validada como teste discriminante,
+e a fonte é internamente inconsistente na quarta casa significativa. Não se
+alega reprodução das frequências à precisão impressa.
+
+Busca reproduzida em **5.329 pontos (73×73)** da caixa de arredondamento
+alpha∈[0,75455;0,75465], beta∈[45,45625;45,45635]. Todos os pontos satisfazem
+mu arredondado a 0,0163 e CV a 1,13; **nenhum** produz E0 que arredonde a 67,475.
+Faixa E0=[67,481624506;67,484608392]. Inversos diagnósticos:
+alpha*=0,754875715 com beta fixo (arredonda a 0,7549), e beta*=45,435977462
+com alpha fixo. Não são usados como parâmetros operacionais.
+
+**Operacional: alpha=0,7546; beta=45,4563**, os impressos. E0=67,483116433,
+discrepância de **0,0120288%** na maior célula. Célula de oito erros continua
+registrada como discrepância conhecida. A aprovação discriminante usa apenas
+k=0..4, especificados previamente pela autora.
+
+Maior resíduo candidato 0,104318%, amplitude 0,116347%; cinco negativos dão
+2,250601%, 9,992419%, 89,172890%, 100% e 89,155747%, todos acima de 1% e
+mais de dez vezes o candidato. N5 segue literalmente sigma=CV*mu²; o resultado
+não coincide com os 99,93% orientativos, e não foi ajustado.
+Evidências: [bateria, resíduos e busca completa](../outputs/diagnosticos/lote41_C3_20260918/).

@@ -1,0 +1,32 @@
+E2                 N  cruzaram  primeiro_mediana  primeiro_min  primeiro_max  media_temporal_por_execucao  media_final
+cenario                                                                                                            
+adaptativa    192       161               9.0           1.0          62.0                     0.943519     0.936396
+centralizada  192         0               NaN           NaN           NaN                     0.250000     0.250000
+E3          unidade      cenario metrica     N  media_pool  media_por_execucao      min      q05      q50      q95     max
+         periodo   adaptativa  mu_cog 29637    0.788658            0.792401 0.550000 0.586452 0.766207 0.990374 1.00000
+         periodo   adaptativa mu_rede 29637    0.896362            0.890499 0.725791 0.765485 0.938468 0.998847 1.00000
+         periodo centralizada  mu_cog 44494    0.741364            0.740646 0.550000 0.554650 0.731128 0.978202 1.00000
+         periodo centralizada mu_rede 44494    0.722627            0.719159 0.550000 0.550000 0.717910 0.832090 0.83209
+tarefa_executada   adaptativa  mu_cog 11520    0.809597            0.809597 0.550000 0.550000 0.849701 1.000000 1.00000
+tarefa_executada   adaptativa mu_rede 11520    0.916757            0.916757 0.669357 0.794726 0.909565 1.000000 1.00000
+tarefa_executada centralizada  mu_cog 11520    0.752021            0.752021 0.550000 0.550000 0.771233 1.000000 1.00000
+tarefa_executada centralizada mu_rede 11520    0.727805            0.727805 0.669357 0.669357 0.717910 0.809150 0.83209
+C4      cenario  tau_sat  s_transicao  N_estados  P_inferior  P_superior  fracao_esperada_inferior  fracao_esperada_superior    razao
+  adaptativa      0.7         0.01      11520         0.3         1.0                  0.267498                  0.514110 1.921917
+  adaptativa      0.7         0.25      11520         0.3         1.0                  0.351392                  0.592496 1.686143
+  adaptativa      0.7         0.60      11520         0.3         1.0                  0.470287                  0.619342 1.316945
+  adaptativa      1.0         0.01      11520         0.3         1.0                  0.251958                  0.347183 1.377939
+  adaptativa      1.0         0.25      11520         0.3         1.0                  0.281770                  0.443652 1.574522
+  adaptativa      1.0         0.60      11520         0.3         1.0                  0.393327                  0.535687 1.361940
+  adaptativa      1.4         0.01      11520         0.3         1.0                  0.236512                  0.302117 1.277388
+  adaptativa      1.4         0.25      11520         0.3         1.0                  0.242253                  0.336127 1.387503
+  adaptativa      1.4         0.60      11520         0.3         1.0                  0.314037                  0.440211 1.401783
+centralizada      0.7         0.01      11520         0.3         1.0                  0.387649                  0.606219 1.563834
+centralizada      0.7         0.25      11520         0.3         1.0                  0.457403                  0.669376 1.463428
+centralizada      0.7         0.60      11520         0.3         1.0                  0.548514                  0.687622 1.253610
+centralizada      1.0         0.01      11520         0.3         1.0                  0.369735                  0.471473 1.275166
+centralizada      1.0         0.25      11520         0.3         1.0                  0.393351                  0.546447 1.389209
+centralizada      1.0         0.60      11520         0.3         1.0                  0.479138                  0.617944 1.289699
+centralizada      1.4         0.01      11520         0.3         1.0                  0.348180                  0.427183 1.226904
+centralizada      1.4         0.25      11520         0.3         1.0                  0.350968                  0.454221 1.294193
+centralizada      1.4         0.60      11520         0.3         1.0                  0.404030                  0.537438 1.330191

@@ -82,6 +82,8 @@ def estat(c, a, sentido):
 
 def main():
     d = pd.read_csv(T / "modelo_03_experimento_bruto.csv")
+    if 'retrabalho_sobre_esforco_total' not in d and 'E_plano' in d:
+        d['retrabalho_sobre_esforco_total']=d.TR/(d.E_plano+d.TR)
     if 'taxa_falha_efetiva' not in d:
         tarefas=pd.read_csv(RAIZ/'data/processed/psplib/tarefas_j60_com_di.csv')
         n=d.arquivo.map(tarefas.groupby('arquivo').tarefa.nunique())

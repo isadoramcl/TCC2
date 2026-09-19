@@ -1,0 +1,375 @@
+{
+  "par": {
+    "versao": "1.0",
+    "semente_padrao": 20260905,
+    "risco": {
+      "rho_omissao": {
+        "valor": 0.35,
+        "faixa": [
+          0.2,
+          0.5
+        ],
+        "condicao": "aberto",
+        "fonte": "excesso relativo de erro sob press\u00e3o temporal, eps(30s)=0,268 IC95 [0,197; 0,339], n=32, Nature Human Behaviour 2026 / OSF q2dm6; transporte de construto declarado",
+        "nota": "Refer\u00eancia registrada no parecer 17; n\u00e3o \u00e9 calibra\u00e7\u00e3o pontual de engenharia. q depende de p_heu, que seleciona P1: E[q|P1] pode superar E[q]. Sensibilidade na faixa declarada; n\u00e3o ajustar para alcan\u00e7ar retrabalho-alvo."
+      },
+      "razoes_de_risco": {
+        "valor": {
+          "baixa": 1.0,
+          "media": 1.935,
+          "alta": 2.367,
+          "muito_alta": 2.985
+        },
+        "ic95": {
+          "media": [
+            1.758,
+            2.599
+          ],
+          "alta": [
+            1.72,
+            3.229
+          ],
+          "muito_alta": [
+            1.878,
+            4.156
+          ]
+        },
+        "condicao": "calibrado",
+        "fonte": "outputs/tables/psplib_03_razoes_de_risco.csv; bootstrap por projeto, 4.000 r\u00e9plicas",
+        "unidade": "adimensional"
+      },
+      "F_ancora": {
+        "valor": 0.18,
+        "varredura": [
+          0.05,
+          0.1,
+          0.15,
+          0.2,
+          0.25
+        ],
+        "condicao": "aberto",
+        "fonte": "taxa basal de retrabalho do dom\u00ednio de engenharia; n\u00e3o estimada neste trabalho",
+        "nota": "Nenhum resultado pode ser reportado como absoluto enquanto este valor for arbitrado."
+      },
+      "R_error": {
+        "valor": 0.15,
+        "varredura": [
+          0.05,
+          0.15,
+          0.3
+        ],
+        "condicao": "aberto",
+        "fonte": "taxa de erro adicional sob degrada\u00e7\u00e3o cognitiva; equa\u00e7\u00e3o (4) do TCC I"
+      }
+    },
+    "dificuldade": {
+      "pesos_Di": {
+        "valor": {
+          "duracao": 0.3333,
+          "recursos": 0.3333,
+          "criticidade": 0.3334
+        },
+        "varredura_alternativa": {
+          "criticidade_reduzida": {
+            "duracao": 0.4,
+            "recursos": 0.4,
+            "criticidade": 0.2
+          },
+          "duracao_dominante": {
+            "duracao": 0.6,
+            "recursos": 0.2,
+            "criticidade": 0.2
+          },
+          "recursos_dominante": {
+            "duracao": 0.2,
+            "recursos": 0.6,
+            "criticidade": 0.2
+          }
+        },
+        "condicao": "premissa",
+        "fonte": "Guia Metodol\u00f3gico; menor correla\u00e7\u00e3o de ordena\u00e7\u00e3o entre esquemas: 0,847"
+      }
+    },
+    "agentes": {
+      "n_agentes": {
+        "valor": 6,
+        "varredura": [
+          3,
+          6,
+          10
+        ],
+        "condicao": "derivado",
+        "fonte": "sem base emp\u00edrica; o J60 n\u00e3o especifica equipe"
+      },
+      "b_inicial": {
+        "valor": 1.0,
+        "condicao": "premissa",
+        "fonte": "bateria plena no in\u00edcio"
+      },
+      "b_min": {
+        "valor": 0.05,
+        "condicao": "premissa",
+        "fonte": "piso num\u00e9rico; evita divis\u00e3o por zero na equa\u00e7\u00e3o (1)"
+      },
+      "k_analitico": {
+        "valor": 0.04,
+        "varredura": [
+          0.02,
+          0.04,
+          0.08
+        ],
+        "condicao": "aberto",
+        "fonte": "drenagem por per\u00edodo em modo anal\u00edtico"
+      },
+      "k_heuristico": {
+        "valor": 0.135,
+        "varredura": [
+          0.06,
+          0.1,
+          0.16
+        ],
+        "condicao": "aberto",
+        "fonte": "drenagem em modo heur\u00edstico; TCC I exige > k_analitico"
+      },
+      "r_recuperacao": {
+        "valor": 0.06,
+        "varredura": [
+          0.03,
+          0.06,
+          0.12
+        ],
+        "condicao": "aberto",
+        "fonte": "recupera\u00e7\u00e3o por per\u00edodo de descanso"
+      },
+      "competencia_inicial": {
+        "valor": {
+          "media": 0.55,
+          "desvio": 0.12
+        },
+        "condicao": "premissa",
+        "fonte": "distribui\u00e7\u00e3o inicial de compet\u00eancia na equipe"
+      },
+      "tau_sat": {
+        "valor": 0.85,
+        "varredura": [
+          0.7,
+          1.0,
+          1.4
+        ],
+        "condicao": "aberto",
+        "fonte": "limiar de satura\u00e7\u00e3o da aten\u00e7\u00e3o; equa\u00e7\u00e3o (1) do TCC I"
+      },
+      "s_transicao": {
+        "valor": 0.25,
+        "varredura": [
+          0.01,
+          0.25,
+          0.6
+        ],
+        "condicao": "aberto",
+        "fonte": "escala da transi\u00e7\u00e3o estoc\u00e1stica; s\u21920 recupera o limiar determin\u00edstico"
+      }
+    },
+    "gestor": {
+      "P_min": {
+        "valor": 0.3,
+        "condicao": "premissa",
+        "fonte": "press\u00e3o de base"
+      },
+      "P_max": {
+        "valor": 1.0,
+        "condicao": "premissa",
+        "fonte": "press\u00e3o m\u00e1xima"
+      },
+      "omega": {
+        "valor": 0.5,
+        "condicao": "premissa",
+        "fonte": "restri\u00e7\u00e3o or\u00e7ament\u00e1ria; IGUAL nos dois cen\u00e1rios, \u00e9 controle experimental"
+      },
+      "limite_aversao_perda": {
+        "valor": 0.6,
+        "varredura": [
+          0.4,
+          0.6,
+          0.8
+        ],
+        "condicao": "aberto",
+        "fonte": "Porta 1 do TCC I; acima deste valor o agente foge em vez de omitir"
+      },
+      "escala_pressao": {
+        "valor": 1.8499,
+        "condicao": "derivado"
+      }
+    },
+    "retrabalho": {
+      "f_corrup": {
+        "valor": 0.1,
+        "varredura": [
+          0.05,
+          0.1,
+          0.2
+        ],
+        "condicao": "aberto",
+        "fonte": "Porta 1 do TCC I; parcela de (E \u2212 \u03c4_sat) injetada em S_UR"
+      },
+      "f_retrabalho": {
+        "valor": 0.42,
+        "varredura": [
+          0.3,
+          0.5,
+          0.8
+        ],
+        "condicao": "aberto",
+        "fonte": "dura\u00e7\u00e3o do retrabalho como fra\u00e7\u00e3o da dura\u00e7\u00e3o original"
+      }
+    },
+    "fuzzy": {
+      "vertices_triangulares": {
+        "valor": {
+          "baixa": [
+            0.0,
+            0.0,
+            0.5
+          ],
+          "media": [
+            0.0,
+            0.5,
+            1.0
+          ],
+          "alta": [
+            0.5,
+            1.0,
+            1.0
+          ]
+        },
+        "condicao": "premissa",
+        "fonte": "TCC I especifica pertin\u00eancias triangulares; os v\u00e9rtices s\u00e3o decis\u00e3o nossa"
+      },
+      "consequentes": {
+        "valor": {
+          "baixo": 0.3,
+          "medio": 0.65,
+          "alto": 0.95
+        },
+        "condicao": "premissa",
+        "fonte": "n\u00edveis de sa\u00edda dos multiplicadores; nunca zero, que anularia a produtividade"
+      },
+      "mu_minimo": {
+        "valor": 0.62,
+        "varredura": [
+          0.4,
+          0.55,
+          0.7
+        ],
+        "condicao": "aberto",
+        "fonte": "piso do multiplicador de produtividade; ver ACHADO 5 em src/modelo/simulador.py",
+        "nota": "a saida difusa e reescalada para [mu_minimo, 1]; condicao ideal nao penaliza"
+      },
+      "t_norma": {
+        "valor": "produto",
+        "varredura": [
+          "produto",
+          "minimo"
+        ],
+        "condicao": "literatura",
+        "fonte": "VAN BROEKHOVEN, E.; DE BAETS, B. Only Smooth Rule Bases Can Generate Monotone Mamdani-Assilian Models Under Center-of-Gravity Defuzzification. IEEE Transactions on Fuzzy Systems, v. 17, n. 5, p. 1157-1174, out. 2009. DOI 10.1109/TFUZZ.2009.2023328. Tabela IX, linha 4: para m = 2 entradas, a monotonicidade sob defuzzificacao por centroide so e garantida com a t-norma PRODUTO e base de regras monotona e suave. O TCC I especifica max-min (t-norma minimo), configuracao que NAO consta da tabela e para a qual a monotonicidade nao e garantida - e de fato falha. Ver ACHADO 8.",
+        "nota": "'minimo' reproduz a especificacao do TCC I e e mantido para varredura"
+      },
+      "particao_saida": {
+        "valor": "uniforme",
+        "varredura": [
+          "uniforme",
+          "centros_declarados"
+        ],
+        "condicao": "literatura",
+        "fonte": "Secao II do mesmo artigo exige que os termos de saida formem PARTICAO DIFUSA (soma das pertinencias igual a 1 em todo o dominio), premissa dos teoremas. Os conjuntos originais (centros 0,30/0,65/0,95 com meia-base 0,30) somam entre 0 e 1 e nao constituem particao.",
+        "nota": "'uniforme' e a particao de tres termos em [0,1] com nucleos em 0, 0,5 e 1; dispensa 'consequentes' e 'largura_saida', que deixam de ser premissas"
+      },
+      "inferencia": {
+        "valor": "mamdani-assilian, agregacao por maximo",
+        "condicao": "tcc1",
+        "fonte": "TCC I, se\u00e7\u00e3o 4.4.2 (t-norma revista: ver fuzzy.t_norma)"
+      },
+      "defuzzificacao": {
+        "valor": "centroide",
+        "condicao": "premissa",
+        "fonte": "m\u00e9todo usual; sa\u00edda cont\u00ednua"
+      }
+    },
+    "execucao": {
+      "horizonte_maximo_fator": {
+        "valor": 9,
+        "condicao": "derivado",
+        "fonte": "m\u00faltiplo do makespan do CPM; evita la\u00e7o infinito"
+      },
+      "politica_atribuicao": {
+        "valor": "maior_Di_para_maior_C",
+        "alternativas": [
+          "aleatoria",
+          "menor_folga_primeiro"
+        ],
+        "condicao": "premissa",
+        "fonte": "heur\u00edstica gulosa; n\u00e3o \u00e9 objeto de estudo, mas precisa ser expl\u00edcita"
+      },
+      "replicacoes": {
+        "valor": 30,
+        "condicao": "premissa",
+        "fonte": "n\u00famero de execu\u00e7\u00f5es por cen\u00e1rio para a compara\u00e7\u00e3o"
+      }
+    },
+    "cenarios": {
+      "centralizada": {
+        "tau_inicial": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua baixa"
+        },
+        "tau_min": {
+          "valor": 0.6,
+          "condicao": "premissa",
+          "fonte": "limiar alto para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.15,
+          "condicao": "premissa",
+          "fonte": "oculta\u00e7\u00e3o/adiamento (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.03,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica restrita"
+        }
+      },
+      "adaptativa": {
+        "tau_inicial": {
+          "valor": 0.8,
+          "condicao": "premissa",
+          "fonte": "confian\u00e7a m\u00fatua alta"
+        },
+        "tau_min": {
+          "valor": 0.25,
+          "condicao": "premissa",
+          "fonte": "limiar baixo para conceder ajuda"
+        },
+        "p_reporte": {
+          "valor": 0.75,
+          "condicao": "premissa",
+          "fonte": "reporte imediato (matriz de cen\u00e1rios)"
+        },
+        "p_deteccao": {
+          "valor": 0.12,
+          "condicao": "premissa",
+          "fonte": "seguran\u00e7a psicol\u00f3gica elevada"
+        }
+      }
+    }
+  },
+  "instancias": [
+    "j6010_1.sm",
+    "j6032_1.sm"
+  ],
+  "B": 500,
+  "V_mod": 0,
+  "n_blocos_obs": 10,
+  "n_blocos_sim": 4
+}

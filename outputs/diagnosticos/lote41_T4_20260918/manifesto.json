@@ -1,0 +1,48 @@
+{
+  "instancias": [
+    "j6010_1.sm",
+    "j6013_1.sm",
+    "j6016_1.sm",
+    "j6019_1.sm",
+    "j6021_1.sm",
+    "j6024_1.sm",
+    "j6027_1.sm",
+    "j602_1.sm",
+    "j6032_1.sm",
+    "j6035_1.sm",
+    "j6038_1.sm",
+    "j6040_1.sm",
+    "j6043_1.sm",
+    "j6046_1.sm",
+    "j604_1.sm",
+    "j607_1.sm"
+  ],
+  "sementes": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "execucoes": 1536,
+  "hashes": {
+    "research/lote41/t4.py": "95e826d87d0052805955ea32f5edd1d981d54e14a9d51907418db9a61018742d",
+    "research/lote41/PROTOCOLO.md": "2a14cb54f0f89b77c9d0dbb2104927c055fa8023e6c401338ccbb9648d6dee15",
+    "src/modelo/simulador.py": "70773c9e2e329dea079c837dfb37dcf90d0066124429c6db9bb39de226f78635",
+    "src/modelo/simulador_mvp.py": "da83c8d20e74798523d22a98e956a51f8e2c81570debe4681696b6045696e6bf",
+    "src/modelo/fuzzy.py": "98b7a050d66401ce718e69086ecc0961e82b2ec15ac398f32e9ba155ab427ad1",
+    "config/mvp.yaml": "1d9f29c9683661887c79111a4fcec675fcdab62d9ce760b7ab7bfb2e7ea9d2f5",
+    "config/parametros.yaml": "8b10258054afc20969ee0fa62ccc0b27d4530ea304f658717ca6e2c6babbc7a6",
+    "config/parametros_derivados.yaml": "6c14269eb8809430412fa748f2539289a9764044a9308015585feceab32c01bd"
+  },
+  "IC": "t sobre m\u00e9dias por inst\u00e2ncia; pontuais; sementes pareadas",
+  "RNG": "mesma sequ\u00eancia inicial, eventos podem desalinharem-se",
+  "piloto": false
+}

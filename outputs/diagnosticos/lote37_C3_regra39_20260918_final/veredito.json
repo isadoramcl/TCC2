@@ -1,0 +1,34 @@
+{
+  "status": "BLOQUEADO_REGRA_39",
+  "regra": "Inclusão literal do publicado na propagação da precisão impressa; BB8 exceção autorizada",
+  "alpha": 0.7546,
+  "beta": 45.4563,
+  "intervalos": {
+    "alpha": [
+      0.75455,
+      0.75465
+    ],
+    "beta": [
+      45.45625,
+      45.45635
+    ],
+    "p": [
+      0.01625,
+      0.01635
+    ],
+    "phi": [
+      0.8445,
+      0.8455
+    ]
+  },
+  "frequencias_reprovadas": 12,
+  "chi2_reprovados": 1,
+  "limites": "BB/binomial: extremos certificados por sinal das derivadas; p-dependente e chi2: envoltórias conservadoras",
+  "fontes": {
+    "research/lote37/validar_c3_39.py": "ae18d92c497a4f0239ee167a65b9c646a9f3d58c2670ae63fa5cd7ab0d55cf67",
+    "research/lote37/validar_c3.py": "0ce7b90b8bf473f1b4fda59946d9159e2d8a1e82f71c3c81f71803acecbd148f",
+    "research/lote37/distribuicoes.py": "27af4557f89b7a519b9693b45de617e8652374e3132864e93e3808bac3029a2d",
+    "research/lote37/PROTOCOLO_C3_39.md": "b0a5f3c4535af51f6fb922ed1963eacd6e45a118743ab0bb50927b8c9136f4f4",
+    "projeto/39_C3_NAO_ESTA_BLOQUEADO.md": "6a07dcf78bc2dc054a2755e665b0e81be293cf510301487d5adf097187f8c54d"
+  }
+}

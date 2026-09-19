@@ -80,7 +80,7 @@ def main():
                 assert before==[a.confianca for a in sim.agentes]
                 vals={o:float(result.makespan/result.makespan_cpm if o=='atraso_relativo' else getattr(result,o)) for o in hm.OBSERVAVEIS}
                 rows.append(dict(grupo=label,instancia=arq,semente=int(seed),**x,**vals,
-                                 taxa_falha_efetiva=result.taxa_falha_efetiva,TL=result.TL,TU=result.TU,TW=result.TW,TR=result.TR,
+                                 retrabalho_sobre_esforco_total=result.retrabalho_sobre_esforco_total,taxa_falha_efetiva=result.taxa_falha_efetiva,TL=result.TL,TU=result.TU,TW=result.TW,TR=result.TR,
                                  concluiu=result.concluiu,divida_pendente=len(sim.divida_pendente),
                                  violacoes=len(result.violacoes),makespan=result.makespan,
                                  tau_portao=gate,tau_rede=network))
