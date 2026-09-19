@@ -63,6 +63,10 @@ na população a partir desta amostra selecionada.
 - `controle_baseline.csv`: resíduos menores que 1e-12 nos campos B2 publicados.
 - `verificacoes.json`: zero violações e 468 execuções; hashes das fontes
   conferidos no término.
+- O controle adicional de override nominal foi executado depois da varredura,
+  embora o protocolo previsse antes: igualdade exata confirmada; os quatro
+  testes de configuração passaram (`configuracao.log`). Desvio de sequência
+  registrado, sem reconstruir um controle anterior que não ocorreu.
 - `identidade.log`: três controles bit a bit aprovados (campos, estados e RNG).
 - `resumo.csv`, `estratos.csv` e `bruto.csv` preservam toda a malha.
 - Figura: `outputs/diagnosticos/TB23_20260918/varredura.png`.
