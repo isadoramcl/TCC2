@@ -1,0 +1,3 @@
+cenario,N,cruzaram,primeiro_mediana,primeiro_min,primeiro_max,media_temporal_por_execucao,media_final
+adaptativa,192,161,9.0,1.0,62.0,0.9435188592350192,0.9363963210023942
+centralizada,192,0,,,,0.25,0.25
