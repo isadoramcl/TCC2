@@ -1,4 +1,8 @@
-# T-B2.3 — o portão fechado explica as 36 incompletas nesta amostra
+# T-B2.3 — assistência abre uma saída do bloqueio conjunto
+
+> Leitura atual: [bloqueio de três vias e censura](B2_DEADLOCK_TRES_VIAS_E_CENSURA.md).
+> Portão fechado sozinho não implica incompletude; nominal completo em ambos os braços.
+
 
 ## Resultado
 
@@ -43,7 +47,8 @@ varrido; não foram exportadas séries temporais desses contadores acumulados.
 
 ## Correção da leitura de B2
 
-As 36 incompletas são desfecho do portão degenerado A-13 no desenho histórico,
+As 36 incompletas decorrem da combinação de tarefa incompatível, portão A-13
+fechado e rota heurística praticamente inacessível no desenho histórico,
 **não evidência de uma limitação necessária da família ABM+SD**. O horizonte
 dobrado continua sendo um controle válido (0/36), mas não estabelece sozinho
 uma causa. O precedente Pessoa tem outro mecanismo e não justifica extrapolar

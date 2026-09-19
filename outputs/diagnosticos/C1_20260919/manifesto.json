@@ -1,0 +1,26 @@
+{
+  "N": 96,
+  "instancias": [
+    "j6010_1.sm",
+    "j6021_1.sm",
+    "j6032_1.sm",
+    "j6043_1.sm"
+  ],
+  "seeds": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "hashes": {
+    "research/lote_noturno/c1.py": "e2a2a91addb3265460023f5275d7ab6efd67dd905a2c60e3d2a436a4689e8d85",
+    "src/modelo/simulador_mvp.py": "8394984c49b19d10fe1356d4276a51ccfcf446050b2fbde391ada5b855d7e17e",
+    "src/modelo/simulador.py": "9107ee735493ded47d562db7b119a49f951d2519b0dc4217a1d8f80ac6c7e4d9",
+    "src/modelo/ancoragem_stewart.py": "3c9069b379bffde0d5a99538615acc8339f6165853c0b91b313c1b55a1e7bb0a",
+    "research/lote_noturno/PLANO_ALTERNATIVAS.md": "bdf39ffaf5654e9a2957f8049a41472e9708efcbfaf2254bc9f2a95583f15c7e",
+    "config/robustez_a1.yaml": "a259dbb8afb565f0a7c08dd9ede1873a291883a0eb3ca72f5ddf3fdf6902ab7f",
+    "config/mvp.yaml": "1d9f29c9683661887c79111a4fcec675fcdab62d9ce760b7ab7bfb2e7ea9d2f5",
+    "config/parametros.yaml": "8b10258054afc20969ee0fa62ccc0b27d4530ea304f658717ca6e2c6babbc7a6",
+    "config/parametros_derivados.yaml": "6c14269eb8809430412fa748f2539289a9764044a9308015585feceab32c01bd"
+  }
+}

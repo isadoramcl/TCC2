@@ -1,5 +1,12 @@
 # Relatório consolidado — lote noturno 19–20
 
+> Histórico da execução até 279667f. Estado posterior: [atualização de19/09](ATUALIZACAO_B2_A1_C1_C2_20260919.md).
+
+
+> Leitura atual: [bloqueio de três vias e censura](B2_DEADLOCK_TRES_VIAS_E_CENSURA.md).
+> Portão fechado sozinho não implica incompletude; nominal completo em ambos os braços.
+
+
 **Lote não fechado.** Este documento distingue trabalho publicado de pendências.
 Todas as saídas ficam no repositório permanente, em `outputs/diagnosticos/`.
 Nenhum nominal histórico substituído; não houve ajuste de V_mod ou de parâmetros

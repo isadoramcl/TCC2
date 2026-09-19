@@ -1,0 +1,8 @@
+test_horizonte_fixo_nao_aplica_teto_automatico (test_compatibilidade.Compatibilidade) ... ok
+test_laco_neutro_bit_a_bit (test_compatibilidade.Compatibilidade) ... ok
+test_nominal_unitario_contra_baseline_1fd22ff (test_compatibilidade.Compatibilidade) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 18.252s
+
+OK

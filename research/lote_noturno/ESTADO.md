@@ -1,18 +1,19 @@
-# Lote noturno — estado ao finalizar esta execução
+# Continuidade — fechamento obrigatório de 19/09
 
-Árvore permanente: TCC2/.worktrees/integracao-main-tl. Branch
-codex/integracao-main-tl; publicação por item em origin/main. Não alterar checkout
-principal da autora, que contém alterações próprias. Nada do lote depende de /tmp.
+Árvore permanente TCC2/.worktrees/integracao-main-tl; publicação em origin/main.
+Não alterar checkout principal da autora. Ler projeto/FECHAMENTO_LOTE_20260919.md.
 
-Concluídos: T-B2.3, D2, D1, D3, E2, E3, E1. Relatórios NOTURNO_* em projeto/.
-C4 parcial: análise local esperada publicada, faltam trajetórias contrafactuais
-com fração efetivamente executada pela P1. F parcial: numeração e rótulos
-corrigidos; base da bancada não localizada, N e artefatos originais pendentes.
-C1, C2 e A1: não implementados/testados nesta execução. Plano prévio em
-PLANO_ALTERNATIVAS.md, não confundir com alternativa já implementada.
+A1 executado320:117 completas; fuga por estado não é contínua validada, saturação
+centralizada e censura publicadas. Default constante intacto.
+C1 executado96/96: seis pontos, mapas curto/longo sintéticos, nenhum eleito.
+C2 implementado sob a nova ordem APROXIMADA: fórmula literal, resíduos publicados,
+controle de momentos com arredondamento da fonte. Não retomar a reprovação estrita
+antiga como bloqueio vigente. 352/352 execuções completas;96 células recusadas
+por domínio da Beta (sem ajuste de CV), de448 planejadas. Default nenhuma intacto.
+P1 declarado limitação no canto degenerado, não subfluxo aritmético a zero.
+P2 rótulo acompanha valor final, NaN preservado; dois caminhos de desbloqueio
+B2 verificados. C4 e N de F parciais autorizados. Itens obrigatórios entregues;
+fechamento de entregas não é validação externa ou eleição de alternativa.
 
-Próxima ação: C1; depois C2, A1; completar C4 e localizar bases da bancada.
-Reabrir a ordem completa antes de implementar. Identidade bit a bit após cada
-item, commit+push por item. Falha de controle bloqueia item, não independentes.
-Proibidos: ajustar V_mod para passar e calibrar tau_sat/s contra Rieskamp.
-Lote NÃO FECHADO; encerramento desta execução não é aprovação científica do lote.
+Próximo passo: revisão científica do pacote, sem novas ondas HM/V_mod ou otimização
+inferidas. Continuar respeitando protocolo observacional e controles por item.

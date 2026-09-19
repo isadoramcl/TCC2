@@ -1,0 +1,6 @@
+# [DEC] Família discreta para A1, separada da robustez histórica. Sem ranking.
+regras_fuga: [constante, dependente_estado]
+limite_aversao_perda: [0.10, 0.20, 0.30, 0.40, 0.60]
+instancias: 4
+sementes: [0, 1, 2, 3]
+limite_horizonte_fator: 256

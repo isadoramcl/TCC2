@@ -1,8 +1,13 @@
 # T-B2.1 e T-B2.2 — horizonte dobrado e seleção por conclusão
 
+> Leitura atual: [bloqueio de três vias e censura](B2_DEADLOCK_TRES_VIAS_E_CENSURA.md).
+> Portão fechado sozinho não implica incompletude; nominal completo em ambos os braços.
+
+
 > Leitura causal atualizada por [T-B2.3](TB23_PORTAO_E_INCOMPLETUDE.md):
 > abrir só o portão completa 36/36; a rede sozinha completa 0/36.
-> As incompletas são desfecho de A-13 neste desenho, não limitação da família.
+> A-13 participa de bloqueio de três vias, restrito a s=0,01 e tau_sat=1/1,4
+> na centralizada; assistência ou heurística liberam saídas independentes.
 
 
 18/09/2026. Pedido executado antes de avançar ao bloco C. Código e resultados

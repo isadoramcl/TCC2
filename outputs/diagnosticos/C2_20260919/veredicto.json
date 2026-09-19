@@ -1,0 +1,13 @@
+{
+  "mu_literal": 0.0163,
+  "CV_literal": 1.13,
+  "alpha_calculado": 0.7540813924348031,
+  "beta_calculado": 45.50858072012981,
+  "media_implicita_impressos": 0.01632948070693278,
+  "CV_implicito_impressos": 1.1295813180858139,
+  "teto_media_beta": 0.439193640476086,
+  "controle_publicado_passou": false,
+  "estado": "REPROVADO_POR_INCOMPATIBILIDADE_NUMERICA",
+  "modelo_alterado": false,
+  "sorteios_agentes_executados": false
+}

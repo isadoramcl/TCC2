@@ -1,0 +1,69 @@
+{
+  "N_planejadas": 448,
+  "bases": [
+    [
+      "historica_0.05",
+      0.05,
+      null
+    ],
+    [
+      "historica_0.1",
+      0.1,
+      null
+    ],
+    [
+      "historica_0.15",
+      0.15,
+      null
+    ],
+    [
+      "historica_0.2",
+      0.2,
+      null
+    ],
+    [
+      "historica_0.25",
+      0.25,
+      null
+    ],
+    [
+      "curto",
+      null,
+      "curto"
+    ],
+    [
+      "longo",
+      null,
+      "longo"
+    ]
+  ],
+  "instancias": [
+    "j6010_1.sm",
+    "j6021_1.sm",
+    "j6032_1.sm",
+    "j6043_1.sm"
+  ],
+  "seeds": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "hashes": {
+    "research/lote_noturno/c2_fechamento.py": "fe2d2784a049cffd39b450c29ec4f24c9c7074cc392dbc1cc779a0c9afb252ad",
+    "research/lote_noturno/PROTOCOLO_C2_FECHAMENTO.md": "2bb3aeefce75c8f76e7b6f8bc33dbdf4d01e773c4ed6396c755d8d281b2af1fa",
+    "src/modelo/simulador.py": "9107ee735493ded47d562db7b119a49f951d2519b0dc4217a1d8f80ac6c7e4d9",
+    "src/modelo/simulador_mvp.py": "55d14642acdae9f5ad0188694e7f7737932fdcd39939be3a3fbabcdf78bbee98",
+    "src/modelo/fuzzy.py": "98b7a050d66401ce718e69086ecc0961e82b2ec15ac398f32e9ba155ab427ad1",
+    "src/modelo/ancoragem_stewart.py": "3c9069b379bffde0d5a99538615acc8339f6165853c0b91b313c1b55a1e7bb0a",
+    "src/modelo/heterogeneidade_erro.py": "c45a594aac2c7596a4e49173c1cfd25b0fe8a8ff023cd902771b1c1292b3a351",
+    "config/robustez_a1.yaml": "a259dbb8afb565f0a7c08dd9ede1873a291883a0eb3ca72f5ddf3fdf6902ab7f",
+    "config/mvp.yaml": "1d9f29c9683661887c79111a4fcec675fcdab62d9ce760b7ab7bfb2e7ea9d2f5",
+    "config/parametros.yaml": "8b10258054afc20969ee0fa62ccc0b27d4530ea304f658717ca6e2c6babbc7a6",
+    "config/parametros_derivados.yaml": "6c14269eb8809430412fa748f2539289a9764044a9308015585feceab32c01bd",
+    "data/processed/psplib/tarefas_j60_com_di.csv": "0db739ad2fbad7af88bceab7ee4f6f10a5d5185f4705f7b0dfb7c9042b55bf1a",
+    "data/processed/psplib/tarefas_j60.csv": "f13247b555019dbaf89865705a6a3b0d3cfc992905e6dcb2d823784d9be83c7f",
+    "data/processed/psplib/instancias_j60.csv": "1f2d8b3a4bc9ccfe9bb635a90f5ab28742153674c16292372be269fc1fa79aec",
+    "data/processed/psplib/tarefas_j60_com_risco.csv": "2dcd6d9497119b7a4599a9ab770562fe53399564bca49775faac63bf165a5fa0"
+  }
+}

@@ -1,0 +1,43 @@
+test_acao_e_controle_negativo (test_a1.Fuga) ... ERROR
+test_condicao_depende_do_estado_e_estrita (test_a1.Fuga) ... ERROR
+test_constante_explicita_identica_default (test_a1.Fuga) ... ERROR
+test_opcao_invalida (test_a1.Fuga) ... ERROR
+
+======================================================================
+ERROR: test_acao_e_controle_negativo (test_a1.Fuga)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/isadoracarvalho/TCC2/.worktrees/integracao-main-tl/research/test_a1.py", line 14, in test_acao_e_controle_negativo
+    _,a=self.sim('dependente_estado',.4);_,b=self.sim('dependente_estado',.6)
+  File "/Users/isadoracarvalho/TCC2/.worktrees/integracao-main-tl/research/test_a1.py", line 11, in sim
+    s=SimulacaoMVP(g,[1],8,p,'centralizada',0,opcoes=OpcoesMVP(regra_fuga=regra,limite_horizonte_fator=1))
+TypeError: __init__() got an unexpected keyword argument 'regra_fuga'
+
+======================================================================
+ERROR: test_condicao_depende_do_estado_e_estrita (test_a1.Fuga)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/isadoracarvalho/TCC2/.worktrees/integracao-main-tl/research/test_a1.py", line 19, in test_condicao_depende_do_estado_e_estrita
+    g,p=caso();s=SimulacaoMVP(g,[1],8,p,'centralizada',0,opcoes=OpcoesMVP(regra_fuga='dependente_estado'))
+TypeError: __init__() got an unexpected keyword argument 'regra_fuga'
+
+======================================================================
+ERROR: test_constante_explicita_identica_default (test_a1.Fuga)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/isadoracarvalho/TCC2/.worktrees/integracao-main-tl/research/test_a1.py", line 26, in test_constante_explicita_identica_default
+    b=SimulacaoMVP(g,[1],8,copy.deepcopy(p),'centralizada',2,opcoes=OpcoesMVP(regra_fuga='constante'))
+TypeError: __init__() got an unexpected keyword argument 'regra_fuga'
+
+======================================================================
+ERROR: test_opcao_invalida (test_a1.Fuga)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/isadoracarvalho/TCC2/.worktrees/integracao-main-tl/research/test_a1.py", line 30, in test_opcao_invalida
+    with self.assertRaises(ValueError):OpcoesMVP(regra_fuga='typo')
+TypeError: __init__() got an unexpected keyword argument 'regra_fuga'
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.049s
+
+FAILED (errors=4)

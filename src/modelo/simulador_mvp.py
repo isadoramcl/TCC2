@@ -10,6 +10,8 @@ import math
 from dataclasses import dataclass, replace
 import numpy as np
 from simulador import Simulacao, v
+from ancoragem_stewart import ancora_stewart, MAPAS_PASSOS
+from heterogeneidade_erro import parametros_beta, NIVEIS
 
 
 def risco_porta(p0, p_heu, heuristico, rho):
@@ -26,6 +28,10 @@ class OpcoesMVP:
     rho_omissao: float | None = None
     retrabalho_fila: bool = True
     canal_erro_direto: str = 'ativo'
+    regra_fuga: str = 'constante'
+    ancoragem_erro: str = 'historica'
+    mapa_passos: str = 'curto'
+    heterogeneidade_erro: str = 'nenhuma'
     lei_confianca: str = 'constante'
     lei_tempo_aprendizado: str = 'unitario'
     comunicacao_crowder: bool = False
@@ -38,6 +44,14 @@ class OpcoesMVP:
     tau_rede: float | None = None
 
     def __post_init__(self):
+        if self.heterogeneidade_erro not in {'nenhuma','beta_cv113'}:
+            raise ValueError('heterogeneidade de erro desconhecida')
+        if self.ancoragem_erro not in {'historica','stewart_linear'}:
+            raise ValueError('ancoragem de erro desconhecida')
+        if self.mapa_passos not in MAPAS_PASSOS:
+            raise ValueError('mapa sintético de passos desconhecido')
+        if self.regra_fuga not in {'constante','dependente_estado'}:
+            raise ValueError('regra de fuga desconhecida')
         if self.canal_erro_direto not in {'ativo','desligado'}:
             raise ValueError('canal de erro direto desconhecido')
         if self.rho_omissao is not None and not 0<=self.rho_omissao<=1:
@@ -57,7 +71,19 @@ class OpcoesMVP:
 class SimulacaoMVP(Simulacao):
     def __init__(self,*args,opcoes=None,**kwargs):
         self.opcoes=opcoes or OpcoesMVP()
+        if self.opcoes.heterogeneidade_erro=='beta_cv113':
+            self.par=args[3] if len(args)>3 else kwargs['parametros']
+            parametros={}
+            for nivel in NIVEIS:
+                try:parametros[nivel]=parametros_beta(self.F_base(nivel))
+                except ValueError as e:raise ValueError(f'nivel={nivel}: {e}') from e
         super().__init__(*args,**kwargs)
+        if self.opcoes.heterogeneidade_erro=='beta_cv113':
+            seed=args[5] if len(args)>5 else kwargs['semente']
+            rng_beta=np.random.default_rng(np.random.SeedSequence([int(seed),20260919,2]))
+            # [DEC] Suscetibilidade fixa por agente/nível; fluxo independente da dinâmica.
+            self.taxas_erro_agentes={a.ident:{nivel:float(rng_beta.beta(*parametros[nivel]))
+                for nivel in NIVEIS} for a in self.agentes}
         if self.opcoes.rho_omissao is None:
             self.opcoes=replace(self.opcoes,rho_omissao=float(v(self.par['risco']['rho_omissao'])))
         if self.ablacoes: raise ValueError('use politica_porta2 na alternativa MVP')
@@ -81,6 +107,17 @@ class SimulacaoMVP(Simulacao):
         self.extensoes=0
         self.traj.update({k:[] for k in ['uso_recursos','confianca_media','retrabalho_pendente']})
 
+    def F_base(self,nivel):
+        if self.opcoes.ancoragem_erro=='historica':
+            return super().F_base(nivel)
+        # [DEC] Gradiente sintético por passos substitui, não empilha, o NASA.
+        return ancora_stewart(MAPAS_PASSOS[self.opcoes.mapa_passos][nivel])
+
+    def taxa_basal_agente(self,agente,nivel):
+        if self.opcoes.heterogeneidade_erro=='nenhuma':
+            return self.F_base(nivel)
+        return self.taxas_erro_agentes[agente.ident][nivel]
+
     def multiplicadores(self,agente,P):
         separados=self.opcoes.lei_confianca=='crowder' and self.opcoes.tau_portao is not None
         if self.opcoes.tau_rede is None and not separados:
@@ -92,6 +129,12 @@ class SimulacaoMVP(Simulacao):
             return super().multiplicadores(agente,P)
         finally:
             agente.confianca=anterior
+
+    def deve_fugir(self,p_heu,omega,limite):
+        """[DEC] A1: limiar por estado como alternativa, sem sorteio adicional."""
+        if self.opcoes.regra_fuga=='constante':
+            return omega>limite
+        return omega*max(0.,2*p_heu-1.)>limite
 
     def decidir_porta(self,p_heu,sorteio):
         """Ponto de intervenção contrafactual; nominal mantém o mesmo sorteio."""
@@ -251,7 +294,7 @@ class SimulacaoMVP(Simulacao):
                     sorteio_porta=sorteio_porta,sorteio_falha=None,falhou=None,
                     executada=False,selecionou_p1=bool(heu),competencia=a.competencia)
                 if o.instrumentar_tarefas:self.registros_tarefas.append(registro)
-                if heu and omega>limite:
+                if heu and self.deve_fugir(p_heu,omega,limite):
                     registro['porta']='P1_fuga'
                     self.cnt['p1_fuga']+=1; self.TU+=1.; self.n_adiamentos+=1
                     a.bateria=max(0.,a.bateria-kh*E)
@@ -285,7 +328,7 @@ class SimulacaoMVP(Simulacao):
                     continue
                 fator=o.fator_omissao if heu else 1.
                 dur=max(1,int(math.ceil(tar.duracao*fator/max(1e-6,mc*mr))))
-                p0=float(np.clip(self.F_base(tar.nivel)+re*(1-mc),0,1))
+                p0=float(np.clip(self.taxa_basal_agente(a,tar.nivel)+re*(1-mc),0,1))
                 p_falha=risco_porta(p0,p_heu,heu,o.rho_omissao)
                 sorteio_falha=self.rng.random()
                 falhou=sorteio_falha<p_falha

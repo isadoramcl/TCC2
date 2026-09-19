@@ -13,6 +13,7 @@ sys.path.insert(0,str(ROOT/'src/modelo'))
 import simulador as S
 from simulador_mvp import SimulacaoMVP,OpcoesMVP
 from t4 import ic,METRICAS
+from rotulagem import publicar
 
 
 def fracao_p1(p1,p3):
@@ -41,7 +42,7 @@ def analisar(d,out):
                 cs.append(dict(zip(ch,chave),cenario=cen,metrica=met,censuradas=int((~x.concluiu).sum()),fracao_indefinida=int(x[met].isna().sum()),**ic(x.groupby('arquivo')[met].mean())))
             p=g.pivot(index=['arquivo','semente'],columns='cenario',values=met)
             ds.append(dict(zip(ch,chave),metrica=met,censuradas=int((~g.concluiu).sum()),pares_indefinidos=int((p.adaptativa-p.centralizada).isna().sum()),**ic((p.adaptativa-p.centralizada).groupby('arquivo').mean())))
-    pd.DataFrame(cs).to_csv(out/'celulas_IC95.csv',index=False);pd.DataFrame(ds).to_csv(out/'contraste_A_menos_C_IC95.csv',index=False)
+    publicar(pd.DataFrame(cs),out/'celulas_IC95.csv');publicar(pd.DataFrame(ds),out/'contraste_A_menos_C_IC95.csv')
     old=pd.read_csv(ROOT/'outputs/diagnosticos/arranjo_20260917/bruto.csv');old=old[old.etapa=='T2'];checks=[]
     for cen,conf in [('centralizada','referencia'),('adaptativa','ambos')]:
         n=d[(d.etapa=='nominal')&(d.canal=='ativo')&(d.cenario==cen)].set_index(['arquivo','semente'])
