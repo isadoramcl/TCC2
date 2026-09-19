@@ -1,5 +1,9 @@
 # Resposta numérica T-B2.3 e D1
 
+> Leitura atual: [bloqueio de três vias e censura](B2_DEADLOCK_TRES_VIAS_E_CENSURA.md).
+> Portão fechado sozinho não implica incompletude; nominal completo em ambos os braços.
+
+
 Primeiro ponto sem incompletas: **tau_inicial=0,600001**. Igualdade em 0,60
 continua com 36/36 incompletas. O limiar observado coincide com a desigualdade
 estrita do portão (`tau > tau_min=0,60`), não com o número particular 0,25.

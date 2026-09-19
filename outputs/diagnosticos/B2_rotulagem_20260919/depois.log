@@ -1,0 +1,7 @@
+test_censura_e_indefinicao_chegam_ao_valor (test_rotulagem_b2.Rotulos) ... ok
+test_nao_aceita_tabela_sem_contagem (test_rotulagem_b2.Rotulos) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.002s
+
+OK
