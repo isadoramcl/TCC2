@@ -1,0 +1,8 @@
+test_dominio_explicito (test_c2_formula.FormulaBeta) ... ok
+test_momentos_impressos_arredondam_como_fonte (test_c2_formula.FormulaBeta) ... ok
+test_momentos_por_biblioteca_independente (test_c2_formula.FormulaBeta) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+OK
