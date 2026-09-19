@@ -1,8 +1,20 @@
 # C2 — heterogeneidade Beta implementada e comparada
 
-Nova ordem de fechamento: controle aproximado, sem exigência de igualdade na
-terceira casa. O ensaio anterior estrito e sua reprovação permanecem arquivados.
+**C2: implementação validada, fonte internamente inconsistente em 0,012% (A-16).**
+
+Veredicto confirmado pela autora na auditoria de **29f7fbf**. Vigora a regra
+do parecer 41, §5 (teste discriminante), incorporada à ordem 37. O critério
+absoluto anterior foi retratado; sua reprovação permanece apenas como histórico.
 A fórmula e os parâmetros operacionais de C3 não foram alterados para passar.
+
+A [bateria publicada](RESPOSTA_41_C3_T4.md) apresenta resíduo máximo de
+frequências de 0,104318% para a candidata e de pelo menos 2,250601% para os
+controles negativos. Esses resíduos de frequências são grandezas distintas
+dos resíduos de alpha e beta abaixo; 0,104318% não é uma tolerância absoluta
+para parâmetros. A inconsistência da fonte e a busca de 5.329 pontos estão
+registradas em [A-16](04_FONTES.md).
+O [veredicto científico vigente](../outputs/diagnosticos/C2_fechamento_20260919/veredicto_cientifico.json)
+preserva a referência à reprovação histórica, sem apagar suas saídas.
 
 ## Controle numérico e estatuto da aproximação
 

@@ -1,0 +1,23 @@
+{
+  "estado": "IMPLEMENTACAO_VALIDADA",
+  "veredicto": "Implementação validada, fonte internamente inconsistente em 0,012% (A-16).",
+  "criterio": "Parecer 41, seção 5: teste discriminante; emenda da autora à ordem 37 após auditoria de 29f7fbf.",
+  "commit_auditado": "29f7fbf",
+  "lote": "FECHADO",
+  "residuos_parametros_percentual": {
+    "alpha": -0.068726,
+    "beta": 0.115013
+  },
+  "discrepancia_fonte_maior_celula_percentual": 0.0120288,
+  "residuo_maximo_frequencias_candidato_C3_percentual": 0.104318,
+  "menor_residuo_maximo_controle_negativo_C3_percentual": 2.250601,
+  "nota": "Resíduos de parâmetros e de frequências são grandezas distintas; não se aplica corte absoluto de 0,104318% aos parâmetros.",
+  "veredicto_historico_superado": "outputs/diagnosticos/C2_20260919/veredicto.json",
+  "evidencia": "projeto/04_FONTES.md, A-16; projeto/RESPOSTA_41_C3_T4.md",
+  "execucoes_novas": false,
+  "parametros_alterados": false,
+  "parciais_autorizados": [
+    "C4",
+    "N da base da bancada em F"
+  ]
+}

@@ -9,7 +9,7 @@ modelo híbrido de agentes e dinâmica de sistemas, experimentos e análise.
 
 ---
 
-## Estado do lote 37 — 18/09/2026
+## Estado do lote 37 — fechado após auditoria de 29f7fbf
 
 C3 **validado pelo teste discriminante** da especificação 41; a inconsistência
 interna da fonte está quantificada como A-16. B1/T4 concluído: os dois canais
@@ -18,8 +18,12 @@ saídas históricas preservados. B2 mantém os contrastes nominais sem erro dire
 mas a grade revelou bloqueio estrutural: **0/36 incompletas concluíram com
 horizonte dobrado**. Contrastes das células afetadas recalculados apenas nos
 pares completos, condicionais à conclusão. [T-B2.1/T-B2.2](projeto/TB2_HORIZONTE_E_SELECAO.md).
-O lote inteiro ainda não está fechado. Evidências de C3/T4 na
-[resposta 41](projeto/RESPOSTA_41_C3_T4.md).
+**Lote fechado pela autora após auditoria de 29f7fbf.** C2: implementação
+validada; fonte internamente inconsistente em 0,012% (A-16). C2/C3 seguem
+a regra discriminante do parecer 41, §5; C1 mantém o controle exato.
+C4 e o N da base de F permanecem **parciais**.
+[Fechamento e emenda](projeto/FECHAMENTO_LOTE_20260919.md);
+[evidências de C3/T4](projeto/RESPOSTA_41_C3_T4.md).
 
 ## Objetivo
 

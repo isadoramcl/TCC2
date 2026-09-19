@@ -1,5 +1,11 @@
 # C2 — controle de precisão incompatível com entradas arredondadas
 
+> **Registro histórico superado.** A autora auditou 29f7fbf e fechou o lote.
+> C2: implementação validada, fonte internamente inconsistente em 0,012% (A-16).
+> Vigora o parecer 41, §5, conforme emenda à ordem 37. As menções abaixo a
+> reprovação ou lote aberto descrevem o estado anterior.
+> Ver [fechamento vigente](FECHAMENTO_LOTE_20260919.md).
+
 > Controle estrito histórico. A nova ordem aproximada foi executada e publicada em [C2 de fechamento](C2_HETEROGENEIDADE_FECHAMENTO.md); este ensaio não foi apagado.
 
 

@@ -530,7 +530,8 @@ saturação/censura; não tratar como mecanismo contínuo validado.
 O gradiente de passos substitui NASA somente nessa alternativa, não os empilha.
 C2: `heterogeneidade_erro='nenhuma'` default; `beta_cv113` sorteia taxa fixa
 por agente/nível, média F_base e CV=1,13, validando domínio antes de RNG.
-A nova ordem aceita controle aproximado dos momentos impressos, com resíduos
-publicados e fórmula inalterada. Ver [C2 de fechamento](../projeto/C2_HETEROGENEIDADE_FECHAMENTO.md).
+A emenda à ordem 37 aplica a regra discriminante do parecer 41, §5:
+implementação C2 validada; fonte internamente inconsistente em 0,012% (A-16),
+com resíduos publicados e fórmula inalterada. Ver [C2 de fechamento](../projeto/C2_HETEROGENEIDADE_FECHAMENTO.md).
 
 Estado e controles: [atualização de 19/09](../projeto/ATUALIZACAO_B2_A1_C1_C2_20260919.md).
