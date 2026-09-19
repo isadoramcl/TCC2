@@ -1,0 +1,14 @@
+{
+  "B": 500,
+  "falsas_exclusoes": 31,
+  "taxa": 0.062,
+  "ic95_binomial": [
+    0.042511061296385495,
+    0.08685259747910139
+  ],
+  "p95_Imax": 3.1168746531864384,
+  "incompletas": 0,
+  "V_mod": 0,
+  "usar_HM": false,
+  "status": "VERIFICACAO_INTERNA_CONCLUIDA"
+}

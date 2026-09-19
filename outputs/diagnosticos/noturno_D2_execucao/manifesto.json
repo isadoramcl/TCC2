@@ -1,0 +1,10 @@
+{
+  "B": 500,
+  "hashes": {
+    "research/lote_noturno/cobertura.py": "169270a9a737c50a33d2d720858309cb9d867045876b686c43f07aca8d216be0",
+    "research/lote_noturno/PROTOCOLO_D2_D3.md": "dadcb525fd65aba61b8ea0b9121c3fa7568ed3b0879798181354d2a39ed3d6fa",
+    "outputs/diagnosticos/noturno_D2_execucao/snapshot/simulador.py": "70773c9e2e329dea079c837dfb37dcf90d0066124429c6db9bb39de226f78635",
+    "outputs/diagnosticos/noturno_D2_execucao/snapshot/fuzzy.py": "98b7a050d66401ce718e69086ecc0961e82b2ec15ac398f32e9ba155ab427ad1",
+    "outputs/diagnosticos/noturno_D2_execucao/snapshot/desenho.json": "0a2a4e86176a7072b171814a5995ba781f038dc31e0bf611d21e8d6d17434ee4"
+  }
+}

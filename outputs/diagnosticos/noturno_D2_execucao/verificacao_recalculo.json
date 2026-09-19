@@ -1,0 +1,7 @@
+{
+  "exec": 14000,
+  "sementes_distintas": 14000,
+  "replicas": 500,
+  "variancias_recalculadas_dos_brutos": true,
+  "hashes_conferidos": true
+}

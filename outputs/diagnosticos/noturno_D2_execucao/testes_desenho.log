@@ -1,0 +1,7 @@
+test_disjuncao_sementes (test_cobertura.Desenho) ... ok
+test_media_variancia_de_blocos (test_cobertura.Desenho) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.003s
+
+OK
