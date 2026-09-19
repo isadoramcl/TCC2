@@ -93,7 +93,7 @@ def main():
                                      else getattr(r, o)) for o in hm.OBSERVAVEIS}
                     linhas.append(vals)
                     bruto.append({"desenho": desenho, "ponto": i, "instancia": arq,
-                                  "semente": sem, **x, **vals, "taxa_falha_efetiva": r.taxa_falha_efetiva, "concluiu": r.concluiu,
+                                  "semente": sem, **x, **vals, "retrabalho_sobre_esforco_total": r.retrabalho_sobre_esforco_total, "taxa_falha_efetiva": r.taxa_falha_efetiva, "concluiu": r.concluiu,
                                   "divida_pendente": len(sim.divida_pendente),
                                   "violacoes": len(r.violacoes), "makespan": r.makespan})
             d = pd.DataFrame(linhas)

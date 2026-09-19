@@ -155,7 +155,7 @@ def rodar(par: dict, x: dict, sementes, insts, cache={}) -> dict:
             # experimento (03_experimento_cenarios.py).
             vals = {"atraso_relativo": r.makespan / r.makespan_cpm}
             linhas.append({o: float(vals[o] if o in vals else getattr(r, o))
-                           for o in OBSERVAVEIS} | {"taxa_falha_efetiva": r.taxa_falha_efetiva})
+                           for o in OBSERVAVEIS} | {"retrabalho_sobre_esforco_total": r.retrabalho_sobre_esforco_total, "taxa_falha_efetiva": r.taxa_falha_efetiva})
     d = pd.DataFrame(linhas)
     n = len(d)
     saida = {}
@@ -163,6 +163,7 @@ def rodar(par: dict, x: dict, sementes, insts, cache={}) -> dict:
         saida[f"media_{o}"] = float(d[o].mean())
         saida[f"var_media_{o}"] = float(d[o].var(ddof=1) / n)
     # Diagnóstico adicional; não entra em z nem na implausibilidade histórica.
+    saida["media_retrabalho_sobre_esforco_total"] = float(d.retrabalho_sobre_esforco_total.mean())
     saida["media_taxa_falha_efetiva"] = float(d.taxa_falha_efetiva.mean())
     return saida
 

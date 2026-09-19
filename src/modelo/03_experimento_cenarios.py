@@ -100,7 +100,7 @@ def main() -> None:
                     "concluiu": r.concluiu, "makespan": r.makespan,
                     "makespan_cpm": r.makespan_cpm,
                     "atraso_relativo": r.makespan / r.makespan_cpm,
-                    "taxa_falha_efetiva": r.taxa_falha_efetiva,
+                    "retrabalho_sobre_esforco_total": r.retrabalho_sobre_esforco_total, "taxa_falha_efetiva": r.taxa_falha_efetiva,
                 "E_total": r.E_total, "S_UR_maximo": r.S_UR_maximo,
                     "n_com_erro": r.n_com_erro, "n_reportadas": r.n_reportadas,
                     "taxa_omissao": r.taxa_omissao,

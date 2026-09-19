@@ -1,0 +1,6 @@
+{
+  "exec": 64,
+  "identidade_campos_preexistentes": true,
+  "estados_rng_identicos": true,
+  "residuo_maximo": 0
+}

@@ -217,6 +217,7 @@ class Resultado:
     taxa_omissao: float
     taxa_falha_efetiva: float
     E_plano: float
+    retrabalho_sobre_esforco_total: float
     retrabalho_sobre_plano: float
     divida_latente_sobre_plano: float
     retrabalho_sobre_esforco_realizado: float
@@ -606,6 +607,8 @@ class Simulacao:
             taxa_omissao=float(erros / max(1, len(self.tarefas))),
             taxa_falha_efetiva=float((erros + self.n_reportadas) / max(1, len(self.tarefas))),
             E_plano=self.E_plano,
+            retrabalho_sobre_esforco_total=(float(self.TR / (self.E_plano + self.TR))
+                if self.E_plano + self.TR > 0 else 0.0),
             retrabalho_sobre_plano=float(self.TR / self.E_plano) if self.E_plano > 0 else 0.0,
             divida_latente_sobre_plano=(
                 float(max(self.traj["S_UR"]) / self.E_plano)
