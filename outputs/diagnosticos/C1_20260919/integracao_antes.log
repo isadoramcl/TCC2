@@ -1,0 +1,32 @@
+test_historica_explicita_default (test_ancoragem_mvp.IntegracaoAncora) ... ERROR
+test_mapas_modificam_risco_basal_efetivo (test_ancoragem_mvp.IntegracaoAncora) ... ERROR
+test_opcoes_invalidas (test_ancoragem_mvp.IntegracaoAncora) ... ERROR
+
+======================================================================
+ERROR: test_historica_explicita_default (test_ancoragem_mvp.IntegracaoAncora)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/isadoracarvalho/TCC2/.worktrees/integracao-main-tl/research/test_ancoragem_mvp.py", line 17, in test_historica_explicita_default
+    b=SimulacaoMVP(g,[1],8,p,'centralizada',2,opcoes=OpcoesMVP(ancoragem_erro='historica'))
+TypeError: __init__() got an unexpected keyword argument 'ancoragem_erro'
+
+======================================================================
+ERROR: test_mapas_modificam_risco_basal_efetivo (test_ancoragem_mvp.IntegracaoAncora)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/isadoracarvalho/TCC2/.worktrees/integracao-main-tl/research/test_ancoragem_mvp.py", line 12, in test_mapas_modificam_risco_basal_efetivo
+    a=SimulacaoMVP(g,[1],8,p,'centralizada',2,opcoes=OpcoesMVP(ancoragem_erro='stewart_linear',mapa_passos=mapa))
+TypeError: __init__() got an unexpected keyword argument 'ancoragem_erro'
+
+======================================================================
+ERROR: test_opcoes_invalidas (test_ancoragem_mvp.IntegracaoAncora)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/isadoracarvalho/TCC2/.worktrees/integracao-main-tl/research/test_ancoragem_mvp.py", line 21, in test_opcoes_invalidas
+    with self.assertRaises(ValueError):OpcoesMVP(ancoragem_erro='x')
+TypeError: __init__() got an unexpected keyword argument 'ancoragem_erro'
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.037s
+
+FAILED (errors=3)

@@ -10,6 +10,7 @@ import math
 from dataclasses import dataclass, replace
 import numpy as np
 from simulador import Simulacao, v
+from ancoragem_stewart import ancora_stewart, MAPAS_PASSOS
 
 
 def risco_porta(p0, p_heu, heuristico, rho):
@@ -27,6 +28,8 @@ class OpcoesMVP:
     retrabalho_fila: bool = True
     canal_erro_direto: str = 'ativo'
     regra_fuga: str = 'constante'
+    ancoragem_erro: str = 'historica'
+    mapa_passos: str = 'curto'
     lei_confianca: str = 'constante'
     lei_tempo_aprendizado: str = 'unitario'
     comunicacao_crowder: bool = False
@@ -39,6 +42,10 @@ class OpcoesMVP:
     tau_rede: float | None = None
 
     def __post_init__(self):
+        if self.ancoragem_erro not in {'historica','stewart_linear'}:
+            raise ValueError('ancoragem de erro desconhecida')
+        if self.mapa_passos not in MAPAS_PASSOS:
+            raise ValueError('mapa sintético de passos desconhecido')
         if self.regra_fuga not in {'constante','dependente_estado'}:
             raise ValueError('regra de fuga desconhecida')
         if self.canal_erro_direto not in {'ativo','desligado'}:
@@ -83,6 +90,12 @@ class SimulacaoMVP(Simulacao):
         self.ocupacao_retrabalho=0
         self.extensoes=0
         self.traj.update({k:[] for k in ['uso_recursos','confianca_media','retrabalho_pendente']})
+
+    def F_base(self,nivel):
+        if self.opcoes.ancoragem_erro=='historica':
+            return super().F_base(nivel)
+        # [DEC] Gradiente sintético por passos substitui, não empilha, o NASA.
+        return ancora_stewart(MAPAS_PASSOS[self.opcoes.mapa_passos][nivel])
 
     def multiplicadores(self,agente,P):
         separados=self.opcoes.lei_confianca=='crowder' and self.opcoes.tau_portao is not None

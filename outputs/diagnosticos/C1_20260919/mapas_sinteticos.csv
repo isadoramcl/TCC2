@@ -1,0 +1,9 @@
+mapa,nivel,k_sintetico,F_base_antes,F_base_depois
+curto,baixa,1,0.1,0.0128
+curto,media,2,0.1935,0.0256
+curto,alta,3,0.23670000000000002,0.038400000000000004
+curto,muito alta,4,0.2985,0.0512
+longo,baixa,1,0.1,0.0128
+longo,media,2,0.1935,0.0256
+longo,alta,4,0.23670000000000002,0.0512
+longo,muito alta,8,0.2985,0.1024
