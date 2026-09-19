@@ -306,5 +306,6 @@ ao limiar apenas proposta. V_obs/V_mod continua pausado por instrução da autor
 
 ## Lote noturno 19–20: resultado e pendências
 
-[Relatório consolidado](projeto/RELATORIO_LOTE_NOTURNO_19_20.md): T-B2.3, D1/D2/D3,
-E1/E2/E3 publicados; C1/C2/A1 pendentes; C4/F parciais. **Lote não fechado.**
+[Atualização e números completos](projeto/ATUALIZACAO_B2_A1_C1_C2_20260919.md):
+B2 com bloqueio conjunto e censura rotulada; A1 testado (continuidade não aprovada),
+C1 testado e C2 interrompido no controle de precisão. C4/F parciais. **Lote não fechado.**

@@ -517,3 +517,18 @@ a formulação nova não substitui silenciosamente a evidência histórica.
 Não muda ocupação/relógio. O [teste21](../projeto/21_TESTE_DISCRIMINANTE_TL_2026-09-17.md)
 mostra troca de sinal de E_total sem mudança física; a razão não sustenta
 conclusão de governança independente dessa convenção.
+
+## Alternativas preservadas de 19/09/2026
+
+[DEC] `regra_fuga='constante'` continua padrão. `dependente_estado` usa
+`omega*max(0,2*p_heu-1)>limite_aversao_perda`, sem sorteio extra. O limite
+é varrido na família dedicada `config/robustez_a1.yaml`. A grade mostrou
+saturação/censura; não tratar como mecanismo contínuo validado.
+
+[DEC] `ancoragem_erro='historica'` continua padrão, com F_ancora×razão NASA.
+`stewart_linear` usa F_base=k×0,0128 e `mapa_passos=curto|longo`, sintéticos.
+O gradiente de passos substitui NASA somente nessa alternativa, não os empilha.
+C2 ainda não integra o modelo: controle de precisão dos momentos reprovado,
+sem alteração de CV ou parâmetros para fazê-lo passar.
+
+Estado e controles: [atualização de 19/09](../projeto/ATUALIZACAO_B2_A1_C1_C2_20260919.md).
