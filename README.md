@@ -25,6 +25,15 @@ C4 e o N da base de F permanecem **parciais**.
 [Fechamento e emenda](projeto/FECHAMENTO_LOTE_20260919.md);
 [evidências de C3/T4](projeto/RESPOSTA_41_C3_T4.md).
 
+## Diagnóstico adicional de regime — T-SAT / T-GOV
+
+[Resultados e regiões de inversão](projeto/TSAT_TGOV_REGIMES_20260919.md):
+T-SAT.1 não atingiu o critério de saturação de p_heu, embora q seja quase
+binário. No limite nominal, a fuga é impossível para qualquer s_transicao.
+T-GOV.1: 2.592/2.592 completas; há inversões dos cinco indicadores inclusive
+mantendo a ordenação histórica das premissas. O sinal de governança não é
+universal na malha; nominal e dinâmica permanecem inalterados.
+
 ## Objetivo
 
 Investigar a gestão de equipes em projetos de engenharia por modelagem e

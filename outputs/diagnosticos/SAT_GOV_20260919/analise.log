@@ -1,0 +1,28 @@
+                     regiao                    metrica    N  negativos  zeros  positivos  IC_negativo  IC_positivo
+inclui_inversao_de_premissa            atraso_relativo 5265       2130     27       3108          905         1599
+inclui_inversao_de_premissa divida_latente_sobre_plano 5265       2095     28       3142          912         1627
+inclui_inversao_de_premissa              fracao_porta1 5265       2392     49       2824         1124         1690
+inclui_inversao_de_premissa         taxa_falha_efetiva 5265       2280     50       2935          235          375
+inclui_inversao_de_premissa               taxa_omissao 5265       2136     34       3095         1539         2223
+        ordenacao_historica            atraso_relativo 1215       1083     27        105          697            3
+        ordenacao_historica divida_latente_sobre_plano 1215       1117     28         70          716            1
+        ordenacao_historica              fracao_porta1 1215        804     39        372          577           11
+        ordenacao_historica         taxa_falha_efetiva 1215        915     40        260          144            4
+        ordenacao_historica               taxa_omissao 1215       1071     32        112          687            3
+           perfis_identicos            atraso_relativo   81          0     81          0            0            0
+           perfis_identicos divida_latente_sobre_plano   81          0     81          0            0            0
+           perfis_identicos              fracao_porta1   81          0     81          0            0            0
+           perfis_identicos         taxa_falha_efetiva   81          0     81          0            0            0
+           perfis_identicos               taxa_omissao   81          0     81          0            0            0
+nominal                    metrica     media  ic95_inf  ic95_sup
+           atraso_relativo -1.050750 -1.891816 -0.209684
+              taxa_omissao -0.207292 -0.244552 -0.170031
+divida_latente_sobre_plano -0.067985 -0.089434 -0.046536
+        taxa_falha_efetiva -0.047917 -0.114107  0.018274
+             fracao_porta1 -0.108333 -0.117710 -0.098957
+exemplos ordenados  perfil_adaptativa  perfil_centralizada                    metrica estimando  pares_previstos  pares_retidos  pares_indefinidos estatuto    media  ic95_inf  ic95_sup  N_instancias    sinal evidencia  tau_inicial_A  tau_min_A  p_reporte_A  p_deteccao_A  tau_inicial_C  tau_min_C  p_reporte_C  p_deteccao_C              regiao
+                 5                    2              fracao_porta1 observado               16             16                  0 COMPLETO 0.019792  0.008469  0.031115             4 positivo  positivo           0.25      0.250         0.45          0.12          0.250      0.250         0.15          0.12 ordenacao_historica
+                54                   36               taxa_omissao observado               16             16                  0 COMPLETO 0.029167  0.002099  0.056234             4 positivo  positivo           0.80      0.250         0.15          0.03          0.525      0.425         0.15          0.03 ordenacao_historica
+                54                   36         taxa_falha_efetiva observado               16             16                  0 COMPLETO 0.029167  0.003205  0.055129             4 positivo  positivo           0.80      0.250         0.15          0.03          0.525      0.425         0.15          0.03 ordenacao_historica
+                60                   78 divida_latente_sobre_plano observado               16             16                  0 COMPLETO 0.002526  0.000942  0.004110             4 positivo  positivo           0.80      0.250         0.75          0.03          0.800      0.600         0.75          0.03 ordenacao_historica
+                71                   41            atraso_relativo observado               16             16                  0 COMPLETO 0.023259  0.009276  0.037241             4 positivo  positivo           0.80      0.425         0.75          0.12          0.525      0.425         0.45          0.12 ordenacao_historica

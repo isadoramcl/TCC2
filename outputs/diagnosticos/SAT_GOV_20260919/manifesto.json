@@ -1,0 +1,87 @@
+{
+  "config": {
+    "sementes": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "instancias": 4,
+    "s_transicao": [
+      0.25,
+      0.5,
+      1.0,
+      2.0
+    ],
+    "regra_fuga_sat2": "dependente_estado",
+    "limite_sat2": "nominal_0.60",
+    "omega": "nominal_0.50",
+    "gov": {
+      "tau_inicial": [
+        0.25,
+        0.525,
+        0.8
+      ],
+      "tau_min": [
+        0.25,
+        0.425,
+        0.6
+      ],
+      "p_reporte": [
+        0.15,
+        0.45,
+        0.75
+      ],
+      "p_deteccao": [
+        0.03,
+        0.075,
+        0.12
+      ]
+    }
+  },
+  "N": 2592,
+  "instancias": [
+    "j6010_1.sm",
+    "j6021_1.sm",
+    "j6032_1.sm",
+    "j6043_1.sm"
+  ],
+  "SAT1_confirma": false,
+  "hashes": {
+    "src/modelo/simulador.py": "9107ee735493ded47d562db7b119a49f951d2519b0dc4217a1d8f80ac6c7e4d9",
+    "src/modelo/fuzzy.py": "98b7a050d66401ce718e69086ecc0961e82b2ec15ac398f32e9ba155ab427ad1",
+    "src/modelo/02_verificar_simulador.py": "5c64ee2fb11eda5cb210e6cdf167ac68cc4fbffe50ddbe5149576ad0c07e2d28",
+    "src/modelo/10_decomposicao_fatorial.py": "053d727df47de2bb259310835819d743f59c8e0cc048527e7497e89acece0a83",
+    "src/modelo/heterogeneidade_erro.py": "c45a594aac2c7596a4e49173c1cfd25b0fe8a8ff023cd902771b1c1292b3a351",
+    "src/modelo/21_canais_mvp.py": "5420b889551488844ea0916a08a33736a29e83fea9349cf7470205f5a6029837",
+    "src/modelo/24_analisar_correcao.py": "3b97a9d40f1d8db18f1da4013aa0a3c5870fca3a83bcf723f8f0300beae3faf5",
+    "src/modelo/23_instrumentacao_correcao.py": "b677465eb05497bca3800be89012b60d829441284e9fde81bce4ccb4e290ddea",
+    "src/modelo/14_experimento_por_instancia.py": "ee3cecb13f558c95c834f5a7a80338bd95fba6b5caf9a378ce6d06578aa90449",
+    "src/modelo/18_analisar_pilotos_revisao.py": "cc1132b9fb4c2003dec6035768c77a0fb7a158cce1ee66fd62211d68f37a5f20",
+    "src/modelo/05_figuras_modelo.py": "cf1e7e3656f6e30280fffbfe3d4fa5054a972e8a42c5e41704674c5a45d4c00d",
+    "src/modelo/20_experimento_mvp.py": "7dbfbd81159338c03271dbb51b7d1662a89cd3bc5a8c35efb4112fdc4297fdf0",
+    "src/modelo/17_pilotos_revisao.py": "dc0b328333487f02effc29de43beeefcac71cbe2146f8c98c3531dc94824fe86",
+    "src/modelo/26_testes_arranjo.py": "d3e261be4873b567fd2bf68c9243454abdf4034e91b949980c52dfa9aba59dd2",
+    "src/modelo/ancoragem_stewart.py": "3c9069b379bffde0d5a99538615acc8339f6165853c0b91b313c1b55a1e7bb0a",
+    "src/modelo/08_verificar_ablacao.py": "86520f6f4b26152f95a64cccdf0e481cdf12c9a9ca577a96c6500dea532591f5",
+    "src/modelo/22_consolidar_mvp.py": "a436d419ed11c46acc55d70f40806fa8219265a6596a198dcb960212e62448c6",
+    "src/modelo/09_sensibilidade_tau_min.py": "5e3c1d4da505bdea646917e3c3a652b30ebf928f52e253fd4caeaa894f744e86",
+    "src/modelo/19_piloto_fronteira.py": "c517f2f5908ca4120878bca590e9d24fd99e30aab07c88486cfc72b50d9e11dc",
+    "src/modelo/13_exportar_tabelas_entrega.py": "866f019968459a5c0eff7780f8aa6760827bf220d71de1c8a78860c1b0747823",
+    "src/modelo/07_ablacao_governanca.py": "ca0f1e9da2da1ece9913c8a6ed522cf129936c3b1fb4c2549c7a697319d5a416",
+    "src/modelo/12_porta2_operacionalizacao.py": "71c7c0eb3b4007dbb93c6e9c80274771d057c0e9750d16db24b6fcd338f91bb2",
+    "src/modelo/01_derivar_parametros.py": "758e65a68b8b3c411fa53d2e2ca829082a819cf94d93ab4a01bec9e89e563ea5",
+    "src/modelo/25_teste_tempo_aprendizado.py": "a4fcdab92496b494234f8a258d4102fc215c6ce435e2887d894ae2eb7af841a4",
+    "src/modelo/03_experimento_cenarios.py": "234d5531d8454336cba8819b5777eacda5f28a72bd89988cf993ba9a2cd6a115",
+    "src/modelo/simulador_mvp.py": "55d14642acdae9f5ad0188694e7f7737932fdcd39939be3a3fbabcdf78bbee98",
+    "src/modelo/04_gemeo_identico.py": "b21857e6ac38344420485009f3edd9998512f66f69a4897d9cf62b1b7884e08c",
+    "src/modelo/06_exportar_parametros.py": "0f10ed310a68110d781b3a11b71b16658b95db5478cf6d273da056c5b0b298ec",
+    "src/modelo/11_tendencia_pressao.py": "01b3f217ea2d3cd36377e0a493ae033360faa81e8361ceac2ea6f6441a31d3e8",
+    "src/modelo/15_diagnostico_hm.py": "7a3be0d11774ebfdba857c39d072dcbdd3cb13461ef089d6318440afd45d12f6",
+    "src/modelo/16_reanalise_revisao.py": "a7edd3d110de01c3b47770afe532bece818a7c598a60629c8f3a0cc72d702060",
+    "config/parametros.yaml": "8b10258054afc20969ee0fa62ccc0b27d4530ea304f658717ca6e2c6babbc7a6",
+    "config/mvp.yaml": "1d9f29c9683661887c79111a4fcec675fcdab62d9ce760b7ab7bfb2e7ea9d2f5",
+    "research/lote_noturno/sat_gov.py": "f6097352a192ada31a7ddb68b53cf96dcaa367f8641e60e7df3f66a6dfdf9372",
+    "config/robustez_sat_gov.yaml": "fca8d8ae88bd9c05f4a73e5eb7d00aab138df0811b4e9c96f57acec4453a08d5"
+  }
+}

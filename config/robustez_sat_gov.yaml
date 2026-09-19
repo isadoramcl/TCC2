@@ -1,0 +1,12 @@
+# [DEC] Família declarada antes da execução; sem otimização.
+sementes: [0, 1, 2, 3]
+instancias: 4
+s_transicao: [0.25, 0.5, 1.0, 2.0]
+regra_fuga_sat2: dependente_estado
+limite_sat2: nominal_0.60
+omega: nominal_0.50
+gov:
+  tau_inicial: [0.25, 0.525, 0.80]
+  tau_min: [0.25, 0.425, 0.60]
+  p_reporte: [0.15, 0.45, 0.75]
+  p_deteccao: [0.03, 0.075, 0.12]

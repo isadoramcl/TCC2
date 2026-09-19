@@ -1,0 +1,13 @@
+E..
+======================================================================
+ERROR: test_horizonte_fixo_nao_aplica_teto_automatico (research.test_compatibilidade.Compatibilidade)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/isadoracarvalho/TCC2/.worktrees/integracao-main-tl/research/test_compatibilidade.py", line 55, in test_horizonte_fixo_nao_aplica_teto_automatico
+    from test_mvp import caso
+ModuleNotFoundError: No module named 'test_mvp'
+
+----------------------------------------------------------------------
+Ran 3 tests in 23.603s
+
+FAILED (errors=1)

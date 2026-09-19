@@ -1,0 +1,6 @@
+perfil_adaptativa,perfil_centralizada,metrica,estimando,pares_previstos,pares_retidos,pares_indefinidos,estatuto,media,ic95_inf,ic95_sup,N_instancias,sinal,evidencia,tau_inicial_A,tau_min_A,p_reporte_A,p_deteccao_A,tau_inicial_C,tau_min_C,p_reporte_C,p_deteccao_C,regiao
+5,2,fracao_porta1,observado,16,16,0,COMPLETO,0.0197916666666666,0.0084686213175145,0.0311147120158187,4,positivo,positivo,0.25,0.25,0.45,0.12,0.25,0.25,0.15,0.12,ordenacao_historica
+54,36,taxa_omissao,observado,16,16,0,COMPLETO,0.0291666666666666,0.0020994111744721,0.0562339221588611,4,positivo,positivo,0.8,0.25,0.15,0.03,0.525,0.425,0.15,0.03,ordenacao_historica
+54,36,taxa_falha_efetiva,observado,16,16,0,COMPLETO,0.0291666666666666,0.0032046672388615,0.0551286660944718,4,positivo,positivo,0.8,0.25,0.15,0.03,0.525,0.425,0.15,0.03,ordenacao_historica
+60,78,divida_latente_sobre_plano,observado,16,16,0,COMPLETO,0.0025259042849187,0.0009418075443386,0.0041100010254987,4,positivo,positivo,0.8,0.25,0.75,0.03,0.8,0.6,0.75,0.03,ordenacao_historica
+71,41,atraso_relativo,observado,16,16,0,COMPLETO,0.0232586853073291,0.0092763707072156,0.0372409999074426,4,positivo,positivo,0.8,0.425,0.75,0.12,0.525,0.425,0.45,0.12,ordenacao_historica

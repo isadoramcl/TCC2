@@ -20,3 +20,15 @@ fechamento de entregas não é validação externa ou eleição de alternativa.
 Nada mais a executar neste lote. C4 e o N da base de F continuam parciais
 autorizados; não são bloqueios ao encerramento. Não inferir novas ondas HM,
 alteração de V_mod ou otimização desta correção documental.
+
+## Diagnóstico adicional solicitado após o fechamento
+
+T-SAT.1/T-GOV.1 concluídos; relatório projeto/TSAT_TGOV_REGIMES_20260919.md.
+SAT1: meio de p_heu 14,95% pooled (não confirma gatilho <10%); q quase
+binário. SAT2 não disparado; limite nominal .60 excede omega=.50, tornando
+fuga impossível para qualquer s. GOV: 81 perfis, 2592 completas/zero violações,
+6561 pares de perfis; inversões inclusive na ordenação histórica. Não repetir
+afirmação de sinal universal de governança. Três testes bit a bit aprovados,
+nominal arquivado e perfis iguais com resíduo zero; dinâmica intacta. Próxima
+questão científica: interpretar as regiões invertidas, sem eleger parâmetros
+favoráveis nem inferir autorização para recalibração ou novas ondas HM.
