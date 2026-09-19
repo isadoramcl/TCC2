@@ -272,7 +272,7 @@ Os hashes das saídas congeladas estão no
 
 ### Continuidade e execução
 
-Leia as [orientações atuais da autora](projeto/07_AUTONOMIA.md) e a [sequência de correção estrutural](research/PLANO_CORRECAO_ESTRUTURAL.md)
+Leia as [orientações atuais da autora](projeto/00_AUTONOMIA.md) e a [sequência de correção estrutural](research/PLANO_CORRECAO_ESTRUTURAL.md)
 antes de escolher a próxima tarefa. Não use o backlog histórico como prova de
 que um defeito continua presente: várias correções já existem no estado local.
 
@@ -303,3 +303,8 @@ reporte/detecção explica grande parte da redução das falhas não reportadas,
 sem evidência conclusiva de redução da taxa de falha efetiva por esse bloco.
 A nova taxa efetiva é desfecho explícito. Nominal preservado; alternativa próxima
 ao limiar apenas proposta. V_obs/V_mod continua pausado por instrução da autora.
+
+## Lote noturno 19–20: resultado e pendências
+
+[Relatório consolidado](projeto/RELATORIO_LOTE_NOTURNO_19_20.md): T-B2.3, D1/D2/D3,
+E1/E2/E3 publicados; C1/C2/A1 pendentes; C4/F parciais. **Lote não fechado.**

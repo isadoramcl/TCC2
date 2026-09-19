@@ -19,7 +19,7 @@ trabalho durante a sessão; ele não foi editado nesta investigação.
 O diagnóstico se refere ao **conteúdo local**, identificado por SHA-256 no
 [manifesto](../outputs/diagnosticos/hm_20260915/manifesto.json), e não somente ao HEAD.
 
-As instruções atuais da autora estão em [07_AUTONOMIA.md](07_AUTONOMIA.md).
+As instruções atuais da autora estão em [00_AUTONOMIA.md](00_AUTONOMIA.md).
 Elas prevalecem sobre as proibições antigas de commit/push, mas exigem revisão,
 verificação e preservação de trabalho alheio antes de publicar.
 
