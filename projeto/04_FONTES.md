@@ -99,9 +99,13 @@ simulation. *Journal of Simulation*, v. 4, n. 3, p. 151-162, 2010.
 **✓ RODRIGUES, A. G.** The application of system dynamics to project management
 (SYDPIM). Tese — University of Strathclyde, 2000.
 
-**? PESSOA et al.** Framework ABM+SD para execução de projetos de P&D com ciclos
-de retrabalho. → É o precedente mais próximo do que foi construído e **ainda não
-é citado em lugar nenhum**. O PDF está na pasta de referências. Incluir.
+**✓ PESSOA, R. W. S. et al.** An Agent-Based Modeling Dynamic Hybrid Model for
+Project Management in Research and Development. *Industrial & Engineering
+Chemistry Research*, 2026. [DOI e fonte primária](https://pubs.acs.org/doi/10.1021/acs.iecr.5c04351).
+Conferido em 18/09/2026 por texto indexado da editora: não conclusão persistiu
+com 600 semanas, associada à alocação/dependências e disponibilidade de agentes.
+É precedente de limitação estrutural; não demonstra mecanismo idêntico neste
+TCC, nem propriedade necessária de todo modelo ABM+SD. Ver diagnóstico T-B2.
 
 ## Calibração de modelos e identificabilidade
 

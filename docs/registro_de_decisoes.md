@@ -1283,3 +1283,19 @@ Não alterar parâmetros para eliminar a censura. Runner corrigido para fração
 indefinida e gravação incremental; dinâmica dessa política preservada. Investigar
 alternativa de seleção antes de afirmar robustez da grade. Lote não fechado.
 [Relatório B2](../projeto/RESPOSTA_41_B2_ROBUSTEZ.md). Suíte final: 59 testes passaram.
+
+## T-B2.1/T-B2.2 — persistência e seleção — 18/09/2026
+
+C3/T4/B2 publicados em d54283b; árvore movida para .worktrees/integracao-main-tl,
+dentro de TCC2. Diagnósticos executados antes do bloco C.
+
+Horizonte 256→512×CPM nas 36 incompletas: 0 concluem, nenhuma tarefa adicional,
+agentes livres em todos os estados finais. Limitação estrutural das regras de
+seleção/assistência no desenho testado, não truncamento resolvido pelo dobro.
+Não prova impossibilidade em horizonte infinito nem mecanismo idêntico a Pessoa.
+
+Grade N=576: incompletas 36/288 centralizadas e 0/288 adaptativas; todas s=.01.
+Recalculados pares completos: 9/16 (tau=1) ou 5/16 (tau=1.4), com 4 ou 3
+instâncias. IC de falha efetiva inclui zero nas quatro células afetadas; leitura
+condicional, não efeito incondicional. Nominal N=768 completo, sem exclusão.
+Nenhuma política alterada; lote aberto. [Relatório](../projeto/TB2_HORIZONTE_E_SELECAO.md).

@@ -1,0 +1,17 @@
+{
+  "controles_novos": 2,
+  "resultado": "passaram",
+  "identidade_bit_a_bit": "3 testes passaram",
+  "reexecucoes": 36,
+  "completaram": 0,
+  "tarefas_adicionais": 0,
+  "agentes_ocupados_final": 0,
+  "todas_atingiram_512_CPM": true,
+  "hashes": {
+    "research/tb2/diagnostico.py": "d220e65015e895c87448ec49b93042513b53777b6d082637f168cf30f688f928",
+    "research/tb2/relatorio.py": "b68b4c6be5299d617467069bd938031e72f92c60b5a3199a68ed0210514a1cab",
+    "research/tb2/PROTOCOLO.md": "4a0ed876b3911e3018a9f015068041f69bfc1d82f6f39ba55490a9eac1e6f37c",
+    "research/test_tb2_pares.py": "7d73dd7ebd0bba54f272aed97e3aee7cd56e1fcee3c825bf13221f4970d87866",
+    "projeto/TB2_HORIZONTE_E_SELECAO.md": "0625c22ae6a771261a1dedb6861d2c76767cf5acfe5b0f23fae00ceb85af89d0"
+  }
+}

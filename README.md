@@ -15,8 +15,9 @@ C3 **validado pelo teste discriminante** da especificação 41; a inconsistênci
 interna da fonte está quantificada como A-16. B1/T4 concluído: os dois canais
 contribuem ao contraste de falha efetiva, com interação explícita. Nominal e
 saídas históricas preservados. B2 mantém os contrastes nominais sem erro direto,
-mas a grade revelou bloqueio de tarefas (36 execuções incompletas);
-[diagnóstico e próxima prioridade](projeto/RESPOSTA_41_B2_ROBUSTEZ.md).
+mas a grade revelou bloqueio estrutural: **0/36 incompletas concluíram com
+horizonte dobrado**. Contrastes das células afetadas recalculados apenas nos
+pares completos, condicionais à conclusão. [T-B2.1/T-B2.2](projeto/TB2_HORIZONTE_E_SELECAO.md).
 O lote inteiro ainda não está fechado. Evidências de C3/T4 na
 [resposta 41](projeto/RESPOSTA_41_C3_T4.md).
 

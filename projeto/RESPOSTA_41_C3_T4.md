@@ -2,7 +2,8 @@
 
 18/09/2026. A especificação completa foi fornecida diretamente pela autora na
 conversa; não se presume que o arquivo 41 esteja commitado. Parecer 43 excluído.
-Sem commit/push nesta etapa, conforme instrução de ignorar Git por enquanto.
+Posteriormente publicado em `d54283b`, a pedido da autora. Árvore de trabalho
+movida para `TCC2/.worktrees/integracao-main-tl`; não depende mais de `/tmp`.
 
 ## 1. Veredito C3
 

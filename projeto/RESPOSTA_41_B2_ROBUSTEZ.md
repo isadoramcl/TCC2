@@ -1,5 +1,10 @@
 # B2 — desligamento do canal direto e limites de robustez
 
+> Atualização: resultados iniciais publicados em `d54283b`. A classificação da
+> incompletude e os contrastes das células afetadas são reavaliados em
+> [T-B2.1/T-B2.2](TB2_HORIZONTE_E_SELECAO.md). As tabelas abaixo preservam o
+> diagnóstico inicial; não usar valores censurados como desfechos finais.
+
 18/09/2026. Continuação autorizada da ordem 37 após validação discriminante C3
 e conclusão B1/T4. [Protocolo anterior](../research/lote41/PROTOCOLO_B2.md).
 
@@ -191,4 +196,4 @@ testar alternativa preservada para seleção de tarefa e repetir as células
 censuradas antes de sustentar robustez na grade. A1 e os demais itens ainda não
 executados permanecem pendentes; não são declarados resolvidos.
 Não ajustar s_transicao/tau_sat para evitar o resultado nem contra Rieskamp.
-Nenhuma nova onda HM, nenhum ajuste de V_mod, nenhum commit/push nesta etapa.
+Nenhuma nova onda HM, nenhum ajuste de V_mod, resultados desta etapa publicados em `d54283b`.
