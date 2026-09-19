@@ -1,0 +1,41 @@
+test_beta_fixa_por_agente_e_usada_em_p0 (test_c2_integracao.Heterogeneidade) ... ERROR
+test_c1_admissivel_e_opcao_invalida (test_c2_integracao.Heterogeneidade) ... ERROR
+test_invalida_antes_de_rng (test_c2_integracao.Heterogeneidade) ... ERROR
+test_nenhuma_explicita_identica_default (test_c2_integracao.Heterogeneidade) ... ERROR
+
+======================================================================
+ERROR: test_beta_fixa_por_agente_e_usada_em_p0 (test_c2_integracao.Heterogeneidade)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/isadoracarvalho/TCC2/.worktrees/integracao-main-tl/research/test_c2_integracao.py", line 18, in test_beta_fixa_por_agente_e_usada_em_p0
+    a=self.setup(OpcoesMVP(heterogeneidade_erro='beta_cv113',rho_omissao=0))
+TypeError: __init__() got an unexpected keyword argument 'heterogeneidade_erro'
+
+======================================================================
+ERROR: test_c1_admissivel_e_opcao_invalida (test_c2_integracao.Heterogeneidade)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/isadoracarvalho/TCC2/.worktrees/integracao-main-tl/research/test_c2_integracao.py", line 32, in test_c1_admissivel_e_opcao_invalida
+    a=self.setup(OpcoesMVP(ancoragem_erro='stewart_linear',mapa_passos=mapa,heterogeneidade_erro='beta_cv113'))
+TypeError: __init__() got an unexpected keyword argument 'heterogeneidade_erro'
+
+======================================================================
+ERROR: test_invalida_antes_de_rng (test_c2_integracao.Heterogeneidade)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/isadoracarvalho/TCC2/.worktrees/integracao-main-tl/research/test_c2_integracao.py", line 29, in test_invalida_antes_de_rng
+    SimulacaoMVP(g,[1],8,p,'centralizada',0,opcoes=OpcoesMVP(heterogeneidade_erro='beta_cv113'))
+TypeError: __init__() got an unexpected keyword argument 'heterogeneidade_erro'
+
+======================================================================
+ERROR: test_nenhuma_explicita_identica_default (test_c2_integracao.Heterogeneidade)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/isadoracarvalho/TCC2/.worktrees/integracao-main-tl/research/test_c2_integracao.py", line 14, in test_nenhuma_explicita_identica_default
+    a=self.setup(OpcoesMVP());b=self.setup(OpcoesMVP(heterogeneidade_erro='nenhuma'))
+TypeError: __init__() got an unexpected keyword argument 'heterogeneidade_erro'
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.035s
+
+FAILED (errors=4)

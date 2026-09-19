@@ -1,0 +1,13 @@
+{
+  "alpha": 0.7540813924348031,
+  "beta": 45.50858072012981,
+  "mu_impresso": 0.01632948070693278,
+  "CV_impresso": 1.1295813180858139,
+  "controle_momentos": true,
+  "controle_aproximado": true,
+  "N_planejadas": 448,
+  "N_executadas": 352,
+  "N_rejeitadas": 96,
+  "N_completas": 352,
+  "violacoes": 0
+}

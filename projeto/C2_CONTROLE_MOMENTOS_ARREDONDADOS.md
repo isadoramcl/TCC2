@@ -1,5 +1,8 @@
 # C2 — controle de precisão incompatível com entradas arredondadas
 
+> Controle estrito histórico. A nova ordem aproximada foi executada e publicada em [C2 de fechamento](C2_HETEROGENEIDADE_FECHAMENTO.md); este ensaio não foi apagado.
+
+
 **Item interrompido antes de introduzir heterogeneidade no simulador.**
 A política do lote manda registrar observado versus esperado quando um controle
 publicado reprova; não ajustar parâmetros ou tolerância para fazê-lo passar.

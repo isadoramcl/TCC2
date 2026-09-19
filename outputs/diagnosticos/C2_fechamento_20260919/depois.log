@@ -1,0 +1,9 @@
+test_beta_fixa_por_agente_e_usada_em_p0 (test_c2_integracao.Heterogeneidade) ... ok
+test_c1_admissivel_e_opcao_invalida (test_c2_integracao.Heterogeneidade) ... ok
+test_invalida_antes_de_rng (test_c2_integracao.Heterogeneidade) ... ok
+test_nenhuma_explicita_identica_default (test_c2_integracao.Heterogeneidade) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.114s
+
+OK
