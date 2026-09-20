@@ -9,7 +9,7 @@ modelo híbrido de agentes e dinâmica de sistemas, experimentos e análise.
 
 ---
 
-## Estado do lote 37 — 18/09/2026
+## Estado do lote 37 — fechado após auditoria de 29f7fbf
 
 C3 **validado pelo teste discriminante** da especificação 41; a inconsistência
 interna da fonte está quantificada como A-16. B1/T4 concluído: os dois canais
@@ -18,8 +18,28 @@ saídas históricas preservados. B2 mantém os contrastes nominais sem erro dire
 mas a grade revelou bloqueio estrutural: **0/36 incompletas concluíram com
 horizonte dobrado**. Contrastes das células afetadas recalculados apenas nos
 pares completos, condicionais à conclusão. [T-B2.1/T-B2.2](projeto/TB2_HORIZONTE_E_SELECAO.md).
-O lote inteiro ainda não está fechado. Evidências de C3/T4 na
-[resposta 41](projeto/RESPOSTA_41_C3_T4.md).
+**Lote fechado pela autora após auditoria de 29f7fbf.** C2: implementação
+validada; fonte internamente inconsistente em 0,012% (A-16). C2/C3 seguem
+a regra discriminante do parecer 41, §5; C1 mantém o controle exato.
+C4 e o N da base de F permanecem **parciais**.
+[Fechamento e emenda](projeto/FECHAMENTO_LOTE_20260919.md);
+[evidências de C3/T4](projeto/RESPOSTA_41_C3_T4.md).
+
+## Diagnóstico adicional de regime — T-SAT / T-GOV
+
+[Resultados e regiões de inversão](projeto/TSAT_TGOV_REGIMES_20260919.md):
+T-SAT.1 não atingiu o critério de saturação de p_heu, embora q seja quase
+binário. No limite nominal, a fuga é impossível para qualquer s_transicao.
+T-GOV.1: 2.592/2.592 completas. [T-GOV.2 localiza as exceções](projeto/TGOV2_LOCALIZACAO_INVERSOES_20260919.md):
+predominam contrastes negativos na ordenação histórica; as três inversões de
+atraso se concentram no mesmo perfil A, e dívida tem um caso isolado. ICs
+exploratórios e dependência entre contrastes impedem concluir só pela contagem
+se são multiplicidade ou mecanismos confirmados.
+
+[T-CROWDER.1](projeto/TCROWDER1_SENSIBILIDADE_20260919.md): escalares nomeados no
+YAML, nominal (15,3) preservado bit a bit. 3.456/3.456 completas; cinco
+contrastes com IC95 negativo em todas as nove combinações. Centralizada
+inerte; dívida muda em magnitude, sem inversão nominal nessa sensibilidade.
 
 ## Objetivo
 

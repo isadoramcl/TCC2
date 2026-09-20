@@ -1,0 +1,16 @@
+regiao,metrica,N,negativos,zeros,positivos,IC_negativo,IC_positivo
+inclui_inversao_de_premissa,atraso_relativo,5265,2130,27,3108,905,1599
+inclui_inversao_de_premissa,divida_latente_sobre_plano,5265,2095,28,3142,912,1627
+inclui_inversao_de_premissa,fracao_porta1,5265,2392,49,2824,1124,1690
+inclui_inversao_de_premissa,taxa_falha_efetiva,5265,2280,50,2935,235,375
+inclui_inversao_de_premissa,taxa_omissao,5265,2136,34,3095,1539,2223
+ordenacao_historica,atraso_relativo,1215,1083,27,105,697,3
+ordenacao_historica,divida_latente_sobre_plano,1215,1117,28,70,716,1
+ordenacao_historica,fracao_porta1,1215,804,39,372,577,11
+ordenacao_historica,taxa_falha_efetiva,1215,915,40,260,144,4
+ordenacao_historica,taxa_omissao,1215,1071,32,112,687,3
+perfis_identicos,atraso_relativo,81,0,81,0,0,0
+perfis_identicos,divida_latente_sobre_plano,81,0,81,0,0,0
+perfis_identicos,fracao_porta1,81,0,81,0,0,0
+perfis_identicos,taxa_falha_efetiva,81,0,81,0,0,0
+perfis_identicos,taxa_omissao,81,0,81,0,0,0

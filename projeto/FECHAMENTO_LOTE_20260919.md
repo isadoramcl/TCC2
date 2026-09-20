@@ -1,6 +1,7 @@
 # Fechamento do lote obrigatório — 19/09/2026
 
-**A1, C1, C2, P1 e P2 executados.** C4 e o N da bancada em F continuam
+**LOTE FECHADO**, conforme auditoria da autora sobre **29f7fbf**.
+A1, C1 e C2 conferidos; P1 e P2 registrados. C4 e o N da bancada em F continuam
 parciais, como autorizado. Fechamento das entregas computacionais não equivale
 a validação externa do modelo ou aprovação automática de conclusões da tese.
 
@@ -46,14 +47,19 @@ por domínio**, zero violações. A Beta não degenerada exige mu<0,439193640476
 com fronteira estrita. Bases históricas0,15/0,20/0,25 têm níveis incompatíveis;
 ambos os mapas C1 são admissíveis. Sem reduzir CV ou aparar mu para fazê-los caber.
 
-Controle aproximado, conforme a nova ordem: mu=0,0163/CV=1,13 retornam
+**C2: implementação validada, fonte internamente inconsistente em 0,012% (A-16).**
+A emenda à ordem 37 aplica a regra discriminante do parecer 41, §5,
+com a bateria de controles negativos e [A-16](04_FONTES.md).
+mu=0,0163/CV=1,13 retornam
 alpha=0,754081392435 e beta=45,508580720130. Os desvios frente aos impressos
 são publicados; não afirmar igualdade na terceira casa. Os momentos implícitos
 nos impressos estão nos intervalos de arredondamento da fonte. Fórmula literal
 confirmada independentemente;200.000 agentes por média (20 médias) produziram
 maior erro relativo0,3969% na média e0,5946% no CV. Não escolher sementes favoráveis.
 A reprovação anterior no critério estrito permanece arquivada e é superada
-pela nova exigência aproximada, não apagada ou recodificada retrospectivamente.
+pela regra discriminante emendada, não apagada ou recodificada retrospectivamente.
+Esta atualização altera somente o veredicto e a documentação; nenhum experimento
+foi reexecutado, e nenhum parâmetro ou resultado numérico foi alterado.
 
 [Cinco indicadores, ambas opções, IC95](../outputs/diagnosticos/C2_fechamento_20260919/cinco_indicadores_IC95.csv),
 [efeito Beta−nenhuma e ANTES/DEPOIS](../outputs/diagnosticos/C2_fechamento_20260919/efeito_beta_menos_nenhuma.csv),

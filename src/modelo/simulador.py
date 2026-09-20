@@ -379,6 +379,11 @@ class Simulacao:
         return (self._reescalar(self.difuso.avaliar(fadiga, P)),
                 self._reescalar(self.difuso.avaliar(desconfianca, carga)))
 
+    def escalares_aprendizado(self):
+        """[TCC1] Escalares da Eq. (4.2); default preserva a aritmética histórica."""
+        p = self.par["aprendizado"]
+        return float(v(p["incremento_base"])), float(v(p["fator_transferencia"]))
+
     def F_base(self, nivel: str) -> float:
         r = self.par["risco"]
         ancora = float(v(r["F_ancora"]))
@@ -400,6 +405,7 @@ class Simulacao:
 
     # -----------------------------------------------------------------
     def executar(self) -> Resultado:
+        incremento_base, fator_transferencia = self.escalares_aprendizado()
         par, cen = self.par, self.cen
         ag, ret, ex = par["agentes"], par["retrabalho"], par["execucao"]
         tau_sat = float(v(ag["tau_sat"])); s_tr = float(v(ag["s_transicao"]))
@@ -498,7 +504,7 @@ class Simulacao:
                     if apoio:
                         melhor = max(apoio, key=lambda k: k.competencia)
                         a.competencia = min(0.98, a.competencia +
-                                            (15 + 3 * (melhor.competencia - a.competencia)) / 100)
+                                            (incremento_base + fator_transferencia * (melhor.competencia - a.competencia)) / 100)
                         self.cnt["p2_ajuda"] += 1
                         self.TL += 1.0
                         melhor.livre_em = t + 1

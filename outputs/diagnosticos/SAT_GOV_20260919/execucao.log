@@ -1,0 +1,58 @@
+/Users/isadoracarvalho/.matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /var/folders/vh/0f3mnz994db1_34s9k72h06m0000gn/T/matplotlib-t4x6fpc6 because there was an issue with the default path (/Users/isadoracarvalho/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Matplotlib is building the font cache; this may take a moment.
+     populacao      cenario     N  menor_001  maior_099  meio_01_09
+todas_decisoes        ambos 79327        0.0   0.091986    0.149495
+todas_decisoes   adaptativa 40777        0.0   0.072124    0.146063
+todas_decisoes centralizada 38550        0.0   0.112996    0.153126
+ selecionou_p1        ambos 13334        0.0   0.547023    0.179466
+ selecionou_p1   adaptativa  5996        0.0   0.490494    0.193963
+ selecionou_p1 centralizada  7338        0.0   0.593213    0.167621
+64 2592
+128 2592
+192 2592
+256 2592
+320 2592
+384 2592
+448 2592
+512 2592
+576 2592
+640 2592
+704 2592
+768 2592
+832 2592
+896 2592
+960 2592
+1024 2592
+1088 2592
+1152 2592
+1216 2592
+1280 2592
+1344 2592
+1408 2592
+1472 2592
+1536 2592
+1600 2592
+1664 2592
+1728 2592
+1792 2592
+1856 2592
+1920 2592
+1984 2592
+2048 2592
+2112 2592
+2176 2592
+2240 2592
+2304 2592
+2368 2592
+2432 2592
+2496 2592
+2560 2592
+Traceback (most recent call last):
+  File "/Users/isadoracarvalho/TCC2/.worktrees/integracao-main-tl/research/lote_noturno/sat_gov.py", line 105, in <module>
+    if __name__=='__main__':run()
+  File "/Users/isadoracarvalho/TCC2/.worktrees/integracao-main-tl/research/lote_noturno/sat_gov.py", line 71, in run
+    analyze(d,cfg)
+  File "/Users/isadoracarvalho/TCC2/.worktrees/integracao-main-tl/research/lote_noturno/sat_gov.py", line 102, in analyze
+    o=old.xs(cen,level='cenario').loc[g.index,m];delta=float((g[m]-o).abs().max());assert delta==0;checks.append(dict(cenario=cen,metrica=m,residuo=delta))
+AssertionError

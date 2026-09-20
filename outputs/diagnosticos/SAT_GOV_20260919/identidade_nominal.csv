@@ -1,0 +1,17 @@
+cenario,metrica,residuo
+centralizada,TW,0.0
+centralizada,TL,0.0
+centralizada,TU,0.0
+centralizada,TR,0.0
+centralizada,makespan,0.0
+centralizada,p1_fuga,0.0
+centralizada,p1_omissao,0.0
+centralizada,N_req,0.0
+adaptativa,TW,0.0
+adaptativa,TL,0.0
+adaptativa,TU,0.0
+adaptativa,TR,0.0
+adaptativa,makespan,0.0
+adaptativa,p1_fuga,0.0
+adaptativa,p1_omissao,0.0
+adaptativa,N_req,0.0

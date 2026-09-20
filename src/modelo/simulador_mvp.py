@@ -194,7 +194,8 @@ class SimulacaoMVP(Simulacao):
                 solicitante=a.ident,respondente=k.ident,sucesso=False,dC=0.))
             return
         # Crowder C em [0,5]: converter antes de calcular Eq.1; incremento/5 em C normalizada.
-        dC=float(np.clip((15.+3.*(5.*k.competencia-5.*a.competencia))/100.,0.,.30))
+        incremento_base,fator_transferencia=self.escalares_aprendizado()
+        dC=float(np.clip((incremento_base+fator_transferencia*(5.*k.competencia-5.*a.competencia))/100.,0.,.30))
         a.competencia=min(tar.dificuldade,a.competencia+dC/5.)
         self.cnt['N_success']+=1;self.cnt['p2_ajuda']+=1
         self.contabilizar_tempo_aprendizado(True,dC)
@@ -215,6 +216,7 @@ class SimulacaoMVP(Simulacao):
         self.reparos.append(dict(j=j,restante=esforco,pronto=disponivel,agente=None))
 
     def executar(self):
+        incremento_base,fator_transferencia=self.escalares_aprendizado()
         p,c,o=self.par,self.cen,self.opcoes
         ag,ret=p['agentes'],p['retrabalho']
         tau=float(v(ag['tau_sat'])); s=float(v(ag['s_transicao']))
@@ -313,8 +315,8 @@ class SimulacaoMVP(Simulacao):
                     else: apoio=[k for k in capazes if (k.confianca if o.tau_portao is None else o.tau_portao)>tm]
                     if apoio:
                         k=max(apoio,key=lambda k:k.competencia)
-                        dC_tl=float(np.clip((15.+3.*(5.*k.competencia-5.*a.competencia))/100.,0.,.30))
-                        a.competencia=min(.98,a.competencia+(15+3*(k.competencia-a.competencia))/100)
+                        dC_tl=float(np.clip((incremento_base+fator_transferencia*(5.*k.competencia-5.*a.competencia))/100.,0.,.30))
+                        a.competencia=min(.98,a.competencia+(incremento_base+fator_transferencia*(k.competencia-a.competencia))/100)
                         self.cnt['p2_ajuda']+=1
                         self.contabilizar_tempo_aprendizado(True,dC_tl)
                         # Sem reserva adicional do solicitante: compatibilidade

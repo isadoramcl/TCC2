@@ -1,0 +1,6 @@
+# [DEC] Sensibilidade dos escalares [TCC1], sem alvo externo ou otimização.
+incremento_base: [7.5, 15, 22.5]
+fator_transferencia: [1.5, 3, 6]
+instancias: 16
+sementes: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+limite_horizonte_fator: 256

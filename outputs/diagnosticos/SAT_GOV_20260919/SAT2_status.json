@@ -1,0 +1,5 @@
+{
+  "executado": false,
+  "motivo": "Gatilho pre-declarado de T-SAT.1 nao atingido: massa intermediaria 14,9495%, acima de 10%.",
+  "restricao_independente": "omega*q <= 0.50 < limite nominal 0.60 para qualquer s_transicao."
+}

@@ -1,0 +1,29 @@
+........E
+======================================================================
+ERROR: test_nominais_declarados_no_yaml (research.test_escalares_crowder.Escalares)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/isadoracarvalho/TCC2/.worktrees/integracao-main-tl/research/test_escalares_crowder.py", line 16, in test_nominais_declarados_no_yaml
+    p=S.carregar_parametros()['aprendizado']
+KeyError: 'aprendizado'
+
+======================================================================
+FAIL: test_evento_responde_aos_dois_escalares (research.test_escalares_crowder.Escalares) (base=7.5, fator=1.5)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/isadoracarvalho/TCC2/.worktrees/integracao-main-tl/research/test_escalares_crowder.py", line 12, in test_evento_responde_aos_dois_escalares
+    self.assertAlmostEqual(a.competencia,.4+ganho)
+AssertionError: 0.442 != 0.42100000000000004 within 7 places (0.020999999999999963 difference)
+
+======================================================================
+FAIL: test_evento_responde_aos_dois_escalares (research.test_escalares_crowder.Escalares) (base=22.5, fator=6.0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/isadoracarvalho/TCC2/.worktrees/integracao-main-tl/research/test_escalares_crowder.py", line 12, in test_evento_responde_aos_dois_escalares
+    self.assertAlmostEqual(a.competencia,.4+ganho)
+AssertionError: 0.442 != 0.46 within 7 places (0.018000000000000016 difference)
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.614s
+
+FAILED (failures=2, errors=1)

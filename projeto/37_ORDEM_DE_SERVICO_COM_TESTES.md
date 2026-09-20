@@ -144,7 +144,8 @@ t = μ(1 − μ)/σ² − 1
 **Testar.**
 - **Controle positivo, e é o teste decisivo:** para μ = 0,0163, a fórmula deve devolver
   **α ≈ 0,7546 e β ≈ 45,46**, reproduzindo os valores publicados por Stewart. Tolerância de
-  arredondamento da terceira casa.
+  arredondamento da terceira casa. **Critério original retratado:** vigora a regra
+  discriminante do parecer 41, §5, conforme emenda ao encerramento abaixo.
 - Controle de identidade com `nenhuma`.
 - Verificar média e CV empíricos da amostra de agentes.
 
@@ -157,8 +158,9 @@ risco da camada NASA, `F_base` **pode ultrapassar esse limite**. O código tem d
 **falhar com mensagem explícita**, não silenciosamente reduzir o CV. Registrar em quais
 células isso ocorre.
 
-**Se não bater.** Se α e β não reproduzirem os publicados, a parametrização está errada.
-Não seguir adiante.
+**Se não bater (emendado).** Avaliar C2 contra a bateria de controles negativos
+do parecer 41, §5; a divergência de casas decimais, isoladamente, não reprova.
+Publicar os resíduos e citar a inconsistência A-16, sem ajustar parâmetros.
 
 ## C3 · Sensibilidade à não independência entre erros
 
@@ -190,8 +192,8 @@ Parâmetros: binomial `p = 0,0163`; beta-binomial `μ = 0,0163`, `V = 1,13`; p-d
 `p_av = 0,0163`, `φ = 0,845`.
 
 **Saída esperada.** As frequências esperadas reproduzidas na terceira casa decimal e os três
-χ² batendo. **Se isso passar, a implementação das distribuições está correta** e pode ser
-usada com confiança no simulador.
+χ² batendo. **Exigência de precisão retratada pela emenda:** a aprovação de C3
+segue o teste discriminante do parecer 41, §5, com resíduos e A-16 publicados.
 
 **Magnitude a reportar — com a ressalva.** O texto de Stewart resume aumentos de
 *"aproximadamente 20–30% e 50%"* na probabilidade de falha. O recálculo direto da Tabela 3
@@ -200,8 +202,9 @@ p-dependente, nos dois procedimentos publicados. **Reportar as duas coisas e dei
 que o recálculo é nosso** — não corrigir o autor em silêncio. E o escopo é daquela análise de
 confiabilidade específica, não lei geral.
 
-**Se não bater.** Se as frequências não reproduzirem, a implementação está errada. Este teste
-não admite tolerância frouxa: os valores são publicados.
+**Se não bater (emendado).** Se a bateria não discriminar, o lote não fecha.
+A inconsistência interna da fonte não deve ser confundida com erro de implementação;
+valem os quatro critérios do parecer 41, §5, e o registro A-16.
 
 ## C4 · Faixa de sensibilidade de `p_heu` a partir de Rieskamp
 
@@ -352,11 +355,17 @@ independente.
 O lote está fechado quando:
 
 - o teste de identidade bit a bit passa com as opções neutras, depois de todas as alterações;
-- os controles publicados reproduzem: seis pontos de C1, α e β de C2, e as frequências e χ² da
-  Tabela 2 em C3;
+- os controles publicados são avaliados pela regra da seção 5 do parecer 41 (teste discriminante), não por casa decimal absoluta. C1 exige reprodução exata porque é aritmética fechada; C2 e C3 são avaliados contra a bateria de controles negativos.
 - os cinco indicadores estão reportados com IC95 em cada alternativa;
 - toda alternativa nova aparece no desenho de robustez ou tem declarado por que não aparece;
 - nenhum resultado foi escolhido por ser favorável.
 
 **Se qualquer controle publicado falhar, o lote não fecha.** Reportar o que se observou, o que
 se esperava, e o que foi tentado — antes de prosseguir.
+
+## Emenda e encerramento após auditoria de 29f7fbf
+
+A autora confirmou A1, C1 e C2 e declarou o **lote fechado**. A emenda ao item 2
+acima substitui os critérios absolutos originais de C2/C3. **C2: implementação validada, fonte internamente inconsistente em 0,012% (A-16).**
+C4 e o N da base da bancada em F permanecem **parciais**, conforme autorizado.
+Evidências e veredicto vigente: [fechamento](FECHAMENTO_LOTE_20260919.md).

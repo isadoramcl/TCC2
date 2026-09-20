@@ -1,0 +1,19 @@
+/Users/isadoracarvalho/.matplotlib is not a writable directory
+Matplotlib created a temporary cache directory at /var/folders/vh/0f3mnz994db1_34s9k72h06m0000gn/T/matplotlib-8nza0kob because there was an issue with the default path (/Users/isadoracarvalho/.matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Matplotlib is building the font cache; this may take a moment.
+                   metrica  N  medias_negativas  IC_negativos  IC_positivos  media_min  media_max
+           atraso_relativo  9                 9             9             0  -1.086810  -0.996299
+divida_latente_sobre_plano  9                 9             9             0  -0.080016  -0.076383
+             fracao_porta1  9                 9             9             0  -0.154774  -0.085677
+        taxa_falha_efetiva  9                 9             9             0  -0.058854  -0.042014
+              taxa_omissao  9                 9             9             0  -0.232031  -0.225521
+DIVIDA ALTERACAO  incremento_base  fator_transferencia     media  ic95_inf  ic95_sup
+             7.5                  1.5  0.001162 -0.000496  0.002820
+             7.5                  3.0  0.001432 -0.001058  0.003921
+             7.5                  6.0  0.000074 -0.001849  0.001997
+            15.0                  1.5  0.000777 -0.000372  0.001927
+            15.0                  3.0  0.000000  0.000000  0.000000
+            15.0                  6.0  0.000846 -0.000863  0.002555
+            22.5                  1.5 -0.002202 -0.004222 -0.000181
+            22.5                  3.0 -0.001188 -0.003277  0.000900
+            22.5                  6.0 -0.001230 -0.003247  0.000786
