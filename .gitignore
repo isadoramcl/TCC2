@@ -54,3 +54,6 @@ outputs/_to_delete/
 
 # Saidas do Claude fora do lugar canonico; projeto/ e o canonico
 Claude outputs/
+
+# Copia isolada para testar mudancas nos portoes sem tocar o principal
+testes_isolados/

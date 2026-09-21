@@ -1317,3 +1317,26 @@ Nenhuma política alterada; lote aberto. [Relatório](../projeto/49_HORIZONTE_DO
   [T-CROWDER.1](../projeto/69_SENSIBILIDADE_DOS_ESCALARES_DE_APRENDIZAGEM.md). Não eleger
   parâmetros convenientes nem atribuir as inversões a Crowder sem contraste
   específico dos perfis onde ocorreram.
+
+## 21/09/2026 — Bancada retirada, C4 fechado, portões suaves testados
+
+- [DEC] **Bancada de fatores humanos retirada** da monografia e do apêndice
+  (tênis, NBA, Go, reversões de commits). Os arquivos de origem nunca foram
+  localizados e o N da base não é verificável (ver `projeto/64`). O argumento
+  sobre pressão e erro fica apoiado em fontes conferidas: Stewart (1992),
+  Stewart & Melchers (1988) e Rieskamp & Hoffrage (2008).
+- [ACHADO] **C4 fechado.** Versão dinâmica, com trajetórias completas e pressão
+  fixada nos extremos: razão da fração Porta 1 entre P = 1,00 e P = 0,30 de 2,94
+  (adaptativo) e 2,20 (centralizado) no ponto nominal. Comparação com Rieskamp
+  (≈ 2,3) apenas descritiva; nenhum parâmetro ajustado.
+  [Relatório](../projeto/73_SENSIBILIDADE_DINAMICA_A_PRESSAO.md).
+- [DEC] **Portões suaves implementados como opção desligada.** A fuga e o portão
+  de assistência passam a usar a mesma transição logística da Porta 1, com
+  inclinação própria `s_portoes = 0,25` fixada, não varrida. Confiança mantém a
+  lei de Crowder (Eq. 4); a fuga mantém a drenagem de bateria do TCC I. Opções
+  desligadas: nominal reproduzido bit a bit; 101 testes aprovados. Com as opções
+  ligadas, os casos que travavam terminam e os cinco contrastes se mantêm,
+  dentro e fora da amostra. **Adoção como nominal pendente** de decisão da autora
+  com o orientador. [Relatório](../projeto/74_PORTOES_SUAVES.md).
+- [ABERTO] Os três itens acima foram executados pelo revisor, sem auditoria
+  independente.

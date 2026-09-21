@@ -198,6 +198,10 @@ portão de assistência: sua abertura reduz a taxa de falha efetiva em cerca de
 - Bateria de controles negativos estabelecendo a resolução do instrumento.
 - Cobertura do History Matching: taxa empírica de falsa exclusão de 6,2%,
   IC 95% de Wilson [4,40%; 8,67%], compatível com o nominal de 5%.
+- Sensibilidade da seleção heurística à pressão: entre a pressão mínima e a
+  máxima, a fração de tarefas pela Porta 1 cresce 2,2 a 2,9 vezes no ponto
+  nominal — mesma ordem de grandeza do deslocamento de estratégia observado por
+  Rieskamp e Hoffrage (2008), razão ≈ 2,3. Comparação descritiva, sem ajuste.
 - **Achado sobre fonte primária:** a Tabela 2 de Stewart (1992) não é
   internamente reprodutível na precisão impressa — nenhum par de parâmetros
   satisfaz os três conjuntos publicados ao mesmo tempo (discrepância de 0,012%,
@@ -209,10 +213,9 @@ portão de assistência: sua abertura reduz a taxa de falha efetiva em cerca de
 - **Os parâmetros de governança são premissas sem fonte externa.** Uma varredura
   de 81 perfis mostra que o sinal do contraste se mantém na quase totalidade do
   espaço, mas o valor não está ancorado empiricamente.
-- **A validação fora da amostra não passou por auditoria independente**, ao
-  contrário dos demais experimentos.
-- Análise de sensibilidade de pressão e uma contagem da base de fatores humanos
-  permanecem parciais.
+- **A validação fora da amostra, a sensibilidade à pressão e o teste dos
+  portões suaves não passaram por auditoria independente**, ao contrário dos
+  demais experimentos.
 
 ### Não funciona como o modelo conceitual previa
 
@@ -235,6 +238,16 @@ portão de assistência: sua abertura reduz a taxa de falha efetiva em cerca de
 Os três são condições de decisão comparadas entre constantes, identificadas por
 varredura e documentadas. Dois deles são herdados da especificação conceitual do
 TCC I, não introduzidos na implementação.
+
+**Correção testada, ainda não adotada como nominal.** As três degenerações vêm de
+comparações duras entre dois números. Aplicando a elas a mesma transição suave
+que o modelo já usa na Porta 1, a fuga passa a disparar de forma gradual, o
+arranjo centralizado passa a pedir ajuda à medida que a confiança se constrói, e
+os casos que antes travavam terminam (64/64 e 36/36, contra 0/64 e 0/36). O
+contraste entre os arranjos se mantém nos cinco indicadores, dentro e fora da
+amostra, com magnitude menor em falha efetiva e fração Porta 1. Está implementado
+como opção desligada; o nominal publicado não mudou. Ver
+`projeto/74_PORTOES_SUAVES.md`.
 
 ---
 

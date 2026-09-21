@@ -49,6 +49,8 @@ do código que o produziu.
 | `GOV2_CROWDER1_20260919` | 19/09 | Localização das inversões e escalares de aprendizagem | | 20 | 3,1 |
 | `fechamento_20260919` | 19/09 | Fechamento das entregas obrigatórias | | 5 | 0,008 |
 | `20260920_fora_da_amostra` | 20/09 | **Validação fora da amostra**, 48 instâncias novas | 1 536 | 11 | 1,2 |
+| `20260921_c4_dinamico` | 21/09 | Sensibilidade dinâmica da seleção heurística à pressão (C4) | 2 304 | 3 | 0,1 |
+| `20260921_portoes_suaves` | 21/09 | **Portões suaves** — teste da correção das três condições degeneradas | 4 296 | 18 | 2,8 |
 
 ---
 

@@ -42,6 +42,14 @@ class OpcoesMVP:
     politica_porta2: str = 'nominal'
     tau_portao: float | None = None
     tau_rede: float | None = None
+    # [DEC 21/09] Portões suaves (opcionais). Defaults reproduzem o nominal bit a
+    # bit. Ver projeto/74_PORTOES_SUAVES.md.
+    portao_assistencia: str = 'limiar'
+    efeito_fuga: str = 'drena'
+    # [DEC] Inclinação própria dos portões suaves, fixada no valor nominal da
+    # transição cognitiva (0,25) e NÃO varrida junto com s_transicao: confiança e
+    # aversão à perda são construtos distintos da seleção heurística.
+    s_portoes: float = 0.25
 
     def __post_init__(self):
         if self.heterogeneidade_erro not in {'nenhuma','beta_cv113'}:
@@ -50,7 +58,7 @@ class OpcoesMVP:
             raise ValueError('ancoragem de erro desconhecida')
         if self.mapa_passos not in MAPAS_PASSOS:
             raise ValueError('mapa sintético de passos desconhecido')
-        if self.regra_fuga not in {'constante','dependente_estado'}:
+        if self.regra_fuga not in {'constante','dependente_estado','logistica'}:
             raise ValueError('regra de fuga desconhecida')
         if self.canal_erro_direto not in {'ativo','desligado'}:
             raise ValueError('canal de erro direto desconhecido')
@@ -60,6 +68,12 @@ class OpcoesMVP:
             raise ValueError('lei de tempo de aprendizado desconhecida')
         if self.lei_confianca not in {'constante','crowder'}:
             raise ValueError('lei de confiança desconhecida')
+        if self.portao_assistencia not in {'limiar','logistico'}:
+            raise ValueError('portão de assistência desconhecido')
+        if self.efeito_fuga not in {'drena','alivio'}:
+            raise ValueError('efeito de fuga desconhecido')
+        if self.portao_assistencia=='logistico' and not (self.comunicacao_crowder or self.lei_confianca=='crowder'):
+            raise ValueError('portão logístico implementado só no caminho de comunicação Crowder')
         if self.politica_porta2 not in {'nominal','sem_assistencia','assistencia_universal','sem_filtro_competencia'}:
             raise ValueError('política Porta 2 desconhecida')
         if not 0 < self.fator_omissao <= 1 or self.limite_horizonte_fator < 1:
@@ -99,6 +113,13 @@ class SimulacaoMVP(Simulacao):
         if self.opcoes.lei_confianca=='crowder' and self.opcoes.tau_portao is not None:
             for a in self.agentes:a.confianca=self.opcoes.tau_portao
         self.cnt.update(N_req=0,N_fail=0,N_blocked=0,N_success=0)
+        # Fluxo auxiliar: só existe se uma opção suave estiver ligada, para que o
+        # fluxo principal de sorteios fique intacto (números aleatórios comuns).
+        self.rng_aux=None
+        if self.opcoes.portao_assistencia=='logistico' or self.opcoes.regra_fuga=='logistica':
+            seed=args[5] if len(args)>5 else kwargs['semente']
+            self.rng_aux=np.random.default_rng(np.random.SeedSequence([int(seed),20260921,3]))
+        self._s_logistica=None
         self.reparos=[]
         self.eventos=[]
         self.registros_tarefas=[]
@@ -134,6 +155,9 @@ class SimulacaoMVP(Simulacao):
         """[DEC] A1: limiar por estado como alternativa, sem sorteio adicional."""
         if self.opcoes.regra_fuga=='constante':
             return omega>limite
+        if self.opcoes.regra_fuga=='logistica':
+            x=(omega*max(0.,2*p_heu-1.)-limite)/max(self._s_logistica,1e-9)
+            return self.rng_aux.random()<1/(1+math.exp(-float(np.clip(x,-700,700))))
         return omega*max(0.,2*p_heu-1.)>limite
 
     def decidir_porta(self,p_heu,sorteio):
@@ -175,7 +199,13 @@ class SimulacaoMVP(Simulacao):
         self.cnt['hiato_sem_colega_livre']+=int(not livres)
         def confianca(k):
             return k.confianca if o.lei_confianca=='crowder' or o.tau_portao is None else o.tau_portao
-        elegiveis=[k for k in capazes if o.politica_porta2=='assistencia_universal' or confianca(k)>tm]
+        if o.portao_assistencia=='logistico' and o.politica_porta2=='nominal':
+            def aceita(k):
+                x=(confianca(k)-tm)/max(self._s_logistica,1e-9)
+                return self.rng_aux.random()<1/(1+math.exp(-float(np.clip(x,-700,700))))
+            elegiveis=[k for k in capazes if aceita(k)]
+        else:
+            elegiveis=[k for k in capazes if o.politica_porta2=='assistencia_universal' or confianca(k)>tm]
         if o.politica_porta2=='sem_assistencia':elegiveis=[]
         if not elegiveis:
             if capazes and o.politica_porta2!='sem_assistencia':self.cnt['N_blocked']+=1
@@ -219,7 +249,7 @@ class SimulacaoMVP(Simulacao):
         incremento_base,fator_transferencia=self.escalares_aprendizado()
         p,c,o=self.par,self.cen,self.opcoes
         ag,ret=p['agentes'],p['retrabalho']
-        tau=float(v(ag['tau_sat'])); s=float(v(ag['s_transicao']))
+        tau=float(v(ag['tau_sat'])); s=float(v(ag['s_transicao'])); self._s_logistica=o.s_portoes
         bmin=float(v(ag['b_min'])); ka=float(v(ag['k_analitico'])); kh=float(v(ag['k_heuristico']))
         rec=float(v(ag['r_recuperacao']))
         omega=float(v(p['gestor']['omega'])); limite=float(v(p['gestor']['limite_aversao_perda']))
@@ -299,7 +329,7 @@ class SimulacaoMVP(Simulacao):
                 if heu and self.deve_fugir(p_heu,omega,limite):
                     registro['porta']='P1_fuga'
                     self.cnt['p1_fuga']+=1; self.TU+=1.; self.n_adiamentos+=1
-                    a.bateria=max(0.,a.bateria-kh*E)
+                    if o.efeito_fuga=='drena': a.bateria=max(0.,a.bateria-kh*E)
                     continue
                 if not heu and tar.dificuldade>a.competencia:
                     registro['porta']='P2'

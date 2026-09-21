@@ -1,0 +1,15 @@
+{
+  "data": "2026-09-21",
+  "executado_por": "Claude (revisor) - sem auditoria independente",
+  "desenho": "16 instancias do nominal x sementes 0-3 x 2 arranjos x P em {0,30;1,00} fixa x tau_sat {0,7;1;1,4} x s_transicao {0,01;0,25;0,6}; teto 16xCPM",
+  "N": 2304,
+  "concluiram": 2058,
+  "nota": "Executado a partir de copia do codigo com opcoes default; identidade bit a bit da copia contra noturno_nominal verificada (45 campos) antes da execucao.",
+  "hashes": {
+    "src/modelo/simulador_mvp.py": "e71895081ee65a23b84479d5dba4e83658bff6030db558c7ca98e2be97cd0b4d",
+    "src/modelo/simulador.py": "954eb63d96286adfcf0d795950639d584244819c719c14907b7b8657a5ab9f51",
+    "config/mvp.yaml": "20f3234374a573ea7b45be2049cdb8c4499ccf972f73adcdecfdfb24aef7a3bf",
+    "config/parametros.yaml": "c2e6cce6f0a1379b06ec3c989f7e92409cc20c0e3a92aaee3b46ed31616a3863",
+    "research/validacao/c4_dinamico.py": "47f2d1bbd1f38253bab267faa02dd274aa22f926cfa4ec997f45ffdadc496885"
+  }
+}
