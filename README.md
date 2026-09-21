@@ -198,16 +198,17 @@ portão de assistência: sua abertura reduz a taxa de falha efetiva em cerca de
 - Bateria de controles negativos estabelecendo a resolução do instrumento.
 - Cobertura do History Matching: taxa empírica de falsa exclusão de 6,2%,
   IC 95% de Wilson [4,40%; 8,67%], compatível com o nominal de 5%.
+- **Achado sobre fonte primária:** a Tabela 2 de Stewart (1992) não é
+  internamente reprodutível na precisão impressa — nenhum par de parâmetros
+  satisfaz os três conjuntos publicados ao mesmo tempo (discrepância de 0,012%,
+  dentro do arredondamento). A implementação reproduz a fonte; o efeito sobre
+  o modelo é nulo.
 
 ### Funciona, com ressalva declarada
 
 - **Os parâmetros de governança são premissas sem fonte externa.** Uma varredura
   de 81 perfis mostra que o sinal do contraste se mantém na quase totalidade do
   espaço, mas o valor não está ancorado empiricamente.
-- **A Tabela 2 de Stewart (1992) não é internamente reprodutível** na precisão
-  em que está impressa: nenhum par de parâmetros satisfaz simultaneamente os
-  três conjuntos publicados, com discrepância de 0,012%. A implementação está
-  validada; a inconsistência é da fonte.
 - **A validação fora da amostra não passou por auditoria independente**, ao
   contrário dos demais experimentos.
 - Análise de sensibilidade de pressão e uma contagem da base de fatores humanos
@@ -217,14 +218,19 @@ portão de assistência: sua abertura reduz a taxa de falha efetiva em cerca de
 
 - **A rota de fuga da Porta 1 nunca executa** no ponto de operação. É resultado
   aritmético, não estatístico: o máximo da condição é 0,50 contra um limiar de
-  0,60. A rota não pode ser descrita como mecanismo ativo.
+  0,60. Com limiares menores (0,10 a 0,40, 320 execuções) a rota passa a
+  disparar, mas como interruptor liga-desliga, não como mecanismo gradual. Não
+  pode ser descrita como mecanismo ativo.
 - **O portão de assistência do arranjo centralizado nasce fechado**, porque a
   confiança inicial está abaixo do limiar exigido para pedir ajuda. Nenhum
   pedido ocorre naquele braço, e a confiança, que só se atualiza por evento de
   pedido, não tem como sair do estado inicial.
-- **Com o parâmetro de transição em seu valor mínimo varrido**, a probabilidade
-  de seleção heurística sofre subfluxo numérico e o modelo degenera para a rota
-  analítica apenas. Esse ponto está declarado como fora da faixa de validade.
+- **Com o parâmetro de transição em seu valor mínimo varrido** (0,01), em um
+  canto específico da grade — arranjo centralizado, competência insuficiente e
+  limiar de saturação alto —, a probabilidade de seleção heurística fica na
+  ordem de 10⁻¹⁴, e a rota heurística se torna inacessível na prática. Não é
+  erro numérico: o valor é representável. Esse canto está declarado como fora
+  da faixa de validade; o ponto nominal (0,25) não é afetado.
 
 Os três são condições de decisão comparadas entre constantes, identificadas por
 varredura e documentadas. Dois deles são herdados da especificação conceitual do
