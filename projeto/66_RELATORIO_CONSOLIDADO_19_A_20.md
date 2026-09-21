@@ -1,9 +1,9 @@
 # Relatório consolidado — lote noturno 19–20
 
-> Histórico da execução até 279667f. Estado posterior: [atualização de19/09](ATUALIZACAO_B2_A1_C1_C2_20260919.md).
+> Histórico da execução até 279667f. Estado posterior: [atualização de19/09](51_ATUALIZACAO_B2_A1_C1_C2.md).
 
 
-> Leitura atual: [bloqueio de três vias e censura](B2_DEADLOCK_TRES_VIAS_E_CENSURA.md).
+> Leitura atual: [bloqueio de três vias e censura](52_DEADLOCK_DE_TRES_VIAS_E_CENSURA.md).
 > Portão fechado sozinho não implica incompletude; nominal completo em ambos os braços.
 
 
@@ -45,7 +45,7 @@ centralizado. Unidades diferentes das de Rieskamp; sem calibrar contra 2,3×.
 
 ## Evidência, falhas operacionais e continuidade
 
-- T-B2.3: `projeto/TB23_PORTAO_E_INCOMPLETUDE.md`, 468 execuções e controles.
+- T-B2.3: `projeto/68_PORTAO_DE_ASSISTENCIA_E_INCOMPLETUDE.md`, 468 execuções e controles.
 - D1/D2/D3/E2/E3/E1/C4/F: relatórios `projeto/NOTURNO_*.md` e saídas respectivas.
 - Snapshot ANTES de D1 preserva estados/RNG; snapshot D2 congela implementação.
 - Identidade neutra repetida após cada item publicado; logs por item.

@@ -6,7 +6,7 @@ Este script preserva o experimento histórico de pseudo-observação única e on
 Não estima cobertura, identificabilidade ou V_obs externo. Não executar novas
 ondas antes do contrato observacional. O desenho atual de cobertura repetida
 está em research/lote_noturno/cobertura.py; protocolo D2/D3 e relatório
-projeto/NOTURNO_D2_COBERTURA.md. Arquivo/output históricos mantêm nomes para
+projeto/59_COBERTURA_DO_HISTORY_MATCHING.md. Arquivo/output históricos mantêm nomes para
 rastreabilidade, sem promover resultados antigos a validação externa.
 
 Estimando atual: média esperada de duas instâncias FIXAS com peso igual sobre

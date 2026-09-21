@@ -22,7 +22,7 @@ do bloqueio conjunto, não um efeito universal de confiança fechada.
 
 Cinco indicadores com IC95, contagens e censura:
 [CSV A1](../outputs/diagnosticos/A1_20260919/cinco_indicadores_IC95.csv).
-[Relatório A1](A1_FUGA_ESTADO_RESULTADOS.md), com ANTES/DEPOIS e controles.
+[Relatório A1](50_FUGA_DEPENDENTE_DE_ESTADO.md), com ANTES/DEPOIS e controles.
 
 ## 2. C1 — depois de A1
 
@@ -34,7 +34,7 @@ Dois mapas J60→k sintéticos declarados (curto1/2/3/4; longo1/2/4/8),
 nenhum escolhido como verdadeiro. 96/96 execuções completas, identidade
 histórica preservada e novamente verificada antes de C2. Na alternativa,
 o gradiente por passos substitui NASA, decisão explicitada para não empilhá-los.
-[Relatório e números C1](C1_ANCORAGEM_LINEAR_RESULTADOS.md).
+[Relatório e números C1](53_ANCORAGEM_LINEAR_DE_F_ANCORA.md).
 
 ## 3. C2 — implementado depois de C1
 
@@ -63,7 +63,7 @@ foi reexecutado, e nenhum parâmetro ou resultado numérico foi alterado.
 
 [Cinco indicadores, ambas opções, IC95](../outputs/diagnosticos/C2_fechamento_20260919/cinco_indicadores_IC95.csv),
 [efeito Beta−nenhuma e ANTES/DEPOIS](../outputs/diagnosticos/C2_fechamento_20260919/efeito_beta_menos_nenhuma.csv),
-[relatório C2](C2_HETEROGENEIDADE_FECHAMENTO.md).
+[relatório C2](55_HETEROGENEIDADE_BETA_ENTRE_AGENTES.md).
 
 ## P1 — limitação mantida
 
@@ -77,7 +77,7 @@ Precisão técnica:3e-29 é representável, **não subfluxo aritmético a zero**
 No exemplo, esse valor é da tarefa mais fácil não escolhida; a escolhida tem
 p_heu máximo3,25e-14. É uma degeneração probabilística na escala do horizonte,
 não prova de impossibilidade matemática infinita. Essa correção de nomenclatura
-não retira a limitação pedida. Ver [diagnóstico](B2_DEADLOCK_TRES_VIAS_E_CENSURA.md).
+não retira a limitação pedida. Ver [diagnóstico](52_DEADLOCK_DE_TRES_VIAS_E_CENSURA.md).
 
 ## P2 — rótulo até a tabela final
 

@@ -532,9 +532,9 @@ C2: `heterogeneidade_erro='nenhuma'` default; `beta_cv113` sorteia taxa fixa
 por agente/nível, média F_base e CV=1,13, validando domínio antes de RNG.
 A emenda à ordem 37 aplica a regra discriminante do parecer 41, §5:
 implementação C2 validada; fonte internamente inconsistente em 0,012% (A-16),
-com resíduos publicados e fórmula inalterada. Ver [C2 de fechamento](../projeto/C2_HETEROGENEIDADE_FECHAMENTO.md).
+com resíduos publicados e fórmula inalterada. Ver [C2 de fechamento](../projeto/55_HETEROGENEIDADE_BETA_ENTRE_AGENTES.md).
 
-Estado e controles: [atualização de 19/09](../projeto/ATUALIZACAO_B2_A1_C1_C2_20260919.md).
+Estado e controles: [atualização de 19/09](../projeto/51_ATUALIZACAO_B2_A1_C1_C2.md).
 
 ## Escalares de aprendizagem — T-CROWDER.1 (19/09/2026)
 
@@ -547,4 +547,4 @@ continua com a escala histórica deliberadamente preservada.
 Sensibilidade pré-declarada: base [7,5;15;22,5] e fator [1,5;3;6],
 produto cartesiano, sem alvo externo. 22,5 equivale a 1,5x o nominal.
 Nominal e regras de confiança não foram reposicionados. Evidências e IC95:
-[relatório T-CROWDER.1](../projeto/TCROWDER1_SENSIBILIDADE_20260919.md).
+[relatório T-CROWDER.1](../projeto/69_SENSIBILIDADE_DOS_ESCALARES_DE_APRENDIZAGEM.md).

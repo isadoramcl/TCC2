@@ -1,7 +1,7 @@
 # Continuidade — fechamento obrigatório de 19/09
 
 Árvore permanente TCC2/.worktrees/integracao-main-tl; publicação em origin/main.
-Não alterar checkout principal da autora. Ler projeto/FECHAMENTO_LOTE_20260919.md.
+Não alterar checkout principal da autora. Ler projeto/56_FECHAMENTO_DAS_ENTREGAS_OBRIGATORIAS.md.
 
 A1 executado320:117 completas; fuga por estado não é contínua validada, saturação
 centralizada e censura publicadas. Default constante intacto.
@@ -23,7 +23,7 @@ alteração de V_mod ou otimização desta correção documental.
 
 ## Diagnóstico adicional solicitado após o fechamento
 
-T-SAT.1/T-GOV.1 concluídos; relatório projeto/TSAT_TGOV_REGIMES_20260919.md.
+T-SAT.1/T-GOV.1 concluídos; relatório projeto/71_REGIMES_DE_SATURACAO_E_GOVERNANCA.md.
 SAT1: meio de p_heu 14,95% pooled (não confirma gatilho <10%); q quase
 binário. SAT2 não disparado; limite nominal .60 excede omega=.50, tornando
 fuga impossível para qualquer s. GOV: 81 perfis, 2592 completas/zero violações,
@@ -49,7 +49,7 @@ grade [7.5,15,22.5]x[1.5,3,6], 16 instâncias x12 sementes x2 braços.
 e resultados invariantes. Ganho realizado adaptativo responde aos escalares.
 23 testes passaram; identidade contra dfc0d78 em 24 comparações completas
 e nominal arquivado384 x45 campos por float.hex. Relatórios canônicos:
-projeto/TGOV2_LOCALIZACAO_INVERSOES_20260919.md e
-projeto/TCROWDER1_SENSIBILIDADE_20260919.md. Sem recalibração/eleição.
+projeto/70_LOCALIZACAO_DAS_INVERSOES_DE_SINAL.md e
+projeto/69_SENSIBILIDADE_DOS_ESCALARES_DE_APRENDIZAGEM.md. Sem recalibração/eleição.
 Próxima questão, se solicitada: confirmar as exceções regionais em desenho
 independente; a grade nominal Crowder não identifica a causa delas.

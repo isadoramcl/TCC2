@@ -1,5 +1,10 @@
 # Fontes
 
+> **Catálogo único.** Consolida este arquivo e `research/SOURCES.md`, que passa a
+> ser histórico. Toda fonte usada em qualquer afirmação do trabalho entra aqui.
+> Última consolidação: 20/09/2026.
+
+
 Cada entrada traz o link, o que a fonte **sustenta** e — quando aplicável — o
 que ela **não** sustenta. A segunda coluna é a que evita erro: já
 sobre-afirmamos duas fontes e comparamos grandezas de unidades diferentes.
@@ -151,13 +156,208 @@ construction. *Construction Management and Economics*, v. 18, n. 4, p. 479-490, 
 
 ---
 
-## Referências do TCC1 a conferir
+## Fatores humanos e erro — âncoras do modelo de erro
 
-Estão na monografia e ainda não foram auditadas uma a uma:
+**✓ STEWART, M. G.; MELCHERS, R. E.** Simulation of human error in a design
+loading task. *Structural Safety*, v. 5, p. 285–297, 1988. Elsevier Science
+Publishers. Recebido 10/11/1987, aceito 10/09/1988. PDF em
+`Refs/…` e conferido. Páginas consultadas: 287 e 290.
+→ **Sustenta:** Tabela 1, p. 290 — taxa de erro por microtarefa de projetistas
+civis profissionais, `p(k) = k × 0,0128` exato para k = 1, 2, 3, 4, 5 e 8;
+consulta a tabela 0,0126. Fig. 1, p. 287 — nó de omissão antes do de comissão.
+→ **Não sustenta:** valores de `F_ancora` acima de 0,10, que exigem k > 8, o
+maior publicado. As taxas de omissão de 0,40 a 0,80 são de **um** fator de
+redução específico e não transportam como "taxa de atalho". A hipótese (v) do
+artigo, sobre ausência de pressão temporal, é declaração de escopo, não resultado.
+→ **Usada em:** ancoragem de `F_ancora` (controle C1); estrutura da Porta 1.
 
-- **? MAHAMID** — o ano da citação diverge do PDF (`mahamid2020.pdf`).
-- **? RATH, T.** — entrada quebrada em duas linhas.
-- **? RESTREPO-TAMAYO et al. (2024)** — sem volume e páginas.
+**✓ STEWART, M. G.** Modelling human error rates for human reliability analysis
+of a structural design task. *Reliability Engineering and System Safety*, v. 36,
+p. 171–180, 1992. DOI: 10.1016/0951-8320(92)90097-5. Texto integral lido;
+páginas consultadas 173–177.
+→ **Sustenta:** Tabela 1, p. 173 — 94 respondentes, 38 erros, 2 327 microtarefas,
+`p_av = 0,0163`. Tabela 2, p. 175 — binomial rejeitada (χ² = 10,174 contra
+crítico 5,991); beta-binomial χ² = 0,162; p-dependente χ² = 0,583. `CV = 1,13`,
+`α = 0,7546`, `β = 45,4563`, `φ = 0,845`.
+→ **Não sustenta:** **nada sobre pressão temporal.** A manipulação falhou — os
+tempos de resposta não diferiram e o autor fundiu as amostras (p. 173). A
+Tabela 3 dá +27% a +44% (beta-binomial) e +94% a +111% (p-dependente), não os
+"20–30% e 50%" do texto corrido.
+→ **Achado próprio (A-16):** a Tabela 2 não é internamente reprodutível na
+precisão impressa. Ver seção específica no fim deste arquivo.
+→ **Usada em:** heterogeneidade entre agentes (C2); não independência (C3).
+
+## Seleção de estratégia sob pressão
+
+**✓ RIESKAMP, J.; HOFFRAGE, U.** Inferences under time pressure: how opportunity
+costs affect strategy selection. *Acta Psychologica*, v. 127, p. 258–276, 2008.
+DOI: 10.1016/j.actpsy.2007.05.004. Texto integral lido; contagens conferidas
+contra o Estudo 2, p. 266–267.
+→ **Sustenta:** o construto. Sob alta pressão de tempo as inferências são melhor
+previstas por LEX; sob baixa pressão, por modelo linear ponderado.
+→ **Conferido (20/09/2026):** 7/36 (19,4%) e 16/36 (44,4%) **reconstroem-se** do
+trecho publicado — 11 dos 29 participantes compensatórios sob baixa pressão
+migram para não compensatório sob alta, e 2 dos 7 não compensatórios migram no
+sentido inverso; McNemar p = 0,02.
+→ **Não sustenta:** o valor não transporta. Rieskamp conta *participante
+classificado*, o modelo conta *execução de tarefa* — denominadores diferentes.
+O **Estudo 1 do mesmo artigo não achou o efeito** (χ² = 0,10; p = 0,75), e o
+contraste do Estudo 2 é pressão × **ausência** de pressão, condição que a faixa
+de `P` do modelo (0,30 a 1,00) nunca produz. Se citar, cite como mudança
+relativa (2,3×), com a ressalva.
+→ **Usada em:** justificativa da transição estocástica para modo heurístico (C4).
+
+**✓ PAYNE, J. W.; BETTMAN, J. R.; LUCE, M. F.** When time is money: decision
+behavior under opportunity-cost time pressure. *Organizational Behavior and
+Human Decision Processes*, v. 66, n. 2, p. 131–152, maio 1996.
+→ **Não sustenta:** o deslocamento de estratégia sob pressão aponta na direção
+do modelo mas **não é significativo**. Citar com essa ressalva.
+
+## Omissão, adiamento e segurança psicológica
+
+**✓ BALL, J. E.; MURRELLS, T.; RAFFERTY, A. M.; MORROW, E.; GRIFFITHS, P.**
+'Care left undone' during nursing shifts: associations with workload and
+perceived quality of care. *BMJ Quality & Safety*, v. 23, n. 2, p. 116–125,
+2014. DOI: 10.1136/bmjqs-2012-001767. Acesso aberto:
+`https://eprints.soton.ac.uk/355664`.
+→ **Conferido no resumo (21/09/2026):** *"Most nurses (86%) reported that one or
+more care activity had been left undone due to lack of time on their last
+shift."*
+→ **Sustenta:** omissão de tarefa necessária por falta de tempo, associada à
+carga — o construto da **rota de fuga (adiamento)**.
+→ **Não sustenta:** o valor. 86% é proporção de **enfermeiros que omitiram ao
+menos uma atividade no último turno**, não taxa de omissão por tarefa, e o
+domínio é enfermagem hospitalar.
+→ **Não confundir** com Ball, Maskill & Ormerod (1998), homônimo sem uso aqui.
+
+**✓ WHITE, E. M.; AIKEN, L. H.; McHUGH, M. D.** Registered nurse burnout, job
+dissatisfaction, and missed care in nursing homes. *Journal of the American
+Geriatrics Society*, v. 67, n. 10, p. 2065–2070, 2019. DOI: 10.1111/jgs.16051.
+PDF em `Refs_tcc2` (versão de publicação antecipada, paginada 1–7; as páginas
+finais 2065–2070 vêm da página institucional da Penn Nursing).
+→ **Conferido no texto (21/09/2026):** *"Controlling for RN and nursing home
+characteristics, RNs with burnout were five times more likely to leave
+necessary care undone (odds ratio [OR] = 4.97; 95% confidence interval [CI] =
+2.56-9.66) than RNs without burnout."* Amostra: 687 enfermeiros em 540
+instituições; *burnout* medido pela subescala de **exaustão emocional** do
+Maslach Burnout Inventory; 72% omitiram ao menos uma tarefa no último turno.
+→ **Sustenta:** o elo `exaustão → omissão` — e a medida de exaustão é a mesma
+família de instrumento usada em Zhao (MBI), o que torna a cadeia coerente.
+→ **Não sustenta:** o valor. Razão de chances entre enfermeiros com e sem
+exaustão alta, desenho transversal, domínio distante. Não vira parâmetro.
+
+**✓ EDMONDSON, A.** Psychological safety and learning behavior in work teams.
+*Administrative Science Quarterly*, v. 44, n. 2, p. 350–383, 1999.
+DOI: 10.2307/2666999. Texto integral aberto, hospedado pelo MIT.
+→ **Conferido (21/09/2026):** definição na **p. 354** — *"Team psychological
+safety is defined as a shared belief that the team is safe for interpersonal
+risk taking."* Sobre erro, também p. 354: *"Team members may be unwilling to
+bring up errors that could help the team make subsequent changes because they
+are concerned about being seen as incompetent."* Confiabilidade da escala
+α = 0,82 (Tabela 2, p. 363).
+→ **Sustenta:** o construto de `p_reporte` — a relutância em trazer o erro à
+tona por medo de parecer incompetente é exatamente o que o parâmetro representa.
+→ **Não sustenta:** nenhum valor de `p_reporte`. É crença compartilhada em nível
+de equipe, medida por escala de atitude — não probabilidade de reporte por
+evento.
+→ **Leitura feita por extração automática do PDF.** Conferir as duas citações na
+p. 354 com os olhos antes de colocá-las na monografia.
+
+## Carga, complexidade e desgaste
+
+**✓ ZHAO, C.; QI, J.; CHEN, Y.** Job demands, job resources, and burnout among
+metro site management personnel in China: a cross-sectional study based on the
+JD-R model. *Frontiers in Psychology*, v. 17, 2026. Publicado em 22/07/2026.
+DOI: 10.3389/fpsyg.2026.1856402 · PubMed 42564107 · PMC13441851.
+Autores: Chunxiao Zhao, Jinghua Qi e Yuxiang Chen (China University of Mining
+and Technology).
+Conferido no texto integral em 17/09/2026 (parecer 33, §2). Dados declarados em
+`10.5281/zenodo.21153010` — citar este DOI, que é o que consta no artigo.
+→ **Sustenta:** a direção `carga, complexidade → exaustão`, em gestão de obras —
+domínio certo. 274 respostas válidas; carga β = 0,608, complexidade β = 0,349,
+em modelos separados.
+→ **Não sustenta:** `D` e `P` como determinantes independentes do desgaste. Na
+regressão conjunta executada sobre a base aberta, β_WL = 0,432 e β_GF = −0,015
+(n.s.) — a complexidade perde efeito próprio quando se controla a carga.
+Desenho transversal: não informa a dinâmica da bateria `B`.
+
+## Degradação de qualidade
+
+**✓ REICHELT, K.; LYNEIS, J.** The dynamics of project performance: benchmarking
+the drivers of cost and schedule overrun. *European Management Journal*, v. 17,
+n. 2, p. 135–150, 1999. PDF em `Refs_tcc2`.
+→ **Conferido nas tabelas (21/09/2026), p. 149.** Efeito médio sobre a
+**qualidade** do trabalho:
+
+| fator | Tabela 1 — projeto (design) | Tabela 2 — execução (build) |
+|---|---:|---:|
+| pressão de cronograma | 0,95 | 0,96 |
+| fadiga de hora extra | 0,97 | 0,98 |
+
+→ **Correção:** os documentos internos citavam "0,95 e 0,97, Tabelas 1–2". Esses
+dois números são **só da Tabela 1**; na Tabela 2 são 0,96 e 0,98. Citar a
+tabela certa.
+→ **Detalhe que importa para o modelo:** a pressão de cronograma **reduz a
+qualidade mas aumenta a produtividade** (1,04 no projeto, 1,03 na execução) —
+é o trade-off que a Porta 1 representa.
+→ **Ressalva obrigatória:** são médias de efeito extraídas de modelos de
+Dinâmica de Sistemas calibrados pela Pugh-Roberts em dez projetos (nove
+esforços de projeto), **mesma linhagem** deste trabalho — consistência com a
+literatura de modelagem, não medição independente.
+→ **Usada em:** verificação da faixa de `mu_minimo` (E3).
+
+## Base conceitual herdada do TCC I
+
+**✓ KIM, D. H.** *Systems thinking tools: a user's reference guide.* Waltham:
+Pegasus Communications, 1994. 60 p. (The Toolbox Reprint Series).
+ISBN 1-883823-02-1. Exemplar consultado: reimpressão de 2000, pasta de
+referências do TCC I.
+→ **Sustenta:** os dois arquétipos, na tabela *Systems Archetypes at a Glance* —
+"Drifting Goals" na **p. 20** e "Shifting the Burden/Addiction" na **p. 21**.
+→ **⚠ Correção para a monografia:** o TCC I cita *Kim, D. H. Systems archetypes
+I: diagnosing systemic issues and designing high-leverage interventions*, que é
+**outro volume** da mesma série. O PDF que existe é o *Systems thinking tools*.
+Citar o que foi lido.
+→ **⚠ Nome:** o TCC I chama o segundo arquétipo de **Soluções Sintomáticas**;
+Kim o chama **Shifting the Burden**. Declarar a equivalência uma vez.
+→ **Não sustenta:** nenhum valor de parâmetro. Ancora a **forma** dos laços.
+
+**✓ SIMON, H. A.** *Models of man: social and rational.* New York: John Wiley and
+Sons, 1957. Referência completa já consta no TCC I.
+→ **Sustenta:** o conceito de *satisficing*, base da Porta 1.
+→ **Atenção:** o livro não está na pasta de referências. É citação canônica de
+conceito, não de valor — aceitável, mas não atribuir a ele nenhuma afirmação
+além da definição.
+
+**✓ MAHAMID, I.** Impact of rework on material waste in building construction
+projects. *International Journal of Construction Management*, v. 22, n. 8,
+p. 1500–1507, 2022.
+DOI: 10.1080/15623599.2020.1728607.
+→ **Divergência resolvida:** publicado online em 19/02/2020, fascículo impresso
+v. 22, n. 8, p. 1500–1507, 2022 (Taylor & Francis). O TCC I cita 2022, correto,
+mas **sem as páginas** — acrescentar p. 1500–1507 na monografia.
+
+**✓ RATH, T.** Effort-based strategy selection in multi-attribute decision
+making: when bounded rationality predicts optimal behavior. Kanpur: Indian
+Institute of Technology, 1 dez. 2025. Preprint, 17 p.
+→ **Atenção:** preprint sem veículo, DOI nem arXiv no PDF. Citar como preprint,
+como o TCC I já faz, e não apoiar afirmação central só nele.
+
+**✓ RESTREPO-TAMAYO, L. M.; GASCA-HURTADO, G. P.; VALENCIA-CALVO, J.**
+Characterizing social and human factors in software development team
+productivity: a system dynamics approach. *IEEE Access*, v. 12, p. 59739–59755,
+2024. DOI: 10.1109/ACCESS.2024.3388505.
+→ **Correção para a monografia:** o TCC I omite volume, páginas e DOI.
+
+## Retiradas do catálogo em 21/09/2026
+
+Sem uso em nenhuma decisão, parâmetro, código ou documento do modelo:
+
+- **Lee et al. (2020)** e **Jarratt et al. (2011)** — vinham de uma matriz
+  proposta em conversa paralela (parecer 33), sem título registrado, e nunca
+  foram ligadas a nenhum elo do modelo.
+- **Ball, Maskill & Ormerod (1998)** e **White, Braund, Howes et al. (2018)** —
+  homônimos obtidos por engano ao procurar Ball (2014) e White (2019).
 
 ## Regra ao acrescentar fonte
 

@@ -174,6 +174,6 @@ python3 research/lote41/t4.py --saida /tmp/t4-nova
 ```
 
 C3 validado pelo critério vigente; B1 concluído. Isso não declara o lote 37
-inteiro fechado. B2 foi executado na sequência: ver [resultados e limite de robustez](RESPOSTA_41_B2_ROBUSTEZ.md).
+inteiro fechado. B2 foi executado na sequência: ver [resultados e limite de robustez](47_B2_ROBUSTEZ_DO_CANAL_DIRETO.md).
 A grade revelou censura estrutural; os itens restantes continuam pendentes. Nenhuma calibração contra Rieskamp,
 nenhuma nova onda HM e nenhum ajuste de V_mod.

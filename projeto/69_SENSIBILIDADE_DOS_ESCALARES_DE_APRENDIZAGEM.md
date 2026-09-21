@@ -135,7 +135,7 @@ implementação/configurações permaneceram constantes durante a grade.
 Nenhuma alteração de V_mod ou busca de política/valor ótimo foi feita.
 Esta grade caracteriza a sensibilidade nominal; não demonstra que os escalares
 causaram as exceções localizadas em T-GOV.2, pois aqueles perfis de governança
-não foram reexecutados aqui. Ver [localização e multiplicidade](TGOV2_LOCALIZACAO_INVERSOES_20260919.md).
+não foram reexecutados aqui. Ver [localização e multiplicidade](70_LOCALIZACAO_DAS_INVERSOES_DE_SINAL.md).
 
 ## Síntese dos sinais na grade declarada
 

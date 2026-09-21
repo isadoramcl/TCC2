@@ -1,3 +1,4 @@
+
 # `ρ_omissão` a partir de dados humanos — 16/09/2026
 
 **Revisor:** Claude · Dados: OSF `q2dm6`, `dataset/human_comprehension_data.csv`

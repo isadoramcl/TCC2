@@ -1,6 +1,6 @@
 # Resposta numérica T-B2.3 e D1
 
-> Leitura atual: [bloqueio de três vias e censura](B2_DEADLOCK_TRES_VIAS_E_CENSURA.md).
+> Leitura atual: [bloqueio de três vias e censura](52_DEADLOCK_DE_TRES_VIAS_E_CENSURA.md).
 > Portão fechado sozinho não implica incompletude; nominal completo em ambos os braços.
 
 

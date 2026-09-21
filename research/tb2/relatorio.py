@@ -166,4 +166,4 @@ o horizonte não deve ser aumentado repetidamente até aparecer um resultado
 conveniente. Os contrastes censurados da primeira análise ficam como histórico,
 substituídos pelos resultados condicionais para interpretação das células afetadas.
 '''
-(ROOT/'projeto/TB2_HORIZONTE_E_SELECAO.md').write_text(s)
+(ROOT/'projeto/49_HORIZONTE_DOBRADO_E_SELECAO.md').write_text(s)

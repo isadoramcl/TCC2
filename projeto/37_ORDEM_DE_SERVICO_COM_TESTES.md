@@ -368,4 +368,4 @@ se esperava, e o que foi tentado — antes de prosseguir.
 A autora confirmou A1, C1 e C2 e declarou o **lote fechado**. A emenda ao item 2
 acima substitui os critérios absolutos originais de C2/C3. **C2: implementação validada, fonte internamente inconsistente em 0,012% (A-16).**
 C4 e o N da base da bancada em F permanecem **parciais**, conforme autorizado.
-Evidências e veredicto vigente: [fechamento](FECHAMENTO_LOTE_20260919.md).
+Evidências e veredicto vigente: [fechamento](56_FECHAMENTO_DAS_ENTREGAS_OBRIGATORIAS.md).

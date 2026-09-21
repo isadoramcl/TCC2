@@ -1,56 +1,70 @@
 # TCC2 — Modelagem e simulação da gestão de equipes de engenharia
 
-Desenvolvimento computacional do Trabalho de Conclusão de Curso II: dados,
-modelo híbrido de agentes e dinâmica de sistemas, experimentos e análise.
+Simulador híbrido que combina Modelagem Baseada em Agentes e Dinâmica de
+Sistemas para estudar como fatores cognitivos e arranjos de governança afetam o
+desempenho de equipes em projetos de engenharia. Dá continuidade ao modelo
+conceitual formulado no TCC I.
 
-- **Autora:** Isadora Maria Carvalho Lopes
-- **Orientador:** Prof. André Costa Batista
-- **Curso:** Engenharia de Sistemas — UFMG
+UFMG · Engenharia de Sistemas · Isadora Maria Carvalho Lopes
+Orientação: Prof. André Costa Batista
 
 ---
 
-## Estado do lote 37 — fechado após auditoria de 29f7fbf
+## Como executar
 
-C3 **validado pelo teste discriminante** da especificação 41; a inconsistência
-interna da fonte está quantificada como A-16. B1/T4 concluído: os dois canais
-contribuem ao contraste de falha efetiva, com interação explícita. Nominal e
-saídas históricas preservados. B2 mantém os contrastes nominais sem erro direto,
-mas a grade revelou bloqueio estrutural: **0/36 incompletas concluíram com
-horizonte dobrado**. Contrastes das células afetadas recalculados apenas nos
-pares completos, condicionais à conclusão. [T-B2.1/T-B2.2](projeto/TB2_HORIZONTE_E_SELECAO.md).
-**Lote fechado pela autora após auditoria de 29f7fbf.** C2: implementação
-validada; fonte internamente inconsistente em 0,012% (A-16). C2/C3 seguem
-a regra discriminante do parecer 41, §5; C1 mantém o controle exato.
-C4 e o N da base de F permanecem **parciais**.
-[Fechamento e emenda](projeto/FECHAMENTO_LOTE_20260919.md);
-[evidências de C3/T4](projeto/RESPOSTA_41_C3_T4.md).
+Requer Python 3.10 ou superior.
 
-## Diagnóstico adicional de regime — T-SAT / T-GOV
+```bash
+git clone https://github.com/isadoramcl/TCC2.git
+cd TCC2
 
-[Resultados e regiões de inversão](projeto/TSAT_TGOV_REGIMES_20260919.md):
-T-SAT.1 não atingiu o critério de saturação de p_heu, embora q seja quase
-binário. No limite nominal, a fuga é impossível para qualquer s_transicao.
-T-GOV.1: 2.592/2.592 completas. [T-GOV.2 localiza as exceções](projeto/TGOV2_LOCALIZACAO_INVERSOES_20260919.md):
-predominam contrastes negativos na ordenação histórica; as três inversões de
-atraso se concentram no mesmo perfil A, e dívida tem um caso isolado. ICs
-exploratórios e dependência entre contrastes impedem concluir só pela contagem
-se são multiplicidade ou mecanismos confirmados.
+python -m venv .venv
+source .venv/bin/activate        # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+```
 
-[T-CROWDER.1](projeto/TCROWDER1_SENSIBILIDADE_20260919.md): escalares nomeados no
-YAML, nominal (15,3) preservado bit a bit. 3.456/3.456 completas; cinco
-contrastes com IC95 negativo em todas as nove combinações. Centralizada
-inerte; dívida muda em magnitude, sem inversão nominal nessa sensibilidade.
+O pipeline roda em três camadas, na ordem. Cada script termina com verificações
+automáticas e **sai com código de erro se alguma falhar**, de modo que uma etapa
+defeituosa não alimente a seguinte.
+
+```bash
+# 1. Camada de dados — NASA MDP e PSPLIB J60
+python src/nasa/01_auditar_raw.py
+python src/nasa/02_consolidar_dpp.py
+python src/nasa/03_validar_dpp.py
+python src/nasa/04_modelos_logisticos.py
+python src/nasa/05_faixas_complexidade.py
+
+python src/psplib/01_auditar_j60.py
+python src/psplib/02_indice_dificuldade.py
+python src/psplib/03_transferencia_ordinal.py
+
+# 2. Simulador — parâmetros derivados e verificação
+python src/modelo/01_derivar_parametros.py
+python src/modelo/02_verificar_simulador.py
+
+# 3. Experimentos
+python src/modelo/20_experimento_mvp.py
+```
+
+Para rodar a suíte de testes:
+
+```bash
+python -m unittest discover -s research -p "test_*.py" -v
+```
+
+---
 
 ## Objetivo
 
 Investigar a gestão de equipes em projetos de engenharia por modelagem e
-simulação, dando continuidade ao modelo conceitual do TCC I.
+simulação.
 
-A camada NASA MDP fornece um gradiente ordinal de risco, sem estabelecer efeito
-causal independente da complexidade. O PSPLIB J60 fornece redes de tarefas,
-durações e restrições de recursos. O simulador combina esses elementos com
-premissas sobre cognição, assistência e governança. A taxa basal absoluta de
-retrabalho em engenharia permanece aberta; não foi estimada pela NASA.
+A camada NASA MDP fornece um gradiente ordinal de risco de defeito. O PSPLIB J60
+fornece redes de tarefas, durações e restrições de recursos. O simulador combina
+esses elementos com premissas declaradas sobre cognição, assistência e
+governança. A taxa basal absoluta de retrabalho em engenharia permanece aberta e
+não foi estimada a partir da NASA.
 
 ---
 
@@ -58,275 +72,172 @@ retrabalho em engenharia permanece aberta; não foi estimada pela NASA.
 
 ```
 data/
-├── raw/                      arquivos originais — NUNCA modificados
-│   ├── nasa_promise/         versões brutas do repositório PROMISE (10 arquivos)
-│   ├── nasa_dp_reference/    versão D' — usada para validar o D'' (13 arquivos)
-│   ├── nasa_dpp_reference/   versão D'' — base de análise (13 arquivos)
-│   └── psplib/               480 instâncias do PSPLIB J60
-└── processed/                bases derivadas, geradas exclusivamente por código
-    ├── nasa/
-    └── psplib/
+├── raw/            arquivos originais — nunca modificados
+│   ├── nasa_promise/        versões brutas do repositório PROMISE
+│   ├── nasa_dp_reference/   versão D' — usada para validar o D''
+│   ├── nasa_dpp_reference/  versão D'' — base de análise
+│   └── psplib/              480 instâncias do PSPLIB J60
+└── processed/      bases derivadas, geradas exclusivamente por código
 
 src/
-├── nasa/                     scripts do pipeline NASA MDP
-├── psplib/                   scripts do pipeline PSPLIB
-└── modelo/                   simulador, verificações e experimentos
+├── nasa/           pipeline NASA MDP
+├── psplib/         pipeline PSPLIB
+└── modelo/         simulador, verificações e experimentos
 
+config/             parâmetros do modelo, com condição de origem declarada
+research/           experimentos, testes e controles
 outputs/
-├── tables/                   tabelas de resultado
-├── figures/                  figuras
-└── logs/                     logs de execução do pipeline
+├── tables/         tabelas de resultado
+├── figures/        figuras
+├── logs/           logs de execução
+└── diagnosticos/   evidência datada de cada experimento — ver README próprio
 
-docs/                         especificação, entrega e registro de decisões
-projeto/                      orientações, auditoria e backlog
+docs/               especificação do modelo, registro de decisões e entrega
+projeto/            revisão independente, auditorias e ordens de serviço
 ```
 
 ---
 
 ## Princípios metodológicos
 
-1. **Imutabilidade dos brutos.** Nenhum arquivo em `data/raw/` é editado. Se um
-   arquivo precisa ser corrigido, a correção é feita por código e o resultado
-   vai para `data/processed/`.
+1. **Imutabilidade dos brutos.** Nenhum arquivo em `data/raw/` é editado. Uma
+   correção necessária é feita por código, e o resultado vai para
+   `data/processed/`.
 2. **Toda transformação é código.** Não há edição manual de dados. Cada etapa de
-   limpeza registra quantas linhas foram removidas e por qual critério.
+   limpeza registra quantas linhas removeu e por qual critério.
 3. **Rastreabilidade.** As bases derivadas preservam `project`, `source_file` e
-   `source_row`, permitindo retornar qualquer observação ao arquivo de origem.
-4. **Separação de origens.** A documentação distingue explicitamente: (i) o que
-   vem da literatura; (ii) o que é decisão metodológica deste trabalho; e
-   (iii) o que é apenas exploração.
+   `source_row`, permitindo devolver qualquer observação ao arquivo de origem.
+4. **Separação de origens.** Cada parâmetro e cada decisão carrega rótulo: o que
+   vem da literatura, o que é decisão metodológica deste trabalho, o que é
+   herdado do TCC I, o que é derivado de dados e o que permanece em aberto.
+5. **Controle publicado antes de uso.** Distribuição ou parametrização tomada da
+   literatura é primeiro reproduzida contra os valores publicados pela fonte, e
+   o comparador é testado contra implementações deliberadamente erradas para
+   demonstrar que separa certo de errado.
+6. **Alteração não muda resultado em silêncio.** Toda modificação do simulador
+   passa por controle de identidade bit a bit — todos os campos comparados por
+   representação binária, mais o estado do gerador aleatório — com as opções
+   neutras ativadas.
 
 ---
 
-## Inventário dos dados NASA
+## Dados
 
-### `data/raw/nasa_promise/` — versões brutas
+**NASA MDP.** Treze bases de defeitos de módulos de software, na versão D'' de
+Shepperd, Song, Sun e Mair (2013). A consolidação foi validada contra o
+algoritmo publicado: aplicando ao conjunto D' os dois passos que o separam do
+D'', o conjunto de módulos preservados foi reproduzido em 12 de 12 bases. As
+questões encontradas na entrada dos dados — base vazia, estrutura divergente,
+rótulos conflitantes — estão registradas e resolvidas em
+`outputs/logs/01_auditar_raw.log` e em `docs/registro_de_decisoes.md`.
 
-Nomes de atributo curtos (`loc`, `v(g)`, `ev(g)`), 22 colunas, rótulo `defects`
-(`problems` no KC2).
-
-| conjunto | linhas de dados |
-|---|---|
-| cm1 | 498 |
-| jm1 | 10.885 |
-| kc1 | 2.109 |
-| kc2 | 522 |
-| pc1 | 1.109 |
-
-### `data/raw/nasa_dpp_reference/` — versões D''
-
-Nomes de atributo por extenso (`CYCLOMATIC_COMPLEXITY`), rótulo `Defective`.
-
-| conjunto | linhas | colunas |
-|---|---|---|
-| CM1 | 327 | 38 |
-| JM1 | 7.782 | 22 |
-| KC1 | 1.183 | 22 |
-| KC3 | 194 | 40 |
-| KC4 | 0 | 1 |
-| MC1 | 1.988 | 39 |
-| MC2 | 125 | 40 |
-| MW1 | 253 | 38 |
-| PC1 | 705 | 38 |
-| PC2 | 745 | 37 |
-| PC3 | 1.077 | 38 |
-| PC4 | 1.287 | 38 |
-| PC5 | 1.711 | 39 |
+**PSPLIB J60.** As 480 instâncias do conjunto de 60 atividades. O delineamento
+fatorial foi reconstruído a partir dos arquivos, não suposto: recalculando NC,
+RF e RS pelas definições de Kolisch, Sprecher e Drexl (1995), recupera-se o
+fatorial completo e balanceado de 3 × 4 × 4 = 48 células com 10 instâncias cada.
 
 ---
 
-## Questões registradas na entrada dos dados
+## Resultados
 
-Observações feitas por inspeção direta dos arquivos, antes de qualquer
-processamento. O estado de cada uma está indicado.
+### Camada de dados
 
-1. **KC4 está vazio.** `KC4.arff` contém apenas cabeçalho (49 bytes, 0 linhas de
-   dados). **RESOLVIDA:** Shepperd et al. (2013), nota de rodapé 1, registram que
-   o KC4 não está presente no repositório PROMISE. Excluído da consolidação, com
-   registro em log.
-2. **JM1 do D'' tem estrutura distinta** — 22 colunas contra 37-40 dos demais, e
-   rótulo `label` em vez de `Defective`. **RESOLVIDA:** a Tabela I do artigo
-   reporta que o JM1 no MDP possui 24 atributos, contra 43 do CM1. A diferença é
-   inerente aos dados de origem, não é erro de download.
-3. **KC2 não possui contraparte D''.** **RESOLVIDA:** mesma nota de rodapé —
-   *"KC2 was not present on the MDP website"*.
-4. **Divergência entre `jm1.arff` e `jm1.csv`** — 10.885 contra 13.204 registros.
-   **RESOLVIDA:** a Tabela I do artigo lista 10.885 para a versão Promise do JM1,
-   coincidindo com o ARFF. O CSV não corresponde a nenhuma versão catalogada e
-   foi descartado.
-5. **Proveniência dos arquivos.** Os arquivos do PROMISE vieram de um espelho
-   público no GitHub; os arquivos D'/D'' têm data de 2011, anterior ao artigo.
-   **EM ABERTO:** conferir contra a coleção oficial no Figshare comparando os
-   resumos SHA-256 já registrados pelo script 01.
+**A complexidade não sobrevive ao controle por tamanho.** Isolada, a
+complexidade ciclomática tem razão de chances 1,90 sobre a ocorrência de
+defeito. Controlando `LOC_TOTAL`, cai para 0,944, IC 95% [0,870; 1,024],
+p = 0,17 — o intervalo contém o nulo. O tamanho, ao contrário, sobrevive ao
+controle pela complexidade (LR = 431,2). Nenhuma métrica candidata apresenta
+efeito positivo independente do tamanho. A complexidade é preservada como
+**marcador ordinal** de risco, não como fator causal.
 
-Ver `docs/registro_de_decisoes.md` para o registro completo de decisões,
-achados e justificativas.
-
-## Pipeline
-
-| script | função |
-|---|---|
-| `src/nasa/01_auditar_raw.py` | auditoria dos arquivos brutos, hashes, comparação ARFF/CSV |
-| `src/nasa/02_consolidar_dpp.py` | base única com rastreabilidade |
-| `src/nasa/03_validar_dpp.py` | validação da versão D'' contra o algoritmo publicado |
-| `src/nasa/04_modelos_logisticos.py` | modelos logísticos aninhados, razões de chances, VIF |
-| `src/nasa/05_faixas_complexidade.py` | faixas de risco, F_base, sensibilidade, leave-one-project-out |
-| `src/nasa/06_figuras.py` | figuras a 300 dpi |
-| `src/psplib/01_auditar_j60.py` | auditoria das 480 instâncias, reconstrução da grade NC/RF/RS |
-| `src/psplib/02_indice_dificuldade.py` | CPM, índice de dificuldade `Di`, níveis ordinais |
-| `src/psplib/03_transferencia_ordinal.py` | razões de risco NASA → J60, com bootstrap por projeto |
-
-Execução em sequência, a partir da raiz do projeto, com o ambiente virtual ativo.
-Cada script encerra com verificações automáticas e sai com código de erro se
-alguma falhar, de modo que uma etapa defeituosa não alimente a seguinte.
-
-## Principais resultados até aqui
-
-**Validação da base de análise.** Aplicando ao conjunto D' os dois passos do
-algoritmo de Shepperd et al. que o separam do D'', o conjunto de módulos
-preservados foi reproduzido em 12 de 12 bases. O resíduo — 46 registros, 0,26% —
-restringe-se a qual rótulo foi mantido em grupos com rótulos conflitantes, ponto
-em que os arquivos distribuídos **não seguem literalmente o pseudocódigo
-publicado**, que determina remover ambos os membros do par.
-
-**Complexidade não sobrevive ao controle por tamanho.** Isolada, a complexidade
-ciclomática tem razão de chances 1,90 sobre a ocorrência de defeito. Controlando
-`LOC_TOTAL`, cai para 0,944 com IC 95% [0,870; 1,024] e p = 0,17 — o intervalo
-contém o valor nulo. O tamanho, ao contrário, sobrevive ao controle pela
-complexidade (LR = 431,2; p ≈ 9 × 10⁻⁹⁶). Nenhuma métrica candidata apresenta
-efeito positivo independente do tamanho. A complexidade é preservada no trabalho
-como **marcador ordinal** de risco, não como fator causal independente.
-
-**Risco basal por faixa, robusto.** Sobre faixas adaptadas do requisito NASA
-SWE-220, o risco cresce monotonicamente: 0,147 → 0,285 → 0,348 → 0,439. Tendência
-de Cochran-Armitage z = 25,6. Monotonicidade preservada em 5 de 5 esquemas
+**Risco basal por faixa, monotônico e robusto.** Sobre faixas adaptadas do
+requisito NASA SWE-220: 0,147 → 0,285 → 0,348 → 0,439. Tendência de
+Cochran-Armitage z = 25,6. Monotonicidade preservada em 5 de 5 esquemas
 alternativos de corte e em 12 de 12 reamostragens por exclusão de projeto.
 
-**Delineamento do J60 reconstruído.** Recalculando NC, RF e RS pelas definições
-de Kolisch, Sprecher e Drexl (1995) e agrupando os valores obtidos, recupera-se
-um fatorial completo e balanceado 3 × 4 × 4 = 48 células com 10 instâncias cada.
-Como os níveis foram derivados dos arquivos e não supostos, o resultado valida
-simultaneamente a leitura e as três formulações.
+**Transferência ordinal.** Uma tarefa de dificuldade muito alta carrega 2,99
+vezes o risco basal de uma de dificuldade baixa, IC 95% [1,878; 4,156], com
+bootstrap por projeto.
 
-**Índice `Di` com componentes ortogonais.** Correlações de Spearman entre duração
-normalizada, intensidade de recursos e criticidade: −0,004, 0,003 e 0,193. Cada
-componente carrega informação distinta. A criticidade é medida por folga total do
-CPM; a contagem de sucessores, prevista inicialmente, mostrou correlação de
-apenas 0,116 com a folga e foi descartada como medida (mantida como variável
-alternativa na base).
+### Camada de simulação
 
-**Transferência ordinal por razão de risco.** Uma tarefa de dificuldade muito
-alta carrega 2,99 vezes o risco basal de uma tarefa de dificuldade baixa
-(IC 95% [1,878; 4,156], bootstrap por projeto). A correspondência direta de
-rótulos foi descartada com evidência numérica: inflaria o risco médio em 1,74
-vezes por artefato do tamanho dos estratos.
+Contraste entre o arranjo adaptativo e o centralizado, pareado por instância e
+semente, com intervalo de confiança sobre as instâncias.
+
+| indicador | 16 instâncias | 48 instâncias fora da amostra |
+|---|---:|---:|
+| atraso relativo | −1,0234 [−1,1139; −0,9330] | −1,1387 [−1,2086; −1,0687] |
+| taxa de omissão | −0,2282 [−0,2428; −0,2136] | −0,2253 [−0,2332; −0,2174] |
+| dívida latente | −0,0778 [−0,0862; −0,0694] | −0,0816 [−0,0865; −0,0766] |
+| taxa de falha efetiva | −0,0431 [−0,0568; −0,0293] | −0,0370 [−0,0446; −0,0294] |
+| fração via Porta 1 | −0,1165 [−0,1366; −0,0964] | −0,0967 [−0,1092; −0,0841] |
+
+A replicação fora da amostra usou 48 instâncias sorteadas de forma
+estratificada, uma por combinação de desenho, excluindo as 16 dos experimentos
+originais. Os cinco indicadores mantiveram sinal e significância, com intervalos
+sobrepostos aos originais. A estratificação por complexidade de rede, fator de
+recursos e força de recursos não revelou estrato em que o resultado se
+dissolvesse.
+
+**O mecanismo.** A vantagem do arranjo adaptativo decorre principalmente do
+portão de assistência: sua abertura reduz a taxa de falha efetiva em cerca de
+4,5 pontos percentuais. O reporte imediato reduz a taxa de omissão por fator de
+3,6 e a dívida latente pela metade, sem custo de prazo.
 
 ---
 
-## Estado atual e ponto de entrada
+## Estado atual
 
-O simulador já está implementado. Há experimentos de cenários, calibração com
-gêmeo sintético, ablações de governança, análise fatorial, sensibilidades e
-reanálise por instância. O resultado preliminar não deve ser confundido com
-validação empírica do comportamento humano de equipes.
+### Funciona e está verificado
 
-A [auditoria de 15/09/2026](projeto/08_AUDITORIA_AUTONOMA_2026-09-15.md) reúne
-arquitetura, inventário dos resultados, verificações existentes, divergências e
-backlog priorizado. O merge auditado foi concluído em `dc8721f`; a preservação
-da rodada 2 foi registrada antes do rebase e reconciliada depois dele.
-As seções históricas acima descrevem principalmente a camada de dados.
+- Simulador implementado, com identidade bit a bit preservada em todas as
+  alterações.
+- Cinco indicadores com intervalo de confiança, replicados fora da amostra.
+- Controles publicados reproduzidos: seis pontos de Stewart & Melchers (1988),
+  parâmetros da beta-binomial de Stewart (1992) e as frequências da Tabela 2.
+- Bateria de controles negativos estabelecendo a resolução do instrumento.
+- Cobertura do History Matching: taxa empírica de falsa exclusão de 6,2%,
+  IC 95% de Wilson [4,40%; 8,67%], compatível com o nominal de 5%.
 
-### Documento oficial
+### Funciona, com ressalva declarada
 
-Por indicação da autora, a análise preliminar oficial é a **cópia local** de
-`docs/entrega1_metodologia_resultados_iniciais.docx`. O snapshot versionado
-[`analise_preliminar_oficial_2026-09-15.docx`](docs/snapshots/analise_preliminar_oficial_2026-09-15.docx)
-é um ponteiro imutável para a cópia conferida, com SHA-256
-`d5a658f1cdf03d99e6bdc0b5d03cb4aaa9420853ec7ebc2bb3f55e85a728c57d`.
-Antes de qualquer regeneração, confira uma cópia viva explicitamente, sem editá-la:
+- **Os parâmetros de governança são premissas sem fonte externa.** Uma varredura
+  de 81 perfis mostra que o sinal do contraste se mantém na quase totalidade do
+  espaço, mas o valor não está ancorado empiricamente.
+- **A Tabela 2 de Stewart (1992) não é internamente reprodutível** na precisão
+  em que está impressa: nenhum par de parâmetros satisfaz simultaneamente os
+  três conjuntos publicados, com discrepância de 0,012%. A implementação está
+  validada; a inconsistência é da fonte.
+- **A validação fora da amostra não passou por auditoria independente**, ao
+  contrário dos demais experimentos.
+- Análise de sensibilidade de pressão e uma contagem da base de fatores humanos
+  permanecem parciais.
 
-```sh
-python3 research/verificar_documento_oficial.py --vivo /caminho/para/analise_preliminar.docx
-```
+### Não funciona como o modelo conceitual previa
 
-O documento local já ressalva a conclusão sobre identificabilidade e declara
-que o retrabalho contabilizado não ocupa agentes. Algumas afirmações antigas
-no registro e na especificação ainda divergem desse conteúdo; ver a auditoria.
+- **A rota de fuga da Porta 1 nunca executa** no ponto de operação. É resultado
+  aritmético, não estatístico: o máximo da condição é 0,50 contra um limiar de
+  0,60. A rota não pode ser descrita como mecanismo ativo.
+- **O portão de assistência do arranjo centralizado nasce fechado**, porque a
+  confiança inicial está abaixo do limiar exigido para pedir ajuda. Nenhum
+  pedido ocorre naquele braço, e a confiança, que só se atualiza por evento de
+  pedido, não tem como sair do estado inicial.
+- **Com o parâmetro de transição em seu valor mínimo varrido**, a probabilidade
+  de seleção heurística sofre subfluxo numérico e o modelo degenera para a rota
+  analítica apenas. Esse ponto está declarado como fora da faixa de validade.
 
-### Resposta à revisão independente
+Os três são condições de decisão comparadas entre constantes, identificadas por
+varredura e documentadas. Dois deles são herdados da especificação conceitual do
+TCC I, não introduzidos na implementação.
 
-A [resposta de 15/09/2026](projeto/10_RESPOSTA_REVISAO_2026-09-15.md) classifica
-cada crítica, preserva os resultados negativos e atualiza o backlog. O piloto
-com produto constante refutou a interpretação de que as saídas só observam
-`F_ancora × f_retrabalho`. A confiança atua no portão e no multiplicador de rede;
-o legado permanece preservado.
+---
 
-O [relatório 11](projeto/11_MVP_RESULTADOS_2026-09-16.md) e suas 17.920
-execuções estão **congelados como pré-correção estrutural**. C4 estava sem o
-excesso de risco; o controle neutro revelou deriva do laço e as leis de
-confiança foram substituídas. Esses números não são resultados do MVP corrigido.
+## Documentação detalhada
 
-A [sequência de correção](research/PLANO_CORRECAO_ESTRUTURAL.md) registra
-compatibilidade bit a bit, risco da omissão, contrafactual com controle negativo,
-Crowder, reset de competência e instrumentação por tarefa. A [reexecução e análise corrigidas](projeto/19_CORRECAO_ESTRUTURAL_MVP_2026-09-16.md)
-terminaram: 21.440 execuções e 34 testes, sem violações. O [teste discriminante de TL](projeto/21_TESTE_DISCRIMINANTE_TL_2026-09-17.md)
-mostrou que o sinal de E_total depende da convenção de contagem; não sustenta
-conclusão de governança. Unitário permanece como default, Eq3 como alternativa.
-
-Os [comandos de reprodução](research/REPRODUCAO.md) recuperam evidências históricas
-por commit e hash, sem depender de arquivos da máquina da autora. As
-[fontes verificadas](research/SOURCES.md) distinguem apoio bibliográfico e inferência.
-Há snapshots fiéis da [análise preliminar oficial](docs/snapshots/analise_preliminar_oficial_2026-09-15.docx)
-e do [TCC I](docs/snapshots/TCC_I_referencia_2026-09-15.pdf). Preservar as cópias locais;
-os snapshots não autorizam regenerá-las sobre edições da autora.
-
-### Prioridade vigente
-
-- MVP corrigido e robustez concluídos; consultar o relatório 19 e as tabelas incrementais.
-- B1/B3/B7/B9 e relatório 11 só podem ser usados como controles históricos até reexecução.
-- Depois do MVP: V_obs/V_mod, implausibilidade perfilada e fragilidades restantes.
-- Sem novas ondas de History Matching, substituição do método ou busca de melhor política.
-
-Os hashes das saídas congeladas estão no
-[manifesto de congelamento](research/CONGELAMENTO_PRE_CORRECAO.json).
-
-### Continuidade e execução
-
-Leia as [orientações atuais da autora](projeto/00_AUTONOMIA.md) e a [sequência de correção estrutural](research/PLANO_CORRECAO_ESTRUTURAL.md)
-antes de escolher a próxima tarefa. Não use o backlog histórico como prova de
-que um defeito continua presente: várias correções já existem no estado local.
-
-Diagnóstico pequeno, sem sobrescrever resultados publicados:
-
-```sh
-python3 src/modelo/15_diagnostico_hm.py --saida /tmp/tcc2_hm_diagnostico
-```
-
-A pasta de saída deve ainda não existir. Versões do ambiente, sementes, hashes,
-resultados por execução e controles são registrados pelo script. Isso não
-substitui a validação do ambiente completo definido em `requirements.txt`.
-
-### Observáveis e calibração — decisão vigente
-
-`E_total` foi retirada das conclusões de governança: é diagnóstico interno com
-unidades distintas no denominador, reportado nas duas convenções TL. A evidência
-de governança interna e a especificação inicial de V_obs/V_mod estão no
-[contrato de medição](projeto/22_OBSERVAVEIS_VOBS_VMOD.md).
-`atraso_relativo` usa CPM sem recursos e não equivale a crescimento de prazo externo.
-Nenhuma nova onda de History Matching foi iniciada.
-
-### Prioridade vigente: arranjo e portão — V_obs/V_mod pausado
-
-[T1/T2/T3 concluídos](projeto/24_TESTES_ARRANJO_T1_T2_T3.md): a resposta não se
-reduz a degrau puro; portão e canal fuzzy devem ser distinguidos. O bloco de
-reporte/detecção explica grande parte da redução das falhas não reportadas,
-sem evidência conclusiva de redução da taxa de falha efetiva por esse bloco.
-A nova taxa efetiva é desfecho explícito. Nominal preservado; alternativa próxima
-ao limiar apenas proposta. V_obs/V_mod continua pausado por instrução da autora.
-
-## Lote noturno 19–20: resultado e pendências
-
-[Atualização e números completos](projeto/ATUALIZACAO_B2_A1_C1_C2_20260919.md):
-B2 com bloqueio conjunto e censura rotulada; A1 testado (interruptor por estado),
-C1 e C2 implementados e comparados. [Fechamento obrigatório](projeto/FECHAMENTO_LOTE_20260919.md).
-C4 e o N de F permanecem parciais, conforme autorizado.
+| onde | o quê |
+|---|---|
+| `docs/especificacao_modelo.md` | especificação do simulador, equações e portas de decisão |
+| `docs/registro_de_decisoes.md` | registro de decisões com origem rotulada |
+| `projeto/04_FONTES.md` | referências, com o que cada fonte sustenta e o que não sustenta |
+| `projeto/` | auditorias, pareceres de revisão independente e ordens de serviço |
+| `outputs/diagnosticos/README.md` | índice dos experimentos executados |

@@ -87,7 +87,7 @@ implementação/configurações permaneceram constantes durante a grade.
 Nenhuma alteração de V_mod ou busca de política/valor ótimo foi feita.
 Esta grade caracteriza a sensibilidade nominal; não demonstra que os escalares
 causaram as exceções localizadas em T-GOV.2, pois aqueles perfis de governança
-não foram reexecutados aqui. Ver [localização e multiplicidade](TGOV2_LOCALIZACAO_INVERSOES_20260919.md).
+não foram reexecutados aqui. Ver [localização e multiplicidade](70_LOCALIZACAO_DAS_INVERSOES_DE_SINAL.md).
 '''
 summary=[]
 for met,g in x.groupby('metrica'):
@@ -123,5 +123,5 @@ for ax,g,title in [(axes[0],debt,'Dívida: adaptativa − centralizada'),(axes[1
     ax.set_yticks(pos);ax.set_yticklabels([f'{r.incremento_base:g} / {r.fator_transferencia:g}' for r in g.itertuples()]);ax.grid(axis='x',alpha=.2)
 axes[0].set_ylabel('incremento_base / fator_transferencia');axes[0].invert_yaxis()
 fig.tight_layout();fig.savefig(o/'CROWDER1_divida.png',dpi=160);plt.close(fig)
-(ROOT/'projeto/TCROWDER1_SENSIBILIDADE_20260919.md').write_text(s)
+(ROOT/'projeto/69_SENSIBILIDADE_DOS_ESCALARES_DE_APRENDIZAGEM.md').write_text(s)
 print(r.to_string(index=False));print('DIVIDA ALTERACAO',debtdelta[['incremento_base','fator_transferencia','media','ic95_inf','ic95_sup']].to_string(index=False))

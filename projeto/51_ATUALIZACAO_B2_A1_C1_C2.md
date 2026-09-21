@@ -4,7 +4,7 @@
 > C2: implementação validada, fonte internamente inconsistente em 0,012% (A-16).
 > Vigora o parecer 41, §5, conforme emenda à ordem 37. As menções abaixo a
 > reprovação ou lote aberto descrevem o estado anterior.
-> Ver [fechamento vigente](FECHAMENTO_LOTE_20260919.md).
+> Ver [fechamento vigente](56_FECHAMENTO_DAS_ENTREGAS_OBRIGATORIAS.md).
 
 **Lote não fechado.** Código nominal preservado; alternativas não eleitas como
 substitutas. Publicações separadas por item em origin/main.
@@ -48,7 +48,7 @@ regular. Não generalizar "só P3" para toda a grade: com tau_sat=0,7 há conclu
 Tabelas finais agora exportam `estatuto` e `valor_rotulado`: −112,291506 e
 −174,504547 aparecem como CENSURADOS; a fração indefinida aparece como NA com
 censura/indefinição. Valores antigos preservados, não transformados em desfechos
-terminais. Ver [diagnóstico e tabelas](B2_DEADLOCK_TRES_VIAS_E_CENSURA.md).
+terminais. Ver [diagnóstico e tabelas](52_DEADLOCK_DE_TRES_VIAS_E_CENSURA.md).
 
 ## A1 — implementado, continuidade não aprovada
 
@@ -69,7 +69,7 @@ terminais. O agregado centralizado satura em fuga quase total; o adaptativo
 varia, com seleção por conclusão. A regra individual continua interruptor por
 estado, não mecanismo contínuo validado. Não se reformulou ou escolheu limite
 para obter a curva esperada. Cinco indicadores/IC95 e ANTES/DEPOIS completos em
-[A1](A1_FUGA_ESTADO_RESULTADOS.md). A-13 e A-14 são os dois portões encontrados
+[A1](50_FUGA_DEPENDENTE_DE_ESTADO.md). A-13 e A-14 são os dois portões encontrados
 independentemente; remover a degeneração de um não garante ausência de bloqueio.
 
 ## C1 — alternativa testada
@@ -79,7 +79,7 @@ comparados com histórico em96 execuções, todas completas. Nenhum mapa eleito.
 Na alternativa o gradiente de passos substitui o NASA: decisão declarada, sem
 empilhar transporte de dificuldade. Histórico permanece default.
 Mapa reverso:0,05→3,90625 passos;0,10→7,8125;0,15–0,25 requerem k>8 e são
-**cenários de sensibilidade**, não valores ancorados. Ver [C1](C1_ANCORAGEM_LINEAR_RESULTADOS.md).
+**cenários de sensibilidade**, não valores ancorados. Ver [C1](53_ANCORAGEM_LINEAR_DE_F_ANCORA.md).
 
 ## C2 — interrompido no controle publicado
 
@@ -91,7 +91,7 @@ problema de contrato de precisão, não prova de erro da fórmula. Nenhum ajuste
 Seguindo a regra de parada do item, Beta não foi inserida no simulador e não
 houve sorteio de agentes. Matemática/domínio conferidos independentemente;
 seis células históricas excedem o domínio e estão tabuladas. Critério C2 precisa
-de reconciliação antes de continuar. Ver [resíduos e domínio](C2_CONTROLE_MOMENTOS_ARREDONDADOS.md).
+de reconciliação antes de continuar. Ver [resíduos e domínio](54_CONTROLE_DE_MOMENTOS_ARREDONDADOS.md).
 
 C4/F permanecem parciais conforme autorizado. Próximo passo não é uma onda HM:
 é resolver o critério C2 e revisar cientificamente a saturação de A1. Não há

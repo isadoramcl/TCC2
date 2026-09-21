@@ -1271,7 +1271,7 @@ reproduzido. Portão e rede contribuem para falha efetiva; interação separada.
 P0 depende de mu_cog, não de mu_rede; rede tem caminho indireto por duração,
 pressão e bateria. Crowder mantém realimentação entre os canais após o início;
 T4 não congela mediadores. Identidade neutra passou após C3 e B1.
-[Resultados e controles](../projeto/RESPOSTA_41_C3_T4.md).
+[Resultados e controles](../projeto/48_C3_VALIDADO_E_RETOMADA_T4.md).
 
 ### B2 — canal direto desligado e censura estrutural
 
@@ -1282,7 +1282,7 @@ bloquear tarefas executáveis quando assistência está fechada e P1 é rara.
 Não alterar parâmetros para eliminar a censura. Runner corrigido para fração
 indefinida e gravação incremental; dinâmica dessa política preservada. Investigar
 alternativa de seleção antes de afirmar robustez da grade. Lote não fechado.
-[Relatório B2](../projeto/RESPOSTA_41_B2_ROBUSTEZ.md). Suíte final: 59 testes passaram.
+[Relatório B2](../projeto/47_B2_ROBUSTEZ_DO_CANAL_DIRETO.md). Suíte final: 59 testes passaram.
 
 ## T-B2.1/T-B2.2 — persistência e seleção — 18/09/2026
 
@@ -1298,7 +1298,7 @@ Grade N=576: incompletas 36/288 centralizadas e 0/288 adaptativas; todas s=.01.
 Recalculados pares completos: 9/16 (tau=1) ou 5/16 (tau=1.4), com 4 ou 3
 instâncias. IC de falha efetiva inclui zero nas quatro células afetadas; leitura
 condicional, não efeito incondicional. Nominal N=768 completo, sem exclusão.
-Nenhuma política alterada; lote aberto. [Relatório](../projeto/TB2_HORIZONTE_E_SELECAO.md).
+Nenhuma política alterada; lote aberto. [Relatório](../projeto/49_HORIZONTE_DOBRADO_E_SELECAO.md).
 
 ## 19/09/2026 — T-GOV.2 / T-CROWDER.1
 
@@ -1313,7 +1313,7 @@ Nenhuma política alterada; lote aberto. [Relatório](../projeto/TB2_HORIZONTE_E
   ordenados, concentradas no perfil A=71 (3/53), não 3/6.561.
   Localização é exploratória; multiplicidade não pode ser decidida por
   comparação com expectativa de uma família de hipóteses todas nulas.
-- Ver [T-GOV.2](../projeto/TGOV2_LOCALIZACAO_INVERSOES_20260919.md) e
-  [T-CROWDER.1](../projeto/TCROWDER1_SENSIBILIDADE_20260919.md). Não eleger
+- Ver [T-GOV.2](../projeto/70_LOCALIZACAO_DAS_INVERSOES_DE_SINAL.md) e
+  [T-CROWDER.1](../projeto/69_SENSIBILIDADE_DOS_ESCALARES_DE_APRENDIZAGEM.md). Não eleger
   parâmetros convenientes nem atribuir as inversões a Crowder sem contraste
   específico dos perfis onde ocorreram.

@@ -155,5 +155,5 @@ Logs originais e controle_leitura_csv.json preservam o diagnóstico. O manifesto
 de execução conserva o hash do runner daquela execução; manifesto_final.json
 registra o runner corrigido para leitura round-trip e os hashes dos artefatos.
 '''
-(ROOT/'projeto/TSAT_TGOV_REGIMES_20260919.md').write_text(s)
+(ROOT/'projeto/71_REGIMES_DE_SATURACAO_E_GOVERNANCA.md').write_text(s)
 print(r.to_string(index=False));print('nominal',nom[['metrica','media','ic95_inf','ic95_sup']].to_string(index=False));print('exemplos ordenados',ex.to_string(index=False))

@@ -1,3 +1,7 @@
+> **HISTÓRICO — não usar como catálogo.** Consolidado em
+> `projeto/04_FONTES.md` em 20/09/2026. Mantido pelo registro das
+> análises de Pukelsheim, McCulloch e Andrianakis, que continuam válidas.
+
 # Fontes verificadas — resposta à revisão, 15/09/2026
 
 Fonte primária e interpretação deste projeto são distinguidas abaixo. Não foram

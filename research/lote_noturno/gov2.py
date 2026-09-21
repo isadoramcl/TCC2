@@ -99,5 +99,5 @@ permanece um caso isolado; fracão P1 inclui duplicatas exatas. A nova varredura
 Crowder caracteriza sensibilidade nominal, mas não reexecuta estes perfis e,
 portanto, não poderá provar por si só a causa dessas inversões.
 '''
-(ROOT/'projeto/TGOV2_LOCALIZACAO_INVERSOES_20260919.md').write_text(r)
+(ROOT/'projeto/70_LOCALIZACAO_DAS_INVERSOES_DE_SINAL.md').write_text(r)
 print(s.to_string(index=False))

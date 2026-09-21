@@ -87,7 +87,7 @@ Lote não fechado. A regra solicitada está implementada/testada; a expectativa
 de continuidade não é um controle aprovado por construção. Próximos: C1 e C2,
 com os controles publicados antes de resultados dinâmicos.
 '''
-(ROOT/'projeto/A1_FUGA_ESTADO_RESULTADOS.md').write_text(s)
+(ROOT/'projeto/50_FUGA_DEPENDENTE_DE_ESTADO.md').write_text(s)
 
 # Figura científica; todos os pontos e contagens de censura ficam visíveis.
 import matplotlib

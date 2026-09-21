@@ -11,5 +11,5 @@ O alvo é a esperança sobre a aleatoriedade dos agentes, não sobre uma popula�
 de projetos. Geração e estimação usam a mesma unidade. Protocolo declarado antes
 da execução e 500 réplicas com variâncias recalculadas dos brutos.
 
-Ver `NOTURNO_D2_COBERTURA.md` e `research/lote_noturno/PROTOCOLO_D2_D3.md`.
+Ver `59_COBERTURA_DO_HISTORY_MATCHING.md` e `research/lote_noturno/PROTOCOLO_D2_D3.md`.
 Identidade neutra após a alteração documental: três testes aprovados.

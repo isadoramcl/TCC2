@@ -1,10 +1,10 @@
 # B2 — desligamento do canal direto e limites de robustez
 
-> Leitura atual: [bloqueio de três vias e censura](B2_DEADLOCK_TRES_VIAS_E_CENSURA.md).
+> Leitura atual: [bloqueio de três vias e censura](52_DEADLOCK_DE_TRES_VIAS_E_CENSURA.md).
 > Portão fechado sozinho não implica incompletude; nominal completo em ambos os braços.
 
 
-> Leitura causal atualizada por [T-B2.3](TB23_PORTAO_E_INCOMPLETUDE.md):
+> Leitura causal atualizada por [T-B2.3](68_PORTAO_DE_ASSISTENCIA_E_INCOMPLETUDE.md):
 > abrir só o portão completa 36/36; a rede sozinha completa 0/36.
 > A-13 participa de bloqueio de três vias, restrito a s=0,01 e tau_sat=1/1,4
 > na centralizada; assistência ou heurística liberam saídas independentes.
@@ -12,7 +12,7 @@
 
 > Atualização: resultados iniciais publicados em `d54283b`. A classificação da
 > incompletude e os contrastes das células afetadas são reavaliados em
-> [T-B2.1/T-B2.2](TB2_HORIZONTE_E_SELECAO.md). As tabelas abaixo preservam o
+> [T-B2.1/T-B2.2](49_HORIZONTE_DOBRADO_E_SELECAO.md). As tabelas abaixo preservam o
 > diagnóstico inicial; não usar valores censurados como desfechos finais.
 
 18/09/2026. Continuação autorizada da ordem 37 após validação discriminante C3

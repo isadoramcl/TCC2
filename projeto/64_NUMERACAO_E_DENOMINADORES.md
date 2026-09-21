@@ -1,6 +1,6 @@
 # F — numeração e denominadores
 
-`07_AUTONOMIA.md` foi renomeado para `00_AUTONOMIA.md`; briefing mantém
+`07_AUTONOMIA.md` foi renomeado para `42_AUTONOMIA_E_CONTINUIDADE.md`; briefing mantém
 `07_BRIEFING_ORIENTADOR.md`. Ponteiros atuais README/08 atualizados. Referências
 nos pareceres históricos preservam o nome vigente à época, com este mapa.
 
