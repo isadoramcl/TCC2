@@ -1,3 +1,4 @@
+# Nominal v2 (21/09/2026). v1 congelado em config/mvp_v1.yaml.
 # [DEC] Desenho registrado antes das execuções. Valores candidatos, sem otimização.
 opcoes:
   fator_omissao: 0.75
@@ -11,6 +12,12 @@ opcoes:
   politica_porta2: nominal
   tau_portao: null
   tau_rede: null
+  # [DEC 21/09] Nominal v2: portões suaves (projeto/74, critério em projeto/75).
+  # A configuração anterior está congelada em config/mvp_v1.yaml.
+  portao_assistencia: logistico
+  regra_fuga: logistica
+  efeito_fuga: drena
+  s_portoes: 0.25
 alternativas: {instancias: 16, sementes: 12}
 robustez:
   instancias: 4

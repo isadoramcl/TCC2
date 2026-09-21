@@ -31,7 +31,7 @@ def configurar(portao,rede,reporte):
     for k in ['tau_inicial','tau_min']:c[k]=copy.deepcopy(p['cenarios'][portao][k])
     for k in ['p_reporte','p_deteccao']:c[k]=copy.deepcopy(p['cenarios'][reporte][k])
     p['cenarios']['teste']=c
-    op=yaml.safe_load((ROOT/'config/mvp.yaml').read_text())['opcoes']
+    op=yaml.safe_load((ROOT/'config/mvp_v1.yaml').read_text())['opcoes']
     op.update(tau_portao=float(S.v(p['cenarios'][portao]['tau_inicial'])),tau_rede=float(S.v(p['cenarios'][rede]['tau_inicial'])))
     return p,op
 

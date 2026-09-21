@@ -19,7 +19,7 @@ class Instrumentada(SimulacaoMVP):
 def job(args):
     regra,lim,arquivo,seed,cen=args
     p=S.carregar_parametros();p['gestor']['limite_aversao_perda']['valor']=lim
-    op=yaml.safe_load((ROOT/'config/mvp.yaml').read_text())['opcoes'];op.update(regra_fuga=regra,instrumentar_tarefas=False)
+    op=yaml.safe_load((ROOT/'config/mvp_v1.yaml').read_text())['opcoes'];op.update(regra_fuga=regra,instrumentar_tarefas=False)
     g,d,c=S.carregar_instancia(arquivo);s=Instrumentada(g,d,c,p,cen,seed,opcoes=OpcoesMVP(**op));r=s.executar()
     row={k:v for k,v in asdict(r).items() if isinstance(v,(float,int,bool))};row.update(r.contadores)
     n=r.contadores['p1_fuga']+r.contadores['p1_omissao'];dec=n+r.contadores['p3_analitica']+r.contadores['hiato_encontrado']

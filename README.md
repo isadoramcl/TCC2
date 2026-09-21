@@ -43,9 +43,17 @@ python src/psplib/03_transferencia_ordinal.py
 python src/modelo/01_derivar_parametros.py
 python src/modelo/02_verificar_simulador.py
 
-# 3. Experimentos
-python src/modelo/20_experimento_mvp.py
+# 3. Experimentos — nominal (16 instâncias) e validação fora da amostra (48)
+python research/validacao/nominal_v2.py nominal
+python research/validacao/nominal_v2.py fora1
+python research/validacao/nominal_v2.py fora2
+python research/validacao/nominal_v2.py fora3
+python research/validacao/nominal_v2.py analise
 ```
+
+O modelo nominal está em `config/mvp.yaml` (versão 2, desde 21/09/2026). A versão
+anterior está congelada em `config/mvp_v1.yaml` e continua reproduzindo, bit a
+bit, toda a evidência produzida até aquela data.
 
 Para rodar a suíte de testes:
 
@@ -162,27 +170,29 @@ bootstrap por projeto.
 ### Camada de simulação
 
 Contraste entre o arranjo adaptativo e o centralizado, pareado por instância e
-semente, com intervalo de confiança sobre as instâncias.
+semente, com intervalo de confiança sobre as instâncias. Valores negativos
+favorecem o arranjo adaptativo.
 
 | indicador | 16 instâncias | 48 instâncias fora da amostra |
 |---|---:|---:|
-| atraso relativo | −1,0234 [−1,1139; −0,9330] | −1,1387 [−1,2086; −1,0687] |
-| taxa de omissão | −0,2282 [−0,2428; −0,2136] | −0,2253 [−0,2332; −0,2174] |
-| dívida latente | −0,0778 [−0,0862; −0,0694] | −0,0816 [−0,0865; −0,0766] |
-| taxa de falha efetiva | −0,0431 [−0,0568; −0,0293] | −0,0370 [−0,0446; −0,0294] |
-| fração via Porta 1 | −0,1165 [−0,1366; −0,0964] | −0,0967 [−0,1092; −0,0841] |
+| atraso relativo | −0,9429 [−1,0864; −0,7994] | −0,9860 [−1,0731; −0,8988] |
+| taxa de omissão | −0,2016 [−0,2137; −0,1894] | −0,2074 [−0,2163; −0,1985] |
+| dívida latente | −0,0694 [−0,0761; −0,0628] | −0,0727 [−0,0778; −0,0676] |
+| taxa de falha efetiva | −0,0229 [−0,0347; −0,0111] | −0,0213 [−0,0276; −0,0149] |
+| fração via Porta 1 | −0,0511 [−0,0697; −0,0326] | −0,0499 [−0,0587; −0,0410] |
 
 A replicação fora da amostra usou 48 instâncias sorteadas de forma
-estratificada, uma por combinação de desenho, excluindo as 16 dos experimentos
-originais. Os cinco indicadores mantiveram sinal e significância, com intervalos
-sobrepostos aos originais. A estratificação por complexidade de rede, fator de
-recursos e força de recursos não revelou estrato em que o resultado se
-dissolvesse.
+estratificada, uma por combinação de desenho, excluindo as 16 do nominal. Os
+cinco indicadores mantêm sinal e significância, e nos 50 cruzamentos de
+indicador com estrato (complexidade de rede, fator de recursos e força de
+recursos) todos são negativos com intervalo excluindo zero.
 
-**O mecanismo.** A vantagem do arranjo adaptativo decorre principalmente do
-portão de assistência: sua abertura reduz a taxa de falha efetiva em cerca de
-4,5 pontos percentuais. O reporte imediato reduz a taxa de omissão por fator de
-3,6 e a dívida latente pela metade, sem custo de prazo.
+**O que mudou na versão 2.** Na versão 1, o arranjo centralizado não conseguia
+pedir ajuda em nenhum momento, por construção. Com os portões suaves, ele passa
+a pedir ajuda à medida que a confiança se constrói, e a vantagem do adaptativo
+diminui — sobretudo em falha efetiva (−0,0431 → −0,0229) e fração via Porta 1
+(−0,1165 → −0,0511). A diferença entre as versões é a parte do efeito que vinha
+da proibição, e não da governança.
 
 ---
 
@@ -191,17 +201,26 @@ portão de assistência: sua abertura reduz a taxa de falha efetiva em cerca de
 ### Funciona e está verificado
 
 - Simulador implementado, com identidade bit a bit preservada em todas as
-  alterações.
+  alterações. A versão 1 continua reproduzível exatamente a partir de
+  `config/mvp_v1.yaml`.
 - Cinco indicadores com intervalo de confiança, replicados fora da amostra.
+- **As três decisões do modelo usam a mesma transição suave.** No TCC I eram
+  comparações duras entre dois números, e duas delas degeneravam: a rota de fuga
+  nunca disparava e o arranjo centralizado nunca pedia ajuda. Agora a fuga
+  dispara de forma gradual, crescendo com a sobrecarga, e a confiança no arranjo
+  centralizado sobe de 0,25 para cerca de 0,60 ao longo do projeto, sem alcançar
+  a do adaptativo (0,95). Todas as execuções terminam, inclusive as 36 que
+  travavam na versão 1.
 - Controles publicados reproduzidos: seis pontos de Stewart & Melchers (1988),
   parâmetros da beta-binomial de Stewart (1992) e as frequências da Tabela 2.
 - Bateria de controles negativos estabelecendo a resolução do instrumento.
 - Cobertura do History Matching: taxa empírica de falsa exclusão de 6,2%,
   IC 95% de Wilson [4,40%; 8,67%], compatível com o nominal de 5%.
 - Sensibilidade da seleção heurística à pressão: entre a pressão mínima e a
-  máxima, a fração de tarefas pela Porta 1 cresce 2,2 a 2,9 vezes no ponto
-  nominal — mesma ordem de grandeza do deslocamento de estratégia observado por
-  Rieskamp e Hoffrage (2008), razão ≈ 2,3. Comparação descritiva, sem ajuste.
+  máxima, a fração de tarefas pela Porta 1 cresce 2,9 vezes no ponto nominal,
+  nos dois arranjos — mesma ordem de grandeza do deslocamento de estratégia
+  observado por Rieskamp e Hoffrage (2008), razão ≈ 2,3. Comparação descritiva,
+  sem ajuste.
 - **Achado sobre fonte primária:** a Tabela 2 de Stewart (1992) não é
   internamente reprodutível na precisão impressa — nenhum par de parâmetros
   satisfaz os três conjuntos publicados ao mesmo tempo (discrepância de 0,012%,
@@ -210,44 +229,31 @@ portão de assistência: sua abertura reduz a taxa de falha efetiva em cerca de
 
 ### Funciona, com ressalva declarada
 
-- **Os parâmetros de governança são premissas sem fonte externa.** Uma varredura
-  de 81 perfis mostra que o sinal do contraste se mantém na quase totalidade do
-  espaço, mas o valor não está ancorado empiricamente.
-- **A validação fora da amostra, a sensibilidade à pressão e o teste dos
-  portões suaves não passaram por auditoria independente**, ao contrário dos
-  demais experimentos.
+- **Os parâmetros de governança são premissas sem fonte externa.** Na varredura
+  de 81 perfis, restrita aos pares em que o arranjo adaptativo tem premissas
+  pelo menos tão favoráveis quanto o centralizado (1 215 pares), o atraso, a
+  dívida latente e a omissão favorecem o adaptativo em 76% a 93% dos pares, e a
+  fração via Porta 1 em 66%. **A taxa de falha efetiva não é robusta:** favorece o adaptativo em 46% dos pares
+  e o centralizado em 53%. A vantagem em falha efetiva vale para os parâmetros
+  nominais, não para o espaço de governança como um todo.
+- **A inclinação dos portões suaves (0,25) é premissa.** Foi tomada da transição
+  cognitiva que o modelo já usava, sem dado nem calibração. Varrida de 0,05 a
+  1,00, os cinco contrastes mantêm o sinal em todos os valores; a magnitude de
+  falha efetiva e de fração via Porta 1 depende dela.
+- **Os experimentos de 20 e 21/09 foram executados pelo revisor e ainda não
+  passaram por auditoria independente**: validação fora da amostra, portões
+  suaves, nominal versão 2, sensibilidade à pressão e varredura de governança
+  da versão 2.
 
-### Não funciona como o modelo conceitual previa
+### O que o TCC I previa e mudou
 
-- **A rota de fuga da Porta 1 nunca executa** no ponto de operação. É resultado
-  aritmético, não estatístico: o máximo da condição é 0,50 contra um limiar de
-  0,60. Com limiares menores (0,10 a 0,40, 320 execuções) a rota passa a
-  disparar, mas como interruptor liga-desliga, não como mecanismo gradual. Não
-  pode ser descrita como mecanismo ativo.
-- **O portão de assistência do arranjo centralizado nasce fechado**, porque a
-  confiança inicial está abaixo do limiar exigido para pedir ajuda. Nenhum
-  pedido ocorre naquele braço, e a confiança, que só se atualiza por evento de
-  pedido, não tem como sair do estado inicial.
-- **Com o parâmetro de transição em seu valor mínimo varrido** (0,01), em um
-  canto específico da grade — arranjo centralizado, competência insuficiente e
-  limiar de saturação alto —, a probabilidade de seleção heurística fica na
-  ordem de 10⁻¹⁴, e a rota heurística se torna inacessível na prática. Não é
-  erro numérico: o valor é representável. Esse canto está declarado como fora
-  da faixa de validade; o ponto nominal (0,25) não é afetado.
-
-Os três são condições de decisão comparadas entre constantes, identificadas por
-varredura e documentadas. Dois deles são herdados da especificação conceitual do
-TCC I, não introduzidos na implementação.
-
-**Correção testada, ainda não adotada como nominal.** As três degenerações vêm de
-comparações duras entre dois números. Aplicando a elas a mesma transição suave
-que o modelo já usa na Porta 1, a fuga passa a disparar de forma gradual, o
-arranjo centralizado passa a pedir ajuda à medida que a confiança se constrói, e
-os casos que antes travavam terminam (64/64 e 36/36, contra 0/64 e 0/36). O
-contraste entre os arranjos se mantém nos cinco indicadores, dentro e fora da
-amostra, com magnitude menor em falha efetiva e fração Porta 1. Está implementado
-como opção desligada; o nominal publicado não mudou. Ver
-`projeto/74_PORTOES_SUAVES.md`.
+As três decisões de comportamento do agente eram, no TCC I, comparações duras
+entre dois números. Duas delas se mostraram degeneradas na implementação — a rota
+de fuga, porque a conta nunca passava do limiar, e o pedido de ajuda, porque a
+confiança não tinha como mudar. A versão 2 aplica a elas a mesma transição suave
+que o TCC2 já usava na primeira decisão. Ver `projeto/74_PORTOES_SUAVES.md` e o
+critério de adoção, escrito antes da execução, em
+`projeto/75_CRITERIO_DE_ADOCAO_DOS_PORTOES_SUAVES.md`.
 
 ---
 

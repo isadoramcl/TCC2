@@ -36,7 +36,7 @@ class IdentidadeAnterior(unittest.TestCase):
         sys.modules['simulador']=oldS
         try:oldM=load('src/modelo/simulador_mvp.py','_antes_escalares_M')
         finally:sys.modules['simulador']=S
-        nominal=yaml.safe_load((root/'config/mvp.yaml').read_text())['opcoes']
+        nominal=yaml.safe_load((root/'config/mvp_v1.yaml').read_text())['opcoes']
         for arq in ['j6010_1.sm','j6021_1.sm']:
             g,d,c=S.carregar_instancia(arq)
             for cen in ['centralizada','adaptativa']:

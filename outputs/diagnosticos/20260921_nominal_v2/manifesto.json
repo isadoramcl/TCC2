@@ -1,0 +1,13 @@
+{
+  "data": "2026-09-21",
+  "executado_por": "Claude (revisor), sem auditoria independente",
+  "N_nominal": 384,
+  "N_fora": 1152,
+  "hashes": {
+    "config/mvp.yaml": "f8e557e797423db856052260b75d2b73c2139ffac5e0a483e67be44b47095336",
+    "config/parametros.yaml": "c2e6cce6f0a1379b06ec3c989f7e92409cc20c0e3a92aaee3b46ed31616a3863",
+    "src/modelo/simulador.py": "954eb63d96286adfcf0d795950639d584244819c719c14907b7b8657a5ab9f51",
+    "src/modelo/simulador_mvp.py": "2c6e50add4f4ee4889ff53d4b5a3688b9065d7bcacfa9cdc54304a6d0abcd705",
+    "research/validacao/nominal_v2.py": "956b2014582f400cd570398c57aee142b83fed4301a89e90f150e95fb4baa8cd"
+  }
+}

@@ -11,7 +11,7 @@ from simulador_mvp import SimulacaoMVP,OpcoesMVP
 
 def job(args):
     arquivo,seed,cen=args;g,d,c=S.carregar_instancia(arquivo)
-    op=yaml.safe_load((ROOT/'config/mvp.yaml').read_text())['opcoes']
+    op=yaml.safe_load((ROOT/'config/mvp_v1.yaml').read_text())['opcoes']
     s=SimulacaoMVP(g,d,c,S.carregar_parametros(),cen,seed,opcoes=OpcoesMVP(**op));r=s.executar()
     ids=dict(arquivo=arquivo,semente=seed,cenario=cen)
     row={**ids,**{k:v for k,v in asdict(r).items() if k not in ['trajetorias','contadores','violacoes']},**r.contadores}
@@ -23,7 +23,7 @@ if __name__=='__main__':
     out=ROOT/'outputs/diagnosticos/noturno_nominal';out.mkdir(exist_ok=False)
     nomes=sorted(pd.read_csv(ROOT/'data/processed/psplib/instancias_j60.csv').arquivo.unique())[::30][:16]
     jobs=[(a,s,c) for a in nomes for s in range(12) for c in ['centralizada','adaptativa']]
-    files=[ROOT/'src/modelo'/f for f in ['simulador.py','simulador_mvp.py','fuzzy.py']]+[ROOT/'config/mvp.yaml',ROOT/'config/parametros.yaml']
+    files=[ROOT/'src/modelo'/f for f in ['simulador.py','simulador_mvp.py','fuzzy.py']]+[ROOT/'config/mvp_v1.yaml',ROOT/'config/parametros.yaml']
     hashes={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in files}
     (out/'manifesto.json').write_text(json.dumps(dict(N=len(jobs),instancias=nomes,seeds=list(range(12)),hashes=hashes),indent=2)+'\n')
     with (out/'bruto.csv').open('w') as f,(out/'trajetorias.csv').open('w') as g,(out/'tarefas.csv').open('w') as h,ProcessPoolExecutor(max_workers=2) as pool:

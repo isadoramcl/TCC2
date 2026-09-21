@@ -26,11 +26,11 @@ def job_b9(job): return E.executar_job(job)
 
 
 def rodar_b9(base,workers):
-    cfg=yaml.safe_load((ROOT/'config/mvp.yaml').read_text())
+    cfg=yaml.safe_load((ROOT/'config/mvp_v1.yaml').read_text())
     todas=sorted(pd.read_csv(ROOT/'data/processed/psplib/tarefas_j60_com_di.csv').arquivo.unique())
     inst=todas[::len(todas)//16][:16]
     configs=[dict(nome=pol,opcoes={**cfg['opcoes'],'politica_porta2':pol},pesos={k:1/3 for k in ['duracao','recursos','criticidade']},parametros={},horizonte=1) for pol in ['sem_assistencia','assistencia_universal','sem_filtro_competencia']]
-    files=['config/mvp.yaml','config/parametros.yaml','config/parametros_derivados.yaml','src/modelo/simulador.py','src/modelo/simulador_mvp.py','src/modelo/fuzzy.py','src/modelo/20_experimento_mvp.py','src/modelo/22_consolidar_mvp.py','data/processed/psplib/tarefas_j60_com_di.csv','data/processed/psplib/instancias_j60.csv']
+    files=['config/mvp_v1.yaml','config/parametros.yaml','config/parametros_derivados.yaml','src/modelo/simulador.py','src/modelo/simulador_mvp.py','src/modelo/fuzzy.py','src/modelo/20_experimento_mvp.py','src/modelo/22_consolidar_mvp.py','data/processed/psplib/tarefas_j60_com_di.csv','data/processed/psplib/instancias_j60.csv']
     hashes={f:hashlib.sha256((ROOT/f).read_bytes()).hexdigest() for f in files}
     out=base/'b9_mvp';E.preparar_saida(out,dict(instancias=inst,sementes=list(range(12)),configuracoes=configs,hashes=hashes))
     jobs=list(itertools.product(configs,inst,range(12),['centralizada','adaptativa']))

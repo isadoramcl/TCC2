@@ -1340,3 +1340,21 @@ Nenhuma política alterada; lote aberto. [Relatório](../projeto/49_HORIZONTE_DO
   com o orientador. [Relatório](../projeto/74_PORTOES_SUAVES.md).
 - [ABERTO] Os três itens acima foram executados pelo revisor, sem auditoria
   independente.
+
+## 21/09/2026 — Nominal v2: portões suaves adotados
+
+- [DEC] **Adoção dos portões suaves como nominal v2**, segundo critério escrito
+  antes da execução (`projeto/75`). Os cinco itens passaram. `config/mvp.yaml`
+  liga `portao_assistencia: logistico`, `regra_fuga: logistica`,
+  `efeito_fuga: drena`, `s_portoes: 0.25`. A v1 fica congelada em
+  `config/mvp_v1.yaml`; 26 scripts e testes que reproduzem evidência anterior
+  passaram a lê-la, e continuam reproduzindo bit a bit.
+- [DEC] `s_portoes = 0,25` sem fonte: reaproveitado da transição cognitiva.
+  Varrido de 0,05 a 1,00 — sinal dos cinco contrastes mantido em todos; a
+  magnitude de falha efetiva e fração Porta 1 depende do valor.
+- [ACHADO] Na v2, a vantagem do adaptativo em **falha efetiva não é robusta** à
+  varredura de governança (46% dos pares ordenados, contra 75% na v1). Atraso,
+  dívida e omissão continuam robustos. Causa não investigada.
+- [ACHADO] Perda de precisão ao juntar CSV parciais sem `round_trip` — explica a
+  divergência de último bit do arquivo fora da amostra da v1; IC inalterados.
+- [ABERTO] Tudo executado pelo revisor; auditoria independente pendente.

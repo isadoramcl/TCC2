@@ -27,7 +27,7 @@ class Compatibilidade(unittest.TestCase):
         codigo=subprocess.check_output(['git','show','1fd22ff:src/modelo/simulador_mvp.py'],cwd=S.RAIZ,text=True)
         modulo=types.ModuleType(nome);sys.modules[nome]=modulo
         exec(compile(codigo,nome,'exec'),modulo.__dict__)
-        op=yaml.safe_load((S.RAIZ/'config/mvp.yaml').read_text())['opcoes']
+        op=yaml.safe_load((S.RAIZ/'config/mvp_v1.yaml').read_text())['opcoes']
         op.pop('lei_tempo_aprendizado',None)
         import pandas as pd
         nomes=sorted(pd.read_csv(S.RAIZ/'data/processed/psplib/instancias_j60.csv').arquivo.unique())[::120]

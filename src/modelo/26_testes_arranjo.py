@@ -59,7 +59,7 @@ def job(args):
     conf,arquivo,seed=args
     par=S.carregar_parametros();par['cenarios']['teste']=copy.deepcopy(conf['cenario'])
     g,disp,cpm=entrada(arquivo)
-    op=yaml.safe_load((ROOT/'config/mvp.yaml').read_text())['opcoes']
+    op=yaml.safe_load((ROOT/'config/mvp_v1.yaml').read_text())['opcoes']
     s=SimulacaoMVP(g,disp,cpm,par,'teste',seed,opcoes=OpcoesMVP(**op))
     r=s.executar();n=r.contadores['p1_omissao']+r.contadores['p3_analitica']
     executadas=[e for e in s.registros_tarefas if e['executada']]

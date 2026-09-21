@@ -15,9 +15,9 @@ def main():
     args.saida.mkdir(parents=True,exist_ok=False)
     todas=sorted(pd.read_csv(ROOT/'data/processed/psplib/instancias_j60.csv').arquivo.unique())
     inst=todas[::len(todas)//16][:4]
-    op=yaml.safe_load((ROOT/'config/mvp.yaml').read_text())['opcoes']
+    op=yaml.safe_load((ROOT/'config/mvp_v1.yaml').read_text())['opcoes']
     fontes=['src/modelo/simulador_mvp.py','src/modelo/simulador.py','src/modelo/fuzzy.py',
-            'src/modelo/23_instrumentacao_correcao.py','config/mvp.yaml','config/parametros.yaml',
+            'src/modelo/23_instrumentacao_correcao.py','config/mvp_v1.yaml','config/parametros.yaml',
             'config/parametros_derivados.yaml','data/processed/psplib/tarefas_j60_com_di.csv',
             'data/processed/psplib/instancias_j60.csv']
     hashes={f:hashlib.sha256((ROOT/f).read_bytes()).hexdigest() for f in fontes}

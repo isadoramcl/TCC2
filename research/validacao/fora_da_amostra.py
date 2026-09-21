@@ -14,7 +14,7 @@ SEM=list(range(12)); ARMS=['centralizada','adaptativa']; SEED_AMOSTRA=20260920
 
 def job(arg):
     a,seed,cen=arg
-    p=S.carregar_parametros(); op=yaml.safe_load((ROOT/'config/mvp.yaml').read_text())['opcoes']
+    p=S.carregar_parametros(); op=yaml.safe_load((ROOT/'config/mvp_v1.yaml').read_text())['opcoes']
     op['instrumentar_tarefas']=False
     g,d,c=S.carregar_instancia(a); sim=SimulacaoMVP(g,d,c,p,cen,seed,opcoes=OpcoesMVP(**op)); r=sim.executar()
     row={k:v for k,v in asdict(r).items() if isinstance(v,(int,float,bool))}; row.update(r.contadores)

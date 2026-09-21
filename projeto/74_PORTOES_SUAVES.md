@@ -3,8 +3,10 @@
 **Data:** 21/09/2026 · **Executado por:** Claude (revisor), a pedido da autora.
 **Sem auditoria independente** — mesma ressalva do parecer 45. O Codex deve
 refazer a análise quando voltar.
-**Estado:** implementado como **opção desligada**. O nominal publicado não mudou.
-Adotar como nominal é decisão da autora com o orientador (§7).
+**Estado (atualizado em 21/09):** **adotado como nominal v2**, depois da varredura
+da inclinação e do critério escrito antes da execução — ver
+`projeto/75_CRITERIO_DE_ADOCAO_DOS_PORTOES_SUAVES.md`. A v1 está congelada em
+`config/mvp_v1.yaml`. Evidência da v2: `outputs/diagnosticos/20260921_nominal_v2/`.
 
 Código: `src/modelo/simulador_mvp.py` (opções `portao_assistencia`,
 `regra_fuga='logistica'`, `efeito_fuga`, `s_portoes`) ·
@@ -132,6 +134,11 @@ O arquivo `20260920_fora_da_amostra/bruto_fora_da_amostra.csv` perdeu o último
 bit em campos derivados: `atraso_relativo` não é igual, bit a bit, a
 `makespan/makespan_cpm` recalculado a partir do próprio arquivo. As diferenças são
 ≤ 3·10⁻¹⁴. A reexecução reproduz o modelo exatamente, e **os IC publicados não
-mudam** em nenhuma casa reportada. Consequência: a identidade bit a bit daquela
+mudam** em nenhuma casa reportada.
+
+**Causa, confirmada na v2:** ao juntar os arquivos parciais, a leitura foi feita
+sem `float_precision='round_trip'`, e o pandas arredonda a última casa na
+leitura. O mesmo erro apareceu ao montar o arquivo fora da amostra da v2; com a
+leitura corrigida, o arquivo junto ficou idêntico, bit a bit, às execuções. Consequência: a identidade bit a bit daquela
 validação se verifica contra reexecução, não contra o arquivo. O Codex deve ver
 isso na auditoria.

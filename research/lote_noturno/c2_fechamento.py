@@ -15,7 +15,7 @@ OUT=ROOT/'outputs/diagnosticos/C2_fechamento_20260919'
 BASES=[('historica_'+str(x),x,None) for x in [.05,.1,.15,.2,.25]]+[(m,None,m) for m in ['curto','longo']]
 MET=['atraso_relativo','taxa_omissao','divida_latente_sobre_plano','taxa_falha_efetiva','fracao_porta1']
 def preparar(base,het):
-    nome,anc,mapa=base;p=S.carregar_parametros();op=yaml.safe_load((ROOT/'config/mvp.yaml').read_text())['opcoes']
+    nome,anc,mapa=base;p=S.carregar_parametros();op=yaml.safe_load((ROOT/'config/mvp_v1.yaml').read_text())['opcoes']
     op.update(heterogeneidade_erro=het,instrumentar_tarefas=False)
     if mapa:op.update(ancoragem_erro='stewart_linear',mapa_passos=mapa)
     else:p['risco']['F_ancora']['valor']=anc

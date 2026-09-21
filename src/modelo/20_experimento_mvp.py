@@ -61,7 +61,8 @@ def desenho(cfg,par,etapa):
         add('legado',None)
         neutro={**base,'fator_omissao':1.,'rho_omissao':0.,'retrabalho_fila':False,
                 'horizonte_automatico':False,'lei_confianca':'constante',
-                'comunicacao_crowder':False,'reset_competencia':False}
+                'comunicacao_crowder':False,'reset_competencia':False,
+                'portao_assistencia':'limiar','regra_fuga':'constante'}
         add('controle_motor',neutro)
         tempo={**neutro,'fator_omissao':base['fator_omissao']}
         add('C4_tempo_apenas',tempo)
@@ -76,6 +77,8 @@ def desenho(cfg,par,etapa):
         reset={**lei,'reset_competencia':True}
         add('C4_C1_Crowder_C6',reset)
         add('MVP_corrigido',{**reset,'horizonte_automatico':True})
+        # [DEC 21/09] Degrau do nominal v2: portões suaves (projeto/74).
+        add('MVP_v2_portoes_suaves',{**reset,'horizonte_automatico':True,'portao_assistencia':'logistico','regra_fuga':'logistica'})
         add('MVP_corrigido_Di_yaml',base,familias['yaml_arredondado'])
     else:
         r=cfg['robustez']; pontos=list(itertools.product(r['F_ancora'],r['f_retrabalho'],r['mu_minimo']))+[tuple(r['centro'])]

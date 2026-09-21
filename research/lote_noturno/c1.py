@@ -13,7 +13,7 @@ from ancoragem_stewart import ancora_stewart,MAPAS_PASSOS
 METRICAS=['atraso_relativo','taxa_omissao','divida_latente_sobre_plano','taxa_falha_efetiva','fracao_porta1','retrabalho_sobre_esforco_total']
 def job(args):
     mapa,a,seed,cen=args
-    op=yaml.safe_load((ROOT/'config/mvp.yaml').read_text())['opcoes'];op.update(instrumentar_tarefas=False)
+    op=yaml.safe_load((ROOT/'config/mvp_v1.yaml').read_text())['opcoes'];op.update(instrumentar_tarefas=False)
     if mapa!='historica':op.update(ancoragem_erro='stewart_linear',mapa_passos=mapa)
     g,d,c=S.carregar_instancia(a);s=SimulacaoMVP(g,d,c,S.carregar_parametros(),cen,seed,opcoes=OpcoesMVP(**op));r=s.executar();n=r.contadores['p1_omissao']+r.contadores['p3_analitica']
     row=dict(mapa=mapa,arquivo=a,semente=seed,cenario=cen,concluiu=r.concluiu,violacoes=len(r.violacoes),atraso_relativo=r.makespan/r.makespan_cpm,fracao_porta1=r.contadores['p1_omissao']/n if n else np.nan,TW=r.TW,TL=r.TL,TU=r.TU,TR=r.TR)

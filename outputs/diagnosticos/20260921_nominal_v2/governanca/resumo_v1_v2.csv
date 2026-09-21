@@ -1,0 +1,11 @@
+metrica,versao,pares,sinal_negativo,inversoes_positivo_com_IC
+atraso_relativo,v1,6561,3213,1602
+divida_latente_sobre_plano,v1,6561,3212,1628
+fracao_porta1,v1,6561,3196,1701
+taxa_falha_efetiva,v1,6561,3195,379
+taxa_omissao,v1,6561,3207,2226
+atraso_relativo,v2,6561,3240,1135
+divida_latente_sobre_plano,v2,6561,3240,1635
+fracao_porta1,v2,6561,3230,516
+taxa_falha_efetiva,v2,6561,3220,108
+taxa_omissao,v2,6561,3233,2094

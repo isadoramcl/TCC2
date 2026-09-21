@@ -15,7 +15,7 @@ MET=['atraso_relativo','taxa_omissao','divida_latente_sobre_plano','taxa_falha_e
 def job(args):
  base,factor,arq,seed,cen=args;p=S.carregar_parametros()
  p['aprendizado']['incremento_base']['valor']=base;p['aprendizado']['fator_transferencia']['valor']=factor
- op=yaml.safe_load((ROOT/'config/mvp.yaml').read_text())['opcoes'];op['instrumentar_tarefas']=False
+ op=yaml.safe_load((ROOT/'config/mvp_v1.yaml').read_text())['opcoes'];op['instrumentar_tarefas']=False
  g,d,c=S.carregar_instancia(arq);s=SimulacaoMVP(g,d,c,p,cen,seed,opcoes=OpcoesMVP(**op));r=s.executar()
  row={k:v for k,v in asdict(r).items() if isinstance(v,(int,float,bool))};row.update(r.contadores)
  dc=[e['dC'] for e in s.eventos if e['tipo']=='comunicacao' and e['sucesso']]
@@ -60,7 +60,7 @@ def analyze(d):
 def run():
  cfg=yaml.safe_load((ROOT/'config/robustez_crowder.yaml').read_text());names=sorted(pd.read_csv(ROOT/'data/processed/psplib/instancias_j60.csv').arquivo.unique())[::30][:16]
  jobs=[(b,f,a,s,c) for b in cfg['incremento_base'] for f in cfg['fator_transferencia'] for a in names for s in cfg['sementes'] for c in ['centralizada','adaptativa']]
- files=[Path(__file__),ROOT/'research/lote_noturno/PROTOCOLO_CROWDER1.md',*list((ROOT/'src/modelo').glob('*.py')),ROOT/'config/parametros.yaml',ROOT/'config/mvp.yaml',ROOT/'config/robustez_crowder.yaml']
+ files=[Path(__file__),ROOT/'research/lote_noturno/PROTOCOLO_CROWDER1.md',*list((ROOT/'src/modelo').glob('*.py')),ROOT/'config/parametros.yaml',ROOT/'config/mvp_v1.yaml',ROOT/'config/robustez_crowder.yaml']
  hashes={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in files}
  (OUT/'CROWDER1_manifesto.json').write_text(json.dumps(dict(N=len(jobs),config=cfg,instancias=names,hashes=hashes),indent=2)+'\n')
  rows=[]

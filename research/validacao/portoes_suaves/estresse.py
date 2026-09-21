@@ -14,7 +14,7 @@ def job(a):
     var,arq,seed,cen,par,canal=a
     p=S.carregar_parametros()
     for (sec,k),val in par.items(): p[sec][k]['valor']=val
-    op=yaml.safe_load((ROOT/'config/mvp.yaml').read_text())['opcoes']; op['instrumentar_tarefas']=False; op.update(VAR[var]); op['limite_horizonte_fator']=CAP
+    op=yaml.safe_load((ROOT/'config/mvp_v1.yaml').read_text())['opcoes']; op['instrumentar_tarefas']=False; op.update(VAR[var]); op['limite_horizonte_fator']=CAP
     if canal: op['canal_erro_direto']=canal
     g,d,c=S.carregar_instancia(arq); r=SimulacaoMVP(g,d,c,p,cen,seed,opcoes=OpcoesMVP(**op)).executar()
     n=r.contadores['p1_fuga']+r.contadores['p1_omissao']+r.contadores['p3_analitica']

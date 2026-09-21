@@ -1,0 +1,37 @@
+# CONGELADO — nominal v1 (ate 21/09/2026). Reproduz outputs/diagnosticos/noturno_nominal
+# e toda a evidencia anterior. Nao editar. O nominal atual esta em config/mvp.yaml.
+# [DEC] Desenho registrado antes das execuções. Valores candidatos, sem otimização.
+opcoes:
+  fator_omissao: 0.75
+  retrabalho_fila: true
+  lei_confianca: crowder
+  lei_tempo_aprendizado: unitario
+  comunicacao_crowder: true
+  reset_competencia: true
+  horizonte_automatico: true
+  limite_horizonte_fator: 256
+  politica_porta2: nominal
+  tau_portao: null
+  tau_rede: null
+alternativas: {instancias: 16, sementes: 12}
+robustez:
+  instancias: 4
+  sementes: 4
+  F_ancora: [0.05, 0.25]
+  f_retrabalho: [0.30, 0.80]
+  mu_minimo: [0.40, 0.70]
+  centro: [0.15, 0.55, 0.55]
+  politicas_porta2: [nominal, sem_assistencia, assistencia_universal, sem_filtro_competencia]
+  leis_confianca: [constante, crowder]
+  fatores_omissao: [0.50, 0.75, 1.0]
+  rho_omissao: [0.20, 0.35, 0.50]
+  multiplicador_horizonte_verificacao: 2
+pesos_di_fonte: config/parametros.yaml:dificuldade.pesos_Di
+controle_di: terco_exato
+limitacoes: >-
+  [DEC] Desenho discreto sem otimização ou ranking. Bateria, risco adicional,
+  confiança inicial e limiares mantidos nas configurações declaradas. Rho cruzado
+  com a família discreta inteira. Interior
+  contínuo, interações dos complementos entre si e com vértices não explorados.
+  Intervalos t usam instâncias; n=4 na robustez implica baixa precisão. Resultados
+  censurados permanecem nas tabelas como observações até o limite, não sucesso.

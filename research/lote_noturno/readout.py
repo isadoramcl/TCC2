@@ -13,7 +13,7 @@ from test_compatibilidade import bits,projetar
 def capturar():
     out={};nom=[]
     nomes=sorted(pd.read_csv(ROOT/'data/processed/psplib/instancias_j60.csv').arquivo.unique())[::120]
-    op=yaml.safe_load((ROOT/'config/mvp.yaml').read_text())['opcoes']
+    op=yaml.safe_load((ROOT/'config/mvp_v1.yaml').read_text())['opcoes']
     for nome in nomes:
         g,d,c=S.carregar_instancia(nome)
         for cen in ['centralizada','adaptativa']:

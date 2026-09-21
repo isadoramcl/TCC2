@@ -1,0 +1,26 @@
+s,metrica,txt,neg,exclui
+0.05,atraso_relativo,-1.0793 [-1.1802; -0.9784],True,True
+0.05,taxa_omissao,-0.2281 [-0.2469; -0.2094],True,True
+0.05,divida_latente_sobre_plano,-0.0770 [-0.0859; -0.0682],True,True
+0.05,taxa_falha_efetiva,-0.0450 [-0.0577; -0.0323],True,True
+0.05,fracao_porta1,-0.1159 [-0.1353; -0.0965],True,True
+0.1,atraso_relativo,-1.0641 [-1.1882; -0.9400],True,True
+0.1,taxa_omissao,-0.2226 [-0.2382; -0.2069],True,True
+0.1,divida_latente_sobre_plano,-0.0738 [-0.0814; -0.0662],True,True
+0.1,taxa_falha_efetiva,-0.0431 [-0.0522; -0.0339],True,True
+0.1,fracao_porta1,-0.1056 [-0.1218; -0.0894],True,True
+0.25,atraso_relativo,-0.9429 [-1.0864; -0.7994],True,True
+0.25,taxa_omissao,-0.2016 [-0.2137; -0.1894],True,True
+0.25,divida_latente_sobre_plano,-0.0694 [-0.0761; -0.0628],True,True
+0.25,taxa_falha_efetiva,-0.0229 [-0.0347; -0.0111],True,True
+0.25,fracao_porta1,-0.0511 [-0.0697; -0.0326],True,True
+0.5,atraso_relativo,-0.8502 [-0.9311; -0.7694],True,True
+0.5,taxa_omissao,-0.1933 [-0.2082; -0.1785],True,True
+0.5,divida_latente_sobre_plano,-0.0666 [-0.0764; -0.0568],True,True
+0.5,taxa_falha_efetiva,-0.0119 [-0.0272; 0.0034],True,False
+0.5,fracao_porta1,-0.0431 [-0.0568; -0.0295],True,True
+1.0,atraso_relativo,-0.8242 [-0.9287; -0.7197],True,True
+1.0,taxa_omissao,-0.2024 [-0.2159; -0.1889],True,True
+1.0,divida_latente_sobre_plano,-0.0688 [-0.0777; -0.0599],True,True
+1.0,taxa_falha_efetiva,-0.0168 [-0.0260; -0.0075],True,True
+1.0,fracao_porta1,-0.0269 [-0.0352; -0.0186],True,True

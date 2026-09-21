@@ -22,7 +22,7 @@ MALHA=[.25,.59,.60,.600001,.61,.65,.80,1.]
 
 def configurar(row,tau,modo):
     p=S.carregar_parametros();p['agentes']['tau_sat']['valor']=row['tau_sat'];p['agentes']['s_transicao']['valor']=row['s_transicao']
-    op=yaml.safe_load((ROOT/'config/mvp.yaml').read_text())['opcoes'];assert op['limite_horizonte_fator']==256
+    op=yaml.safe_load((ROOT/'config/mvp_v1.yaml').read_text())['opcoes'];assert op['limite_horizonte_fator']==256
     op.update(canal_erro_direto=row['canal'],instrumentar_tarefas=False)
     assert S.v(p['cenarios']['centralizada']['tau_inicial'])==.25
     assert S.v(p['cenarios']['centralizada']['tau_min'])==.6

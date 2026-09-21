@@ -12,7 +12,7 @@ class IdentidadeC2(unittest.TestCase):
         name='_mvp_anterior_C2';mod=types.ModuleType(name);sys.modules[name]=mod
         code=subprocess.check_output(['git','show','efd1248:src/modelo/simulador_mvp.py'],cwd=ROOT,text=True)
         exec(compile(code,name,'exec'),mod.__dict__)
-        op=yaml.safe_load((ROOT/'config/mvp.yaml').read_text())['opcoes']
+        op=yaml.safe_load((ROOT/'config/mvp_v1.yaml').read_text())['opcoes']
         for arq in ['j6010_1.sm','j6021_1.sm']:
             g,d,c=S.carregar_instancia(arq)
             for cen in ['centralizada','adaptativa']:

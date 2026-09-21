@@ -1,0 +1,11 @@
+metrica,N,negativos,zeros,positivos,IC_negativo,IC_positivo,versao
+atraso_relativo,1215,1083,27,105,697,3,v1
+divida_latente_sobre_plano,1215,1117,28,70,716,1,v1
+fracao_porta1,1215,804,39,372,577,11,v1
+taxa_falha_efetiva,1215,915,40,260,144,4,v1
+taxa_omissao,1215,1071,32,112,687,3,v1
+atraso_relativo,1215,1128,0,87,482,3,v2
+divida_latente_sobre_plano,1215,1101,0,114,640,4,v2
+fracao_porta1,1215,802,8,405,155,7,v2
+taxa_falha_efetiva,1215,564,8,643,15,30,v2
+taxa_omissao,1215,926,3,286,623,15,v2

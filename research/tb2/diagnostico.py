@@ -54,7 +54,7 @@ def tabular(d,out,sufixo):
 
 def job(row):
     p=S.carregar_parametros();p['agentes']['tau_sat']['valor']=row['tau_sat'];p['agentes']['s_transicao']['valor']=row['s_transicao']
-    op=yaml.safe_load((ROOT/'config/mvp.yaml').read_text())['opcoes'];assert op['limite_horizonte_fator']==256
+    op=yaml.safe_load((ROOT/'config/mvp_v1.yaml').read_text())['opcoes'];assert op['limite_horizonte_fator']==256
     op.update(limite_horizonte_fator=512,canal_erro_direto=row['canal'],instrumentar_tarefas=False)
     g,disp,cpm=S.carregar_instancia(row['arquivo']);s=SimulacaoMVP(g,disp,cpm,p,row['cenario'],int(row['semente']),opcoes=OpcoesMVP(**op));r=s.executar()
     n=r.contadores['p1_omissao']+r.contadores['p3_analitica']

@@ -1,4 +1,4 @@
-"""Portões suaves (projeto/74): opcionais, desligados por default.
+"""Portões suaves (projeto/74). Nominal v2 desde 21/09 (config/mvp.yaml); v1 em config/mvp_v1.yaml.
 
 Contratos: (1) com as opções default o nominal arquivado é reproduzido bit a bit;
 (2) o portão logístico abre a assistência no arranjo centralizado;
@@ -13,7 +13,7 @@ import simulador as S
 from simulador_mvp import SimulacaoMVP,OpcoesMVP
 
 def opcoes(**extra):
-    op=yaml.safe_load((RAIZ/'config/mvp.yaml').read_text())['opcoes']; op['instrumentar_tarefas']=False; op.update(extra)
+    op=yaml.safe_load((RAIZ/'config/mvp_v1.yaml').read_text())['opcoes']; op['instrumentar_tarefas']=False; op.update(extra)
     return OpcoesMVP(**op)
 
 def rodar(arq,seed,cen,op,par=None):
@@ -51,6 +51,17 @@ class PortoesSuaves(unittest.TestCase):
         par={('agentes','tau_sat'):float(k.tau_sat),('agentes','s_transicao'):float(k.s_transicao)}
         _,r=rodar(k.arquivo,int(k.semente),k.cenario,opcoes(portao_assistencia='logistico',canal_erro_direto=k.canal,limite_horizonte_fator=16),par)
         self.assertTrue(r.concluiu)
+
+    def test_nominal_v2_reproduz_arquivo(self):
+        op=yaml.safe_load((RAIZ/'config/mvp.yaml').read_text())['opcoes']; op['instrumentar_tarefas']=False
+        self.assertEqual(op['portao_assistencia'],'logistico'); self.assertEqual(op['regra_fuga'],'logistica')
+        arq=pd.read_csv(RAIZ/'outputs/diagnosticos/20260921_nominal_v2/bruto_nominal.csv',float_precision='round_trip')
+        for cen in ['centralizada','adaptativa']:
+            _,r=rodar('j6010_1.sm',0,cen,OpcoesMVP(**op))
+            ref=arq[(arq.arquivo=='j6010_1.sm')&(arq.semente==0)&(arq.cenario==cen)].iloc[0]
+            linha={k:v for k,v in asdict(r).items() if isinstance(v,(int,float,bool))}; linha.update(r.contadores)
+            for campo in ['makespan','TW','TL','TU','TR','taxa_falha_efetiva','p1_omissao','p1_fuga','N_req','confianca_media_final']:
+                self.assertEqual(float(linha[campo]).hex(),float(ref[campo]).hex(),campo)
 
     def test_opcoes_invalidas(self):
         with self.assertRaises(ValueError): OpcoesMVP(portao_assistencia='x')

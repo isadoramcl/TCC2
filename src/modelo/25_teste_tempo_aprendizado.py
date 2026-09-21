@@ -21,7 +21,7 @@ def bits(x):
 def job(chave):
     arquivo,seed,cen=chave
     g,disp,cpm=S.carregar_instancia(arquivo)
-    op=yaml.safe_load((ROOT/'config/mvp.yaml').read_text())['opcoes']
+    op=yaml.safe_load((ROOT/'config/mvp_v1.yaml').read_text())['opcoes']
     sims=[];res=[];rows=[]
     for lei in ['unitario','crowder_eq3']:
         s=SimulacaoMVP(g,disp,cpm,S.carregar_parametros(),cen,seed,
@@ -59,7 +59,7 @@ def main():
     sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
     hashes={str(p.relative_to(ROOT)):sha(p) for p in arquivos}
     (out/'manifesto.json').write_text(json.dumps(dict(baseline='1fd22ff',leis=['unitario','crowder_eq3'],
-        n_execucoes=2*len(jobs),chaves=jobs,opcoes=yaml.safe_load((ROOT/'config/mvp.yaml').read_text())['opcoes'],hashes=hashes,
+        n_execucoes=2*len(jobs),chaves=jobs,opcoes=yaml.safe_load((ROOT/'config/mvp_v1.yaml').read_text())['opcoes'],hashes=hashes,
         unidade_IC='instancia; sementes pareadas internas',python=platform.python_version()),indent=2)+'\n')
     rows=[]
     with ProcessPoolExecutor(max_workers=a.workers) as pool:

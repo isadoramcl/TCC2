@@ -21,7 +21,7 @@ def job(arg):
     a,seed,cen,var,par_extra=arg
     p=S.carregar_parametros()
     for (sec,k),val in par_extra.items(): p[sec][k]={'valor':val}
-    op=yaml.safe_load((ROOT/'config/mvp.yaml').read_text())['opcoes']; op['instrumentar_tarefas']=False
+    op=yaml.safe_load((ROOT/'config/mvp_v1.yaml').read_text())['opcoes']; op['instrumentar_tarefas']=False
     op.update(VAR[var])
     g,d,c=S.carregar_instancia(a); r=SimulacaoMVP(g,d,c,p,cen,seed,opcoes=OpcoesMVP(**op)).executar()
     row={k:v for k,v in asdict(r).items() if isinstance(v,(int,float,bool))}; row.update(r.contadores)

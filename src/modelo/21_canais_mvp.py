@@ -59,7 +59,7 @@ def rodar_job(job):
     for sem in range(n_sementes):
         if modelo=='legado': sim=RedeSeparada(tarefas,disp,cpm,par,'celula',sem,tau_rede=n)
         else:
-            op=yaml.safe_load((ROOT/'config/mvp.yaml').read_text())['opcoes']
+            op=yaml.safe_load((ROOT/'config/mvp_v1.yaml').read_text())['opcoes']
             op.update(tau_portao=g,tau_rede=n)
             sim=SimulacaoMVP(tarefas,disp,cpm,par,'celula',sem,opcoes=OpcoesMVP(**op))
         r=sim.executar()
@@ -122,9 +122,9 @@ def main():
     args=ap.parse_args(); args.saida.mkdir(parents=True,exist_ok=False)
     todas=sorted(pd.read_csv(ROOT/'data/processed/psplib/tarefas_j60_com_di.csv').arquivo.unique())
     inst=todas[::max(1,len(todas)//16)][:16]
-    arquivos=['src/modelo/simulador.py','src/modelo/simulador_mvp.py','src/modelo/fuzzy.py','src/modelo/21_canais_mvp.py','config/parametros.yaml','config/mvp.yaml','config/parametros_derivados.yaml','data/processed/psplib/tarefas_j60_com_di.csv']
+    arquivos=['src/modelo/simulador.py','src/modelo/simulador_mvp.py','src/modelo/fuzzy.py','src/modelo/21_canais_mvp.py','config/parametros.yaml','config/mvp_v1.yaml','config/parametros_derivados.yaml','data/processed/psplib/tarefas_j60_com_di.csv']
     hashes={f:hashlib.sha256((ROOT/f).read_bytes()).hexdigest() for f in arquivos}
-    (args.saida/'manifesto.json').write_text(json.dumps(dict(modelo=args.modelo,instancias=inst,sementes=list(range(12)),celulas=CELULAS,hashes=hashes,opcoes=yaml.safe_load((ROOT/'config/mvp.yaml').read_text())['opcoes']),indent=2)+'\n')
+    (args.saida/'manifesto.json').write_text(json.dumps(dict(modelo=args.modelo,instancias=inst,sementes=list(range(12)),celulas=CELULAS,hashes=hashes,opcoes=yaml.safe_load((ROOT/'config/mvp_v1.yaml').read_text())['opcoes']),indent=2)+'\n')
     jobs=[(args.modelo,a,c,12) for c in CELULAS for a in inst]
     rows=[]
     with ProcessPoolExecutor(max_workers=args.workers) as pool:

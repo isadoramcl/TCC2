@@ -23,7 +23,7 @@ def fracao_p1(p1,p3):
 def job(args):
     etapa,canal,tau,escala,cen,arquivo,seed=args
     p=S.carregar_parametros();p['agentes']['tau_sat']['valor']=tau;p['agentes']['s_transicao']['valor']=escala
-    op=yaml.safe_load((ROOT/'config/mvp.yaml').read_text())['opcoes'];op['canal_erro_direto']=canal;op['instrumentar_tarefas']=False
+    op=yaml.safe_load((ROOT/'config/mvp_v1.yaml').read_text())['opcoes'];op['canal_erro_direto']=canal;op['instrumentar_tarefas']=False
     g,disp,cpm=S.carregar_instancia(arquivo);s=SimulacaoMVP(g,disp,cpm,p,cen,seed,opcoes=OpcoesMVP(**op));r=s.executar()
     n=r.contadores['p1_omissao']+r.contadores['p3_analitica']
     return dict(etapa=etapa,canal=canal,tau_sat=tau,s_transicao=escala,cenario=cen,arquivo=arquivo,semente=seed,

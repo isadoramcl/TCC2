@@ -50,9 +50,13 @@ do código que o produziu.
 | `fechamento_20260919` | 19/09 | Fechamento das entregas obrigatórias | | 5 | 0,008 |
 | `20260920_fora_da_amostra` | 20/09 | **Validação fora da amostra**, 48 instâncias novas | 1 536 | 11 | 1,2 |
 | `20260921_c4_dinamico` | 21/09 | Sensibilidade dinâmica da seleção heurística à pressão (C4) | 2 304 | 3 | 0,1 |
-| `20260921_portoes_suaves` | 21/09 | **Portões suaves** — teste da correção das três condições degeneradas | 4 296 | 18 | 2,8 |
+| `20260921_portoes_suaves` | 21/09 | **Portões suaves** — teste, estresse e varredura da inclinação (`varredura_s/`) | 6 396 | 30 | 3,8 |
+| `20260921_nominal_v2` | 21/09 | **Nominal v2** — nominal, fora da amostra, governança 81 perfis e sensibilidade à pressão | 6 432 | 23 | 6,4 |
 
 ---
+
+> **Versões.** Tudo até `20260921_c4_dinamico` foi produzido com o nominal v1
+> (`config/mvp_v1.yaml`). `20260921_nominal_v2` é a evidência do nominal atual.
 
 ## Os que não podem ser movidos nem renomeados
 

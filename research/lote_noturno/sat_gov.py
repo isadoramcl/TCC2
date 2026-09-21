@@ -40,7 +40,7 @@ def sat1():
  return bool(rows[0]['meio_01_09']<.1)
 
 def job(arg):
- kind,cell,vals,a,seed,cen=arg;p=S.carregar_parametros();op=yaml.safe_load((ROOT/'config/mvp.yaml').read_text())['opcoes'];op['instrumentar_tarefas']=False
+ kind,cell,vals,a,seed,cen=arg;p=S.carregar_parametros();op=yaml.safe_load((ROOT/'config/mvp_v1.yaml').read_text())['opcoes'];op['instrumentar_tarefas']=False
  if kind=='GOV':
   for k,v in zip(FACT,vals):p['cenarios'][cen][k]['valor']=v
  else:
@@ -61,7 +61,7 @@ def run():
  profiles=list(itertools.product(*[cfg['gov'][k] for k in FACT]));pd.DataFrame([dict(celula=i,**dict(zip(FACT,v))) for i,v in enumerate(profiles)]).to_csv(OUT/'GOV_perfis.csv',index=False)
  jobs=[('GOV',i,v,a,s,c) for i,v in enumerate(profiles) for a in names for s in cfg['sementes'] for c in ['centralizada','adaptativa']]
  if confirmed:jobs=[('SAT2',i,[v],a,s,c) for i,v in enumerate(cfg['s_transicao']) for a in names for s in cfg['sementes'] for c in ['centralizada','adaptativa']]+jobs
- files=list((ROOT/'src/modelo').glob('*.py'))+[ROOT/'config/parametros.yaml',ROOT/'config/mvp.yaml',Path(__file__),ROOT/'config/robustez_sat_gov.yaml']
+ files=list((ROOT/'src/modelo').glob('*.py'))+[ROOT/'config/parametros.yaml',ROOT/'config/mvp_v1.yaml',Path(__file__),ROOT/'config/robustez_sat_gov.yaml']
  hashes={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in files}
  (OUT/'manifesto.json').write_text(json.dumps(dict(config=cfg,N=len(jobs),instancias=names,SAT1_confirma=confirmed,hashes=hashes),indent=2))
  rows=[]

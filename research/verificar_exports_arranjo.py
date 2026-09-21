@@ -18,7 +18,7 @@ with tempfile.TemporaryDirectory(prefix='tcc2-export-') as tmp:
   d=pd.read_csv(next((o/n).glob('*.csv')));assert d.taxa_falha_efetiva.between(0,1).all();checks.append(n)
  m=mod('11');m.NIVEIS_P=[.5];m.DIR_PARCIAIS=o/'11';m.rodar(a,'centralizada',[0],'smoke')
  assert 'taxa_falha_efetiva' in pd.read_csv(next((o/'11').glob('*.csv')));checks.append('11')
- m=mod('20');cfg=yaml.safe_load((R/'config/mvp.yaml').read_text());conf=m.desenho(cfg,S.carregar_parametros(),'alternativas')[-2];d=m.executar_job((conf,a,0,'centralizada'));assert 'taxa_falha_efetiva' in d;checks.append('20')
+ m=mod('20');cfg=yaml.safe_load((R/'config/mvp_v1.yaml').read_text());conf=m.desenho(cfg,S.carregar_parametros(),'alternativas')[-2];d=m.executar_job((conf,a,0,'centralizada'));assert 'taxa_falha_efetiva' in d;checks.append('20')
  m=mod('21');d=m.rodar_job(('mvp',a,'00000',1));assert 'taxa_falha_efetiva' in d[0];checks.append('21')
  m=mod('25');d=m.job((a,0,'adaptativa'));assert d[0]['taxa_falha_efetiva']==d[1]['taxa_falha_efetiva'];checks.append('25')
  m=mod('05');d,p=m.carregar();assert d.taxa_falha_efetiva.between(0,1).all();checks.append('05 histórico')
