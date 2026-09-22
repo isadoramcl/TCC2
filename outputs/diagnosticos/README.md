@@ -52,6 +52,8 @@ do código que o produziu.
 | `20260921_c4_dinamico` | 21/09 | Sensibilidade dinâmica da seleção heurística à pressão (C4) | 2 304 | 3 | 0,1 |
 | `20260921_portoes_suaves` | 21/09 | **Portões suaves** — teste, estresse e varredura da inclinação (`varredura_s/`) | 6 396 | 30 | 3,8 |
 | `20260921_nominal_v2` | 21/09 | **Nominal v2** — nominal, fora da amostra, governança 81 perfis e sensibilidade à pressão | 6 432 | 23 | 6,4 |
+| `20260922_auditoria_v2` | 22/09 | **Auditoria independente do nominal v2** (Codex) — ver `projeto/76` e `77` | | 20 | |
+| `20260922_teste_aleatorio` | 22/09 | Teste aleatório: 24 instâncias nunca usadas, sementes 100–111, critério prévio | 576 | 7 | |
 
 ---
 

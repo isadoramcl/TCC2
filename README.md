@@ -203,7 +203,17 @@ da proibição, e não da governança.
 - Simulador implementado, com identidade bit a bit preservada em todas as
   alterações. A versão 1 continua reproduzível exatamente a partir de
   `config/mvp_v1.yaml`.
-- Cinco indicadores com intervalo de confiança, replicados fora da amostra.
+- Cinco indicadores com intervalo de confiança, replicados fora da amostra e
+  num teste aleatório adicional (24 instâncias nunca usadas, sorteadas ao acaso,
+  com sementes novas, critério escrito antes da execução): os cinco contrastes
+  negativos, todos com intervalo excluindo zero, e as 576 execuções completas.
+  Esse teste foi executado depois da auditoria e ainda não foi auditado.
+- **Auditoria independente do nominal v2** (`projeto/76`, revisada em
+  `projeto/77`): reexecução bit a bit das versões 1 e 2, dentro e fora da
+  amostra, e recálculo próprio dos intervalos, da varredura de governança e da
+  sensibilidade à pressão. Oito dos nove itens confirmados; o nono — confiança
+  final abaixo da inicial em algumas execuções — foi verificado como
+  comportamento previsto pelo modelo (ver abaixo).
 - **As três decisões do modelo usam a mesma transição suave.** No TCC I eram
   comparações duras entre dois números, e duas delas degeneravam: a rota de fuga
   nunca disparava e o arranjo centralizado nunca pedia ajuda. Agora a fuga
@@ -243,10 +253,6 @@ da proibição, e não da governança.
   cognitiva que o modelo já usava, sem dado nem calibração. Varrida de 0,05 a
   1,00, os cinco contrastes mantêm o sinal em todos os valores; a magnitude de
   falha efetiva e de fração via Porta 1 depende dela.
-- **Os experimentos de 20 e 21/09 foram executados pelo revisor e ainda não
-  passaram por auditoria independente**: validação fora da amostra, portões
-  suaves, nominal versão 2, sensibilidade à pressão e varredura de governança
-  da versão 2.
 
 ### O que o TCC I previa e mudou
 
