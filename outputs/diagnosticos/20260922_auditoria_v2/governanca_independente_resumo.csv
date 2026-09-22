@@ -1,0 +1,6 @@
+metrica,N,positivos,negativos,zeros,favoraveis_pct,IC_positivos,IC_negativos
+atraso_relativo,1215,87,1128,0,92.8395061728395,3,482
+divida_latente_sobre_plano,1215,114,1101,0,90.61728395061729,4,640
+fracao_porta1,1215,405,802,8,66.0082304526749,7,155
+taxa_falha_efetiva,1215,643,564,8,46.41975308641975,30,15
+taxa_omissao,1215,286,926,3,76.21399176954733,15,623
