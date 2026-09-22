@@ -28,6 +28,14 @@ cada. Mesma configuração lida, mesmo código de simulação com as opções no
 desligadas (item 1) → mesma saída. Item 2 passa a **CONFIRMADO por equivalência
 de entrada**, não por reexecução.
 
+## Item 7 — numerador trocado no texto do 76
+
+O 76 escreve "falha efetiva favorece o adaptativo em 643/1.215 = 46,42%". O
+percentual está certo, o numerador não: 643 é o número de pares que favorecem o
+**centralizado** (52,92%); os que favorecem o adaptativo são **564** (46,42%).
+Corrigido pelo próprio auditor em 22/09. O README e o parecer 75 já usavam os
+números certos.
+
 ## Item 9 — já tratado
 
 A divergência veio do enunciado da ordem de auditoria, que não dizia "em média".
