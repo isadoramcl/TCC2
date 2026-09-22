@@ -1,0 +1,36 @@
+{
+  "static_checks": {
+    "aux_none_when_off": true,
+    "principal_rng_untouched": true,
+    "drain_preserved": true,
+    "logistic_assist_nominal_only": true,
+    "v2_defaults": true
+  },
+  "v1_rows": 384,
+  "v1_divergent_fields": [],
+  "v2_rows": 384,
+  "v2_divergent_fields": [],
+  "oos_rows": 1152,
+  "oos_divergent_fields": [],
+  "suite_log": "suite2.log",
+  "s_points": [
+    0.1,
+    0.25
+  ],
+  "plausibility": [
+    {
+      "cenario": "adaptativa",
+      "conf_final": 0.9536992021670333,
+      "fuga": 0.14786179507850214,
+      "decisoes": 60.0
+    },
+    {
+      "cenario": "centralizada",
+      "conf_final": 0.6050031671428128,
+      "fuga": 0.1876097060719798,
+      "decisoes": 60.0
+    }
+  ],
+  "c4_v1_rows": 2304,
+  "c4_v2_rows": 2304
+}
