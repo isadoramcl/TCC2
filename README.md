@@ -248,7 +248,11 @@ da proibição, e não da governança.
   dívida latente e a omissão favorecem o adaptativo em 76% a 93% dos pares, e a
   fração via Porta 1 em 66%. **A taxa de falha efetiva não é robusta:** favorece o adaptativo em 46% dos pares
   e o centralizado em 53%. A vantagem em falha efetiva vale para os parâmetros
-  nominais, não para o espaço de governança como um todo.
+  nominais, não para o espaço de governança como um todo. Um teste fatorial
+  (`projeto/78`) mostrou que não há causa única: parte dos casos inverte com a
+  abertura do pedido de ajuda, parte com a rota de fuga, parte só com as duas
+  juntas, sem interação estatisticamente demonstrada — e 6 de 20 casos
+  amostrados já favoreciam o centralizado na versão 1.
 - **A inclinação dos portões suaves (0,25) é premissa.** Foi tomada da transição
   cognitiva que o modelo já usava, sem dado nem calibração. Varrida de 0,05 a
   1,00, os cinco contrastes mantêm o sinal em todos os valores; a magnitude de
