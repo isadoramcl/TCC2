@@ -13,6 +13,20 @@ do código que o produziu.
 
 ---
 
+## Comece aqui — evidência do modelo atual (nominal v2)
+
+| diretório | o que tem |
+|---|---|
+| `20260921_nominal_v2` | resultados oficiais: nominal, fora da amostra, governança e sensibilidade à pressão |
+| `20260922_auditoria_v2` | auditoria independente desses resultados |
+| `20260922_teste_aleatorio` | teste com 24 instâncias nunca usadas |
+| `20260921_portoes_suaves` | o teste que levou à adoção da v2 |
+
+Todo o resto é **histórico da v1**: continua válido e reproduzível a partir de
+`config/mvp_v1.yaml`, mas não é o resultado atual do modelo.
+
+---
+
 ## Ordem cronológica
 
 | diretório | data | o que é | execuções | arq. | MB |
