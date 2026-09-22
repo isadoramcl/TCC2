@@ -208,8 +208,11 @@ da proibição, e não da governança.
   comparações duras entre dois números, e duas delas degeneravam: a rota de fuga
   nunca disparava e o arranjo centralizado nunca pedia ajuda. Agora a fuga
   dispara de forma gradual, crescendo com a sobrecarga, e a confiança no arranjo
-  centralizado sobe de 0,25 para cerca de 0,60 ao longo do projeto, sem alcançar
-  a do adaptativo (0,95). Todas as execuções terminam, inclusive as 36 que
+  centralizado sobe, em média, de 0,25 para cerca de 0,60 ao longo do projeto,
+  sem alcançar a do adaptativo (0,95). Em cerca de 1,6% das execuções ela
+  termina abaixo da inicial (mínimo 0,21): são projetos em que a maioria dos
+  pedidos de ajuda encontrou o colega ocupado, e cada pedido frustrado reduz a
+  confiança, pela lei de Crowder. Todas as execuções terminam, inclusive as 36 que
   travavam na versão 1.
 - Controles publicados reproduzidos: seis pontos de Stewart & Melchers (1988),
   parâmetros da beta-binomial de Stewart (1992) e as frequências da Tabela 2.

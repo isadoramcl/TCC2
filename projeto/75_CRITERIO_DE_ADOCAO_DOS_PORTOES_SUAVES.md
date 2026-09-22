@@ -97,3 +97,18 @@ a v1 só parecia robusta nesse indicador porque o centralizado estava proibido d
 pedir ajuda. Mas muda o que se pode afirmar: falha efetiva vale no ponto nominal,
 não como conclusão geral. A causa das inversões não foi investigada — fica para a
 auditoria.
+
+### Auditoria (22/09/2026) — item 9 marcado DIVERGENTE
+
+O auditor leu o critério de plausibilidade **por execução**; o critério 5 acima foi
+escrito sobre a **média**. A média passa (0,605). Por execução, a confiança final
+do centralizado fica abaixo da inicial em 2 de 192 execuções do nominal (mínimo
+0,238) e em 10 de 576 fora da amostra (mínimo 0,211).
+
+**Causa verificada:** nessas execuções, em média 23 a 27 dos cerca de 30 pedidos
+de ajuda falham porque o colega está ocupado, e a Eq. (4) de Crowder desconta
+0,01 da confiança a cada pedido frustrado. É o comportamento previsto pela lei que
+já estava no nominal: confiança que se desgasta quando a ajuda não chega. Não é
+defeito. A ambiguidade foi do enunciado que o revisor passou ao auditor — a ordem
+dizia "fica entre 0,25 e a do adaptativo" sem dizer "em média". O README passou a
+declarar a fração e o mínimo.
