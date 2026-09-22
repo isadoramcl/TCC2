@@ -1,0 +1,17 @@
+{
+  "N_exec": 1920,
+  "completas": 1920,
+  "violacoes": 0,
+  "denominadores": [
+    60
+  ],
+  "n_executadas": [
+    60
+  ],
+  "n_concluidas": [
+    60
+  ],
+  "conjuntos_tarefas_invariantes": true,
+  "comparacao_conjuntos_chaves": 480,
+  "protegidos_inalterados": true
+}

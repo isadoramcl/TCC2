@@ -1,0 +1,86 @@
+{
+  "aprovado": false,
+  "canto": "00",
+  "chave": {
+    "celula": 2,
+    "arquivo": "j6010_1.sm",
+    "semente": 3,
+    "cenario": "adaptativa"
+  },
+  "divergencias": [
+    {
+      "campo": "competencia_minima_inicial",
+      "referencia": 0.24332019624229823,
+      "obtido": 0.24332019624229825,
+      "hex_referencia": "0x1.f251dbea89292p-3",
+      "hex_obtido": "0x1.f251dbea89293p-3",
+      "delta": 2.7755575615628914e-17
+    }
+  ],
+  "contagens": {
+    "00": {
+      "exec": 4,
+      "comparacoes": 212,
+      "campos": [
+        "concluiu",
+        "makespan",
+        "makespan_cpm",
+        "E_total",
+        "S_UR_final",
+        "S_UR_maximo",
+        "S_PV_final",
+        "TW",
+        "TL",
+        "TU",
+        "TR",
+        "n_limpas",
+        "n_com_erro",
+        "n_reportadas",
+        "n_adiamentos",
+        "taxa_omissao",
+        "taxa_falha_efetiva",
+        "E_plano",
+        "retrabalho_sobre_esforco_total",
+        "retrabalho_sobre_plano",
+        "divida_latente_sobre_plano",
+        "retrabalho_sobre_esforco_realizado",
+        "p1_omissao",
+        "p1_fuga",
+        "p2_ajuda",
+        "p2_bloqueio",
+        "p3_analitica",
+        "hiato_encontrado",
+        "hiato_sem_colega_capaz",
+        "hiato_sem_colega_livre",
+        "hiato_colega_capaz_sem_confianca",
+        "competencia_maxima_inicial",
+        "competencia_minima_inicial",
+        "tarefas_acima_da_competencia_maxima_inicial",
+        "n_tarefas",
+        "N_req",
+        "N_fail",
+        "N_blocked",
+        "N_success",
+        "competencia_maxima_final",
+        "ablacoes",
+        "retrabalho_gerado",
+        "retrabalho_pendente",
+        "ocupacao_retrabalho",
+        "extensoes_horizonte",
+        "motivo_termino",
+        "confianca_media_final",
+        "kind",
+        "violacoes",
+        "atraso_relativo",
+        "fracao_porta1",
+        "n_selecoes_p1",
+        "fracao_fuga_p1"
+      ]
+    },
+    "11": {
+      "exec": 0,
+      "comparacoes": 0,
+      "campos": []
+    }
+  }
+}

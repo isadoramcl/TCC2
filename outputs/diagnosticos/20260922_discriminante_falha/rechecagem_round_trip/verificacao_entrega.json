@@ -1,0 +1,13 @@
+{
+  "status": "PARADO_DIFERENCA_APENAS_COMPETENCIA_MINIMA_INICIAL",
+  "hashes": {
+    "projeto/78_CAUSA_DA_FALHA_EFETIVA_NA_V2.md": "a5cdcadb8b2199bf74731dfa334ce31582b56e15b75bf12d6cdb63cd8d4858c1",
+    "research/conferencia_round_trip_78.py": "7f03711aaeb8b4c9f7672099e1ab22d21b1bc67a179f9ce8ab541013d989ef7e",
+    "outputs/diagnosticos/20260922_discriminante_falha/rechecagem_round_trip.log": "d2a83be3984e1853c62e394ebc0bccd72d89e637705bb59303ecad99b9061b08",
+    "outputs/diagnosticos/20260922_discriminante_falha/rechecagem_round_trip/divergencias_todas.csv": "6eb177d5fdb16490c43098b432695ab05ea6dfe67201298ce2e2452236e1a04a",
+    "outputs/diagnosticos/20260922_discriminante_falha/rechecagem_round_trip/bruto.csv": "aa6139489605aa21b787c4067b48f0044376db39d9070d2307eed46a9df6f3bf",
+    "outputs/diagnosticos/20260922_discriminante_falha/rechecagem_round_trip/resumo.json": "5d030d2569c82a7808a1b49e384f99a4a61c6d43039313d9bb5f5892882da11f",
+    "outputs/diagnosticos/20260922_discriminante_falha/rechecagem_round_trip/valor_literal.json": "243e6fa86f83dfd714115e489c0415cb2a55161f12498640e17e5a499dcd2fe8"
+  },
+  "protegidos_inalterados": true
+}

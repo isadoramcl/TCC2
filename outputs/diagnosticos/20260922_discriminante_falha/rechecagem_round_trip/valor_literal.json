@@ -1,0 +1,15 @@
+[
+  {
+    "arquivo": "outputs/diagnosticos/SAT_GOV_20260919/bruto.csv",
+    "linha": 73,
+    "chave": [
+      2,
+      "j6010_1.sm",
+      3,
+      "adaptativa"
+    ],
+    "campo": "competencia_minima_inicial",
+    "texto_exato": "0.24332019624229823",
+    "float_nativo_hex": "0x1.f251dbea89292p-3"
+  }
+]

@@ -1,0 +1,9 @@
+{
+  "tabelas_IC_conferidas": 3,
+  "linhas_IC_conferidas": 2940,
+  "max_residuo_media_limites": 5.684341886080802e-14,
+  "metodo": "csv.DictReader + statistics.fmean/stdev; t_3 por bissecao da CDF analitica; segunda implementacao, sem agregacoes pandas",
+  "criterio_tabelas": 1e-12,
+  "nota": "Tolerancia apenas entre formulas equivalentes de agregacao; nao modifica a identidade dos controles",
+  "protegidos_inalterados": true
+}

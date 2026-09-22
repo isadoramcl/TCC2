@@ -1,0 +1,8 @@
+{
+  "utc": "2026-09-22T14:05:11.694769+00:00",
+  "hash_criterio": "e36e08d52f06228828c3b93ec1967397c053f6246a11a5a08541494f069ea6dc",
+  "hash_runner": "354674f0beb0ea535431a134d39327c9e22b28e60cbcb9a8bf8561163ebfba6f",
+  "hash_amostra": "30217466da50c14360d1ee17e50c4e26e2cdc42271e2a19338f4dd734fbf6688",
+  "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+  "numpy": "2.5.2"
+}

@@ -1,0 +1,20 @@
+{
+  "projeto/78_CAUSA_DA_FALHA_EFETIVA_NA_V2.md": "46e3b136ce14907db937465359f8dc0a25a5c638fddd1717aeb375b1e58a7b04",
+  "research/fatorial_78.py": "354674f0beb0ea535431a134d39327c9e22b28e60cbcb9a8bf8561163ebfba6f",
+  "research/relatar_fatorial_78.py": "98cf92ae9eedb939f05ec25419f347e85f16098df5d3c2edf9024d33d1459787",
+  "outputs/diagnosticos/20260922_discriminante_falha/fatorial_completo/contrastes_IC95.csv": "766442a59f54a25d4faed751c4269a04f5e323b284fcda1194f8edbb7e8e162b",
+  "outputs/diagnosticos/20260922_discriminante_falha/fatorial_completo/criterio_pre_cantos_mistos.md": "e36e08d52f06228828c3b93ec1967397c053f6246a11a5a08541494f069ea6dc",
+  "outputs/diagnosticos/20260922_discriminante_falha/fatorial_completo/classificacao_hipoteses.csv": "b1c552d7b2308c138f92d605346122c71cce97893b59101956e55c547d60f281",
+  "outputs/diagnosticos/20260922_discriminante_falha/fatorial_completo/bruto_mistos.csv": "b10dda6d62e3cc9c541d1395ccdef0a0571c65d96eb82612aadd3e61eaa2f77f",
+  "outputs/diagnosticos/20260922_discriminante_falha/fatorial_completo/efeitos_IC95.csv": "f4fcd96f4400370bc0b0b47301638af8e64bee12b3d17fa30434605469a0dd20",
+  "outputs/diagnosticos/20260922_discriminante_falha/fatorial_completo/verificacao_independente_analise.json": "55471d58b867fea6358984f5ac2ee46a3bb029a58287677c83b828c2c76b10ae",
+  "outputs/diagnosticos/20260922_discriminante_falha/fatorial_completo/verificacoes.json": "f731749341e1a26db2897382c6f783c23c706922cf059f81591fc766d6380f8c",
+  "outputs/diagnosticos/20260922_discriminante_falha/fatorial_completo/bruto_completo.csv": "1fd30d133456f6c4111cb2be3b07d5dbf6c85440f34fc79475e703a97b9dccd9",
+  "outputs/diagnosticos/20260922_discriminante_falha/fatorial_completo/analise.log": "e577518dd395795648ce0ffebac2d3fba9463f782421fb6f830c2a0a6f210ca4",
+  "outputs/diagnosticos/20260922_discriminante_falha/fatorial_completo/leituras_por_braco_medias.csv": "9e5f81490f2a88d491695ecda40c754fdf441a05998ac208f78459fffa8b1521",
+  "outputs/diagnosticos/20260922_discriminante_falha/fatorial_completo/controle_criterio_atualizado.json": "3fd1fba9638750e58505ea385e77a11af63f12ba395f7b9373f6a1b14a80c10c",
+  "outputs/diagnosticos/20260922_discriminante_falha/fatorial_completo/diferencas_por_instancia.csv": "d63fc46a4048b52914ea2378b4cac3368061b10b710b2537a607358288f9b928",
+  "outputs/diagnosticos/20260922_discriminante_falha/fatorial_completo/execucao.log": "6d8825b685cde7ca3c246ffb0dd54336ee53224e5f5750944880d4e7101077da",
+  "outputs/diagnosticos/20260922_discriminante_falha/fatorial_completo/leituras_por_braco_IC95.csv": "d4b6bedf7529609a7c2ab3d41040efc36f5dadd4f22364fb1a267d1ceb0d4b73",
+  "outputs/diagnosticos/20260922_discriminante_falha/fatorial_completo/manifesto_retomada.json": "f264758a32efa57011ea83ffbc5286c4823a40ab08e5698016f23037627736aa"
+}
