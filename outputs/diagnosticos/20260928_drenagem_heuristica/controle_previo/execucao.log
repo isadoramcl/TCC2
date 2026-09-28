@@ -1,0 +1,65 @@
+64 /384
+128 /384
+192 /384
+256 /384
+320 /384
+384 /384
+{
+  "N_controles": 384,
+  "campos": 49,
+  "N_exec": 768,
+  "completas": 768,
+  "divergencias_referencia": [
+    {
+      "variante": "anterior",
+      "campo": "competencia_maxima_final",
+      "N": 96
+    },
+    {
+      "variante": "anterior",
+      "campo": "competencia_maxima_inicial",
+      "N": 96
+    },
+    {
+      "variante": "anterior",
+      "campo": "competencia_minima_inicial",
+      "N": 64
+    },
+    {
+      "variante": "anterior",
+      "campo": "confianca_media_final",
+      "N": 4
+    },
+    {
+      "variante": "checagem_invertida",
+      "campo": "competencia_maxima_final",
+      "N": 96
+    },
+    {
+      "variante": "checagem_invertida",
+      "campo": "competencia_maxima_inicial",
+      "N": 96
+    },
+    {
+      "variante": "checagem_invertida",
+      "campo": "competencia_minima_inicial",
+      "N": 64
+    },
+    {
+      "variante": "checagem_invertida",
+      "campo": "confianca_media_final",
+      "N": 4
+    },
+    {
+      "variante": "checagem_invertida",
+      "campo": "violacoes",
+      "N": 384
+    }
+  ],
+  "inversao_so_muda_campos": [
+    "violacoes"
+  ],
+  "N_alteradas_pela_inversao": 384,
+  "arquivos_protegidos_inalterados": true,
+  "criterio_identidade_satisfeito": false
+}

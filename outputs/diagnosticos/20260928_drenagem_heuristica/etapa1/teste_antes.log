@@ -1,0 +1,108 @@
+test_custo_real_por_periodo_e_tarefa (research.test_drenagem_v3.DrenagemV3.test_custo_real_por_periodo_e_tarefa) ... 
+  test_custo_real_por_periodo_e_tarefa (research.test_drenagem_v3.DrenagemV3.test_custo_real_por_periodo_e_tarefa) (dur=4) ... FAIL
+  test_custo_real_por_periodo_e_tarefa (research.test_drenagem_v3.DrenagemV3.test_custo_real_por_periodo_e_tarefa) (dur=8) ... FAIL
+  test_custo_real_por_periodo_e_tarefa (research.test_drenagem_v3.DrenagemV3.test_custo_real_por_periodo_e_tarefa) (dur=12) ... FAIL
+test_guarda_nova_independente_de_identidade (research.test_drenagem_v3.DrenagemV3.test_guarda_nova_independente_de_identidade) ... 
+  test_guarda_nova_independente_de_identidade (research.test_drenagem_v3.DrenagemV3.test_guarda_nova_independente_de_identidade) (kh=0.1, cenario='centralizada', classe='Simulacao') ... FAIL
+  test_guarda_nova_independente_de_identidade (research.test_drenagem_v3.DrenagemV3.test_guarda_nova_independente_de_identidade) (kh=0.1, cenario='centralizada', classe='SimulacaoMVP') ... FAIL
+  test_guarda_nova_independente_de_identidade (research.test_drenagem_v3.DrenagemV3.test_guarda_nova_independente_de_identidade) (kh=0.1, cenario='adaptativa', classe='Simulacao') ... FAIL
+  test_guarda_nova_independente_de_identidade (research.test_drenagem_v3.DrenagemV3.test_guarda_nova_independente_de_identidade) (kh=0.1, cenario='adaptativa', classe='SimulacaoMVP') ... FAIL
+  test_guarda_nova_independente_de_identidade (research.test_drenagem_v3.DrenagemV3.test_guarda_nova_independente_de_identidade) (kh=0.04, cenario='centralizada', classe='Simulacao') ... FAIL
+  test_guarda_nova_independente_de_identidade (research.test_drenagem_v3.DrenagemV3.test_guarda_nova_independente_de_identidade) (kh=0.04, cenario='centralizada', classe='SimulacaoMVP') ... FAIL
+  test_guarda_nova_independente_de_identidade (research.test_drenagem_v3.DrenagemV3.test_guarda_nova_independente_de_identidade) (kh=0.04, cenario='adaptativa', classe='Simulacao') ... FAIL
+  test_guarda_nova_independente_de_identidade (research.test_drenagem_v3.DrenagemV3.test_guarda_nova_independente_de_identidade) (kh=0.04, cenario='adaptativa', classe='SimulacaoMVP') ... FAIL
+test_negativo_drenagem_acelerada_reprova_economia (research.test_drenagem_v3.DrenagemV3.test_negativo_drenagem_acelerada_reprova_economia) ... ok
+test_tarefa_unitaria_nao_promete_economia_estrita (research.test_drenagem_v3.DrenagemV3.test_tarefa_unitaria_nao_promete_economia_estrita) ... ok
+
+======================================================================
+FAIL: test_custo_real_por_periodo_e_tarefa (research.test_drenagem_v3.DrenagemV3.test_custo_real_por_periodo_e_tarefa) (dur=4)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/isadoracarvalho/TCC2_discriminante/research/test_drenagem_v3.py", line 28, in test_custo_real_por_periodo_e_tarefa
+    self.assertLessEqual(max(h['drenagens']),max(a['drenagens'])+1e-14)
+AssertionError: 0.020000000000000018 not less than or equal to 0.008000000000010008
+
+======================================================================
+FAIL: test_custo_real_por_periodo_e_tarefa (research.test_drenagem_v3.DrenagemV3.test_custo_real_por_periodo_e_tarefa) (dur=8)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/isadoracarvalho/TCC2_discriminante/research/test_drenagem_v3.py", line 28, in test_custo_real_por_periodo_e_tarefa
+    self.assertLessEqual(max(h['drenagens']),max(a['drenagens'])+1e-14)
+AssertionError: 0.020000000000000018 not less than or equal to 0.008000000000010008
+
+======================================================================
+FAIL: test_custo_real_por_periodo_e_tarefa (research.test_drenagem_v3.DrenagemV3.test_custo_real_por_periodo_e_tarefa) (dur=12)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/isadoracarvalho/TCC2_discriminante/research/test_drenagem_v3.py", line 28, in test_custo_real_por_periodo_e_tarefa
+    self.assertLessEqual(max(h['drenagens']),max(a['drenagens'])+1e-14)
+AssertionError: 0.020000000000000018 not less than or equal to 0.008000000000010008
+
+======================================================================
+FAIL: test_guarda_nova_independente_de_identidade (research.test_drenagem_v3.DrenagemV3.test_guarda_nova_independente_de_identidade) (kh=0.1, cenario='centralizada', classe='Simulacao')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/isadoracarvalho/TCC2_discriminante/research/test_drenagem_v3.py", line 50, in test_guarda_nova_independente_de_identidade
+    self.assertEqual(len(r.violacoes),expected)
+AssertionError: 0 != 1
+
+======================================================================
+FAIL: test_guarda_nova_independente_de_identidade (research.test_drenagem_v3.DrenagemV3.test_guarda_nova_independente_de_identidade) (kh=0.1, cenario='centralizada', classe='SimulacaoMVP')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/isadoracarvalho/TCC2_discriminante/research/test_drenagem_v3.py", line 50, in test_guarda_nova_independente_de_identidade
+    self.assertEqual(len(r.violacoes),expected)
+AssertionError: 0 != 1
+
+======================================================================
+FAIL: test_guarda_nova_independente_de_identidade (research.test_drenagem_v3.DrenagemV3.test_guarda_nova_independente_de_identidade) (kh=0.1, cenario='adaptativa', classe='Simulacao')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/isadoracarvalho/TCC2_discriminante/research/test_drenagem_v3.py", line 50, in test_guarda_nova_independente_de_identidade
+    self.assertEqual(len(r.violacoes),expected)
+AssertionError: 0 != 1
+
+======================================================================
+FAIL: test_guarda_nova_independente_de_identidade (research.test_drenagem_v3.DrenagemV3.test_guarda_nova_independente_de_identidade) (kh=0.1, cenario='adaptativa', classe='SimulacaoMVP')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/isadoracarvalho/TCC2_discriminante/research/test_drenagem_v3.py", line 50, in test_guarda_nova_independente_de_identidade
+    self.assertEqual(len(r.violacoes),expected)
+AssertionError: 0 != 1
+
+======================================================================
+FAIL: test_guarda_nova_independente_de_identidade (research.test_drenagem_v3.DrenagemV3.test_guarda_nova_independente_de_identidade) (kh=0.04, cenario='centralizada', classe='Simulacao')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/isadoracarvalho/TCC2_discriminante/research/test_drenagem_v3.py", line 50, in test_guarda_nova_independente_de_identidade
+    self.assertEqual(len(r.violacoes),expected)
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_guarda_nova_independente_de_identidade (research.test_drenagem_v3.DrenagemV3.test_guarda_nova_independente_de_identidade) (kh=0.04, cenario='centralizada', classe='SimulacaoMVP')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/isadoracarvalho/TCC2_discriminante/research/test_drenagem_v3.py", line 50, in test_guarda_nova_independente_de_identidade
+    self.assertEqual(len(r.violacoes),expected)
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_guarda_nova_independente_de_identidade (research.test_drenagem_v3.DrenagemV3.test_guarda_nova_independente_de_identidade) (kh=0.04, cenario='adaptativa', classe='Simulacao')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/isadoracarvalho/TCC2_discriminante/research/test_drenagem_v3.py", line 50, in test_guarda_nova_independente_de_identidade
+    self.assertEqual(len(r.violacoes),expected)
+AssertionError: 1 != 0
+
+======================================================================
+FAIL: test_guarda_nova_independente_de_identidade (research.test_drenagem_v3.DrenagemV3.test_guarda_nova_independente_de_identidade) (kh=0.04, cenario='adaptativa', classe='SimulacaoMVP')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/isadoracarvalho/TCC2_discriminante/research/test_drenagem_v3.py", line 50, in test_guarda_nova_independente_de_identidade
+    self.assertEqual(len(r.violacoes),expected)
+AssertionError: 1 != 0
+
+----------------------------------------------------------------------
+Ran 4 tests in 1.037s
+
+FAILED (failures=11)

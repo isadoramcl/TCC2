@@ -1,0 +1,11 @@
+{
+  "outputs/diagnosticos/20260928_drenagem_heuristica/controle_previo/manifesto.json": "9d23cac1b514ed6a29d8f829029c711e6b695be088198a28cc2ee03ba1d92c64",
+  "outputs/diagnosticos/20260928_drenagem_heuristica/controle_previo/solicitacao_autora.txt": "4eaf36fba62c441eb3645d171538d1b36c9166a677517c0cd24fbb9ddf956205",
+  "outputs/diagnosticos/20260928_drenagem_heuristica/controle_previo/bruto.csv": "bce7f7d91e0327746e63dda98126ac5386b1d38d051f2365201282c0564f0897",
+  "outputs/diagnosticos/20260928_drenagem_heuristica/controle_previo/resumo.json": "2090d2de8983f292cccb88e3816ff923ad543cbf92a54b9bf9bfd681b9b44c35",
+  "outputs/diagnosticos/20260928_drenagem_heuristica/controle_previo/divergencias_referencia.csv": "825514550b611a67c9a1e8a5c23a3a3615a6b50863426b47f68bc457e4608848",
+  "outputs/diagnosticos/20260928_drenagem_heuristica/controle_previo/execucao.log": "35bf96243bd90b629c81d61e15d36c36c2c432e4454934218dc991b925798d19",
+  "outputs/diagnosticos/20260928_drenagem_heuristica/controle_previo/divergencias_antes_depois.csv": "a68ee62854ceb7450a2f7281a0b6122dfe0cf10161eaf7dc77442f0573e72959",
+  "projeto/79_CONTRADICAO_TCC1_DRENAGEM_HEURISTICA.md": "538dcc989f394b7e7d91092ce3907a11800d5c761b9b62741a108b801872c5e4",
+  "research/controle_previo_79.py": "4869fd3f433b65bcd9ee87a15c0a8acad5c2b55d4469b223cbb4e0879f3f18e2"
+}

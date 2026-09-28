@@ -1,0 +1,31 @@
+64 / 768
+128 / 768
+192 / 768
+256 / 768
+320 / 768
+384 / 768
+448 / 768
+512 / 768
+576 / 768
+640 / 768
+704 / 768
+768 / 768
+conjunto    versao                    metrica     media  ic95_inf  ic95_sup  N_instancias
+  fora16 v3_etapa1            atraso_relativo -0.997524 -1.137742 -0.857307            16
+  fora16 v3_etapa1               taxa_omissao -0.178472 -0.192889 -0.164055            16
+  fora16 v3_etapa1 divida_latente_sobre_plano -0.060028 -0.068583 -0.051474            16
+  fora16 v3_etapa1         taxa_falha_efetiva -0.022656 -0.037103 -0.008210            16
+  fora16 v3_etapa1              fracao_porta1 -0.047569 -0.063372 -0.031767            16
+ nominal v3_etapa1            atraso_relativo -0.868152 -0.986560 -0.749744            16
+ nominal v3_etapa1               taxa_omissao -0.175868 -0.194024 -0.157712            16
+ nominal v3_etapa1 divida_latente_sobre_plano -0.055170 -0.061464 -0.048877            16
+ nominal v3_etapa1         taxa_falha_efetiva -0.021701 -0.034226 -0.009177            16
+ nominal v3_etapa1              fracao_porta1 -0.052257 -0.066890 -0.037624            16
+{
+  "N": 768,
+  "completas": 768,
+  "violacoes": 0,
+  "guarda_1b_candidato": true,
+  "referencias_reproduzidas": true,
+  "divergencias": []
+}

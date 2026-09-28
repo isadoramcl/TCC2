@@ -1358,3 +1358,12 @@ Nenhuma política alterada; lote aberto. [Relatório](../projeto/49_HORIZONTE_DO
 - [ACHADO] Perda de precisão ao juntar CSV parciais sem `round_trip` — explica a
   divergência de último bit do arquivo fora da amostra da v1; IC inalterados.
 - [ABERTO] Tudo executado pelo revisor; auditoria independente pendente.
+
+
+## 28/09/2026 — Parecer 79: v3, drenagem heurística e fuga separada
+
+[DEC] kh=ka=0,04 no nominal; economia pelo tempo, não drenagem acelerada. Guarda rejeita kh>ka. Sensibilidade kh [0,02;0,04]. TCC I §4.1 prevalece sobre pseudocódigo §4.4.3 para essa escolha; caso de duração unitária sem economia estrita documentado.
+
+Etapas 1/2 com fuga acoplada: referências recebidas reproduzidas e 4.704 execuções completas/zero violações. Só depois: k_fuga=0,10 congelado separado, novo lote 4.704 completas/zero violações. Resultados e IC95 lado a lado no parecer 79. Suíte final 107 testes. Não houve escolha de valor por resultado, calibração ou nova onda HM.
+
+Identidade corrigida pela autora: 48 campos, exclui violacoes; guarda testada separadamente. Mac ARM admite até 2 ULP só em competencia_* e confianca_media_final; autora confirmou Linux exato. Controles completos repetidos com código final; zero divergências fora da exceção. Risco de decisões em empates/limiares de competência declarado, não negado. v2 preservada em parametros_v2.yaml/mvp_v2.yaml; outputs anteriores mantidos.

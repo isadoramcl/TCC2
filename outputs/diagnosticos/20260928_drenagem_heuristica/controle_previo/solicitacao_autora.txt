@@ -1,0 +1,143 @@
+CONTEXTO
+
+Revisão independente encontrou uma contradição interna no TCC1, confirmada por
+leitura das duas seções, e um experimento exploratório já foi rodado fora do
+repositório para medir o efeito da correção. Nada no repositório foi alterado.
+
+A CONTRADIÇÃO
+
+TCC1 §4.1 (narrativa do laço causal, Fig. 4.1), sobre o satisficing:
+  "proporciona um alívio temporário da pressão local, já que a entrega imediata
+   de uma solução, mesmo subótima, reduz a cobrança percebida pelo agente no
+   curto prazo [...] o alívio obtido pelo satisficing no presente é pago, no
+   futuro, por uma pressão de cronograma ainda maior"
+
+TCC1 §4.4.3 (pseudocódigo, Porta 1, linha 3):
+  "Drena B(t) em taxa heurística acelerada"
+
+São incompatíveis. A narrativa exige alívio imediato pago depois; o pseudocódigo
+impõe custo imediato. A narrativa é a que está correta, porque é a definição do
+arquétipo "Shifting the Burden" (Kim, 1994) que o trabalho usa, e porque as duas
+fontes da Porta 1 no catálogo — Simon (satisficing) e Payne, Bettman & Luce
+(effort-accuracy tradeoff) — descrevem a heurística como ECONOMIA de esforço.
+
+Hoje k_heuristico = 0,10 contra k_analitico = 0,04: o atalho custa 2,5x mais por
+período e, mesmo com fator_omissao = 0,75 encurtando a tarefa, cerca de 1,9x mais
+no total. Isso contradiz a base teórica do próprio trabalho.
+
+Dois fatos verificados no código antes de propor a mudança, para registro:
+1. O laço vicioso NÃO depende da drenagem acelerada. Ele fecha por
+   satisficing -> retrabalho oculto -> pressão de cronograma mais tarde ->
+   bateria. Tirar a aceleração não quebra o arquétipo.
+2. O canal de alívio já existe: pressao(t) responde ao atraso contra o CPM, e o
+   atalho, ao encurtar a duração, adianta a conclusão e REDUZ P. O "alívio
+   temporário da pressão local" do TCC1 já está implementado via fator_omissao.
+
+A MUDANÇA (etapa 1)
+
+k_heuristico deixa de ser parâmetro livre e passa a ser igual a k_analitico.
+
+Derivação, para registrar em config e no parecer: o atalho executa fator_omissao
+(0,75) do trabalho em fator_omissao do tempo. Mesma intensidade por período, logo
+mesmo custo por período. A economia vem inteira da tarefa acabar antes:
+0,04 x 0,75 = 25% menos por tarefa. Nenhum número novo é introduzido — um
+parâmetro livre é ELIMINADO.
+
+Arquivos:
+- config/parametros.yaml, agentes.k_heuristico: 0,10 -> 0,04,
+  condicao: derivado, fonte: "= k_analitico; o atalho faz fator_omissao do
+  trabalho em fator_omissao do tempo, mesma intensidade por período. TCC1 §4.1."
+  Manter a varredura cobrindo [0,02; 0,04].
+- src/modelo/simulador.py, ~linha 422-423: a verificação
+  "k_heuristico deve exceder k_analitico (TCC I)" precisa ser INVERTIDA para
+  "k_heuristico não pode exceder k_analitico", com o motivo no comentário
+  (TCC1 §4.1 contra §4.4.3). Hoje ela grava violação, e "zero violações" é
+  critério de validação satisfeito em 22.208 execuções — se não for invertida,
+  tudo passa a reprovar.
+- src/modelo/simulador_mvp.py, ~linha 266: mesma verificação, mesma inversão.
+
+NÃO decoplar a drenagem da rota de fuga nesta etapa. Ela lê k_heuristico hoje e
+deve continuar lendo, porque os números de referência abaixo foram medidos assim.
+O decoplamento é a etapa 3, separada.
+
+REFERÊNCIA A REPRODUZIR (medida em 28/09, fora do repositório)
+
+Controle de identidade — com k_heuristico reposto em 0,10, o código alterado tem
+de reproduzir outputs/diagnosticos/20260921_nominal_v2/bruto_nominal.csv bit a
+bit: 384 execuções, 49 campos numéricos, zero divergências por float.hex().
+Já verifiquei que o parâmetro sozinho faz isso; falta verificar que a inversão da
+checagem é inerte.
+
+Nominal (16 instâncias, 12 sementes, 2 cenários = 384 execuções), contraste
+adaptativa menos centralizada, IC 95% sobre instâncias, com k_heuristico = 0,04:
+
+  atraso_relativo              -0,8682  [-0,9866; -0,7497]
+  taxa_omissao                 -0,1759  [-0,1940; -0,1577]
+  divida_latente_sobre_plano   -0,0552  [-0,0615; -0,0489]
+  taxa_falha_efetiva           -0,0217  [-0,0342; -0,0092]
+  fracao_porta1                -0,0523  [-0,0669; -0,0376]
+
+Fora da amostra, as 16 primeiras da amostra_estratificada (384 execuções):
+
+  atraso_relativo              -0,9975  [-1,1377; -0,8573]
+  taxa_omissao                 -0,1785  [-0,1929; -0,1641]
+  divida_latente_sobre_plano   -0,0600  [-0,0686; -0,0515]
+  taxa_falha_efetiva           -0,0227  [-0,0371; -0,0082]
+  fracao_porta1                -0,0476  [-0,0634; -0,0318]
+
+Todas as 384+384 execuções concluíram. As 384 do candidato registraram a violação
+esperada da checagem a inverter, e nenhuma outra.
+
+Se os seus números divergirem destes, PARE e reporte antes de seguir — é sinal de
+que algo além do parâmetro mudou.
+
+CRITÉRIO DE ADOÇÃO — escrito antes da execução (regra 11)
+
+1. Zero violações em todas as execuções após a inversão da checagem; todas
+   concluem; identidade bit a bit com a v2 preservada quando k_heuristico = 0,10
+   é reposto.
+2. Coerência teórica verificada por TESTE, não por inspeção: custo de bateria por
+   período no atalho <= custo no analítico, e custo total por tarefa
+   estritamente menor. Escrever esse teste.
+3. Os quatro contrastes robustos (atraso, omissão, dívida latente, fração via
+   Porta 1) mantêm sinal negativo com IC excluindo zero, dentro e fora da amostra.
+4. SE O ITEM 3 FALHAR, A MUDANÇA NÃO É REVERTIDA. Ela é adotada assim mesmo e o
+   resultado é reescrito. A correção é de coerência teórica com o TCC1 e com
+   Simon, não busca de resultado. Reverter porque o número piorou seria escolher
+   premissa pelo resultado.
+5. v2 e v3 reportadas lado a lado, com a diferença atribuída explicitamente a
+   esta mudança.
+
+ETAPA 2 — VALIDAÇÃO COMPLETA
+
+Rodar o conjunto inteiro: nominal 16, fora da amostra 48, teste aleatório 24,
+varredura de governança, e a suíte de testes. Reportar o que mudou de magnitude e
+o que mudou de sinal, se houver.
+
+ETAPA 3 — SEPARADA, SÓ DEPOIS DA 2 FECHAR
+
+A rota de fuga hoje drena usando k_heuristico. Adiar uma tarefa não é executá-la
+por atalho: são mecanismos diferentes e não devem compartilhar parâmetro. Criar
+agentes.k_fuga, congelado em 0,10 (o valor da v2), e apontar a drenagem da fuga
+para ele. Rodar e reportar o antes e o depois SEPARADAMENTE — não misturar com os
+números da etapa 1.
+
+ENTREGÁVEIS
+
+- projeto/79_CONTRADICAO_TCC1_DRENAGEM_HEURISTICA.md — parecer documentando a
+  contradição entre §4.1 e §4.4.3, os dois fatos verificados no código, a
+  derivação, o critério acima e os resultados. Este é um achado sobre a fonte
+  primária do próprio trabalho e merece parecer próprio.
+- Atualização de config/parametros.yaml, simulador.py, simulador_mvp.py.
+- O teste novo do item 2 do critério.
+- Atualização do README: a versão nominal passa a ser v3; a v2 vira histórica ao
+  lado da v1; a ressalva sobre o atalho custar mais esforço sai, porque deixa de
+  ser verdade.
+
+RESTRIÇÕES
+
+- outputs/ é evidência congelada. Não renomear nem apagar diretório nenhum.
+- Não rodar git add, git commit nem git push. O git é da autora.
+- Não rodar git status (cria .git/index.lock). git log, git show e git diff são
+  aceitáveis.
+- Toda leitura de CSV arquivado com float_precision='round_trip'.

@@ -1,0 +1,9 @@
+test_custo_real_por_periodo_e_tarefa (research.test_drenagem_v3.DrenagemV3.test_custo_real_por_periodo_e_tarefa) ... ok
+test_guarda_nova_independente_de_identidade (research.test_drenagem_v3.DrenagemV3.test_guarda_nova_independente_de_identidade) ... ok
+test_negativo_drenagem_acelerada_reprova_economia (research.test_drenagem_v3.DrenagemV3.test_negativo_drenagem_acelerada_reprova_economia) ... ok
+test_tarefa_unitaria_nao_promete_economia_estrita (research.test_drenagem_v3.DrenagemV3.test_tarefa_unitaria_nao_promete_economia_estrita) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 1.040s
+
+OK

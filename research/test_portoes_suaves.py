@@ -25,7 +25,8 @@ class PortoesSuaves(unittest.TestCase):
     def test_default_nao_cria_fluxo_auxiliar_e_reproduz_nominal(self):
         arq=pd.read_csv(RAIZ/'outputs/diagnosticos/noturno_nominal/bruto.csv',float_precision='round_trip')
         for cen in ['centralizada','adaptativa']:
-            sim,r=rodar('j6010_1.sm',0,cen,opcoes())
+            # Identidade da evidência v1 usa o coeficiente histórico, não o nominal v3.
+            sim,r=rodar('j6010_1.sm',0,cen,opcoes(),{('agentes','k_heuristico'):.10})
             self.assertIsNone(sim.rng_aux)
             ref=arq[(arq.arquivo=='j6010_1.sm')&(arq.semente==0)&(arq.cenario==cen)].iloc[0]
             linha={k:v for k,v in asdict(r).items() if isinstance(v,(int,float,bool))}; linha.update(r.contadores)
@@ -57,7 +58,8 @@ class PortoesSuaves(unittest.TestCase):
         self.assertEqual(op['portao_assistencia'],'logistico'); self.assertEqual(op['regra_fuga'],'logistica')
         arq=pd.read_csv(RAIZ/'outputs/diagnosticos/20260921_nominal_v2/bruto_nominal.csv',float_precision='round_trip')
         for cen in ['centralizada','adaptativa']:
-            _,r=rodar('j6010_1.sm',0,cen,OpcoesMVP(**op))
+            # Evidência v2 preservada: kh histórico, guarda validada separadamente no 79.
+            _,r=rodar('j6010_1.sm',0,cen,OpcoesMVP(**op),{('agentes','k_heuristico'):.10})
             ref=arq[(arq.arquivo=='j6010_1.sm')&(arq.semente==0)&(arq.cenario==cen)].iloc[0]
             linha={k:v for k,v in asdict(r).items() if isinstance(v,(int,float,bool))}; linha.update(r.contadores)
             for campo in ['makespan','TW','TL','TU','TR','taxa_falha_efetiva','p1_omissao','p1_fuga','N_req','confianca_media_final']:

@@ -1,0 +1,2350 @@
+{
+  "identidade_1a": true,
+  "guarda_1b_historico": true,
+  "N": 384,
+  "campos": 48,
+  "excecoes": [
+    {
+      "arquivo": "j6010_1.sm",
+      "semente": 3,
+      "cenario": "centralizada",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.f251dbea89292p-3",
+      "hex_obtido": "0x1.f251dbea89293p-3",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6010_1.sm",
+      "semente": 3,
+      "cenario": "adaptativa",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.f251dbea89292p-3",
+      "hex_obtido": "0x1.f251dbea89293p-3",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6010_1.sm",
+      "semente": 4,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6010_1.sm",
+      "semente": 4,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6010_1.sm",
+      "semente": 4,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6010_1.sm",
+      "semente": 4,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6010_1.sm",
+      "semente": 5,
+      "cenario": "centralizada",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.907677df7e9cep-2",
+      "hex_obtido": "0x1.907677df7e9cfp-2",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6010_1.sm",
+      "semente": 5,
+      "cenario": "adaptativa",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.907677df7e9cep-2",
+      "hex_obtido": "0x1.907677df7e9cfp-2",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6010_1.sm",
+      "semente": 6,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6010_1.sm",
+      "semente": 6,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6010_1.sm",
+      "semente": 6,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6010_1.sm",
+      "semente": 6,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6010_1.sm",
+      "semente": 9,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6010_1.sm",
+      "semente": 9,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6010_1.sm",
+      "semente": 9,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6010_1.sm",
+      "semente": 9,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6013_1.sm",
+      "semente": 3,
+      "cenario": "centralizada",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.f251dbea89292p-3",
+      "hex_obtido": "0x1.f251dbea89293p-3",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6013_1.sm",
+      "semente": 3,
+      "cenario": "adaptativa",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.f251dbea89292p-3",
+      "hex_obtido": "0x1.f251dbea89293p-3",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6013_1.sm",
+      "semente": 4,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6013_1.sm",
+      "semente": 4,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6013_1.sm",
+      "semente": 4,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6013_1.sm",
+      "semente": 4,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6013_1.sm",
+      "semente": 5,
+      "cenario": "centralizada",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.907677df7e9cep-2",
+      "hex_obtido": "0x1.907677df7e9cfp-2",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6013_1.sm",
+      "semente": 5,
+      "cenario": "adaptativa",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.907677df7e9cep-2",
+      "hex_obtido": "0x1.907677df7e9cfp-2",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6013_1.sm",
+      "semente": 6,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6013_1.sm",
+      "semente": 6,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6013_1.sm",
+      "semente": 6,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6013_1.sm",
+      "semente": 6,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6013_1.sm",
+      "semente": 9,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6013_1.sm",
+      "semente": 9,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6013_1.sm",
+      "semente": 9,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6013_1.sm",
+      "semente": 9,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6016_1.sm",
+      "semente": 3,
+      "cenario": "centralizada",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.f251dbea89292p-3",
+      "hex_obtido": "0x1.f251dbea89293p-3",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6016_1.sm",
+      "semente": 3,
+      "cenario": "adaptativa",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.f251dbea89292p-3",
+      "hex_obtido": "0x1.f251dbea89293p-3",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6016_1.sm",
+      "semente": 4,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6016_1.sm",
+      "semente": 4,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6016_1.sm",
+      "semente": 4,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6016_1.sm",
+      "semente": 4,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6016_1.sm",
+      "semente": 5,
+      "cenario": "centralizada",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.907677df7e9cep-2",
+      "hex_obtido": "0x1.907677df7e9cfp-2",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6016_1.sm",
+      "semente": 5,
+      "cenario": "adaptativa",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.907677df7e9cep-2",
+      "hex_obtido": "0x1.907677df7e9cfp-2",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6016_1.sm",
+      "semente": 6,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6016_1.sm",
+      "semente": 6,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6016_1.sm",
+      "semente": 6,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6016_1.sm",
+      "semente": 6,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6016_1.sm",
+      "semente": 9,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6016_1.sm",
+      "semente": 9,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6016_1.sm",
+      "semente": 9,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6016_1.sm",
+      "semente": 9,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6019_1.sm",
+      "semente": 3,
+      "cenario": "centralizada",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.f251dbea89292p-3",
+      "hex_obtido": "0x1.f251dbea89293p-3",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6019_1.sm",
+      "semente": 3,
+      "cenario": "adaptativa",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.f251dbea89292p-3",
+      "hex_obtido": "0x1.f251dbea89293p-3",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6019_1.sm",
+      "semente": 4,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6019_1.sm",
+      "semente": 4,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6019_1.sm",
+      "semente": 4,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6019_1.sm",
+      "semente": 4,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6019_1.sm",
+      "semente": 5,
+      "cenario": "centralizada",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.907677df7e9cep-2",
+      "hex_obtido": "0x1.907677df7e9cfp-2",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6019_1.sm",
+      "semente": 5,
+      "cenario": "adaptativa",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.907677df7e9cep-2",
+      "hex_obtido": "0x1.907677df7e9cfp-2",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6019_1.sm",
+      "semente": 6,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6019_1.sm",
+      "semente": 6,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6019_1.sm",
+      "semente": 6,
+      "cenario": "centralizada",
+      "campo": "confianca_media_final",
+      "hex_ref": "0x1.8941ff61e9095p-2",
+      "hex_obtido": "0x1.8941ff61e9094p-2",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6019_1.sm",
+      "semente": 6,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6019_1.sm",
+      "semente": 6,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6019_1.sm",
+      "semente": 9,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6019_1.sm",
+      "semente": 9,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6019_1.sm",
+      "semente": 9,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6019_1.sm",
+      "semente": 9,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6021_1.sm",
+      "semente": 3,
+      "cenario": "centralizada",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.f251dbea89292p-3",
+      "hex_obtido": "0x1.f251dbea89293p-3",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6021_1.sm",
+      "semente": 3,
+      "cenario": "adaptativa",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.f251dbea89292p-3",
+      "hex_obtido": "0x1.f251dbea89293p-3",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6021_1.sm",
+      "semente": 4,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6021_1.sm",
+      "semente": 4,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6021_1.sm",
+      "semente": 4,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6021_1.sm",
+      "semente": 4,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6021_1.sm",
+      "semente": 5,
+      "cenario": "centralizada",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.907677df7e9cep-2",
+      "hex_obtido": "0x1.907677df7e9cfp-2",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6021_1.sm",
+      "semente": 5,
+      "cenario": "adaptativa",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.907677df7e9cep-2",
+      "hex_obtido": "0x1.907677df7e9cfp-2",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6021_1.sm",
+      "semente": 6,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6021_1.sm",
+      "semente": 6,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6021_1.sm",
+      "semente": 6,
+      "cenario": "centralizada",
+      "campo": "confianca_media_final",
+      "hex_ref": "0x1.6a0f2b93af957p-2",
+      "hex_obtido": "0x1.6a0f2b93af955p-2",
+      "distancia_ulp": 2
+    },
+    {
+      "arquivo": "j6021_1.sm",
+      "semente": 6,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6021_1.sm",
+      "semente": 6,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6021_1.sm",
+      "semente": 9,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6021_1.sm",
+      "semente": 9,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6021_1.sm",
+      "semente": 9,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6021_1.sm",
+      "semente": 9,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6024_1.sm",
+      "semente": 3,
+      "cenario": "centralizada",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.f251dbea89292p-3",
+      "hex_obtido": "0x1.f251dbea89293p-3",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6024_1.sm",
+      "semente": 3,
+      "cenario": "adaptativa",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.f251dbea89292p-3",
+      "hex_obtido": "0x1.f251dbea89293p-3",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6024_1.sm",
+      "semente": 4,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6024_1.sm",
+      "semente": 4,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6024_1.sm",
+      "semente": 4,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6024_1.sm",
+      "semente": 4,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6024_1.sm",
+      "semente": 5,
+      "cenario": "centralizada",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.907677df7e9cep-2",
+      "hex_obtido": "0x1.907677df7e9cfp-2",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6024_1.sm",
+      "semente": 5,
+      "cenario": "adaptativa",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.907677df7e9cep-2",
+      "hex_obtido": "0x1.907677df7e9cfp-2",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6024_1.sm",
+      "semente": 6,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6024_1.sm",
+      "semente": 6,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6024_1.sm",
+      "semente": 6,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6024_1.sm",
+      "semente": 6,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6024_1.sm",
+      "semente": 9,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6024_1.sm",
+      "semente": 9,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6024_1.sm",
+      "semente": 9,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6024_1.sm",
+      "semente": 9,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6027_1.sm",
+      "semente": 3,
+      "cenario": "centralizada",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.f251dbea89292p-3",
+      "hex_obtido": "0x1.f251dbea89293p-3",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6027_1.sm",
+      "semente": 3,
+      "cenario": "adaptativa",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.f251dbea89292p-3",
+      "hex_obtido": "0x1.f251dbea89293p-3",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6027_1.sm",
+      "semente": 4,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6027_1.sm",
+      "semente": 4,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6027_1.sm",
+      "semente": 4,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6027_1.sm",
+      "semente": 4,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6027_1.sm",
+      "semente": 5,
+      "cenario": "centralizada",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.907677df7e9cep-2",
+      "hex_obtido": "0x1.907677df7e9cfp-2",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6027_1.sm",
+      "semente": 5,
+      "cenario": "adaptativa",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.907677df7e9cep-2",
+      "hex_obtido": "0x1.907677df7e9cfp-2",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6027_1.sm",
+      "semente": 6,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6027_1.sm",
+      "semente": 6,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6027_1.sm",
+      "semente": 6,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6027_1.sm",
+      "semente": 6,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6027_1.sm",
+      "semente": 9,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6027_1.sm",
+      "semente": 9,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6027_1.sm",
+      "semente": 9,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6027_1.sm",
+      "semente": 9,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j602_1.sm",
+      "semente": 3,
+      "cenario": "centralizada",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.f251dbea89292p-3",
+      "hex_obtido": "0x1.f251dbea89293p-3",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j602_1.sm",
+      "semente": 3,
+      "cenario": "adaptativa",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.f251dbea89292p-3",
+      "hex_obtido": "0x1.f251dbea89293p-3",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j602_1.sm",
+      "semente": 4,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j602_1.sm",
+      "semente": 4,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j602_1.sm",
+      "semente": 4,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j602_1.sm",
+      "semente": 4,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j602_1.sm",
+      "semente": 5,
+      "cenario": "centralizada",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.907677df7e9cep-2",
+      "hex_obtido": "0x1.907677df7e9cfp-2",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j602_1.sm",
+      "semente": 5,
+      "cenario": "adaptativa",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.907677df7e9cep-2",
+      "hex_obtido": "0x1.907677df7e9cfp-2",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j602_1.sm",
+      "semente": 6,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j602_1.sm",
+      "semente": 6,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j602_1.sm",
+      "semente": 6,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j602_1.sm",
+      "semente": 6,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j602_1.sm",
+      "semente": 9,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j602_1.sm",
+      "semente": 9,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j602_1.sm",
+      "semente": 9,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j602_1.sm",
+      "semente": 9,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6032_1.sm",
+      "semente": 3,
+      "cenario": "centralizada",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.f251dbea89292p-3",
+      "hex_obtido": "0x1.f251dbea89293p-3",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6032_1.sm",
+      "semente": 3,
+      "cenario": "adaptativa",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.f251dbea89292p-3",
+      "hex_obtido": "0x1.f251dbea89293p-3",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6032_1.sm",
+      "semente": 4,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6032_1.sm",
+      "semente": 4,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6032_1.sm",
+      "semente": 4,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6032_1.sm",
+      "semente": 4,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6032_1.sm",
+      "semente": 5,
+      "cenario": "centralizada",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.907677df7e9cep-2",
+      "hex_obtido": "0x1.907677df7e9cfp-2",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6032_1.sm",
+      "semente": 5,
+      "cenario": "centralizada",
+      "campo": "confianca_media_final",
+      "hex_ref": "0x1.1b794f6cd0fa1p-1",
+      "hex_obtido": "0x1.1b794f6cd0fa0p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6032_1.sm",
+      "semente": 5,
+      "cenario": "adaptativa",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.907677df7e9cep-2",
+      "hex_obtido": "0x1.907677df7e9cfp-2",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6032_1.sm",
+      "semente": 6,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6032_1.sm",
+      "semente": 6,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6032_1.sm",
+      "semente": 6,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6032_1.sm",
+      "semente": 6,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6032_1.sm",
+      "semente": 9,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6032_1.sm",
+      "semente": 9,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6032_1.sm",
+      "semente": 9,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6032_1.sm",
+      "semente": 9,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6035_1.sm",
+      "semente": 3,
+      "cenario": "centralizada",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.f251dbea89292p-3",
+      "hex_obtido": "0x1.f251dbea89293p-3",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6035_1.sm",
+      "semente": 3,
+      "cenario": "adaptativa",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.f251dbea89292p-3",
+      "hex_obtido": "0x1.f251dbea89293p-3",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6035_1.sm",
+      "semente": 4,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6035_1.sm",
+      "semente": 4,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6035_1.sm",
+      "semente": 4,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6035_1.sm",
+      "semente": 4,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6035_1.sm",
+      "semente": 5,
+      "cenario": "centralizada",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.907677df7e9cep-2",
+      "hex_obtido": "0x1.907677df7e9cfp-2",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6035_1.sm",
+      "semente": 5,
+      "cenario": "adaptativa",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.907677df7e9cep-2",
+      "hex_obtido": "0x1.907677df7e9cfp-2",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6035_1.sm",
+      "semente": 6,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6035_1.sm",
+      "semente": 6,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6035_1.sm",
+      "semente": 6,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6035_1.sm",
+      "semente": 6,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6035_1.sm",
+      "semente": 9,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6035_1.sm",
+      "semente": 9,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6035_1.sm",
+      "semente": 9,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6035_1.sm",
+      "semente": 9,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6038_1.sm",
+      "semente": 3,
+      "cenario": "centralizada",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.f251dbea89292p-3",
+      "hex_obtido": "0x1.f251dbea89293p-3",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6038_1.sm",
+      "semente": 3,
+      "cenario": "adaptativa",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.f251dbea89292p-3",
+      "hex_obtido": "0x1.f251dbea89293p-3",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6038_1.sm",
+      "semente": 4,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6038_1.sm",
+      "semente": 4,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6038_1.sm",
+      "semente": 4,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6038_1.sm",
+      "semente": 4,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6038_1.sm",
+      "semente": 5,
+      "cenario": "centralizada",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.907677df7e9cep-2",
+      "hex_obtido": "0x1.907677df7e9cfp-2",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6038_1.sm",
+      "semente": 5,
+      "cenario": "adaptativa",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.907677df7e9cep-2",
+      "hex_obtido": "0x1.907677df7e9cfp-2",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6038_1.sm",
+      "semente": 6,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6038_1.sm",
+      "semente": 6,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6038_1.sm",
+      "semente": 6,
+      "cenario": "centralizada",
+      "campo": "confianca_media_final",
+      "hex_ref": "0x1.16847a5223038p-1",
+      "hex_obtido": "0x1.16847a5223037p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6038_1.sm",
+      "semente": 6,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6038_1.sm",
+      "semente": 6,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6038_1.sm",
+      "semente": 9,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6038_1.sm",
+      "semente": 9,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6038_1.sm",
+      "semente": 9,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6038_1.sm",
+      "semente": 9,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6040_1.sm",
+      "semente": 3,
+      "cenario": "centralizada",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.f251dbea89292p-3",
+      "hex_obtido": "0x1.f251dbea89293p-3",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6040_1.sm",
+      "semente": 3,
+      "cenario": "adaptativa",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.f251dbea89292p-3",
+      "hex_obtido": "0x1.f251dbea89293p-3",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6040_1.sm",
+      "semente": 4,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6040_1.sm",
+      "semente": 4,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6040_1.sm",
+      "semente": 4,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6040_1.sm",
+      "semente": 4,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6040_1.sm",
+      "semente": 5,
+      "cenario": "centralizada",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.907677df7e9cep-2",
+      "hex_obtido": "0x1.907677df7e9cfp-2",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6040_1.sm",
+      "semente": 5,
+      "cenario": "adaptativa",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.907677df7e9cep-2",
+      "hex_obtido": "0x1.907677df7e9cfp-2",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6040_1.sm",
+      "semente": 6,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6040_1.sm",
+      "semente": 6,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6040_1.sm",
+      "semente": 6,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6040_1.sm",
+      "semente": 6,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6040_1.sm",
+      "semente": 9,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6040_1.sm",
+      "semente": 9,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6040_1.sm",
+      "semente": 9,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6040_1.sm",
+      "semente": 9,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6043_1.sm",
+      "semente": 3,
+      "cenario": "centralizada",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.f251dbea89292p-3",
+      "hex_obtido": "0x1.f251dbea89293p-3",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6043_1.sm",
+      "semente": 3,
+      "cenario": "adaptativa",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.f251dbea89292p-3",
+      "hex_obtido": "0x1.f251dbea89293p-3",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6043_1.sm",
+      "semente": 4,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6043_1.sm",
+      "semente": 4,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6043_1.sm",
+      "semente": 4,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6043_1.sm",
+      "semente": 4,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6043_1.sm",
+      "semente": 5,
+      "cenario": "centralizada",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.907677df7e9cep-2",
+      "hex_obtido": "0x1.907677df7e9cfp-2",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6043_1.sm",
+      "semente": 5,
+      "cenario": "adaptativa",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.907677df7e9cep-2",
+      "hex_obtido": "0x1.907677df7e9cfp-2",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6043_1.sm",
+      "semente": 6,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6043_1.sm",
+      "semente": 6,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6043_1.sm",
+      "semente": 6,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6043_1.sm",
+      "semente": 6,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6043_1.sm",
+      "semente": 9,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6043_1.sm",
+      "semente": 9,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6043_1.sm",
+      "semente": 9,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6043_1.sm",
+      "semente": 9,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6046_1.sm",
+      "semente": 3,
+      "cenario": "centralizada",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.f251dbea89292p-3",
+      "hex_obtido": "0x1.f251dbea89293p-3",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6046_1.sm",
+      "semente": 3,
+      "cenario": "adaptativa",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.f251dbea89292p-3",
+      "hex_obtido": "0x1.f251dbea89293p-3",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6046_1.sm",
+      "semente": 4,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6046_1.sm",
+      "semente": 4,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6046_1.sm",
+      "semente": 4,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6046_1.sm",
+      "semente": 4,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6046_1.sm",
+      "semente": 5,
+      "cenario": "centralizada",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.907677df7e9cep-2",
+      "hex_obtido": "0x1.907677df7e9cfp-2",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6046_1.sm",
+      "semente": 5,
+      "cenario": "adaptativa",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.907677df7e9cep-2",
+      "hex_obtido": "0x1.907677df7e9cfp-2",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6046_1.sm",
+      "semente": 6,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6046_1.sm",
+      "semente": 6,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6046_1.sm",
+      "semente": 6,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6046_1.sm",
+      "semente": 6,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6046_1.sm",
+      "semente": 9,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6046_1.sm",
+      "semente": 9,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6046_1.sm",
+      "semente": 9,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j6046_1.sm",
+      "semente": 9,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j604_1.sm",
+      "semente": 3,
+      "cenario": "centralizada",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.f251dbea89292p-3",
+      "hex_obtido": "0x1.f251dbea89293p-3",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j604_1.sm",
+      "semente": 3,
+      "cenario": "adaptativa",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.f251dbea89292p-3",
+      "hex_obtido": "0x1.f251dbea89293p-3",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j604_1.sm",
+      "semente": 4,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j604_1.sm",
+      "semente": 4,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j604_1.sm",
+      "semente": 4,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j604_1.sm",
+      "semente": 4,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j604_1.sm",
+      "semente": 5,
+      "cenario": "centralizada",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.907677df7e9cep-2",
+      "hex_obtido": "0x1.907677df7e9cfp-2",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j604_1.sm",
+      "semente": 5,
+      "cenario": "adaptativa",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.907677df7e9cep-2",
+      "hex_obtido": "0x1.907677df7e9cfp-2",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j604_1.sm",
+      "semente": 6,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j604_1.sm",
+      "semente": 6,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j604_1.sm",
+      "semente": 6,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j604_1.sm",
+      "semente": 6,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j604_1.sm",
+      "semente": 9,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j604_1.sm",
+      "semente": 9,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j604_1.sm",
+      "semente": 9,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j604_1.sm",
+      "semente": 9,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j607_1.sm",
+      "semente": 3,
+      "cenario": "centralizada",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.f251dbea89292p-3",
+      "hex_obtido": "0x1.f251dbea89293p-3",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j607_1.sm",
+      "semente": 3,
+      "cenario": "adaptativa",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.f251dbea89292p-3",
+      "hex_obtido": "0x1.f251dbea89293p-3",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j607_1.sm",
+      "semente": 4,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j607_1.sm",
+      "semente": 4,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j607_1.sm",
+      "semente": 4,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j607_1.sm",
+      "semente": 4,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.7fd1b7396c48ep-1",
+      "hex_obtido": "0x1.7fd1b7396c48dp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j607_1.sm",
+      "semente": 5,
+      "cenario": "centralizada",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.907677df7e9cep-2",
+      "hex_obtido": "0x1.907677df7e9cfp-2",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j607_1.sm",
+      "semente": 5,
+      "cenario": "adaptativa",
+      "campo": "competencia_minima_inicial",
+      "hex_ref": "0x1.907677df7e9cep-2",
+      "hex_obtido": "0x1.907677df7e9cfp-2",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j607_1.sm",
+      "semente": 6,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j607_1.sm",
+      "semente": 6,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j607_1.sm",
+      "semente": 6,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j607_1.sm",
+      "semente": 6,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.86bf6465f722ap-1",
+      "hex_obtido": "0x1.86bf6465f722bp-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j607_1.sm",
+      "semente": 9,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j607_1.sm",
+      "semente": 9,
+      "cenario": "centralizada",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j607_1.sm",
+      "semente": 9,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_inicial",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    },
+    {
+      "arquivo": "j607_1.sm",
+      "semente": 9,
+      "cenario": "adaptativa",
+      "campo": "competencia_maxima_final",
+      "hex_ref": "0x1.5fda8f9a79560p-1",
+      "hex_obtido": "0x1.5fda8f9a79561p-1",
+      "distancia_ulp": 1
+    }
+  ],
+  "divergencias": [],
+  "completas": 384
+}

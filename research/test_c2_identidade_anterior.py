@@ -6,7 +6,7 @@ import yaml
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'src/modelo'))
 import simulador as S
 from simulador_mvp import SimulacaoMVP,OpcoesMVP
-from test_compatibilidade import bits
+from test_compatibilidade import bits,comparar_diagnostico_historico
 class IdentidadeC2(unittest.TestCase):
     def test_nenhuma_contra_efd1248(self):
         name='_mvp_anterior_C2';mod=types.ModuleType(name);sys.modules[name]=mod
@@ -22,7 +22,7 @@ class IdentidadeC2(unittest.TestCase):
                         args=(g,d,c,S.carregar_parametros(),cen,seed)
                         a=mod.SimulacaoMVP(*args,opcoes=mod.OpcoesMVP(**opts))
                         b=SimulacaoMVP(*args,opcoes=OpcoesMVP(**opts,heterogeneidade_erro='nenhuma'))
-                        self.assertEqual(bits(asdict(a.executar())),bits(asdict(b.executar())))
+                        comparar_diagnostico_historico(self,asdict(a.executar()),asdict(b.executar()))
                         self.assertEqual(a.rng.bit_generator.state,b.rng.bit_generator.state)
                         for attr in ['divida_pendente','eventos','registros_tarefas','reparos']:
                             self.assertEqual(bits(getattr(a,attr)),bits(getattr(b,attr)))

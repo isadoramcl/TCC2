@@ -1,0 +1,24 @@
+test_k_fuga_controla_drenagem_nos_dois_lacos (test_fuga_desacoplada.FugaDesacoplada.test_k_fuga_controla_drenagem_nos_dois_lacos) ... 
+  test_k_fuga_controla_drenagem_nos_dois_lacos (test_fuga_desacoplada.FugaDesacoplada.test_k_fuga_controla_drenagem_nos_dois_lacos) (classe='Simulacao') ... FAIL
+  test_k_fuga_controla_drenagem_nos_dois_lacos (test_fuga_desacoplada.FugaDesacoplada.test_k_fuga_controla_drenagem_nos_dois_lacos) (classe='FugaForcada') ... FAIL
+
+======================================================================
+FAIL: test_k_fuga_controla_drenagem_nos_dois_lacos (test_fuga_desacoplada.FugaDesacoplada.test_k_fuga_controla_drenagem_nos_dois_lacos) (classe='Simulacao')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/isadoracarvalho/TCC2_discriminante/research/test_fuga_desacoplada.py", line 24, in test_k_fuga_controla_drenagem_nos_dois_lacos
+    self.assertAlmostEqual(custo_fuga(cls,.04,.10),.02,places=14)
+AssertionError: 0.008000000000000007 != 0.02 within 14 places (0.011999999999999993 difference)
+
+======================================================================
+FAIL: test_k_fuga_controla_drenagem_nos_dois_lacos (test_fuga_desacoplada.FugaDesacoplada.test_k_fuga_controla_drenagem_nos_dois_lacos) (classe='FugaForcada')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/isadoracarvalho/TCC2_discriminante/research/test_fuga_desacoplada.py", line 24, in test_k_fuga_controla_drenagem_nos_dois_lacos
+    self.assertAlmostEqual(custo_fuga(cls,.04,.10),.02,places=14)
+AssertionError: 0.008000000000000007 != 0.02 within 14 places (0.011999999999999993 difference)
+
+----------------------------------------------------------------------
+Ran 1 test in 0.026s
+
+FAILED (failures=2)

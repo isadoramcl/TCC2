@@ -1,0 +1,217 @@
+{
+  "N_novas": 3936,
+  "opcoes": {
+    "fator_omissao": 0.75,
+    "retrabalho_fila": true,
+    "lei_confianca": "crowder",
+    "lei_tempo_aprendizado": "unitario",
+    "comunicacao_crowder": true,
+    "reset_competencia": true,
+    "horizonte_automatico": true,
+    "limite_horizonte_fator": 256,
+    "politica_porta2": "nominal",
+    "tau_portao": null,
+    "tau_rede": null,
+    "portao_assistencia": "logistico",
+    "regra_fuga": "logistica",
+    "efeito_fuga": "drena",
+    "s_portoes": 0.25
+  },
+  "parametros_agentes": {
+    "n_agentes": {
+      "valor": 6,
+      "varredura": [
+        3,
+        6,
+        10
+      ],
+      "condicao": "derivado",
+      "fonte": "sem base emp\u00edrica; o J60 n\u00e3o especifica equipe"
+    },
+    "b_inicial": {
+      "valor": 1.0,
+      "condicao": "premissa",
+      "fonte": "bateria plena no in\u00edcio"
+    },
+    "b_min": {
+      "valor": 0.05,
+      "condicao": "premissa",
+      "fonte": "piso num\u00e9rico; evita divis\u00e3o por zero na equa\u00e7\u00e3o (1)"
+    },
+    "k_analitico": {
+      "valor": 0.04,
+      "varredura": [
+        0.02,
+        0.04,
+        0.08
+      ],
+      "condicao": "aberto",
+      "fonte": "drenagem por per\u00edodo em modo anal\u00edtico"
+    },
+    "k_heuristico": {
+      "valor": 0.04,
+      "varredura": [
+        0.02,
+        0.04
+      ],
+      "condicao": "derivado",
+      "fonte": "= k_analitico; o atalho faz fator_omissao do trabalho em fator_omissao do tempo, mesma intensidade por per\u00edodo. TCC1 \u00a74.1. Varredura como sensibilidade; economia nominal antes do arredondamento."
+    },
+    "r_recuperacao": {
+      "valor": 0.06,
+      "varredura": [
+        0.03,
+        0.06,
+        0.12
+      ],
+      "condicao": "aberto",
+      "fonte": "recupera\u00e7\u00e3o por per\u00edodo de descanso"
+    },
+    "competencia_inicial": {
+      "valor": {
+        "media": 0.55,
+        "desvio": 0.12
+      },
+      "condicao": "premissa",
+      "fonte": "distribui\u00e7\u00e3o inicial de compet\u00eancia na equipe"
+    },
+    "tau_sat": {
+      "valor": 1.0,
+      "varredura": [
+        0.7,
+        1.0,
+        1.4
+      ],
+      "condicao": "aberto",
+      "fonte": "limiar de satura\u00e7\u00e3o da aten\u00e7\u00e3o; equa\u00e7\u00e3o (1) do TCC I"
+    },
+    "s_transicao": {
+      "valor": 0.25,
+      "varredura": [
+        0.01,
+        0.25,
+        0.6
+      ],
+      "condicao": "aberto",
+      "fonte": "escala da transi\u00e7\u00e3o estoc\u00e1stica; s\u21920 recupera o limiar determin\u00edstico"
+    }
+  },
+  "nominal": [
+    "j6010_1.sm",
+    "j6013_1.sm",
+    "j6016_1.sm",
+    "j6019_1.sm",
+    "j6021_1.sm",
+    "j6024_1.sm",
+    "j6027_1.sm",
+    "j602_1.sm",
+    "j6032_1.sm",
+    "j6035_1.sm",
+    "j6038_1.sm",
+    "j6040_1.sm",
+    "j6043_1.sm",
+    "j6046_1.sm",
+    "j604_1.sm",
+    "j607_1.sm"
+  ],
+  "fora48": [
+    "j6010_9.sm",
+    "j6011_8.sm",
+    "j6012_7.sm",
+    "j6013_3.sm",
+    "j6014_5.sm",
+    "j6015_3.sm",
+    "j6016_3.sm",
+    "j6017_4.sm",
+    "j6018_8.sm",
+    "j6019_7.sm",
+    "j601_5.sm",
+    "j6020_4.sm",
+    "j6021_7.sm",
+    "j6022_2.sm",
+    "j6023_4.sm",
+    "j6024_3.sm",
+    "j6025_8.sm",
+    "j6026_3.sm",
+    "j6027_2.sm",
+    "j6028_4.sm",
+    "j6029_7.sm",
+    "j602_10.sm",
+    "j6030_5.sm",
+    "j6031_3.sm",
+    "j6032_9.sm",
+    "j6033_1.sm",
+    "j6034_10.sm",
+    "j6035_9.sm",
+    "j6036_9.sm",
+    "j6037_6.sm",
+    "j6038_7.sm",
+    "j6039_2.sm",
+    "j603_9.sm",
+    "j6040_8.sm",
+    "j6041_6.sm",
+    "j6042_1.sm",
+    "j6043_10.sm",
+    "j6044_9.sm",
+    "j6045_8.sm",
+    "j6046_10.sm",
+    "j6047_4.sm",
+    "j6048_4.sm",
+    "j604_10.sm",
+    "j605_8.sm",
+    "j606_4.sm",
+    "j607_9.sm",
+    "j608_3.sm",
+    "j609_2.sm"
+  ],
+  "aleatorio": {
+    "semente_sorteio": 658578710,
+    "N_livres": 416,
+    "instancias": [
+      "j6016_10.sm",
+      "j6017_6.sm",
+      "j6018_10.sm",
+      "j6023_7.sm",
+      "j6024_9.sm",
+      "j6028_8.sm",
+      "j6029_5.sm",
+      "j6032_4.sm",
+      "j6032_5.sm",
+      "j6035_4.sm",
+      "j6036_1.sm",
+      "j6037_10.sm",
+      "j6037_5.sm",
+      "j6041_4.sm",
+      "j6041_7.sm",
+      "j6042_3.sm",
+      "j6042_5.sm",
+      "j6042_9.sm",
+      "j6043_7.sm",
+      "j6044_4.sm",
+      "j6046_5.sm",
+      "j6047_9.sm",
+      "j604_5.sm",
+      "j606_5.sm"
+    ],
+    "sementes_simulacao": [
+      100,
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      108,
+      109,
+      110,
+      111
+    ]
+  },
+  "governanca_instancias": [
+    "j6010_1.sm",
+    "j6021_1.sm",
+    "j6032_1.sm",
+    "j6043_1.sm"
+  ]
+}

@@ -43,17 +43,17 @@ python src/psplib/03_transferencia_ordinal.py
 python src/modelo/01_derivar_parametros.py
 python src/modelo/02_verificar_simulador.py
 
-# 3. Experimentos — nominal (16 instâncias) e validação fora da amostra (48)
-python research/validacao/nominal_v2.py nominal
-python research/validacao/nominal_v2.py fora1
-python research/validacao/nominal_v2.py fora2
-python research/validacao/nominal_v2.py fora3
-python research/validacao/nominal_v2.py analise
+# 3. Validação nominal v3 (diretório novo; não sobrescreve a evidência)
+python research/validacao_drenagem_79.py rodar etapa3 outputs/diagnosticos/NOVA_VALIDACAO_V3
+python research/validacao_drenagem_79.py analisar etapa3 outputs/diagnosticos/NOVA_VALIDACAO_V3
 ```
 
-O modelo nominal está em `config/mvp.yaml` (versão 2, desde 21/09/2026). A versão
-anterior está congelada em `config/mvp_v1.yaml` e continua reproduzindo, bit a
-bit, toda a evidência produzida até aquela data.
+O nominal é a **v3**: opções em `config/mvp.yaml`, parâmetros em
+`config/parametros.yaml`. A execução heurística usa `k_heuristico=k_analitico=0,04`;
+a fuga usa `k_fuga=0,10` separado. A v2 histórica está em `config/mvp_v2.yaml`
+com `config/parametros_v2.yaml`; a v1 mantém `config/mvp_v1.yaml` com os parâmetros
+históricos. A identidade exclui o diagnóstico de violações e declara a exceção
+de até 2 ULP em competências/confiança no Mac ARM (parecer 79).
 
 Para rodar a suíte de testes:
 
@@ -167,81 +167,51 @@ alternativos de corte e em 12 de 12 reamostragens por exclusão de projeto.
 vezes o risco basal de uma de dificuldade baixa, IC 95% [1,878; 4,156], com
 bootstrap por projeto.
 
-### Camada de simulação
+### Camada de simulação — nominal v3 final
 
-Contraste entre o arranjo adaptativo e o centralizado, pareado por instância e
-semente, com intervalo de confiança sobre as instâncias. Valores negativos
-favorecem o arranjo adaptativo.
+Contraste adaptativa − centralizada, pareado por instância/semente; IC95 sobre
+instâncias. Valores negativos favorecem o arranjo adaptativo.
 
-| indicador | 16 instâncias | 48 instâncias fora da amostra |
-|---|---:|---:|
-| atraso relativo | −0,9429 [−1,0864; −0,7994] | −0,9860 [−1,0731; −0,8988] |
-| taxa de omissão | −0,2016 [−0,2137; −0,1894] | −0,2074 [−0,2163; −0,1985] |
-| dívida latente | −0,0694 [−0,0761; −0,0628] | −0,0727 [−0,0778; −0,0676] |
-| taxa de falha efetiva | −0,0229 [−0,0347; −0,0111] | −0,0213 [−0,0276; −0,0149] |
-| fração via Porta 1 | −0,0511 [−0,0697; −0,0326] | −0,0499 [−0,0587; −0,0410] |
+| Indicador | Nominal 16 | Fora da amostra 48 | Aleatórias 24 |
+| --- | --- | --- | --- |
+| Atraso relativo | -0.9100 [-1.0473; -0.7728] | -0.9381 [-1.0175; -0.8587] | -0.9528 [-1.0731; -0.8325] |
+| Omissão | -0.1743 [-0.1896; -0.1590] | -0.1789 [-0.1882; -0.1697] | -0.1746 [-0.1856; -0.1636] |
+| Dívida latente | -0.0547 [-0.0607; -0.0486] | -0.0567 [-0.0604; -0.0529] | -0.0542 [-0.0589; -0.0496] |
+| Falha efetiva | -0.0194 [-0.0303; -0.0084] | -0.0192 [-0.0260; -0.0124] | -0.0176 [-0.0269; -0.0083] |
+| Fração P1 | -0.0534 [-0.0673; -0.0394] | -0.0447 [-0.0510; -0.0384] | -0.0553 [-0.0661; -0.0446] |
 
-A replicação fora da amostra usou 48 instâncias sorteadas de forma
-estratificada, uma por combinação de desenho, excluindo as 16 do nominal. Os
-cinco indicadores mantêm sinal e significância, e nos 50 cruzamentos de
-indicador com estrato (complexidade de rede, fator de recursos e força de
-recursos) todos são negativos com intervalo excluindo zero.
+**O que mudou.** A v3 resolve a tensão entre o alívio descrito no TCC I §4.1 e
+a drenagem acelerada de §4.4.3: o atalho passa a ter a mesma intensidade por
+período da execução analítica; a economia vem de terminar antes. Em tarefa/estado
+pareados, o teste mede 25% de redução total quando a duração cai 25%; o
+arredondamento pode anular essa economia em tarefas de um período. Adiar continua
+sendo outro mecanismo: `k_fuga=0,10`. Não há mais coeficiente acelerado na execução
+heurística. As etapas foram executadas e reportadas separadamente.
 
-**O que mudou na versão 2.** Na versão 1, o arranjo centralizado não conseguia
-pedir ajuda em nenhum momento, por construção. Com os portões suaves, ele passa
-a pedir ajuda à medida que a confiança se constrói, e a vantagem do adaptativo
-diminui — sobretudo em falha efetiva (−0,0431 → −0,0229) e fração via Porta 1
-(−0,1165 → −0,0511). A diferença entre as versões é a parte do efeito que vinha
-da proibição, e não da governança.
-
----
+Comparação v2 → v3 inicial → v3 final, com IC95 e efeitos pareados:
+[parecer 79](projeto/79_CONTRADICAO_TCC1_DRENAGEM_HEURISTICA.md) e
+`outputs/diagnosticos/20260928_drenagem_heuristica/`.
 
 ## Estado atual
 
-### Funciona e está verificado
+- Duas validações completas sequenciais: **4.704 execuções cada**, todas
+  concluídas e sem violações. Cada lote cobre nominal, fora48, aleatórias24 e
+  governança; a etapa 2 reaproveita 768 execuções da etapa 1.
+- **107 testes aprovados** após a separação de fuga, incluindo controles negativos,
+  guarda histórica/nova e drenagem efetivamente medida nos dois laços.
+- Controle histórico final: **384 execuções × 48 campos**, sem diferenças fora
+  da exceção autorizada de plataforma. A guarda dispara uma vez com kh=0,10 e
+  zero no nominal v3. Não afirmar identidade integral do diagnóstico de violações.
+- Os resultados acima foram recalculados para v3; as verificações de estresse,
+  inclinação dos portões, sensibilidade à pressão e History Matching dos pareceres
+  anteriores continuam históricas v1/v2 e não são apresentadas como revalidadas na v3.
 
-- Simulador implementado, com identidade bit a bit preservada em todas as
-  alterações. A versão 1 continua reproduzível exatamente a partir de
-  `config/mvp_v1.yaml`.
-- Cinco indicadores com intervalo de confiança, replicados fora da amostra e
-  num teste aleatório adicional (24 instâncias nunca usadas, sorteadas ao acaso,
-  com sementes novas, critério escrito antes da execução): os cinco contrastes
-  negativos, todos com intervalo excluindo zero, e as 576 execuções completas.
-  Esse teste foi executado depois da auditoria e ainda não foi auditado.
-- **Auditoria independente do nominal v2** (`projeto/76`, revisada em
-  `projeto/77`): reexecução bit a bit das versões 1 e 2, dentro e fora da
-  amostra, e recálculo próprio dos intervalos, da varredura de governança e da
-  sensibilidade à pressão. Oito dos nove itens confirmados; o nono — confiança
-  final abaixo da inicial em algumas execuções — foi verificado como
-  comportamento previsto pelo modelo (ver abaixo).
-- **As três decisões do modelo usam a mesma transição suave.** No TCC I eram
-  comparações duras entre dois números, e duas delas degeneravam: a rota de fuga
-  nunca disparava e o arranjo centralizado nunca pedia ajuda. Agora a fuga
-  dispara de forma gradual, crescendo com a sobrecarga, e a confiança no arranjo
-  centralizado sobe, em média, de 0,25 para cerca de 0,60 ao longo do projeto,
-  sem alcançar a do adaptativo (0,95). Em cerca de 1,6% das execuções ela
-  termina abaixo da inicial (mínimo 0,21): são projetos em que a maioria dos
-  pedidos de ajuda encontrou o colega ocupado, e cada pedido frustrado reduz a
-  confiança, pela lei de Crowder. Todas as execuções terminam, inclusive as 36 que
-  travavam na versão 1.
-- Controles publicados reproduzidos: seis pontos de Stewart & Melchers (1988),
-  parâmetros da beta-binomial de Stewart (1992) e as frequências da Tabela 2.
-- Bateria de controles negativos estabelecendo a resolução do instrumento.
-- Cobertura do History Matching: taxa empírica de falsa exclusão de 6,2%,
-  IC 95% de Wilson [4,40%; 8,67%], compatível com o nominal de 5%.
-- Sensibilidade da seleção heurística à pressão: entre a pressão mínima e a
-  máxima, a fração de tarefas pela Porta 1 cresce 2,9 vezes no ponto nominal,
-  nos dois arranjos — mesma ordem de grandeza do deslocamento de estratégia
-  observado por Rieskamp e Hoffrage (2008), razão ≈ 2,3. Comparação descritiva,
-  sem ajuste.
-- **Achado sobre fonte primária:** a Tabela 2 de Stewart (1992) não é
-  internamente reprodutível na precisão impressa — nenhum par de parâmetros
-  satisfaz os três conjuntos publicados ao mesmo tempo (discrepância de 0,012%,
-  dentro do arredondamento). A implementação reproduz a fonte; o efeito sobre
-  o modelo é nulo.
+### Ressalva de governança
 
-### Funciona, com ressalva declarada
+A grade de 81 perfis contém 1.215 pares com premissas ordenadas. Frequência de
+contrastes negativos não é significância estatística nem garantia universal:
 
+<<<<<<< HEAD
 - **Os parâmetros de governança são premissas sem fonte externa.** Na varredura
   de 81 perfis, restrita aos pares em que o arranjo adaptativo tem premissas
   pelo menos tão favoráveis quanto o centralizado (1 215 pares), o atraso, a
@@ -257,16 +227,29 @@ da proibição, e não da governança.
   cognitiva que o modelo já usava, sem dado nem calibração. Varrida de 0,05 a
   1,00, os cinco contrastes mantêm o sinal em todos os valores; a magnitude de
   falha efetiva e de fração via Porta 1 depende dela.
+=======
+| Indicador | v2 (de 1.215) | v3 etapa 1/2 | v3 final |
+| --- | --- | --- | --- |
+| Atraso relativo | 1128 | 1115 | 1114 |
+| Omissão | 926 | 940 | 950 |
+| Dívida latente | 1101 | 1124 | 1103 |
+| Falha efetiva | 564 | 504 | 531 |
+| Fração P1 | 802 | 806 | 806 |
+>>>>>>> c9d076c (v3: k_heuristico derivado de k_analitico; k_fuga separado (parecer 79))
 
-### O que o TCC I previa e mudou
+A vantagem em falha efetiva **não é uma conclusão geral para todo o espaço de
+governança**. Tabelas com sinal, magnitude e IC95 de cada par estão nos diretórios
+etapa2/etapa3; regiões com inversão permanecem reportadas. Nenhum parâmetro foi
+ajustado para melhorar essa contagem. Os valores de governança e a inclinação dos
+portões seguem premissas, sem calibração externa.
 
-As três decisões de comportamento do agente eram, no TCC I, comparações duras
-entre dois números. Duas delas se mostraram degeneradas na implementação — a rota
-de fuga, porque a conta nunca passava do limiar, e o pedido de ajuda, porque a
-confiança não tinha como mudar. A versão 2 aplica a elas a mesma transição suave
-que o TCC2 já usava na primeira decisão. Ver `projeto/74_PORTOES_SUAVES.md` e o
-critério de adoção, escrito antes da execução, em
-`projeto/75_CRITERIO_DE_ADOCAO_DOS_PORTOES_SUAVES.md`.
+### Histórico preservado
+
+A v1 usa portões duros; a v2 introduziu portões suaves (pareceres 74/75).
+A auditoria 76 tem correções registradas no 77. O fatorial 78 não sustentou causa
+única para a perda de robustez da falha efetiva na v2; não atribuir toda a diferença
+à assistência. A v3 altera drenagem e separa fuga conforme o parecer 79.
+O nominal atual não substitui nem apaga os resultados dessas versões.
 
 ---
 

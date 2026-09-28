@@ -1,0 +1,11 @@
+transicao,metrica,negativo_para_positivo,positivo_para_negativo
+v2→etapa2,atraso_relativo,69,56
+v2→etapa2,divida_latente_sobre_plano,60,83
+v2→etapa2,fracao_porta1,133,136
+v2→etapa2,taxa_falha_efetiva,302,241
+v2→etapa2,taxa_omissao,112,127
+etapa2→etapa3,atraso_relativo,24,23
+etapa2→etapa3,divida_latente_sobre_plano,51,30
+etapa2→etapa3,fracao_porta1,49,50
+etapa2→etapa3,taxa_falha_efetiva,68,93
+etapa2→etapa3,taxa_omissao,35,44

@@ -1,0 +1,7 @@
+{
+  "config/parametros.yaml": "957067042c7a9300d737856bb17c25ef360addd9ee52a76f3fa2b30db853d52c",
+  "config/parametros_derivados.yaml": "6c14269eb8809430412fa748f2539289a9764044a9308015585feceab32c01bd",
+  "config/mvp.yaml": "3fcec7f4c1e98801fe255250e4360ca5c949402f84ce131bd15cfc3b84119218",
+  "src/modelo/simulador.py": "82c728aa066bc1aa9fa471ec7a90ae240d51b7de04a516e3e12f363e2d8db199",
+  "src/modelo/simulador_mvp.py": "10895814175bd91255fc9493b48e46cdec8cae493ffbe3b08d6528e443520a9d"
+}

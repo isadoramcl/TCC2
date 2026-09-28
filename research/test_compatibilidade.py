@@ -20,6 +20,13 @@ def bits(x):
     if isinstance(x,(list,tuple)):return [bits(v) for v in x]
     return x
 
+def comparar_diagnostico_historico(teste,antigo,novo):
+    """79: kh=.04 invalida a guarda antiga e satisfaz a nova, sem ignorar outras violações."""
+    teste.assertEqual(antigo['violacoes'],['k_heuristico deve exceder k_analitico (TCC I)'])
+    teste.assertEqual(novo['violacoes'],[])
+    teste.assertEqual(bits({k:v for k,v in antigo.items() if k!='violacoes'}),
+                      bits({k:v for k,v in novo.items() if k!='violacoes'}))
+
 class Compatibilidade(unittest.TestCase):
     def test_nominal_unitario_contra_baseline_1fd22ff(self):
         import subprocess,types,yaml
@@ -43,7 +50,7 @@ class Compatibilidade(unittest.TestCase):
                             opts={**op,**({'lei_tempo_aprendizado':'unitario'} if explicita else {})}
                             b=SimulacaoMVP(*args,opcoes=OpcoesMVP(**opts))
                             novo=asdict(b.executar())
-                            self.assertEqual([k for k in antigo if bits(antigo[k])!=bits(novo[k])],[])
+                            comparar_diagnostico_historico(self,antigo,novo)
                             self.assertEqual(a.rng.bit_generator.state,b.rng.bit_generator.state)
                             self.assertEqual(bits(a.divida_pendente),bits(b.divida_pendente))
                             self.assertEqual(bits(a.eventos),bits(b.eventos))

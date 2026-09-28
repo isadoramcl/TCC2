@@ -26,7 +26,7 @@ class IdentidadeAnterior(unittest.TestCase):
         import yaml
         import simulador as S
         import simulador_mvp as M
-        from test_compatibilidade import bits
+        from test_compatibilidade import bits,comparar_diagnostico_historico
         root=Path(__file__).resolve().parents[1]
         def load(rel,name):
             m=types.ModuleType(name);m.__file__=str(root/rel);sys.modules[name]=m
@@ -49,7 +49,7 @@ class IdentidadeAnterior(unittest.TestCase):
                                 op=dict(nominal)
                                 if path=='mvp_comunicacao_legada':op.update(comunicacao_crowder=False,lei_confianca='constante')
                                 a=oldM.SimulacaoMVP(*copy.deepcopy(args),opcoes=oldM.OpcoesMVP(**op));b=M.SimulacaoMVP(*copy.deepcopy(args),opcoes=M.OpcoesMVP(**op))
-                            self.assertEqual(bits(asdict(a.executar())),bits(asdict(b.executar())))
+                            comparar_diagnostico_historico(self,asdict(a.executar()),asdict(b.executar()))
                             self.assertEqual(a.rng.bit_generator.state,b.rng.bit_generator.state)
                             self.assertEqual(bits([vars(x) for x in a.agentes]),bits([vars(x) for x in b.agentes]))
                             self.assertEqual(bits({k:vars(v) for k,v in a.tarefas.items()}),bits({k:vars(v) for k,v in b.tarefas.items()}))

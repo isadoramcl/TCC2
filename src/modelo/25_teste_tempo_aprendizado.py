@@ -40,7 +40,11 @@ def job(chave):
         x=getattr(a,attr);y=getattr(b,attr)
         if isinstance(x,dict):x=list(x.values());y=list(y.values())
         assert bits([vars(k) for k in x])==bits([vars(k) for k in y]),(chave,attr)
-    tl=sum((.5*e['dC'] if e['sucesso'] else .05 for e in b.eventos if e['tipo']=='comunicacao'),0.)
+    # Reproduzir a acumulação temporal += do simulador. Python >=3.12 usa
+    # soma compensada em sum(); ela não é uma identidade bit a bit do laço.
+    tl=0.
+    for e in b.eventos:
+        if e['tipo']=='comunicacao':tl+=.5*e['dC'] if e['sucesso'] else .05
     assert tl.hex()==b.TL.hex()
     return rows
 
@@ -53,7 +57,7 @@ def main():
     ap.add_argument('--workers',type=int,default=4);a=ap.parse_args()
     if not 1<=a.workers<=4:ap.error('workers entre 1 e 4')
     out=a.saida;out.mkdir(parents=True,exist_ok=False)
-    antigo=pd.read_csv(BASE/'bruto.csv');nom=antigo[antigo.configuracao=='MVP_corrigido']
+    antigo=pd.read_csv(BASE/'bruto.csv',float_precision='round_trip');nom=antigo[antigo.configuracao=='MVP_corrigido']
     keys=['arquivo','semente','cenario'];jobs=list(nom[keys].itertuples(index=False,name=None))
     arquivos=[ROOT/'src/modelo'/f for f in ['simulador.py','simulador_mvp.py','fuzzy.py','25_teste_tempo_aprendizado.py']]+[ROOT/'config'/f for f in ['mvp.yaml','parametros.yaml','parametros_derivados.yaml']]+[BASE/'bruto.csv',BASE/'manifesto.json',ROOT/'data/processed/psplib/tarefas_j60_com_di.csv',ROOT/'data/processed/psplib/instancias_j60.csv']
     sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()

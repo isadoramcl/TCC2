@@ -122,13 +122,20 @@ e recuperação parcial a cada período de descanso:
 
 ```
 modo analítico :  B ← B − k_analitico  · E(t)
-modo heurístico:  B ← B − k_heuristico · E(t)          com k_heuristico > k_analitico
+modo heurístico:  B ← B − k_heuristico · E(t)          com k_heuristico = k_analitico no nominal v3
 fim de período :  B ← min( B_max , B + r_recuperacao · B_max )
 ```
 
-`[TCC1]` A taxa heurística é "acelerada" em relação à analítica — daí a
-restrição `k_heuristico > k_analitico`, que o código deve verificar ao carregar
-os parâmetros.
+`[DEC — parecer 79]` Na v3 prevalece a economia de esforço descrita em TCC I
+§4.1 sobre a drenagem acelerada do pseudocódigo §4.4.3. O nominal fixa
+`k_heuristico = k_analitico = 0,04`; a guarda rejeita `k_heuristico > k_analitico`.
+O custo por período é igual no mesmo estado; a duração reduzida produz economia
+por tarefa, sujeita ao arredondamento e ao piso da bateria. Não prometer 25% em
+toda tarefa discreta. A sensibilidade heurística fica em [0,02; 0,04].
+A fuga é separada: cada adiamento drena `k_fuga · E`, com `k_fuga=0,10`
+congelado na etapa 3. Configurações históricas sem esse campo usam o coeficiente
+heurístico, preservando o acoplamento anterior. Resultados das etapas 1/2 e 3
+são reportados separadamente no parecer 79.
 
 `[DEC]` `C(t)` evolui apenas pela equação (2) do TCC I, na Porta 2. Não há
 aprendizado por execução no MVP; registrado como simplificação.
@@ -437,7 +444,9 @@ que soma as duas parcelas não distingue conversão de redução.
 - `[ABERTO]` `n_agentes` — sem base empírica; será varrido.
 - `[ABERTO]` Valores numéricos de `τ_sat`, `R_error`, `f_corrup`,
   `Limite_Aversao_Perda`, `p_deteccao`, `p_reporte`, `f_retrabalho`,
-  `k_analitico`, `k_heuristico`, `r_recuperacao`, `s_transicao`. Todos entram como premissas com faixa de
+  `k_analitico`, `r_recuperacao`, `s_transicao`. Na v3, `k_heuristico` é derivado
+  do analítico no nominal (sensibilidade separada [0,02;0,04]); `k_fuga=0,10`
+  está congelado e separado. Os demais entram como premissas com faixa de
   varredura declarada em `config/parametros.yaml`, e nenhum resultado do
   trabalho pode depender de um valor específico sem análise de sensibilidade.
 

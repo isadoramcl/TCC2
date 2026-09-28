@@ -1,0 +1,20 @@
+{
+  "etapa2": {
+    "N": 4704,
+    "completas": 4704,
+    "violacoes": 0,
+    "perfis_iguais": true,
+    "pares_ordenados": 1215
+  },
+  "etapa3": {
+    "N": 4704,
+    "completas": 4704,
+    "violacoes": 0,
+    "perfis_iguais": true,
+    "pares_ordenados": 1215
+  },
+  "suite": 107,
+  "controle_48_campos": true,
+  "residuo_agregacao": 2.220446049250313e-16,
+  "IC_negativos_finais": 15
+}

@@ -1,0 +1,57 @@
+   conjunto versao                    metrica     media  ic95_inf  ic95_sup  N_instancias
+    nominal etapa3            atraso_relativo -0.910045 -1.047256 -0.772834            16
+    nominal etapa3               taxa_omissao -0.174306 -0.189571 -0.159040            16
+    nominal etapa3 divida_latente_sobre_plano -0.054653 -0.060665 -0.048642            16
+    nominal etapa3         taxa_falha_efetiva -0.019358 -0.030336 -0.008379            16
+    nominal etapa3              fracao_porta1 -0.053385 -0.067347 -0.039424            16
+     fora48 etapa3            atraso_relativo -0.938070 -1.017488 -0.858652            48
+     fora48 etapa3               taxa_omissao -0.178906 -0.188151 -0.169662            48
+     fora48 etapa3 divida_latente_sobre_plano -0.056657 -0.060429 -0.052885            48
+     fora48 etapa3         taxa_falha_efetiva -0.019213 -0.026047 -0.012379            48
+     fora48 etapa3              fracao_porta1 -0.044705 -0.051015 -0.038394            48
+aleatorio24 etapa3            atraso_relativo -0.952782 -1.073080 -0.832483            24
+aleatorio24 etapa3               taxa_omissao -0.174595 -0.185622 -0.163568            24
+aleatorio24 etapa3 divida_latente_sobre_plano -0.054236 -0.058862 -0.049610            24
+aleatorio24 etapa3         taxa_falha_efetiva -0.017593 -0.026851 -0.008335            24
+aleatorio24 etapa3              fracao_porta1 -0.055324 -0.066086 -0.044562            24
+    nominal     v2            atraso_relativo -0.942878 -1.086353 -0.799404            16
+    nominal     v2               taxa_omissao -0.201562 -0.213702 -0.189423            16
+    nominal     v2 divida_latente_sobre_plano -0.069431 -0.076063 -0.062799            16
+    nominal     v2         taxa_falha_efetiva -0.022917 -0.034693 -0.011140            16
+    nominal     v2              fracao_porta1 -0.051128 -0.069652 -0.032605            16
+     fora48     v2            atraso_relativo -0.985950 -1.073122 -0.898779            48
+     fora48     v2               taxa_omissao -0.207378 -0.216260 -0.198497            48
+     fora48     v2 divida_latente_sobre_plano -0.072682 -0.077756 -0.067609            48
+     fora48     v2         taxa_falha_efetiva -0.021267 -0.027606 -0.014929            48
+     fora48     v2              fracao_porta1 -0.049884 -0.058744 -0.041024            48
+aleatorio24     v2            atraso_relativo -1.032956 -1.160669 -0.905243            24
+aleatorio24     v2               taxa_omissao -0.199942 -0.212125 -0.187759            24
+aleatorio24     v2 divida_latente_sobre_plano -0.066402 -0.073811 -0.058992            24
+aleatorio24     v2         taxa_falha_efetiva -0.023090 -0.031333 -0.014847            24
+aleatorio24     v2              fracao_porta1 -0.060880 -0.075379 -0.046381            24
+    nominal etapa2            atraso_relativo -0.868152 -0.986560 -0.749744            16
+    nominal etapa2               taxa_omissao -0.175868 -0.194024 -0.157712            16
+    nominal etapa2 divida_latente_sobre_plano -0.055170 -0.061464 -0.048877            16
+    nominal etapa2         taxa_falha_efetiva -0.021701 -0.034226 -0.009177            16
+    nominal etapa2              fracao_porta1 -0.052257 -0.066890 -0.037624            16
+     fora48 etapa2            atraso_relativo -0.931665 -1.008387 -0.854943            48
+     fora48 etapa2               taxa_omissao -0.177778 -0.186459 -0.169096            48
+     fora48 etapa2 divida_latente_sobre_plano -0.057044 -0.061170 -0.052918            48
+     fora48 etapa2         taxa_falha_efetiva -0.018981 -0.025778 -0.012185            48
+     fora48 etapa2              fracao_porta1 -0.044618 -0.051432 -0.037804            48
+aleatorio24 etapa2            atraso_relativo -0.925553 -1.038012 -0.813094            24
+aleatorio24 etapa2               taxa_omissao -0.173090 -0.183832 -0.162349            24
+aleatorio24 etapa2 divida_latente_sobre_plano -0.053919 -0.058718 -0.049119            24
+aleatorio24 etapa2         taxa_falha_efetiva -0.016377 -0.025438 -0.007316            24
+aleatorio24 etapa2              fracao_porta1 -0.055961 -0.066207 -0.045714            24
+versao                    metrica    N  negativos  positivos  zero  IC_negativo  IC_positivo
+    v2            atraso_relativo 1215       1128         87     0          482            3
+    v2 divida_latente_sobre_plano 1215       1101        114     0          640            4
+    v2              fracao_porta1 1215        802        405     8          155            7
+    v2         taxa_falha_efetiva 1215        564        643     8           15           30
+    v2               taxa_omissao 1215        926        286     3          623           15
+etapa3            atraso_relativo 1215       1114        101     0          527            3
+etapa3 divida_latente_sobre_plano 1215       1103        112     0          660            1
+etapa3              fracao_porta1 1215        806        403     6          184           41
+etapa3         taxa_falha_efetiva 1215        531        678     6           21           44
+etapa3               taxa_omissao 1215        950        259     6          642           18
