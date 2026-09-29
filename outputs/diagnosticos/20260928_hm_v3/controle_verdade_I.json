@@ -1,0 +1,10 @@
+{
+  "I": {
+    "taxa_omissao": 0.2530047031200279,
+    "atraso_relativo": 0.4448073308528192,
+    "retrabalho_sobre_plano": 5.017714979620899,
+    "E_total": 0.4275557118161204
+  },
+  "I_max": 5.017714979620899,
+  "excluido": true
+}

@@ -1,0 +1,2 @@
+grupo,ponto,risco.F_ancora,retrabalho.f_retrabalho,agentes.tau_sat,agentes.k_analitico,fuzzy.mu_minimo,media_taxa_omissao,var_media_taxa_omissao,media_atraso_relativo,var_media_atraso_relativo,media_retrabalho_sobre_plano,var_media_retrabalho_sobre_plano,media_E_total,var_media_E_total
+controle_verdade,-1,0.18,0.42,0.85,0.065,0.62,0.10416666666666667,0.00023726851851851852,1.638235294117647,0.002019143066248333,0.27064174546629804,1.83615100228502e-05,0.6751060015195298,0.0009976124193162212

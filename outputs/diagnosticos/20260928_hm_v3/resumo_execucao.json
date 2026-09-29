@@ -1,0 +1,13 @@
+{
+  "B": 500,
+  "exclusoes": 37,
+  "taxa": 0.074,
+  "IC95_Wilson": [
+    0.054161184751011976,
+    0.10033475332223055
+  ],
+  "p95_Imax": 3.2990833872209295,
+  "segundos_total": 536.4587423750054,
+  "evidencias_antigas_inalteradas": 699,
+  "codigo_config_pre_registro_inalterados": true
+}

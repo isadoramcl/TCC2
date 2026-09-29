@@ -55,6 +55,21 @@ com `config/parametros_v2.yaml`; a v1 mantém `config/mvp_v1.yaml` com os parâm
 históricos. A identidade exclui o diagnóstico de violações e declara a exceção
 de até 2 ULP em competências/confiança no Mac ARM (parecer 79).
 
+### History Matching interno da v3
+
+O espaço novo usa `k_analitico` em `[0,02; 0,08]` e deriva
+`k_heuristico=k_analitico` em cada proposta. Pré-registro e resultados no
+[parecer 81](projeto/81_HM_V3_PRE_REGISTRO_E_RESULTADOS.md), cobertura pareada no
+[81A](projeto/81A_COBERTURA_PAREADA_PRE_REGISTRO.md) e alcance de execução no
+[inventário 82](projeto/82_INVENTARIO_PIPELINES_V3.md).
+
+O runner vigente é `research/hm_v3.py`, seguido de
+`research/cobertura_pareada_v3.py`. `src/modelo/04_gemeo_identico.py` e
+`research/lote_noturno/cobertura.py` preservam o desenho histórico; não os
+execute com a configuração viva para produzir resultados v3. As evidências
+novas estão em `outputs/diagnosticos/20260928_hm_v3/`, ao lado das antigas,
+com não comparabilidade declarada. Qualquer reprodução exige destino novo.
+
 Para rodar a suíte de testes:
 
 ```bash

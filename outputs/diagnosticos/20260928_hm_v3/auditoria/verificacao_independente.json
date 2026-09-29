@@ -1,0 +1,68 @@
+{
+  "B": 500,
+  "exclusoes": 37,
+  "taxa": 0.074,
+  "IC95_Wilson": [
+    0.054161184751011976,
+    0.10033475332223055
+  ],
+  "p95_Imax": 3.2990833872209295,
+  "segundos_total": 536.4587423750054,
+  "evidencias_antigas_inalteradas": 699,
+  "codigo_config_pre_registro_inalterados": true,
+  "onda1": {
+    "N": 400,
+    "NROY": 46,
+    "fracao_propostas": 0.115,
+    "volume_caixa_relativo": 0.6294375071739479
+  },
+  "onda2": {
+    "N": 400,
+    "NROY": 63,
+    "fracao_propostas": 0.1575,
+    "volume_caixa_relativo": 0.3768992241790988
+  },
+  "N_total": 20428,
+  "violacoes": 0,
+  "incompletas": 0,
+  "igualdade_hex_em_todas_execucoes": true,
+  "max_residuo_recalculo": 1.9984014443252818e-14,
+  "I_verdade": {
+    "taxa_omissao": 0.2530047031200279,
+    "atraso_relativo": 0.4448073308528192,
+    "retrabalho_sobre_plano": 5.017714979620899,
+    "E_total": 0.4275557118161204
+  },
+  "Imax_verdade": 5.017714979620899,
+  "cobertura_independente": {
+    "B": 500,
+    "exclusoes": 37,
+    "taxa": 0.074,
+    "IC95_Wilson": [
+      0.054161184751011976,
+      0.10033475332223055
+    ],
+    "diferenca_pp_frente_5": 2.3999999999999995,
+    "p95_Imax": 3.2990833872209295,
+    "cinco_porcento_no_IC": false,
+    "teste_binomial_bilateral_p": 0.017932654954381948
+  },
+  "cobertura_pareada_principal": {
+    "B": 500,
+    "exclusoes": 33,
+    "taxa": 0.066,
+    "IC95_Wilson": [
+      0.04737852635977387,
+      0.09123940116085351
+    ],
+    "p95_Imax": 3.1449573199417546,
+    "cinco_porcento_no_IC": true,
+    "diferenca_pp_frente_5": 1.6,
+    "p_binomial_bilateral": 0.10066097995404835,
+    "N": 14000,
+    "violacoes": 0,
+    "incompletas": 0,
+    "residuo": 1.865174681370263e-14
+  },
+  "N_total_complemento_incluido": 34428
+}

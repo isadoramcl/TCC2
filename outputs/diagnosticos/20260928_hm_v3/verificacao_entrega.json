@@ -1,0 +1,16 @@
+{
+  "data_utc": "2026-09-29T10:19:56.820474+00:00",
+  "N_cientifico": 34428,
+  "violacoes": 0,
+  "incompletas": 0,
+  "derivacao_hex_todas": true,
+  "evidencias_anteriores_inalteradas": 699,
+  "arquivos_nucleo_config_inalterados": 34,
+  "pre_registro_original_preservado": true,
+  "inventario_arquivos": 133,
+  "inventario_hashes_conferidos": true,
+  "suite_testes": 112,
+  "classificacao_coberturas_confere": true,
+  "cobertura_principal": "pareada: 33/500; Wilson 4.7378526% a 9.1239401%",
+  "git_comandos_proibidos_executados": false
+}

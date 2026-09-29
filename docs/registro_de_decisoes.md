@@ -1367,3 +1367,14 @@ Nenhuma política alterada; lote aberto. [Relatório](../projeto/49_HORIZONTE_DO
 Etapas 1/2 com fuga acoplada: referências recebidas reproduzidas e 4.704 execuções completas/zero violações. Só depois: k_fuga=0,10 congelado separado, novo lote 4.704 completas/zero violações. Resultados e IC95 lado a lado no parecer 79. Suíte final 107 testes. Não houve escolha de valor por resultado, calibração ou nova onda HM.
 
 Identidade corrigida pela autora: 48 campos, exclui violacoes; guarda testada separadamente. Mac ARM admite até 2 ULP só em competencia_* e confianca_media_final; autora confirmou Linux exato. Controles completos repetidos com código final; zero divergências fora da exceção. Risco de decisões em empates/limiares de competência declarado, não negado. v2 preservada em parametros_v2.yaml/mvp_v2.yaml; outputs anteriores mantidos.
+
+
+## 29/09/2026 — HM v3, derivação e inventário (pareceres 81, 81A e 82)
+
+[DEC pré-registrada] Substituir a dimensão livre kh por ka em [0,02;0,08], com kh=ka em cada proposta. Verdade ka=0,065 preserva o quantil relativo 75% do desenho anterior, escolhido antes de simular; k_fuga fica 0,10. Núcleo MVP v3 e variância por médias de blocos nas duas instâncias fixas. Nenhuma alteração das faixas por resultado.
+
+34.428 execuções completas, zero violações e igualdade hexadecimal em todas. Inclui complemento de 14.000 execuções pré-registrado em 81A: cobertura deve usar o mesmo pareamento de sementes entre instâncias do HM. Série inicialmente independente preservada (7,4%); série pareada definida como principal antes de rodar: 33/500 = 6,6%, Wilson [4,74%;9,12%], p95 Imax=3,144957. Corte 3 e V_mod=0 mantidos. O gêmeo individual excluiu o verdadeiro (Imax=5,017715); não houve troca de observação para aprová-lo.
+
+[RESULTADO DESCRITIVO] ka tem contração 4,79%, não identificado neste desenho; tau_sat parcialmente (41,55%). Caixa final 37,6899% do a priori, não volume direto do NROY. Não comparar como melhora/piora com 14,8% legado: espaço, verdade, núcleo e estimador mudaram. kh saiu POR DERIVAÇÃO, não por falta de dado. O contrato de observáveis continua interno; E_total não serve a calibração externa.
+
+[CONTINUIDADE] Inventário 82 discrimina 133 arquivos e justifica caminhos não reexecutados. 112 testes aprovados não equivalem à validação de todos os entrypoints; runners históricos com config viva/destino antigo foram identificados. Pré-registros, brutos, snapshots e tabelas lado a lado em outputs/diagnosticos/20260928_hm_v3. Outputs anteriores preservados; nenhuma operação Git.
