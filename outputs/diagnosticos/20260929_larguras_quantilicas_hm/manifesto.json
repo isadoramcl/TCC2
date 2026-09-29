@@ -1,0 +1,26 @@
+{
+  "data_utc": "2026-09-29T10:48:13.348813+00:00",
+  "B": 2000,
+  "seed": 20260929,
+  "fluxo": "numpy.default_rng(SeedSequence([20260929,4,0 para v2 ou 1 para v3]))",
+  "metodo": "reamostrar linhas inteiras do NROY final com reposição e N original; mesmos índices para ambas larguras; quantis lineares; intervalo percentil 2,5–97,5",
+  "prior": "uniforme contínuo declarado, quantis analíticos a+p*(b-a), não quantis empíricos das propostas",
+  "NROY": "implausibilidade<=3, onda 2",
+  "numpy": "2.5.2",
+  "sha256_fontes": {
+    "outputs/tables/modelo_04_hm_onda2.csv": "c03df6dccbc9c5d7e03c3e855b677cc1cb21a19a0064a6ac6bb3adbafa8f4d5e",
+    "outputs/diagnosticos/20260928_hm_v3/onda2_hm.csv": "e7f4ce0d0077491069ef24fc32dc46a3d7675a84cf5207503ae0966c8f08cc6f"
+  },
+  "desenhos": {
+    "v2": {
+      "N": 115,
+      "volume_prior": 0.0020999999999999994
+    },
+    "v3": {
+      "N": 63,
+      "volume_prior": 0.0012599999999999996
+    }
+  },
+  "simulacoes_novas": 0,
+  "arquivos_codigo_alterados": 0
+}

@@ -1,0 +1,16 @@
+{
+  "data_utc": "2026-09-29T10:43:02.450947+00:00",
+  "B": 2000,
+  "semente": 20260929,
+  "algoritmo": "numpy default_rng(SeedSequence([20260929,0 para v2 ou 1 para v3])); integers(0,N,size=(2000,N)); reamostrar linhas inteiras NROY da onda 2; percentis 2.5/97.5 linear",
+  "NROY": "implausibilidade <= 3",
+  "numpy": "2.5.2",
+  "fontes_sha256": {
+    "outputs/tables/modelo_04_hm_onda1.csv": "11bbb6641209984f845fe859644b2363af6c2d14fac5009e3b06372b331a8c8b",
+    "outputs/tables/modelo_04_hm_onda2.csv": "c03df6dccbc9c5d7e03c3e855b677cc1cb21a19a0064a6ac6bb3adbafa8f4d5e",
+    "outputs/diagnosticos/20260928_hm_v3/onda1_hm.csv": "412a690ec89e1b745a97dcc9c8c4fda3185bc8fab3faff629ff9506e064e937a",
+    "outputs/diagnosticos/20260928_hm_v3/onda2_hm.csv": "e7f4ce0d0077491069ef24fc32dc46a3d7675a84cf5207503ae0966c8f08cc6f"
+  },
+  "simulacoes_novas": 0,
+  "arquivos_codigo_alterados": 0
+}
