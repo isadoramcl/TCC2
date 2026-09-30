@@ -1,0 +1,7 @@
+{
+  "aprovado": true,
+  "criterio": "toler\u00e2ncia 0,0005 contra nominal oficial etapa3",
+  "max_diferenca_oficial": 0.0,
+  "comparacao_adicional_tabela_autora": 0.0008440539913558975,
+  "nota": "Verificador inicial adicionou bloqueio pelos IC arredondados da tabela fornecida. Falha preservada; esse bloqueio adicional n\u00e3o \u00e9 a condi\u00e7\u00e3o especificada contra o nominal oficial."
+}

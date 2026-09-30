@@ -345,17 +345,21 @@ ainda mais forte (z = 34,3).
   de 2011, anterior ao artigo de 2013 e à migração para o Figshare em 2018.
   **Ação recomendada antes da redação final:** baixar da coleção oficial no
   Figshare e comparar os resumos SHA-256 com os já registrados pelo script 01.
-- `[ABERTO]` **Eixo do F_base.** A decisão registrada na seção 6.2 preserva a
+- `[DECISÃO DE ESCOPO — TESTADA NA V3, 29/09/2026]` **Eixo do F_base.** A decisão registrada na seção 6.2 preserva a
   complexidade ciclomática como eixo, na condição de marcador ordinal. A
   alternativa — usar magnitude (tamanho) como eixo — tem suporte empírico maior
   e, no domínio de destino, análogo direto (duração e intensidade de recursos da
   tarefa no J60). **Vale discutir com o Prof. André**, pois muda o enquadramento
-  do capítulo de calibração.
-- `[ABERTO]` **Ponderação do índice `Di` no J60.** Consequência da seção 6.2: o
+  do capítulo de calibração. **Atualização:** parecer 85, dois eixos nos conjuntos
+  nominal16/fora48/aleatório24: 30/30 contrastes negativos com IC95 excluindo zero.
+  Escolha nominal preservada; conclusão restrita ao desenho testado.
+- `[DECISÃO DE ESCOPO — TESTADA NA V3, 29/09/2026]` **Ponderação do índice `Di` no J60.** Consequência da seção 6.2: o
   componente de magnitude tem respaldo empírico; o componente estrutural
   (criticidade na rede) não tem respaldo independente. Recomendação registrada:
   ponderar conservadoramente o componente estrutural e submetê-lo a análise de
-  sensibilidade específica.
+  sensibilidade específica. **Atualização:** parecer 85, referência e três pesos
+  declarados em nominal16/fora48: 40/40 contrastes negativos com IC95 excluindo
+  zero. Di, níveis e F_base foram recalculados a montante; pesos nominais preservados.
 - `[RESOLVIDA]` **PSPLIB J60 auditado.** Ver seção 11.
 
 ---
@@ -1378,3 +1382,12 @@ Identidade corrigida pela autora: 48 campos, exclui violacoes; guarda testada se
 [RESULTADO DESCRITIVO] ka tem contração 4,79%, não identificado neste desenho; tau_sat parcialmente (41,55%). Caixa final 37,6899% do a priori, não volume direto do NROY. Não comparar como melhora/piora com 14,8% legado: espaço, verdade, núcleo e estimador mudaram. kh saiu POR DERIVAÇÃO, não por falta de dado. O contrato de observáveis continua interno; E_total não serve a calibração externa.
 
 [CONTINUIDADE] Inventário 82 discrimina 133 arquivos e justifica caminhos não reexecutados. 112 testes aprovados não equivalem à validação de todos os entrypoints; runners históricos com config viva/destino antigo foram identificados. Pré-registros, brutos, snapshots e tabelas lado a lado em outputs/diagnosticos/20260928_hm_v3. Outputs anteriores preservados; nenhuma operação Git.
+
+
+## 29/09/2026 — Parecer 85: eixo F_base e pesos Di testados
+
+[ACHADO] 8832 execuções completas, zero violações. Tabela única com 60/60 contrastes adaptativa−centralizada negativos e IC95 excluindo zero. A: complexidade e tamanho em nominal16, fora48 e aleatório24; B: referência e três alternativas de pesos em nominal16 e fora48. Recálculo de Di e níveis nas 28800 tarefas, antes da simulação. Nominal v3 e produção intactos. As duas escolhas fecham como decisões de escopo testadas, não como invariância de magnitudes ou robustez universal.
+
+[CONTROLE] Complexidade reproduziu exatamente a etapa3 oficial. Um IC da tabela arredondada recebida difere 0,000844; o critério contra o nominal oficial passou. Ver 85A para a reconciliação do verificador adicional, preservada antes da extensão. Isso não altera o critério de insensibilidade.
+
+[CONTINUIDADE] Resultados e auditoria em outputs/diagnosticos/20260929_eixo_fbase_pesos_di, parecer 85. A robustez observada aqui não altera a conclusão anterior de não robustez da falha efetiva à varredura de governança.

@@ -1,0 +1,38 @@
+from pathlib import Path
+import json,hashlib,math,statistics
+import pandas as pd,numpy as np
+from scipy.stats import t
+R=Path('/Users/isadoracarvalho/TCC2_discriminante');O=R/'outputs/diagnosticos/20260929_eixo_fbase_pesos_di'
+def read(p):return pd.read_csv(p,float_precision='round_trip')
+def main():
+ assert (O/'validade_final.json').exists()
+ d=pd.concat([read(O/'controle_nominal.csv'),read(O/'extensao.csv')],ignore_index=True)
+ assert len(d)==8832 and d.concluiu.all() and d.violacoes.eq(0).all()
+ assert not d.duplicated(['variante','conjunto','arquivo','semente','cenario']).any()
+ archived=read(R/'outputs/diagnosticos/20260928_drenagem_heuristica/etapa3/bruto_completo.csv')
+ for (variant,group),g in d.groupby(['variante','conjunto']):
+  expected=archived[archived.conjunto==group]
+  assert set(g[['arquivo','semente','cenario']].itertuples(index=False,name=None))==set(expected[['arquivo','semente','cenario']].itertuples(index=False,name=None))
+ cols=['atraso_relativo','taxa_omissao','divida_latente_sobre_plano','taxa_falha_efetiva','fracao_porta1'];rows=[]
+ for (variant,group),g in d.groupby(['variante','conjunto']):
+  for metric in cols:
+   deltas=[]
+   for _,inst in g.groupby('arquivo'):
+    a=inst[inst.cenario=='adaptativa'].set_index('semente')[metric];c=inst[inst.cenario=='centralizada'].set_index('semente')[metric];assert set(a.index)==set(c.index)
+    deltas.append(statistics.mean([float(a.loc[s])-float(c.loc[s]) for s in a.index]))
+   n=len(deltas);mean=statistics.mean(deltas);half=float(t.ppf(.975,n-1))*statistics.stdev(deltas)/math.sqrt(n)
+   rows.append(dict(variante=variant,conjunto=group,metrica=metric,media=mean,IC_inf=mean-half,IC_sup=mean+half,N_instancias=n,negativo_IC_exclui_zero=mean+half<0))
+ a=pd.DataFrame(rows);b=read(O/'tabela_unica.csv');joined=a.merge(b,on=['variante','conjunto','metrica'],suffixes=('_indep','_runner'));err=max(abs(joined[x+'_indep']-joined[x+'_runner']).max() for x in ['media','IC_inf','IC_sup']);assert err<1e-12
+ assert (joined.negativo_IC_exclui_zero_indep==joined.negativo_IC_exclui_zero_runner).all()
+ # Confirmar recálculo independente a montante e correspondência entre nível e F_base.
+ src=read(R/'data/processed/psplib/tarefas_j60_com_di.csv');weights={'criticidade_reduzida':[.4,.4,.2],'duracao_dominante':[.6,.2,.2],'recursos_dominante':[.2,.6,.2]};aud=[]
+ for name,w in weights.items():
+  actual=read(O/f'tarefas_{name}.csv');expected=w[0]*src.duracao_norm+w[1]*src.intensidade_norm+w[2]*src.criticidade_folga
+  assert [float(x).hex() for x in actual.Di]==[float(x).hex() for x in expected]
+  cut=np.quantile(expected,[.25,.5,.75]);rank=np.searchsorted(cut,expected,side='left');lev=np.array(['baixa','media','alta','muito alta'])[rank];assert list(lev)==actual.nivel_dificuldade.tolist()
+  risks=np.array([.1,.1*1.935,.1*2.367,.1*2.985])[rank];assert [float(x).hex() for x in risks]==[float(x).hex() for x in actual.F_base]
+  aud.append(dict(variante=name,N=len(actual),niveis_alterados=int((actual.nivel_dificuldade!=src.nivel_dificuldade).sum())))
+ old=json.loads((O/'outputs_anteriores_hashes.json').read_text());assert all(hashlib.sha256((R/f).read_bytes()).hexdigest()==h for f,h in old.items())
+ proof=dict(N=len(d),completas=int(d.concluiu.sum()),violacoes=int(d.violacoes.sum()),N_contrastes=len(a),residuo_estatistica=float(err),recalculo_independente=aud,outputs_anteriores_preservados=len(old),item_A=bool(a[a.variante.isin(['complexidade','tamanho'])].negativo_IC_exclui_zero.all()),item_B=bool(a[(a.variante!='tamanho')&(a.conjunto!='aleatorio24')].negativo_IC_exclui_zero.all()),falhas=a[~a.negativo_IC_exclui_zero].to_dict('records'))
+ a.to_csv(O/'tabela_unica_recalculada.csv',index=False);(O/'auditoria_independente.json').open('x').write(json.dumps(proof,indent=2,ensure_ascii=False));print(json.dumps(proof,indent=2,ensure_ascii=False))
+if __name__=='__main__':main()

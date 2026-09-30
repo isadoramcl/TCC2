@@ -1,0 +1,28 @@
+{
+  "N": 8832,
+  "completas": 8832,
+  "violacoes": 0,
+  "N_contrastes": 60,
+  "residuo_estatistica": 2.220446049250313e-16,
+  "recalculo_independente": [
+    {
+      "variante": "criticidade_reduzida",
+      "N": 28800,
+      "niveis_alterados": 5797
+    },
+    {
+      "variante": "duracao_dominante",
+      "N": 28800,
+      "niveis_alterados": 10043
+    },
+    {
+      "variante": "recursos_dominante",
+      "N": 28800,
+      "niveis_alterados": 12022
+    }
+  ],
+  "outputs_anteriores_preservados": 826,
+  "item_A": true,
+  "item_B": true,
+  "falhas": []
+}

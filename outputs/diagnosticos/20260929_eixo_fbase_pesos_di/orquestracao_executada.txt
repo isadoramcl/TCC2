@@ -1,0 +1,99 @@
+import sys,json,csv,copy,time,hashlib,shutil,importlib.util
+from pathlib import Path
+from dataclasses import asdict
+from concurrent.futures import ProcessPoolExecutor
+import pandas as pd,numpy as np,yaml
+from scipy.stats import t
+ROOT=Path('/Users/isadoracarvalho/TCC2_discriminante');OUT=ROOT/'outputs/diagnosticos/20260929_eixo_fbase_pesos_di'
+sys.path.insert(0,str(ROOT/'src/modelo'));import simulador as S
+from simulador_mvp import SimulacaoMVP,OpcoesMVP
+spec=importlib.util.spec_from_file_location('e20',ROOT/'src/modelo/20_experimento_mvp.py');E=importlib.util.module_from_spec(spec);spec.loader.exec_module(E)
+MET=['atraso_relativo','taxa_omissao','divida_latente_sobre_plano','taxa_falha_efetiva','fracao_porta1'];CACHE={}
+RR=dict(zip(['baixa','media','alta','muito_alta'],[1.,1.9018,2.8368,5.3670]))
+def read(p):return pd.read_csv(p,float_precision='round_trip')
+def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+def setup():
+ if not CACHE:
+  p=S.carregar_parametros(OUT/'snapshot/config/parametros.yaml',OUT/'snapshot/config/parametros_derivados.yaml');op=yaml.safe_load((OUT/'snapshot/config/mvp.yaml').read_text())['opcoes'];op['instrumentar_tarefas']=False
+  CACHE.update(p=p,op=op,inst=read(OUT/'snapshot/data/processed/psplib/instancias_j60.csv').set_index('arquivo'),nominal=read(OUT/'snapshot/data/processed/psplib/tarefas_j60_com_di.csv'))
+ return CACHE
+
+def job(arg):
+ variant,group,arq,seed,cen=arg;c=setup();p=copy.deepcopy(c['p'])
+ if variant=='tamanho':p['risco']['razoes_de_risco']['valor']=RR.copy()
+ elif variant!='complexidade':
+  weights=p['dificuldade']['pesos_Di']['varredura_alternativa'][variant];p['dificuldade']['pesos_Di']['valor']=weights
+  if variant not in c:c[variant]=E.recalcular_di(c['nominal'],weights)
+ frame=c['nominal'] if variant in ['complexidade','tamanho'] else c[variant];g=frame[frame.arquivo==arq].copy();ln=c['inst'].loc[arq]
+ r=SimulacaoMVP(g,[int(x) for x in str(ln.disponibilidades).split(';')],int(ln.makespan_sem_recursos),p,cen,seed,opcoes=OpcoesMVP(**c['op'])).executar()
+ row={k:v for k,v in asdict(r).items() if isinstance(v,(int,float,bool))};row.update(r.contadores);den=row['p1_omissao']+row['p3_analitica']
+ row.update(variante=variant,conjunto=group,arquivo=arq,semente=seed,cenario=cen,violacoes=len(r.violacoes),mensagens=';'.join(r.violacoes),atraso_relativo=r.makespan/r.makespan_cpm,fracao_porta1=row['p1_omissao']/den if den else np.nan)
+ return row
+
+def contrasts(d):
+ rows=[]
+ for (var,group),g in d.groupby(['variante','conjunto']):
+  for m in MET:
+   p=g.pivot(index=['arquivo','semente'],columns='cenario',values=m);x=(p.adaptativa-p.centralizada).groupby('arquivo').mean();n=len(x);mean=float(x.mean());h=float(t.ppf(.975,n-1)*x.std(ddof=1)/np.sqrt(n))
+   rows.append(dict(variante=var,conjunto=group,metrica=m,media=mean,IC_inf=mean-h,IC_sup=mean+h,N_instancias=n,negativo_IC_exclui_zero=bool(mean+h<0)))
+ return pd.DataFrame(rows)
+
+def execute(jobs,name):
+ start=time.monotonic()
+ with (OUT/(name+'.csv')).open('x') as f,ProcessPoolExecutor(4) as pool:
+  writer=None
+  for i,row in enumerate(pool.map(job,jobs,chunksize=1),1):
+   if writer is None:writer=csv.DictWriter(f,fieldnames=list(row));writer.writeheader()
+   writer.writerow(row);f.flush()
+   if row['violacoes'] or not row['concluiu']:raise RuntimeError(f'Falha de validade, evidência preservada: {row}')
+   if i%128==0 or i==len(jobs):print(name,i,'/',len(jobs),'s',round(time.monotonic()-start,1),flush=True)
+ return read(OUT/(name+'.csv'))
+
+def main():
+ mode=sys.argv[1]
+ if mode=='controle':
+  OUT.mkdir(exist_ok=False)
+  old={str(p.relative_to(ROOT)):sha(p) for p in (ROOT/'outputs').rglob('*') if p.is_file() and not p.is_relative_to(OUT)}
+  (OUT/'outputs_anteriores_hashes.json').write_text(json.dumps(old))
+  files=[*sorted((ROOT/'src/modelo').glob('*.py')),ROOT/'config/parametros.yaml',ROOT/'config/parametros_derivados.yaml',ROOT/'config/mvp.yaml',ROOT/'data/processed/psplib/tarefas_j60_com_di.csv',ROOT/'data/processed/psplib/instancias_j60.csv',ROOT/'outputs/tables/05_fbase.csv',ROOT/'projeto/85_SENSIBILIDADE_EIXO_FBASE_E_PESOS_DI.md']
+  for p in files:
+   dst=OUT/'snapshot'/p.relative_to(ROOT);dst.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(p,dst)
+  shutil.copyfile(__file__,OUT/'orquestracao_executada.txt')
+  (OUT/'hashes_entradas.json').write_text(json.dumps({str(p.relative_to(ROOT)):sha(p) for p in files},indent=2))
+  ref=read(ROOT/'outputs/diagnosticos/20260928_drenagem_heuristica/etapa3/bruto_completo.csv');ref=ref[ref.conjunto=='nominal'];nom=sorted(ref.arquivo.unique())
+  seeds=sorted(ref.semente.unique().tolist());jobs=[(v,'nominal',a,s,c) for v in ['complexidade','tamanho'] for a in nom for s in seeds for c in ['centralizada','adaptativa']]
+  d=execute(jobs,'controle_nominal');res=contrasts(d);res.to_csv(OUT/'controle_contrastes.csv',index=False)
+  ref=ref.copy();ref['variante']='complexidade';off=contrasts(ref);checks=[]
+  requested={
+  'complexidade':[[-.9105,-1.0481,-.7729],[-.1742,-.1895,-.1590],[-.0548,-.0608,-.0487],[-.0194,-.0304,-.0085],[-.0538,-.0678,-.0399]],
+  'tamanho':[[-.9224,-1.0367,-.8082],[-.2169,-.2327,-.2011],[-.0656,-.0714,-.0598],[-.0221,-.0355,-.0088],[-.0424,-.0545,-.0303]]}
+  for v in requested:
+   for j,m in enumerate(MET):
+    row=res[(res.variante==v)&(res.metrica==m)].iloc[0]
+    for k,col in enumerate(['media','IC_inf','IC_sup']):checks.append(dict(referencia='autora',variante=v,metrica=m,campo=col,esperado=requested[v][j][k],obtido=row[col],diferenca=abs(row[col]-requested[v][j][k])))
+  for m in MET:
+   rr=res[(res.variante=='complexidade')&(res.metrica==m)].iloc[0];oo=off[off.metrica==m].iloc[0]
+   for col in ['media','IC_inf','IC_sup']:checks.append(dict(referencia='etapa3_oficial',variante='complexidade',metrica=m,campo=col,esperado=oo[col],obtido=rr[col],diferenca=abs(rr[col]-oo[col])))
+  cc=pd.DataFrame(checks);cc.to_csv(OUT/'controle_diferencas.csv',index=False);ok=bool((cc.diferenca<=.0005).all());(OUT/'controle_veredito.json').write_text(json.dumps(dict(aprovado=ok,max_diferenca=float(cc.diferenca.max()),N=len(d)),indent=2));print(res.to_string(index=False),flush=True);print('CONTROLE',ok,cc.diferenca.max(),flush=True)
+  if not ok:print(cc[cc.diferenca>.0005].to_string(index=False));raise SystemExit(2)
+ elif mode=='extensao':
+  assert json.loads((OUT/'controle_veredito.json').read_text())['aprovado']
+  for rel,h in json.loads((OUT/'hashes_entradas.json').read_text()).items():assert sha(ROOT/rel)==h,rel
+  ref=read(ROOT/'outputs/diagnosticos/20260928_drenagem_heuristica/etapa3/bruto_completo.csv');groups={g:sorted(sub[['arquivo','semente']].drop_duplicates().itertuples(index=False,name=None)) for g,sub in ref[ref.conjunto.isin(['nominal','fora48','aleatorio24'])].groupby('conjunto')}
+  p=setup()['p'];alternatives=list(p['dificuldade']['pesos_Di']['varredura_alternativa'])
+  # Auditoria a montante sobre o universo inteiro antes da seleção de instâncias.
+  base=CACHE['nominal'];aud=[]
+  for v in alternatives:
+   weights=p['dificuldade']['pesos_Di']['varredura_alternativa'][v];g=E.recalcular_di(base,weights);formula=sum(weights[k]*base[c] for k,c in [('duracao','duracao_norm'),('recursos','intensidade_norm'),('criticidade','criticidade_folga')]);assert np.array_equal(g.Di,formula)
+   cuts=g.Di.quantile([.25,.5,.75]).tolist();expect=pd.cut(g.Di,[-np.inf]+cuts+[np.inf],labels=['baixa','media','alta','muito alta'],right=True).astype(str);assert (g.nivel_dificuldade==expect).all()
+   out=g[['arquivo','tarefa','Di','nivel_dificuldade']].copy();out['Di_nominal']=base.Di;out['nivel_nominal']=base.nivel_dificuldade
+   rr=p['risco']['razoes_de_risco']['valor'];out['F_base']=out.nivel_dificuldade.map(lambda n:p['risco']['F_ancora']['valor']*rr[n.replace(' ','_')]);out.to_csv(OUT/f'tarefas_{v}.csv',index=False)
+   aud.append(dict(variante=v,N=len(g),Di_alterado=int((g.Di!=base.Di).sum()),nivel_alterado=int((g.nivel_dificuldade!=base.nivel_dificuldade).sum()),cortes=cuts))
+  (OUT/'auditoria_recalculo_di.json').write_text(json.dumps(aud,indent=2))
+  jobs=[(v,gr,a,s,c) for v in ['complexidade','tamanho'] for gr in ['fora48','aleatorio24'] for a,s in groups[gr] for c in ['centralizada','adaptativa']]
+  jobs += [(v,gr,a,s,c) for v in alternatives for gr in ['nominal','fora48'] for a,s in groups[gr] for c in ['centralizada','adaptativa']]
+  d=execute(jobs,'extensao');d=pd.concat([read(OUT/'controle_nominal.csv'),d],ignore_index=True);res=contrasts(d);res.to_csv(OUT/'tabela_unica.csv',index=False)
+  for rel,h in json.loads((OUT/'hashes_entradas.json').read_text()).items():assert sha(ROOT/rel)==h,rel
+  old=json.loads((OUT/'outputs_anteriores_hashes.json').read_text());assert all(sha(ROOT/f)==h for f,h in old.items())
+  (OUT/'validade_final.json').write_text(json.dumps(dict(N=len(d),completas=int(d.concluiu.sum()),violacoes=int(d.violacoes.sum()),N_contrastes=len(res),contrastes_que_nao_atendem=res[~res.negativo_IC_exclui_zero].to_dict('records'),outputs_anteriores_preservados=len(old)),indent=2));print(res.to_string(index=False))
+if __name__=='__main__':main()

@@ -1,0 +1,35 @@
+[
+  {
+    "variante": "criticidade_reduzida",
+    "N": 28800,
+    "Di_alterado": 28773,
+    "nivel_alterado": 5797,
+    "cortes": [
+      0.3796061374876842,
+      0.5120775898976808,
+      0.6403511093487939
+    ]
+  },
+  {
+    "variante": "duracao_dominante",
+    "N": 28800,
+    "Di_alterado": 28772,
+    "nivel_alterado": 10043,
+    "cortes": [
+      0.3469213740588173,
+      0.5260710348152831,
+      0.6998034179935223
+    ]
+  },
+  {
+    "variante": "recursos_dominante",
+    "N": 28800,
+    "Di_alterado": 28776,
+    "nivel_alterado": 12022,
+    "cortes": [
+      0.3719547778425924,
+      0.49261677228491274,
+      0.6180013095025414
+    ]
+  }
+]
